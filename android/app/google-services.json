@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "154470161714",
+    "project_id": "anagkazo-sms",
+    "storage_bucket": "anagkazo-sms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154470161714:android:ad31800e27d3edf0e88b2b",
+        "android_client_info": {
+          "package_name": "com.anagkazosms.student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYosl1lSA1m9jNwEmgW-jCLMOmfh9FVag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anagkazosms.student"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154470161714:android:3b9b47ef551e640ee88b2b",
+        "android_client_info": {
+          "package_name": "com.anagkazosms.ta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYosl1lSA1m9jNwEmgW-jCLMOmfh9FVag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anagkazosms.student"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

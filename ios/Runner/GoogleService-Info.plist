@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDTO8LQfa-3_Od5pwy3qQSxxSDhBhR2bsA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>154470161714</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.anagkazosms.student</string>
+	<key>PROJECT_ID</key>
+	<string>anagkazo-sms</string>
+	<key>STORAGE_BUCKET</key>
+	<string>anagkazo-sms.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:154470161714:ios:23eed08f4911a310e88b2b</string>
+</dict>
+</plist>
