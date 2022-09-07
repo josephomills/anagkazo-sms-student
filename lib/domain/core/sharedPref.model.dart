@@ -1,7 +1,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@LazySingleton()
+// @LazySingleton()
+@injectable
 class SharedPref {
   final SharedPreferences _pref;
 

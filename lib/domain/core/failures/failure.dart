@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 @immutable
 abstract class Failure {
-  const Failure({required this.msg});
+  const Failure({required this.message});
 
-  final String msg;
+  final String message;
 
-  String get message => msg;
+  // String get message => this.message;
 }

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:flutterfire_ui/i10n.dart';
 import 'package:injectable/injectable.dart';
-import 'package:student/presentation/core/auth_gard.core.dart';
-import 'package:student/presentation/core/locator.core.dart';
+import 'package:student/application/core/authGard.core.dart';
+import 'package:student/application/core/locator.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:student/firebase_options.dart';
-import 'package:student/presentation/core/router.core.gr.dart';
+import 'package:student/application/core/router.core.gr.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {

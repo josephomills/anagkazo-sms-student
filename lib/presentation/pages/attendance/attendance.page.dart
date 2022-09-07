@@ -4,9 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:student/domain/attendance/lecture_type.enum.dart';
-import 'package:student/domain/attendance/scan_type.enum.dart';
-import 'package:student/presentation/core/router.core.gr.dart';
+import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/domain/attendance/scanType.enum.dart';
+import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/presentation/widgets/avatar.widget.dart';
 import 'package:student/presentation/widgets/scan.widget.dart';
 

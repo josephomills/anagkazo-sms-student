@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:student/presentation/core/router.core.gr.dart';
+import 'package:student/application/core/router.core.gr.dart';
 
 class AuthGuard extends AutoRouteGuard {
   @override

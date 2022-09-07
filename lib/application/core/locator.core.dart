@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:student/presentation/core/locator.core.config.dart';
+import 'package:student/application/core/locator.core.config.dart';
 
 final locator = GetIt.instance;
 

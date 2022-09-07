@@ -15,16 +15,16 @@ import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
 import 'package:flutterfire_ui/auth.dart' as _i13;
 
-import '../pages/attendance/attendance.page.dart' as _i6;
-import '../pages/attendance/scan.page.dart' as _i7;
-import '../pages/attendance/scan_confirmation.page.dart' as _i8;
-import '../pages/auth/forgot_password.page.dart' as _i3;
-import '../pages/auth/login.page.dart' as _i1;
-import '../pages/auth/otp.page.dart' as _i5;
-import '../pages/auth/phone.page.dart' as _i4;
-import '../pages/auth/profile.page.dart' as _i9;
-import '../pages/auth/register.page.dart' as _i2;
-import 'auth_gard.core.dart' as _i12;
+import '../../presentation/pages/attendance/attendance.page.dart' as _i6;
+import '../../presentation/pages/attendance/scan.page.dart' as _i7;
+import '../../presentation/pages/attendance/scanConfirmation.page.dart' as _i8;
+import '../../presentation/pages/auth/forgotPassword.page.dart' as _i3;
+import '../../presentation/pages/auth/login.page.dart' as _i1;
+import '../../presentation/pages/auth/otp.page.dart' as _i5;
+import '../../presentation/pages/auth/phone.page.dart' as _i4;
+import '../../presentation/pages/auth/profile.page.dart' as _i9;
+import '../../presentation/pages/auth/register.page.dart' as _i2;
+import 'authGard.core.dart' as _i12;
 
 class AppRouter extends _i10.RootStackRouter {
   AppRouter(

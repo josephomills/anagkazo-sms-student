@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:student/presentation/pages/attendance/scan.page.dart';
-import 'package:student/presentation/pages/attendance/scan_confirmation.page.dart';
-import 'package:student/presentation/pages/auth/forgot_password.page.dart';
+import 'package:student/presentation/pages/attendance/scanConfirmation.page.dart';
+import 'package:student/presentation/pages/auth/forgotPassword.page.dart';
 import 'package:student/presentation/pages/auth/login.page.dart';
 import 'package:student/presentation/pages/attendance/attendance.page.dart';
 import 'package:student/presentation/pages/auth/otp.page.dart';
 import 'package:student/presentation/pages/auth/phone.page.dart';
 import 'package:student/presentation/pages/auth/profile.page.dart';
 import 'package:student/presentation/pages/auth/register.page.dart';
-import 'package:student/presentation/core/auth_gard.core.dart';
+import 'package:student/application/core/authGard.core.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',

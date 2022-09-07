@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:student/infrastructure/academics/models/year_group.model.dart';
+import 'package:student/infrastructure/academics/models/yearGroup.model.dart';
 
 part 'user.model.freezed.dart';
 part 'user.model.g.dart';

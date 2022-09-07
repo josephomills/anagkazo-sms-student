@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:student/presentation/core/router.core.gr.dart';
+import 'package:student/application/core/router.core.gr.dart';
 
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({Key? key, required this.url}) : super(key: key);

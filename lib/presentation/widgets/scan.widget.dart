@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:student/domain/attendance/lecture_type.enum.dart';
-import 'package:student/domain/attendance/scan_type.enum.dart';
+import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/domain/attendance/scanType.enum.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
