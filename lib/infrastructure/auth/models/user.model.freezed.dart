@@ -33,7 +33,7 @@ mixin _$UserModel {
   String get gender => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get whatsapp => throw _privateConstructorUsedError;
-  String get classOf => throw _privateConstructorUsedError;
+  YearGroup get yearGroup => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   bool get isStaff => throw _privateConstructorUsedError;
 
@@ -61,9 +61,11 @@ abstract class $UserModelCopyWith<$Res> {
       String gender,
       String phone,
       String whatsapp,
-      String classOf,
+      YearGroup yearGroup,
       String title,
       bool isStaff});
+
+  $YearGroupCopyWith<$Res> get yearGroup;
 }
 
 /// @nodoc
@@ -89,7 +91,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? gender = freezed,
     Object? phone = freezed,
     Object? whatsapp = freezed,
-    Object? classOf = freezed,
+    Object? yearGroup = freezed,
     Object? title = freezed,
     Object? isStaff = freezed,
   }) {
@@ -146,10 +148,10 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      classOf: classOf == freezed
-          ? _value.classOf
-          : classOf // ignore: cast_nullable_to_non_nullable
-              as String,
+      yearGroup: yearGroup == freezed
+          ? _value.yearGroup
+          : yearGroup // ignore: cast_nullable_to_non_nullable
+              as YearGroup,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -159,6 +161,13 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           : isStaff // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+
+  @override
+  $YearGroupCopyWith<$Res> get yearGroup {
+    return $YearGroupCopyWith<$Res>(_value.yearGroup, (value) {
+      return _then(_value.copyWith(yearGroup: value));
+    });
   }
 }
 
@@ -182,9 +191,12 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       String gender,
       String phone,
       String whatsapp,
-      String classOf,
+      YearGroup yearGroup,
       String title,
       bool isStaff});
+
+  @override
+  $YearGroupCopyWith<$Res> get yearGroup;
 }
 
 /// @nodoc
@@ -212,7 +224,7 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? gender = freezed,
     Object? phone = freezed,
     Object? whatsapp = freezed,
-    Object? classOf = freezed,
+    Object? yearGroup = freezed,
     Object? title = freezed,
     Object? isStaff = freezed,
   }) {
@@ -269,10 +281,10 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      classOf: classOf == freezed
-          ? _value.classOf
-          : classOf // ignore: cast_nullable_to_non_nullable
-              as String,
+      yearGroup: yearGroup == freezed
+          ? _value.yearGroup
+          : yearGroup // ignore: cast_nullable_to_non_nullable
+              as YearGroup,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -303,7 +315,7 @@ class _$_UserModel implements _UserModel {
       required this.gender,
       required this.phone,
       required this.whatsapp,
-      required this.classOf,
+      required this.yearGroup,
       required this.title,
       this.isStaff = false});
 
@@ -338,7 +350,7 @@ class _$_UserModel implements _UserModel {
   @override
   final String whatsapp;
   @override
-  final String classOf;
+  final YearGroup yearGroup;
   @override
   final String title;
   @override
@@ -347,7 +359,7 @@ class _$_UserModel implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(objectId: $objectId, username: $username, email: $email, sessionToken: $sessionToken, password: $password, firstname: $firstname, lastname: $lastname, dob: $dob, photoUrl: $photoUrl, country: $country, gender: $gender, phone: $phone, whatsapp: $whatsapp, classOf: $classOf, title: $title, isStaff: $isStaff)';
+    return 'UserModel(objectId: $objectId, username: $username, email: $email, sessionToken: $sessionToken, password: $password, firstname: $firstname, lastname: $lastname, dob: $dob, photoUrl: $photoUrl, country: $country, gender: $gender, phone: $phone, whatsapp: $whatsapp, yearGroup: $yearGroup, title: $title, isStaff: $isStaff)';
   }
 
   @override
@@ -369,7 +381,7 @@ class _$_UserModel implements _UserModel {
             const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality().equals(other.phone, phone) &&
             const DeepCollectionEquality().equals(other.whatsapp, whatsapp) &&
-            const DeepCollectionEquality().equals(other.classOf, classOf) &&
+            const DeepCollectionEquality().equals(other.yearGroup, yearGroup) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.isStaff, isStaff));
   }
@@ -391,7 +403,7 @@ class _$_UserModel implements _UserModel {
       const DeepCollectionEquality().hash(gender),
       const DeepCollectionEquality().hash(phone),
       const DeepCollectionEquality().hash(whatsapp),
-      const DeepCollectionEquality().hash(classOf),
+      const DeepCollectionEquality().hash(yearGroup),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(isStaff));
 
@@ -421,7 +433,7 @@ abstract class _UserModel implements UserModel {
       required final String gender,
       required final String phone,
       required final String whatsapp,
-      required final String classOf,
+      required final YearGroup yearGroup,
       required final String title,
       final bool isStaff}) = _$_UserModel;
 
@@ -455,7 +467,7 @@ abstract class _UserModel implements UserModel {
   @override
   String get whatsapp;
   @override
-  String get classOf;
+  YearGroup get yearGroup;
   @override
   String get title;
   @override

@@ -21,7 +21,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       gender: json['gender'] as String,
       phone: json['phone'] as String,
       whatsapp: json['whatsapp'] as String,
-      classOf: json['classOf'] as String,
+      yearGroup: YearGroup.fromJson(json['yearGroup'] as Map<String, dynamic>),
       title: json['title'] as String,
       isStaff: json['isStaff'] as bool? ?? false,
     );
@@ -41,7 +41,7 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'gender': instance.gender,
       'phone': instance.phone,
       'whatsapp': instance.whatsapp,
-      'classOf': instance.classOf,
+      'yearGroup': instance.yearGroup,
       'title': instance.title,
       'isStaff': instance.isStaff,
     };

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:student/infrastructure/academics/models/year_group.model.dart';
 
 part 'user.model.freezed.dart';
 part 'user.model.g.dart';
@@ -20,7 +21,7 @@ class UserModel with _$UserModel {
     required String gender,
     required String phone,
     required String whatsapp,
-    required String classOf,
+    required YearGroup yearGroup,
     required String title,
     @Default(false) bool isStaff,
   }) = _UserModel;
