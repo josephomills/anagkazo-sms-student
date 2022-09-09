@@ -1,13 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:flutterfire_ui/i10n.dart';
 import 'package:injectable/injectable.dart';
 import 'package:student/application/core/authGard.core.dart';
-import 'package:student/application/core/getIt.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:student/firebase_options.dart';
+import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:student/infrastructure/core/parse.dart';
@@ -18,23 +14,24 @@ void main() async {
   // Allow the splash screen to stay a little longer until current user has been obtained
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  setupLocator(Environment.prod);
+  // Injectable
+  initInjectable(Environment.prod);
 
   // Initialize Parse Server (Back4App)
   initParse();
 
-  //initialize Firebase app
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // //initialize Firebase app
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Set unlimited cache
-  FirebaseFirestore.instance.settings = const Settings(
-    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
-    persistenceEnabled: true,
-  );
-  // FlutterFire UI config
-  FlutterFireUIAuth.configureProviders([
-    const EmailProviderConfiguration(),
-  ]);
+  // // Set unlimited cache
+  // FirebaseFirestore.instance.settings = const Settings(
+  //   cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+  //   persistenceEnabled: true,
+  // );
+  // // FlutterFire UI config
+  // FlutterFireUIAuth.configureProviders([
+  //   const EmailProviderConfiguration(),
+  // ]);
 
   runApp(AnagkazoSMSStudent());
 }
@@ -53,6 +50,11 @@ class AnagkazoSMSStudent extends StatelessWidget {
       title: 'ABMTC Student App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
       ),
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),

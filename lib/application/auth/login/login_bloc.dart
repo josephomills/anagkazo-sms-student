@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:student/application/core/injectable.core.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -38,28 +40,33 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           ));
 
           //------ Validate user input
-          // if(fields are validated){
+          final passedValidation =
+              getIt<GlobalKey<FormState>>().currentState!.validate();
 
-          // Attempt login
-          final authFailureOrSuccess =
-              await _authFacade.loginWithUsernameAndPassword(
-                  loginDTO:
-                      LoginDTO(username: e.username, password: e.password));
+          if (passedValidation) {
+            // Attempt login
+            final authFailureOrSuccess =
+                await _authFacade.loginWithUsernameAndPassword(
+              loginDTO:
+                  LoginDTO(username: state.username, password: state.password),
+            );
 
-          // Emit login result
-          emitter.call(state.copyWith(
-            isLoading: false,
-            authFailureOrSuccessOption: some(authFailureOrSuccess),
-          ));
+            // Emit login result
+            emitter.call(state.copyWith(
+              validateFields: !passedValidation,
+              isLoading: false,
+              authFailureOrSuccessOption: some(authFailureOrSuccess),
+            ));
 
-          // ---con't
-          // } else{
-          //   emitter.call(state.copyWith(
-          //     validateFields: true,
-          //     authFailureOrSuccessOption: none(),
-          //   ),
-          // );
-          // }
+            // ---con't
+          } else {
+            emitter.call(
+              state.copyWith(
+                validateFields: !passedValidation,
+                authFailureOrSuccessOption: none(),
+              ),
+            );
+          }
         },
       );
     });

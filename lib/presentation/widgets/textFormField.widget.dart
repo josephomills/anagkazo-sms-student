@@ -8,6 +8,8 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.onChanged,
     required this.label,
     required this.prefixIcon,
+    this.autoCorrect = false,
+    this.obscureText = false,
   }) : super(key: key);
 
   final String text;
@@ -15,6 +17,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final Function(String) onChanged;
   final String label;
   final Widget prefixIcon;
+  final bool autoCorrect;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,8 @@ class TextFormFieldWidget extends StatelessWidget {
       initialValue: text,
       keyboardType: TextInputType.text,
       textCapitalization: TextCapitalization.none,
-      autocorrect: false,
+      autocorrect: autoCorrect,
+      obscureText: obscureText,
       decoration: InputDecoration(
         border: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.black),

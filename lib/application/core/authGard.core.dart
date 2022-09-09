@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:student/application/core/getIt.core.dart';
+import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 
