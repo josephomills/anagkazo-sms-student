@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/i10n.dart';
 import 'package:injectable/injectable.dart';
 import 'package:student/application/core/authGard.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -19,19 +18,6 @@ void main() async {
 
   // Initialize Parse Server (Back4App)
   initParse();
-
-  // //initialize Firebase app
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  // // Set unlimited cache
-  // FirebaseFirestore.instance.settings = const Settings(
-  //   cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
-  //   persistenceEnabled: true,
-  // );
-  // // FlutterFire UI config
-  // FlutterFireUIAuth.configureProviders([
-  //   const EmailProviderConfiguration(),
-  // ]);
 
   runApp(AnagkazoSMSStudent());
 }
@@ -63,13 +49,7 @@ class AnagkazoSMSStudent extends StatelessWidget {
         defaultScale: true,
       ),
       locale: const Locale('en'),
-      localizationsDelegates: [
-        FlutterFireUILocalizations.withDefaultOverrides(
-            const DefaultLocalizations()),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        FlutterFireUILocalizations.delegate,
-      ],
+      localizationsDelegates: const [],
     );
   }
 }

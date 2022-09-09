@@ -18,14 +18,9 @@ dependencies:
   intl: ^0.17.0
   mobile_scanner: ^1.1.0
   auto_route: ^5.0.1
-  firebase_core: ^1.17.0
-  firebase_auth: ^3.3.18
-  firebase_auth_web: ^3.3.16
-  cloud_firestore: ^3.1.15
   dartz: ^0.10.1
   responsive_framework: ^0.1.8
   flutter_native_splash: ^2.0.4
-  flutterfire_ui: ^0.4.1
   injectable: ^1.5.3
   get_it: ^7.2.0
   permission_handler: ^9.2.0
