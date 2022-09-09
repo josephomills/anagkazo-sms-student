@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -10,6 +11,7 @@ part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
+@injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthFacade _authFacade;
 
@@ -18,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       event.map(
         usernameChanged: (e) => emitter.call(
           state.copyWith(
-            email: e.username,
+            username: e.username,
             authFailureOrSuccessOption: none(),
           ),
         ),

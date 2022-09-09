@@ -520,7 +520,7 @@ abstract class LoginButtonPressed implements LoginEvent {
 
 /// @nodoc
 mixin _$LoginState {
-  String get email => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get validateFields => throw _privateConstructorUsedError;
@@ -538,7 +538,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res>;
   $Res call(
-      {String email,
+      {String username,
       String password,
       bool isLoading,
       bool validateFields,
@@ -555,16 +555,16 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? email = freezed,
+    Object? username = freezed,
     Object? password = freezed,
     Object? isLoading = freezed,
     Object? validateFields = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: password == freezed
           ? _value.password
@@ -594,7 +594,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String email,
+      {String username,
       String password,
       bool isLoading,
       bool validateFields,
@@ -613,16 +613,16 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? email = freezed,
+    Object? username = freezed,
     Object? password = freezed,
     Object? isLoading = freezed,
     Object? validateFields = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_$_LoginState(
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: password == freezed
           ? _value.password
@@ -648,14 +648,14 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 
 class _$_LoginState implements _LoginState {
   const _$_LoginState(
-      {required this.email,
+      {required this.username,
       required this.password,
       required this.isLoading,
       required this.validateFields,
       required this.authFailureOrSuccessOption});
 
   @override
-  final String email;
+  final String username;
   @override
   final String password;
   @override
@@ -667,7 +667,7 @@ class _$_LoginState implements _LoginState {
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, isLoading: $isLoading, validateFields: $validateFields, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'LoginState(username: $username, password: $password, isLoading: $isLoading, validateFields: $validateFields, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -675,7 +675,7 @@ class _$_LoginState implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
-            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
@@ -687,7 +687,7 @@ class _$_LoginState implements _LoginState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(validateFields),
@@ -701,7 +701,7 @@ class _$_LoginState implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-      {required final String email,
+      {required final String username,
       required final String password,
       required final bool isLoading,
       required final bool validateFields,
@@ -709,7 +709,7 @@ abstract class _LoginState implements LoginState {
           authFailureOrSuccessOption}) = _$_LoginState;
 
   @override
-  String get email;
+  String get username;
   @override
   String get password;
   @override

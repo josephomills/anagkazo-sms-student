@@ -35,7 +35,8 @@ class AppRouter extends _i6.RootStackRouter {
       final args = routeData.argsAs<LoginRouteArgs>();
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.LoginPage(key: args.key, onLogin: args.onLogin));
+          child: _i6.WrappedRoute(
+              child: _i1.LoginPage(key: args.key, onLogin: args.onLogin)));
     },
     AttendanceRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(

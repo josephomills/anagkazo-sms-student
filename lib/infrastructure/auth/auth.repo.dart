@@ -7,7 +7,8 @@ import 'package:student/infrastructure/auth/dto/register.dto.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 
-@Injectable(as: AuthFacade)
+@LazySingleton(as: AuthFacade)
+// @Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
   @override
   Future<Either<AuthFailure, UserModel>> getCurrentUser() async {

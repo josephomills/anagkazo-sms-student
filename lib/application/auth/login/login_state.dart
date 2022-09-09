@@ -3,7 +3,7 @@ part of 'login_bloc.dart';
 @freezed
 class LoginState with _$LoginState {
   const factory LoginState({
-    required String email,
+    required String username,
     required String password,
     required bool isLoading,
     required bool validateFields,
@@ -11,7 +11,7 @@ class LoginState with _$LoginState {
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(
-        email: "",
+        username: "",
         password: "",
         validateFields: false,
         isLoading: false,
