@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+class ForgotPasswordPageFF extends StatelessWidget {
+  const ForgotPasswordPageFF({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

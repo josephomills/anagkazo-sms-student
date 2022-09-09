@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 
-class OtpPage extends StatelessWidget {
-  const OtpPage({
+class OtpPageFF extends StatelessWidget {
+  const OtpPageFF({
     Key? key,
     required this.action,
     required this.phone,
