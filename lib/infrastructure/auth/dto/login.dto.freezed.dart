@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'signin.dto.dart';
+part of 'login.dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,36 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SignInDTO _$SignInDTOFromJson(Map<String, dynamic> json) {
-  return _SignInDTO.fromJson(json);
+LoginDTO _$LoginDTOFromJson(Map<String, dynamic> json) {
+  return _LoginDTO.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SignInDTO {
+mixin _$LoginDTO {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SignInDTOCopyWith<SignInDTO> get copyWith =>
+  $LoginDTOCopyWith<LoginDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SignInDTOCopyWith<$Res> {
-  factory $SignInDTOCopyWith(SignInDTO value, $Res Function(SignInDTO) then) =
-      _$SignInDTOCopyWithImpl<$Res>;
+abstract class $LoginDTOCopyWith<$Res> {
+  factory $LoginDTOCopyWith(LoginDTO value, $Res Function(LoginDTO) then) =
+      _$LoginDTOCopyWithImpl<$Res>;
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class _$SignInDTOCopyWithImpl<$Res> implements $SignInDTOCopyWith<$Res> {
-  _$SignInDTOCopyWithImpl(this._value, this._then);
+class _$LoginDTOCopyWithImpl<$Res> implements $LoginDTOCopyWith<$Res> {
+  _$LoginDTOCopyWithImpl(this._value, this._then);
 
-  final SignInDTO _value;
+  final LoginDTO _value;
   // ignore: unused_field
-  final $Res Function(SignInDTO) _then;
+  final $Res Function(LoginDTO) _then;
 
   @override
   $Res call({
@@ -69,23 +69,23 @@ class _$SignInDTOCopyWithImpl<$Res> implements $SignInDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_SignInDTOCopyWith<$Res> implements $SignInDTOCopyWith<$Res> {
-  factory _$$_SignInDTOCopyWith(
-          _$_SignInDTO value, $Res Function(_$_SignInDTO) then) =
-      __$$_SignInDTOCopyWithImpl<$Res>;
+abstract class _$$_LoginDTOCopyWith<$Res> implements $LoginDTOCopyWith<$Res> {
+  factory _$$_LoginDTOCopyWith(
+          _$_LoginDTO value, $Res Function(_$_LoginDTO) then) =
+      __$$_LoginDTOCopyWithImpl<$Res>;
   @override
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class __$$_SignInDTOCopyWithImpl<$Res> extends _$SignInDTOCopyWithImpl<$Res>
-    implements _$$_SignInDTOCopyWith<$Res> {
-  __$$_SignInDTOCopyWithImpl(
-      _$_SignInDTO _value, $Res Function(_$_SignInDTO) _then)
-      : super(_value, (v) => _then(v as _$_SignInDTO));
+class __$$_LoginDTOCopyWithImpl<$Res> extends _$LoginDTOCopyWithImpl<$Res>
+    implements _$$_LoginDTOCopyWith<$Res> {
+  __$$_LoginDTOCopyWithImpl(
+      _$_LoginDTO _value, $Res Function(_$_LoginDTO) _then)
+      : super(_value, (v) => _then(v as _$_LoginDTO));
 
   @override
-  _$_SignInDTO get _value => super._value as _$_SignInDTO;
+  _$_LoginDTO get _value => super._value as _$_LoginDTO;
 
   @override
   $Res call({
@@ -93,7 +93,7 @@ class __$$_SignInDTOCopyWithImpl<$Res> extends _$SignInDTOCopyWithImpl<$Res>
     Object? password = freezed,
     Object? email = freezed,
   }) {
-    return _then(_$_SignInDTO(
+    return _then(_$_LoginDTO(
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -112,12 +112,12 @@ class __$$_SignInDTOCopyWithImpl<$Res> extends _$SignInDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SignInDTO implements _SignInDTO {
-  const _$_SignInDTO(
+class _$_LoginDTO implements _LoginDTO {
+  const _$_LoginDTO(
       {required this.username, required this.password, this.email});
 
-  factory _$_SignInDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_SignInDTOFromJson(json);
+  factory _$_LoginDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_LoginDTOFromJson(json);
 
   @override
   final String username;
@@ -128,14 +128,14 @@ class _$_SignInDTO implements _SignInDTO {
 
   @override
   String toString() {
-    return 'SignInDTO(username: $username, password: $password, email: $email)';
+    return 'LoginDTO(username: $username, password: $password, email: $email)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInDTO &&
+            other is _$_LoginDTO &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality().equals(other.email, email));
@@ -151,23 +151,22 @@ class _$_SignInDTO implements _SignInDTO {
 
   @JsonKey(ignore: true)
   @override
-  _$$_SignInDTOCopyWith<_$_SignInDTO> get copyWith =>
-      __$$_SignInDTOCopyWithImpl<_$_SignInDTO>(this, _$identity);
+  _$$_LoginDTOCopyWith<_$_LoginDTO> get copyWith =>
+      __$$_LoginDTOCopyWithImpl<_$_LoginDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignInDTOToJson(this);
+    return _$$_LoginDTOToJson(this);
   }
 }
 
-abstract class _SignInDTO implements SignInDTO {
-  const factory _SignInDTO(
+abstract class _LoginDTO implements LoginDTO {
+  const factory _LoginDTO(
       {required final String username,
       required final String password,
-      final String? email}) = _$_SignInDTO;
+      final String? email}) = _$_LoginDTO;
 
-  factory _SignInDTO.fromJson(Map<String, dynamic> json) =
-      _$_SignInDTO.fromJson;
+  factory _LoginDTO.fromJson(Map<String, dynamic> json) = _$_LoginDTO.fromJson;
 
   @override
   String get username;
@@ -177,6 +176,6 @@ abstract class _SignInDTO implements SignInDTO {
   String? get email;
   @override
   @JsonKey(ignore: true)
-  _$$_SignInDTOCopyWith<_$_SignInDTO> get copyWith =>
+  _$$_LoginDTOCopyWith<_$_LoginDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

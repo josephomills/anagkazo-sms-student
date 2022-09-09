@@ -10,6 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:student/firebase_options.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:student/infrastructure/core/parse.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,10 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   setupLocator(Environment.prod);
+
+  // Initialize Parse Server (Back4App)
+  initParse();
+
   //initialize Firebase app
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
