@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -5,4 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class SharedPreferencesModule {
   @preResolve
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
+}
+
+@module
+abstract class FormKeyModule {
+  @lazySingleton
+  GlobalKey<FormState> get formKey => GlobalKey<FormState>();
 }

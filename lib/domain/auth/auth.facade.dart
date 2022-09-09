@@ -13,4 +13,5 @@ abstract class AuthFacade {
   Future<Either<AuthFailure, Unit>> logout();
   Future<Either<AuthFailure, UserModel>> updateUser(
       {required UserModel userData});
+  Future<bool> hasUserLoggedIn();
 }

@@ -4,7 +4,7 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:flutterfire_ui/i10n.dart';
 import 'package:injectable/injectable.dart';
 import 'package:student/application/core/authGard.core.dart';
-import 'package:student/application/core/locator.core.dart';
+import 'package:student/application/core/getIt.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:student/firebase_options.dart';

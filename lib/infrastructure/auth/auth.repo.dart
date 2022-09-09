@@ -108,6 +108,7 @@ class AuthRepo implements AuthFacade {
     throw UnimplementedError();
   }
 
+  @override
   Future<bool> hasUserLoggedIn() async {
     bool hasUserLoggedIn = false;
 
