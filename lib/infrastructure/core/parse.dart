@@ -7,5 +7,6 @@ void initParse() async {
     clientKey: "8l7BMF9rnsFtbXboWqBePLLcJEcmp3KJBnbBmL0N",
     coreStore: await CoreStoreSembastImp.getInstance(),
     liveQueryUrl: "anagkazosms.b4a.io",
+    sessionId: "new",
   );
 }

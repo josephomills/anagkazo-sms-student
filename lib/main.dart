@@ -13,7 +13,7 @@ void main() async {
   // Allow the splash screen to stay a little longer until current user has been obtained
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Injectable
+  // Initialize Injectable
   initInjectable(Environment.prod);
 
   // Initialize Parse Server (Back4App)

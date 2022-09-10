@@ -8,7 +8,7 @@ import 'package:student/infrastructure/auth/dto/login.dto.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 
 @LazySingleton(as: AuthFacade)
-// @Injectable(as: AuthFacade)
+@Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
   @override
   Future<Either<AuthFailure, UserModel>> getCurrentUser() async {
@@ -113,7 +113,7 @@ class AuthRepo implements AuthFacade {
     bool hasUserLoggedIn = false;
 
     // Get current user from storage
-    final user = await ParseUser.currentUser() as ParseUser?;
+    final user = await ParseUser?.currentUser();
     if (user != null) {
       // Check whether the user's sessino token is valid
       final response =

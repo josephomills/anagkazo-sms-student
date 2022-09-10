@@ -6,7 +6,6 @@
 // import 'package:permission_handler/permission_handler.dart';
 // import 'package:student/domain/attendance/lectureType.enum.dart';
 // import 'package:student/domain/attendance/scanType.enum.dart';
-// import 'package:student/application/core/router.core.gr.dart';
 // import 'package:student/presentation/widgets/avatar.widget.dart';
 // import 'package:student/presentation/widgets/scan.widget.dart';
 
