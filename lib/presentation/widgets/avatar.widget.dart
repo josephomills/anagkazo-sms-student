@@ -10,7 +10,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Padding(
-//       padding: const EdgeInsets.only(right: 8, top: 4),
+//       padding: const EdgeInsets.only(right: 8, top: 4),anva
 //       child: GestureDetector(
 //         onTap: () => {
 //           // context.router.push(const ProfileRoute());

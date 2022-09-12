@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +20,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthFacade _authFacade;
 
   LoginBloc(this._authFacade) : super(LoginState.initial()) {
-    on<LoginEvent>((event, emitter) {
-      event.map(
+    on<LoginEvent>((event, emitter) async {
+      await event.map<FutureOr<void>>(
         usernameChanged: (e) => emitter.call(
           state.copyWith(
             username: e.username,
@@ -33,36 +35,37 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           ),
         ),
         loginButtonPressed: (e) async {
-          // Load
-          emitter.call(state.copyWith(
-            isLoading: true,
-            authFailureOrSuccessOption: none(),
-          ));
-
-          //------ Validate user input
+          // Validate user input
           final passedValidation =
               getIt<GlobalKey<FormState>>().currentState!.validate();
 
           if (passedValidation) {
+            emitter.call(state.copyWith(
+              isLoading: true,
+              authFailureOrSuccessOption: none(),
+            ));
+
             // Attempt login
             final authFailureOrSuccess =
                 await _authFacade.loginWithUsernameAndPassword(
-              loginDTO:
-                  LoginDTO(username: state.username, password: state.password),
+              loginDTO: LoginDTO(
+                username: state.username,
+                password: state.password,
+              ),
             );
 
             // Emit login result
             emitter.call(state.copyWith(
-              validateFields: !passedValidation,
+              validateFields: false,
               isLoading: false,
               authFailureOrSuccessOption: some(authFailureOrSuccess),
             ));
-
-            // ---con't
           } else {
+            // Failed validation
             emitter.call(
               state.copyWith(
-                validateFields: !passedValidation,
+                isLoading: false,
+                validateFields: true,
                 authFailureOrSuccessOption: none(),
               ),
             );

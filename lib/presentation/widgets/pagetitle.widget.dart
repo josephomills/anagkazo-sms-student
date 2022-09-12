@@ -13,7 +13,7 @@ class PageTitleWidget extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-          fontSize: 44,
+          fontSize: 24,
           color: Colors.black87,
         ),
       ),

@@ -13,8 +13,8 @@ class TextFormFieldWidget extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
-  final Function(String) validator;
-  final Function(String) onChanged;
+  final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
   final String label;
   final Widget prefixIcon;
   final bool autoCorrect;
@@ -36,9 +36,7 @@ class TextFormFieldWidget extends StatelessWidget {
         labelText: label,
         prefixIcon: prefixIcon,
       ),
-      validator: (text) {
-        return null;
-      },
+      validator: validator,
       onChanged: onChanged,
     );
   }

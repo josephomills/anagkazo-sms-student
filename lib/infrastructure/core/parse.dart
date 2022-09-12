@@ -1,12 +1,17 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-void initParse() async {
+const String kAppId = "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4";
+const String kServerUrl = "https://parseapi.back4app.com/";
+const String kClientKey = "8l7BMF9rnsFtbXboWqBePLLcJEcmp3KJBnbBmL0N";
+const String kliveQueryUrl = "anagkazosms.b4a.io";
+const bool kAutoSendSessionId = true;
+
+initParse() async {
   await Parse().initialize(
-    "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4",
-    "https://parseapi.back4app.com/",
-    clientKey: "8l7BMF9rnsFtbXboWqBePLLcJEcmp3KJBnbBmL0N",
-    coreStore: await CoreStoreSembastImp.getInstance(),
-    liveQueryUrl: "anagkazosms.b4a.io",
-    sessionId: "new",
+    kAppId, kServerUrl,
+    clientKey: kClientKey,
+    // coreStore: await CoreStoreSembastImp.getInstance(),
+    liveQueryUrl: kliveQueryUrl,
+    autoSendSessionId: true,
   );
 }

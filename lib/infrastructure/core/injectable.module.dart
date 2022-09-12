@@ -10,6 +10,6 @@ abstract class SharedPreferencesModule {
 
 @module
 abstract class FormKeyModule {
-  @lazySingleton
+  @singleton
   GlobalKey<FormState> get formKey => GlobalKey<FormState>();
 }

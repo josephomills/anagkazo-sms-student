@@ -23,18 +23,19 @@ mixin _$UserModel {
   String get objectId => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get sessionToken => throw _privateConstructorUsedError;
+  String? get sessionToken => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
-  DateTime get dob => throw _privateConstructorUsedError;
+  String? get middleName => throw _privateConstructorUsedError;
+  DateTime? get dob => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get whatsapp => throw _privateConstructorUsedError;
-  YearGroup get yearGroup => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
+  String? get yearGroup => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   bool get isStaff => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,21 +52,20 @@ abstract class $UserModelCopyWith<$Res> {
       {String objectId,
       String username,
       String email,
-      String sessionToken,
+      String? sessionToken,
       String? password,
       String firstname,
       String lastname,
-      DateTime dob,
+      String? middleName,
+      DateTime? dob,
       String? photoUrl,
-      String country,
+      String? country,
       String gender,
       String phone,
       String whatsapp,
-      YearGroup yearGroup,
-      String title,
+      String? yearGroup,
+      String? title,
       bool isStaff});
-
-  $YearGroupCopyWith<$Res> get yearGroup;
 }
 
 /// @nodoc
@@ -85,6 +85,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? password = freezed,
     Object? firstname = freezed,
     Object? lastname = freezed,
+    Object? middleName = freezed,
     Object? dob = freezed,
     Object? photoUrl = freezed,
     Object? country = freezed,
@@ -111,7 +112,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
       sessionToken: sessionToken == freezed
           ? _value.sessionToken
           : sessionToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -124,10 +125,14 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
+      middleName: middleName == freezed
+          ? _value.middleName
+          : middleName // ignore: cast_nullable_to_non_nullable
+              as String?,
       dob: dob == freezed
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -135,7 +140,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -151,23 +156,16 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
       yearGroup: yearGroup == freezed
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
-              as YearGroup,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isStaff: isStaff == freezed
           ? _value.isStaff
           : isStaff // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  }
-
-  @override
-  $YearGroupCopyWith<$Res> get yearGroup {
-    return $YearGroupCopyWith<$Res>(_value.yearGroup, (value) {
-      return _then(_value.copyWith(yearGroup: value));
-    });
   }
 }
 
@@ -181,22 +179,20 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {String objectId,
       String username,
       String email,
-      String sessionToken,
+      String? sessionToken,
       String? password,
       String firstname,
       String lastname,
-      DateTime dob,
+      String? middleName,
+      DateTime? dob,
       String? photoUrl,
-      String country,
+      String? country,
       String gender,
       String phone,
       String whatsapp,
-      YearGroup yearGroup,
-      String title,
+      String? yearGroup,
+      String? title,
       bool isStaff});
-
-  @override
-  $YearGroupCopyWith<$Res> get yearGroup;
 }
 
 /// @nodoc
@@ -218,6 +214,7 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? password = freezed,
     Object? firstname = freezed,
     Object? lastname = freezed,
+    Object? middleName = freezed,
     Object? dob = freezed,
     Object? photoUrl = freezed,
     Object? country = freezed,
@@ -244,7 +241,7 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
       sessionToken: sessionToken == freezed
           ? _value.sessionToken
           : sessionToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -257,10 +254,14 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
+      middleName: middleName == freezed
+          ? _value.middleName
+          : middleName // ignore: cast_nullable_to_non_nullable
+              as String?,
       dob: dob == freezed
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -268,7 +269,7 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -284,11 +285,11 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
       yearGroup: yearGroup == freezed
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
-              as YearGroup,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isStaff: isStaff == freezed
           ? _value.isStaff
           : isStaff // ignore: cast_nullable_to_non_nullable
@@ -304,19 +305,20 @@ class _$_UserModel implements _UserModel {
       {required this.objectId,
       required this.username,
       required this.email,
-      required this.sessionToken,
+      this.sessionToken,
       this.password,
       required this.firstname,
       required this.lastname,
-      required this.dob,
+      this.middleName,
+      this.dob,
       this.photoUrl =
           "https://images.unsplash.com/photo-1507152832244-10d45c7eda57",
       required this.country,
       required this.gender,
       required this.phone,
       required this.whatsapp,
-      required this.yearGroup,
-      required this.title,
+      this.yearGroup,
+      this.title,
       this.isStaff = false});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
@@ -329,7 +331,7 @@ class _$_UserModel implements _UserModel {
   @override
   final String email;
   @override
-  final String sessionToken;
+  final String? sessionToken;
   @override
   final String? password;
   @override
@@ -337,12 +339,14 @@ class _$_UserModel implements _UserModel {
   @override
   final String lastname;
   @override
-  final DateTime dob;
+  final String? middleName;
+  @override
+  final DateTime? dob;
   @override
   @JsonKey()
   final String? photoUrl;
   @override
-  final String country;
+  final String? country;
   @override
   final String gender;
   @override
@@ -350,16 +354,16 @@ class _$_UserModel implements _UserModel {
   @override
   final String whatsapp;
   @override
-  final YearGroup yearGroup;
+  final String? yearGroup;
   @override
-  final String title;
+  final String? title;
   @override
   @JsonKey()
   final bool isStaff;
 
   @override
   String toString() {
-    return 'UserModel(objectId: $objectId, username: $username, email: $email, sessionToken: $sessionToken, password: $password, firstname: $firstname, lastname: $lastname, dob: $dob, photoUrl: $photoUrl, country: $country, gender: $gender, phone: $phone, whatsapp: $whatsapp, yearGroup: $yearGroup, title: $title, isStaff: $isStaff)';
+    return 'UserModel(objectId: $objectId, username: $username, email: $email, sessionToken: $sessionToken, password: $password, firstname: $firstname, lastname: $lastname, middleName: $middleName, dob: $dob, photoUrl: $photoUrl, country: $country, gender: $gender, phone: $phone, whatsapp: $whatsapp, yearGroup: $yearGroup, title: $title, isStaff: $isStaff)';
   }
 
   @override
@@ -375,6 +379,8 @@ class _$_UserModel implements _UserModel {
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality().equals(other.firstname, firstname) &&
             const DeepCollectionEquality().equals(other.lastname, lastname) &&
+            const DeepCollectionEquality()
+                .equals(other.middleName, middleName) &&
             const DeepCollectionEquality().equals(other.dob, dob) &&
             const DeepCollectionEquality().equals(other.photoUrl, photoUrl) &&
             const DeepCollectionEquality().equals(other.country, country) &&
@@ -397,6 +403,7 @@ class _$_UserModel implements _UserModel {
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(firstname),
       const DeepCollectionEquality().hash(lastname),
+      const DeepCollectionEquality().hash(middleName),
       const DeepCollectionEquality().hash(dob),
       const DeepCollectionEquality().hash(photoUrl),
       const DeepCollectionEquality().hash(country),
@@ -423,18 +430,19 @@ abstract class _UserModel implements UserModel {
       {required final String objectId,
       required final String username,
       required final String email,
-      required final String sessionToken,
+      final String? sessionToken,
       final String? password,
       required final String firstname,
       required final String lastname,
-      required final DateTime dob,
+      final String? middleName,
+      final DateTime? dob,
       final String? photoUrl,
-      required final String country,
+      required final String? country,
       required final String gender,
       required final String phone,
       required final String whatsapp,
-      required final YearGroup yearGroup,
-      required final String title,
+      final String? yearGroup,
+      final String? title,
       final bool isStaff}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -447,7 +455,7 @@ abstract class _UserModel implements UserModel {
   @override
   String get email;
   @override
-  String get sessionToken;
+  String? get sessionToken;
   @override
   String? get password;
   @override
@@ -455,11 +463,13 @@ abstract class _UserModel implements UserModel {
   @override
   String get lastname;
   @override
-  DateTime get dob;
+  String? get middleName;
+  @override
+  DateTime? get dob;
   @override
   String? get photoUrl;
   @override
-  String get country;
+  String? get country;
   @override
   String get gender;
   @override
@@ -467,9 +477,9 @@ abstract class _UserModel implements UserModel {
   @override
   String get whatsapp;
   @override
-  YearGroup get yearGroup;
+  String? get yearGroup;
   @override
-  String get title;
+  String? get title;
   @override
   bool get isStaff;
   @override

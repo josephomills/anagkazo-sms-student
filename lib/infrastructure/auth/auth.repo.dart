@@ -2,12 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/auth/auth.facade.dart';
+import 'package:student/infrastructure/auth/models/parseUser.ext.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
 import 'package:student/infrastructure/auth/dto/register.dto.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 
-@LazySingleton(as: AuthFacade)
 @Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
   @override
@@ -15,7 +15,7 @@ class AuthRepo implements AuthFacade {
     // Get current user from storage
     final user = await ParseUser.currentUser() as ParseUser?;
     if (user != null) {
-      return Right(UserModel.fromJson(user.toJson()));
+      return Right(UserModel.fromJson(user.toMap()));
     } else {
       // No signed in user
       return const Left(AuthFailure.userDoesNotExist());
@@ -113,9 +113,9 @@ class AuthRepo implements AuthFacade {
     bool hasUserLoggedIn = false;
 
     // Get current user from storage
-    final user = await ParseUser?.currentUser();
+    final user = await ParseUser.currentUser();
     if (user != null) {
-      // Check whether the user's sessino token is valid
+      // Check whether the user's session token is valid
       final response =
           await ParseUser.getCurrentUserFromServer(user.sessionToken!);
 
@@ -131,7 +131,11 @@ class AuthRepo implements AuthFacade {
       // No signed in user
       hasUserLoggedIn = false;
     }
+    // }
 
     return hasUserLoggedIn;
   }
+
+  static ParseUser _getEmptyUser() =>
+      ParseCoreData.instance.createParseUser(null, null, null);
 }

@@ -32,8 +32,8 @@ class AuthValidator {
     return name.isNotEmpty;
   }
 
-  String? validateUsername(String username) {
-    final usernameLength = username.length == 6;
+  String? validateUsername(String? username) {
+    final usernameLength = username!.length == 6;
 
     String? str;
     if (!usernameLength) {
@@ -43,8 +43,8 @@ class AuthValidator {
     return str;
   }
 
-  String? validatePassword(String password) {
-    final passwordLength = password.length > 6;
+  String? validatePassword(String? password) {
+    final passwordLength = password!.length > 6;
     final hasUpperCase = password.contains(RegExp('[A-Z]'));
     final hasSpecialCharacter =
         password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
@@ -53,12 +53,12 @@ class AuthValidator {
     String? str;
     if (!hasDigits) {
       str = 'Password must include digits';
-    } else if (!hasUpperCase) {
-      str = 'Must have an upper case';
-    } else if (!hasSpecialCharacter) {
-      str = 'Must have special character';
+      // } else if (!hasUpperCase) {
+      //   str = 'Must have an upper case';
+      // } else if (!hasSpecialCharacter) {
+      //   str = 'Must have special character';
     } else if (!passwordLength) {
-      str = 'password must be more than 6';
+      str = 'Password must have more than 6 characters';
     }
 
     return str;

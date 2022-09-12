@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
+import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/domain/auth/auth.validator.dart';
 import 'package:student/presentation/themes/context.ext.dart';
 import 'package:student/presentation/widgets/textFormField.widget.dart';
@@ -20,38 +22,37 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
         bloc: context.bloc<LoginBloc>(),
         listener: (context, state) {
           state.authFailureOrSuccessOption.fold(
-              () {},
+              () {}, // do nothing for none()
               (either) => either.fold((f) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(
                       f.maybeMap(
                         serverError: (e) => e.message!,
                         invalidUsernameAndPasswordCombination: (e) =>
-                            "Please enter a valid username &password combination.",
+                            "Please enter a valid username & password combination.",
                         sessionMissing: (e) => "Session missing",
                         orElse: () => "Something went wrong. Please try again.",
                       ),
                     )));
                   }, (userModel) {
-                    // context.router.push(AttendanceRoute());
+                    context.router.replace(const DashboardRoute());
                   }));
         },
         builder: (context, state) {
           return Form(
             key: _formKey,
             autovalidateMode: state.validateFields
-                ? AutovalidateMode.always
+                ? AutovalidateMode.onUserInteraction
                 : AutovalidateMode.disabled,
-            // autovalidateMode: AutovalidateMode.onUserInteraction,
-            onWillPop: () => Future.value(false),
             child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 32),
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 60),
                 Image.asset(
                   "assets/icon/logo.png",
-                  height: 50,
+                  height: 200,
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 60),
                 TextFormFieldWidget(
                   text: state.username,
                   label: "Username",
@@ -70,12 +71,23 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       .bloc<LoginBloc>()
                       .add(PasswordChanged(password: text)),
                   prefixIcon: const Icon(Icons.lock),
+                  obscureText: true,
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () =>
-                      context.bloc<LoginBloc>().add(const LoginButtonPressed()),
-                  child: const Text("Login"),
+                  onPressed: state.isLoading
+                      ? null
+                      : () {
+                          context
+                              .bloc<LoginBloc>()
+                              .add(const LoginButtonPressed());
+                        },
+                  child: state.isLoading
+                      ? const SpinKitThreeBounce(
+                          color: Colors.blue,
+                          size: 40,
+                        )
+                      : const Text("Login"),
                 ),
               ],
             ),
