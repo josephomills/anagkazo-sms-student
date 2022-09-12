@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:student/presentation/widgets/dashboardCard.widget.dart';
 import 'package:student/presentation/widgets/quickAction.widget.dart';
 
-class DashboardBodyWidget extends StatelessWidget {
-  const DashboardBodyWidget({
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({
     Key? key,
   }) : super(key: key);
 
@@ -59,8 +59,8 @@ class DashboardBodyWidget extends StatelessWidget {
         const Text("Quick actions"),
         const Divider(thickness: 2),
         QuickActionWidget(
-          icon: const Icon(Icons.person),
-          title: "Fill a form (e.g. permission, registry, hostel etc)",
+          icon: const Icon(Icons.my_library_books),
+          title: "Open student documents",
           onTap: () {},
         ),
         QuickActionWidget(
@@ -69,8 +69,8 @@ class DashboardBodyWidget extends StatelessWidget {
           onTap: () {},
         ),
         QuickActionWidget(
-          icon: const Icon(Icons.checklist),
-          title: "Mark fellowship meeting attendance",
+          icon: const Icon(Icons.receipt),
+          title: "Fill a form (e.g. permission, registry etc)",
           onTap: () {},
         ),
       ],

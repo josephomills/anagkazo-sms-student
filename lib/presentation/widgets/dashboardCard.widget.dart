@@ -6,7 +6,7 @@ class DashboardCardWidget extends StatelessWidget {
     required this.number,
     required this.label,
     this.width = 135,
-    this.height = 100,
+    this.height = 120,
     this.color = Colors.blue,
   }) : super(key: key);
 
