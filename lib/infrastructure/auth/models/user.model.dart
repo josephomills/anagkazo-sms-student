@@ -27,6 +27,18 @@ class UserModel with _$UserModel {
     @Default(false) bool isStaff,
   }) = _UserModel;
 
+  factory UserModel.empty() => const UserModel(
+        objectId: "",
+        username: "",
+        email: "",
+        firstname: "",
+        lastname: "",
+        country: "",
+        gender: "",
+        phone: "",
+        whatsapp: "",
+      );
+
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 }
