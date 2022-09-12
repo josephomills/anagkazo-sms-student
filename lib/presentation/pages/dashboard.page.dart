@@ -7,9 +7,11 @@ import 'package:student/application/dashbaord/dashboard_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
-import 'package:student/presentation/widgets/appDrawer.widget.dart';
+import 'package:student/presentation/pages/dashboardBody.page.dart';
+import 'package:student/presentation/widgets/dashboardCard.widget.dart';
+import 'package:student/presentation/widgets/drawer.widget.dart';
 import 'package:student/presentation/widgets/fab.widget.dart';
-import 'package:student/presentation/widgets/pageTitle.widget.dart';
+import 'package:student/presentation/widgets/quickAction.widget.dart';
 
 class DashboardPage extends StatelessWidget implements AutoRouteWrapper {
   const DashboardPage({Key? key}) : super(key: key);
@@ -17,36 +19,38 @@ class DashboardPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getIt<AuthFacade>().getCurrentUser(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center();
-          }
+      future: getIt<AuthFacade>().getCurrentUser(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Center();
+        }
 
-          final failureOrUser = snapshot.data as Either<AuthFailure, UserModel>;
-          if (failureOrUser.isLeft()) {}
+        final failureOrUser = snapshot.data as Either<AuthFailure, UserModel>;
+        if (failureOrUser.isLeft()) {}
 
-          final user = failureOrUser.getOrElse(() => UserModel.empty());
+        final user = failureOrUser.getOrElse(() => UserModel.empty());
 
-          return Scaffold(
-            drawer: AppDrawer(
-              name: "${user.firstname} ${user.lastname}",
-              username: user.username,
-              photoUrl: user.photoUrl!,
-            ),
-            floatingActionButton: const FABWidget(),
-            appBar: AppBar(
-              elevation: 0,
-              title: const Text("Dashboard"),
-            ),
-            body: ListView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                children: [
-                  PageTitleWidget(title: "${greet()} ${user.firstname}"),
-                ]),
-          );
-        });
+        return Scaffold(
+          drawer: AppDrawer(
+            name: "${user.firstname} ${user.lastname}",
+            username: user.username,
+            photoUrl: user.photoUrl!,
+          ),
+          floatingActionButton: const FABWidget(),
+          appBar: AppBar(
+            elevation: 0,
+            title: const Text("Dashboard"),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications),
+              )
+            ],
+          ),
+          body: const DashboardBodyWidget(),
+        );
+      },
+    );
   }
 
   @override

@@ -5,8 +5,8 @@ class FABWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.large(
-      child: const Icon(Icons.qr_code),
+    return FloatingActionButton(
+      child: const Icon(Icons.qr_code_scanner),
       onPressed: () {},
     );
   }

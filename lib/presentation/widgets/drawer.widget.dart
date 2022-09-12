@@ -20,94 +20,104 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: SingleChildScrollView(
-        // shrinkWrap: true,
-        // physics: const ClampingScrollPhysics(),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ListView(
-              shrinkWrap: true,
-              children: [
-                UserAccountsDrawerHeader(
-                  accountName: Text(name),
-                  accountEmail: Text(username),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: CachedNetworkImageProvider(photoUrl),
-                  ),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Dashboard"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Academics"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Documents"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Forms"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("My Fellowship"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Pastoral Points"),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Disciplinary Points"),
-                ),
-              ],
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text(
+              name,
+              style: const TextStyle(fontSize: 24),
             ),
-            const SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.settings),
-                  label: const Text("Settings"),
+            accountEmail: Text(username),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: CachedNetworkImageProvider(photoUrl),
+            ),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: const AssetImage("assets/drawer-bg.png"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.7),
+                  BlendMode.darken,
                 ),
-                TextButton.icon(
-                  onPressed: () async {
-                    (await getIt<AuthFacade>().logout()).fold(
-                        (f) =>
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(
-                              f.maybeMap(
-                                serverError: (e) => e.message!,
-                                userDoesNotExist: (e) =>
-                                    "Error: User does not exist.",
-                                orElse: () =>
-                                    "Something went wrong. Please try again.",
-                              ),
-                            ))), (r) {
-                      context.router.replaceAll([const DashboardRoute()]);
-                    });
-                  },
-                  icon: const Icon(
-                    Icons.logout,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text("Dashboard"),
+            onTap: () {
+              context.router.popAndPush(const DashboardRoute());
+            },
+          ),
+          const ListTile(
+            leading: Icon(Icons.school),
+            title: Text("Academics"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.my_library_books),
+            title: Text("Documents"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.qr_code),
+            title: Text("Attendance"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.receipt_long),
+            title: Text("Forms"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.people_alt),
+            title: Text("My Fellowship"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.apps),
+            title: Text("Pastoral Points"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.gavel),
+            title: Text("Disciplinary Points"),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.settings),
+                label: const Text("Settings"),
+              ),
+              TextButton.icon(
+                onPressed: () async {
+                  (await getIt<AuthFacade>().logout()).fold(
+                      (f) =>
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                            f.maybeMap(
+                              serverError: (e) => e.message!,
+                              userDoesNotExist: (e) =>
+                                  "Error: User does not exist.",
+                              orElse: () =>
+                                  "Something went wrong. Please try again.",
+                            ),
+                          ))), (r) {
+                    context.router.replaceAll([const DashboardRoute()]);
+                  });
+                },
+                icon: const Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+                label: const Text(
+                  "Logout",
+                  style: TextStyle(
                     color: Colors.red,
                   ),
-                  label: const Text(
-                    "Logout",
-                    style: TextStyle(
-                      color: Colors.red,
-                    ),
-                  ),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
