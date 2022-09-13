@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                 photoUrl: user.photoUrl!,
               ),
               floatingActionButton:
-                  tabsRouter.activeIndex == 0 || tabsRouter.activeIndex == 3
+                  (tabsRouter.activeIndex == 0 || tabsRouter.activeIndex == 3)
                       ? const FABWidget()
                       : null,
               appBar: AppBar(

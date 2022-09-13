@@ -51,6 +51,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.home),
               title: const Text("Dashboard"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(0);
               },
             ),
@@ -58,6 +59,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.school),
               title: const Text("Academics"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(1);
               },
             ),
@@ -65,6 +67,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.my_library_books),
               title: const Text("Documents"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(2);
               },
             ),
@@ -72,6 +75,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.qr_code),
               title: const Text("Attendance"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(3);
               },
             ),
@@ -79,6 +83,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.receipt_long),
               title: const Text("Forms"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(4);
               },
             ),
@@ -86,6 +91,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.people_alt),
               title: const Text("My Fellowship"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(5);
               },
             ),
@@ -93,6 +99,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.apps),
               title: const Text("Pastoral Points"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(6);
               },
             ),
@@ -100,6 +107,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.gavel),
               title: const Text("Disciplinary Points"),
               onTap: () {
+                context.router.pop();
                 tabsRouter.setActiveIndex(7);
               },
             ),

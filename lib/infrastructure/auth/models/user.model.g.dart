@@ -7,23 +7,23 @@ part of 'user.model.dart';
 // **************************************************************************
 
 _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
-      objectId: json['objectId'] as String,
-      username: json['username'] as String,
-      email: json['email'] as String,
-      sessionToken: json['sessionToken'] as String?,
-      password: json['password'] as String?,
-      firstname: json['firstname'] as String,
-      lastname: json['lastname'] as String,
-      middleName: json['middleName'] as String?,
-      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      objectId: json['objectId'] as String? ?? "",
+      username: json['username'] as String? ?? "",
+      email: json['email'] as String? ?? "",
+      firstname: json['firstname'] as String? ?? "",
+      lastname: json['lastname'] as String? ?? "",
+      middleName: json['middleName'] as String? ?? "",
+      dob: json['dob'] == null
+          ? null
+          : DateTime.parse(json['dob'] as String) ?? null,
       photoUrl: json['photoUrl'] as String? ??
           "https://images.unsplash.com/photo-1507152832244-10d45c7eda57",
-      country: json['country'] as String?,
-      gender: json['gender'] as String,
-      phone: json['phone'] as String,
-      whatsapp: json['whatsapp'] as String,
-      yearGroup: json['yearGroup'] as String?,
-      title: json['title'] as String?,
+      country: json['country'] as String? ?? "",
+      gender: json['gender'] as String? ?? "",
+      phone: json['phone'] as String? ?? "",
+      whatsapp: json['whatsapp'] as String? ?? "",
+      yearGroup: json['yearGroup'] as String? ?? "",
+      title: json['title'] as String? ?? "",
       isStaff: json['isStaff'] as bool? ?? false,
     );
 
@@ -32,8 +32,6 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'objectId': instance.objectId,
       'username': instance.username,
       'email': instance.email,
-      'sessionToken': instance.sessionToken,
-      'password': instance.password,
       'firstname': instance.firstname,
       'lastname': instance.lastname,
       'middleName': instance.middleName,

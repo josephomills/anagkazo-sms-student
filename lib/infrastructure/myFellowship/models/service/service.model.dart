@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
-import 'package:student/infrastructure/my_fellowship/models/fellowship/fellowship.model.dart';
-import 'package:student/infrastructure/my_fellowship/models/member/member.model.dart';
+import 'package:student/infrastructure/myFellowship/models/fellowship/fellowship.model.dart';
+import 'package:student/infrastructure/myFellowship/models/member/member.model.dart';
 
 part 'service.model.freezed.dart';
 part 'service.model.g.dart';

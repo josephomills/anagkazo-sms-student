@@ -19,17 +19,17 @@ class DashboardPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             DashboardCardWidget(
-              number: "50",
+              stat: "50",
               label: "Academic Points",
               color: Colors.green,
             ),
             DashboardCardWidget(
-              number: "110",
+              stat: "110",
               label: "Disciplinary Points",
               color: Color.fromARGB(255, 201, 26, 13),
             ),
             DashboardCardWidget(
-              number: "12",
+              stat: "12",
               label: "Avg. Bussing",
               color: Colors.orange,
             ),
@@ -39,17 +39,17 @@ class DashboardPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             DashboardCardWidget(
-              number: "12",
+              stat: "12",
               label: "Fellowship",
               color: Colors.blueGrey,
             ),
             DashboardCardWidget(
-              number: "50",
+              stat: "50",
               label: "Income (GHC)",
               color: Colors.deepPurple,
             ),
             DashboardCardWidget(
-              number: "240",
+              stat: "240",
               label: "Anti-Brutish",
               color: Color.fromARGB(255, 139, 154, 2),
             ),

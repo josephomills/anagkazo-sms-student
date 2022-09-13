@@ -13,5 +13,15 @@ initParse() async {
     // coreStore: await CoreStoreSembastImp.getInstance(),
     liveQueryUrl: kliveQueryUrl,
     autoSendSessionId: true,
+    registeredSubClassMap: {
+      // "User": () => const UserModel(),
+      // "Member": () => const UserModel(),
+      // "Fellowship": () => const UserModel(),
+      // "Bacenta": () => const UserModel(),
+      // "Constituency": () => const UserModel(),
+      // "Service": () => const UserModel(),
+      // "Scan": () => const UserModel(),
+      // "Event": () => const UserModel(),
+    },
   );
 }

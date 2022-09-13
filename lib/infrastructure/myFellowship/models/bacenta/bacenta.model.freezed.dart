@@ -23,7 +23,7 @@ mixin _$BacentaModel {
   String get objectId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   UserModel get leader => throw _privateConstructorUsedError;
-  List<FellowshipModel> get fellowships => throw _privateConstructorUsedError;
+  List<FellowshipModel>? get fellowships => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $BacentaModelCopyWith<$Res> {
       {String objectId,
       String name,
       UserModel leader,
-      List<FellowshipModel> fellowships});
+      List<FellowshipModel>? fellowships});
 
   $UserModelCopyWith<$Res> get leader;
 }
@@ -76,7 +76,7 @@ class _$BacentaModelCopyWithImpl<$Res> implements $BacentaModelCopyWith<$Res> {
       fellowships: fellowships == freezed
           ? _value.fellowships
           : fellowships // ignore: cast_nullable_to_non_nullable
-              as List<FellowshipModel>,
+              as List<FellowshipModel>?,
     ));
   }
 
@@ -99,7 +99,7 @@ abstract class _$$_BacentaModelCopyWith<$Res>
       {String objectId,
       String name,
       UserModel leader,
-      List<FellowshipModel> fellowships});
+      List<FellowshipModel>? fellowships});
 
   @override
   $UserModelCopyWith<$Res> get leader;
@@ -139,7 +139,7 @@ class __$$_BacentaModelCopyWithImpl<$Res>
       fellowships: fellowships == freezed
           ? _value._fellowships
           : fellowships // ignore: cast_nullable_to_non_nullable
-              as List<FellowshipModel>,
+              as List<FellowshipModel>?,
     ));
   }
 }
@@ -148,26 +148,31 @@ class __$$_BacentaModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BacentaModel implements _BacentaModel {
   const _$_BacentaModel(
-      {required this.objectId,
-      required this.name,
-      required this.leader,
-      required final List<FellowshipModel> fellowships})
+      {this.objectId = "",
+      this.name = "",
+      this.leader = const UserModel(),
+      final List<FellowshipModel>? fellowships})
       : _fellowships = fellowships;
 
   factory _$_BacentaModel.fromJson(Map<String, dynamic> json) =>
       _$$_BacentaModelFromJson(json);
 
   @override
+  @JsonKey()
   final String objectId;
   @override
+  @JsonKey()
   final String name;
   @override
+  @JsonKey()
   final UserModel leader;
-  final List<FellowshipModel> _fellowships;
+  final List<FellowshipModel>? _fellowships;
   @override
-  List<FellowshipModel> get fellowships {
+  List<FellowshipModel>? get fellowships {
+    final value = _fellowships;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_fellowships);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -209,10 +214,10 @@ class _$_BacentaModel implements _BacentaModel {
 
 abstract class _BacentaModel implements BacentaModel {
   const factory _BacentaModel(
-      {required final String objectId,
-      required final String name,
-      required final UserModel leader,
-      required final List<FellowshipModel> fellowships}) = _$_BacentaModel;
+      {final String objectId,
+      final String name,
+      final UserModel leader,
+      final List<FellowshipModel>? fellowships}) = _$_BacentaModel;
 
   factory _BacentaModel.fromJson(Map<String, dynamic> json) =
       _$_BacentaModel.fromJson;
@@ -224,7 +229,7 @@ abstract class _BacentaModel implements BacentaModel {
   @override
   UserModel get leader;
   @override
-  List<FellowshipModel> get fellowships;
+  List<FellowshipModel>? get fellowships;
   @override
   @JsonKey(ignore: true)
   _$$_BacentaModelCopyWith<_$_BacentaModel> get copyWith =>

@@ -8,12 +8,18 @@ part of 'fellowship.model.dart';
 
 _$_FellowshipModel _$$_FellowshipModelFromJson(Map<String, dynamic> json) =>
     _$_FellowshipModel(
-      objectId: json['objectId'] as String,
-      name: json['name'] as String,
-      leader: UserModel.fromJson(json['leader'] as Map<String, dynamic>),
-      constituency: ConstituencyModel.fromJson(
-          json['constituency'] as Map<String, dynamic>),
-      bacenta: BacentaModel.fromJson(json['bacenta'] as Map<String, dynamic>),
+      objectId: json['objectId'] as String? ?? "",
+      name: json['name'] as String? ?? "",
+      leader: json['leader'] == null
+          ? const UserModel()
+          : UserModel.fromJson(json['leader'] as Map<String, dynamic>),
+      constituency: json['constituency'] == null
+          ? const ConstituencyModel()
+          : ConstituencyModel.fromJson(
+              json['constituency'] as Map<String, dynamic>),
+      bacenta: json['bacenta'] == null
+          ? const BacentaModel()
+          : BacentaModel.fromJson(json['bacenta'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_FellowshipModelToJson(_$_FellowshipModel instance) =>

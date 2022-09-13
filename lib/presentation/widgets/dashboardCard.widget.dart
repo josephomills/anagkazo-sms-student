@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class DashboardCardWidget extends StatelessWidget {
   const DashboardCardWidget({
     Key? key,
-    required this.number,
+    required this.stat,
     required this.label,
     this.width = 135,
     this.height = 120,
     this.color = Colors.blue,
   }) : super(key: key);
 
-  final String number;
+  final String stat;
   final double width;
   final double height;
   final String label;
@@ -27,7 +27,7 @@ class DashboardCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              number,
+              stat,
               style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,

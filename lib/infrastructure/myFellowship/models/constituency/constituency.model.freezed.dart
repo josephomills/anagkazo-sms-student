@@ -23,7 +23,7 @@ mixin _$ConstituencyModel {
   String get objectId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   UserModel get leader => throw _privateConstructorUsedError;
-  List<BacentaModel> get bacentas => throw _privateConstructorUsedError;
+  List<BacentaModel>? get bacentas => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $ConstituencyModelCopyWith<$Res> {
       {String objectId,
       String name,
       UserModel leader,
-      List<BacentaModel> bacentas});
+      List<BacentaModel>? bacentas});
 
   $UserModelCopyWith<$Res> get leader;
 }
@@ -77,7 +77,7 @@ class _$ConstituencyModelCopyWithImpl<$Res>
       bacentas: bacentas == freezed
           ? _value.bacentas
           : bacentas // ignore: cast_nullable_to_non_nullable
-              as List<BacentaModel>,
+              as List<BacentaModel>?,
     ));
   }
 
@@ -100,7 +100,7 @@ abstract class _$$_ConstituencyModelCopyWith<$Res>
       {String objectId,
       String name,
       UserModel leader,
-      List<BacentaModel> bacentas});
+      List<BacentaModel>? bacentas});
 
   @override
   $UserModelCopyWith<$Res> get leader;
@@ -140,7 +140,7 @@ class __$$_ConstituencyModelCopyWithImpl<$Res>
       bacentas: bacentas == freezed
           ? _value._bacentas
           : bacentas // ignore: cast_nullable_to_non_nullable
-              as List<BacentaModel>,
+              as List<BacentaModel>?,
     ));
   }
 }
@@ -149,26 +149,31 @@ class __$$_ConstituencyModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ConstituencyModel implements _ConstituencyModel {
   const _$_ConstituencyModel(
-      {required this.objectId,
-      required this.name,
-      required this.leader,
-      required final List<BacentaModel> bacentas})
+      {this.objectId = "",
+      this.name = "",
+      this.leader = const UserModel(),
+      final List<BacentaModel>? bacentas})
       : _bacentas = bacentas;
 
   factory _$_ConstituencyModel.fromJson(Map<String, dynamic> json) =>
       _$$_ConstituencyModelFromJson(json);
 
   @override
+  @JsonKey()
   final String objectId;
   @override
+  @JsonKey()
   final String name;
   @override
+  @JsonKey()
   final UserModel leader;
-  final List<BacentaModel> _bacentas;
+  final List<BacentaModel>? _bacentas;
   @override
-  List<BacentaModel> get bacentas {
+  List<BacentaModel>? get bacentas {
+    final value = _bacentas;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_bacentas);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -210,10 +215,10 @@ class _$_ConstituencyModel implements _ConstituencyModel {
 
 abstract class _ConstituencyModel implements ConstituencyModel {
   const factory _ConstituencyModel(
-      {required final String objectId,
-      required final String name,
-      required final UserModel leader,
-      required final List<BacentaModel> bacentas}) = _$_ConstituencyModel;
+      {final String objectId,
+      final String name,
+      final UserModel leader,
+      final List<BacentaModel>? bacentas}) = _$_ConstituencyModel;
 
   factory _ConstituencyModel.fromJson(Map<String, dynamic> json) =
       _$_ConstituencyModel.fromJson;
@@ -225,7 +230,7 @@ abstract class _ConstituencyModel implements ConstituencyModel {
   @override
   UserModel get leader;
   @override
-  List<BacentaModel> get bacentas;
+  List<BacentaModel>? get bacentas;
   @override
   @JsonKey(ignore: true)
   _$$_ConstituencyModelCopyWith<_$_ConstituencyModel> get copyWith =>

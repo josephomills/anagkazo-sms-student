@@ -182,24 +182,29 @@ class __$$_FellowshipModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FellowshipModel implements _FellowshipModel {
   const _$_FellowshipModel(
-      {required this.objectId,
-      required this.name,
-      required this.leader,
-      required this.constituency,
-      required this.bacenta});
+      {this.objectId = "",
+      this.name = "",
+      this.leader = const UserModel(),
+      this.constituency = const ConstituencyModel(),
+      this.bacenta = const BacentaModel()});
 
   factory _$_FellowshipModel.fromJson(Map<String, dynamic> json) =>
       _$$_FellowshipModelFromJson(json);
 
   @override
+  @JsonKey()
   final String objectId;
   @override
+  @JsonKey()
   final String name;
   @override
+  @JsonKey()
   final UserModel leader;
   @override
+  @JsonKey()
   final ConstituencyModel constituency;
   @override
+  @JsonKey()
   final BacentaModel bacenta;
 
   @override
@@ -243,11 +248,11 @@ class _$_FellowshipModel implements _FellowshipModel {
 
 abstract class _FellowshipModel implements FellowshipModel {
   const factory _FellowshipModel(
-      {required final String objectId,
-      required final String name,
-      required final UserModel leader,
-      required final ConstituencyModel constituency,
-      required final BacentaModel bacenta}) = _$_FellowshipModel;
+      {final String objectId,
+      final String name,
+      final UserModel leader,
+      final ConstituencyModel constituency,
+      final BacentaModel bacenta}) = _$_FellowshipModel;
 
   factory _FellowshipModel.fromJson(Map<String, dynamic> json) =
       _$_FellowshipModel.fromJson;

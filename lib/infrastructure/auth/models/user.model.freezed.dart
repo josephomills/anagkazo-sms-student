@@ -23,7 +23,9 @@ mixin _$UserModel {
   String get objectId => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   String? get sessionToken => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   String? get password => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
@@ -52,8 +54,8 @@ abstract class $UserModelCopyWith<$Res> {
       {String objectId,
       String username,
       String email,
-      String? sessionToken,
-      String? password,
+      @JsonKey(ignore: true) String? sessionToken,
+      @JsonKey(ignore: true) String? password,
       String firstname,
       String lastname,
       String? middleName,
@@ -179,8 +181,8 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {String objectId,
       String username,
       String email,
-      String? sessionToken,
-      String? password,
+      @JsonKey(ignore: true) String? sessionToken,
+      @JsonKey(ignore: true) String? password,
       String firstname,
       String lastname,
       String? middleName,
@@ -302,60 +304,75 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
   const _$_UserModel(
-      {required this.objectId,
-      required this.username,
-      required this.email,
-      this.sessionToken,
-      this.password,
-      required this.firstname,
-      required this.lastname,
-      this.middleName,
-      this.dob,
+      {this.objectId = "",
+      this.username = "",
+      this.email = "",
+      @JsonKey(ignore: true) this.sessionToken = "",
+      @JsonKey(ignore: true) this.password,
+      this.firstname = "",
+      this.lastname = "",
+      this.middleName = "",
+      this.dob = null,
       this.photoUrl =
           "https://images.unsplash.com/photo-1507152832244-10d45c7eda57",
-      required this.country,
-      required this.gender,
-      required this.phone,
-      required this.whatsapp,
-      this.yearGroup,
-      this.title,
+      this.country = "",
+      this.gender = "",
+      this.phone = "",
+      this.whatsapp = "",
+      this.yearGroup = "",
+      this.title = "",
       this.isStaff = false});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
 
   @override
+  @JsonKey()
   final String objectId;
   @override
+  @JsonKey()
   final String username;
   @override
+  @JsonKey()
   final String email;
   @override
+  @JsonKey(ignore: true)
   final String? sessionToken;
   @override
+  @JsonKey(ignore: true)
   final String? password;
   @override
+  @JsonKey()
   final String firstname;
   @override
+  @JsonKey()
   final String lastname;
   @override
+  @JsonKey()
   final String? middleName;
   @override
+  @JsonKey()
   final DateTime? dob;
   @override
   @JsonKey()
   final String? photoUrl;
   @override
+  @JsonKey()
   final String? country;
   @override
+  @JsonKey()
   final String gender;
   @override
+  @JsonKey()
   final String phone;
   @override
+  @JsonKey()
   final String whatsapp;
   @override
+  @JsonKey()
   final String? yearGroup;
   @override
+  @JsonKey()
   final String? title;
   @override
   @JsonKey()
@@ -427,20 +444,20 @@ class _$_UserModel implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
-      {required final String objectId,
-      required final String username,
-      required final String email,
-      final String? sessionToken,
-      final String? password,
-      required final String firstname,
-      required final String lastname,
+      {final String objectId,
+      final String username,
+      final String email,
+      @JsonKey(ignore: true) final String? sessionToken,
+      @JsonKey(ignore: true) final String? password,
+      final String firstname,
+      final String lastname,
       final String? middleName,
       final DateTime? dob,
       final String? photoUrl,
-      required final String? country,
-      required final String gender,
-      required final String phone,
-      required final String whatsapp,
+      final String? country,
+      final String gender,
+      final String phone,
+      final String whatsapp,
       final String? yearGroup,
       final String? title,
       final bool isStaff}) = _$_UserModel;
@@ -455,8 +472,10 @@ abstract class _UserModel implements UserModel {
   @override
   String get email;
   @override
+  @JsonKey(ignore: true)
   String? get sessionToken;
   @override
+  @JsonKey(ignore: true)
   String? get password;
   @override
   String get firstname;
