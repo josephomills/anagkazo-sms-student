@@ -14,7 +14,7 @@ class UserModel with _$UserModel {
     @Default("") String firstname,
     @Default("") String lastname,
     @Default("") String? middleName,
-    @Default(null) DateTime? dob,
+    DateTime? dob,
     @Default("https://images.unsplash.com/photo-1507152832244-10d45c7eda57")
         String? photoUrl,
     @Default("") String? country,

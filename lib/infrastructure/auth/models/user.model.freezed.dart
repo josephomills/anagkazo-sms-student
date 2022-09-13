@@ -312,7 +312,7 @@ class _$_UserModel implements _UserModel {
       this.firstname = "",
       this.lastname = "",
       this.middleName = "",
-      this.dob = null,
+      this.dob,
       this.photoUrl =
           "https://images.unsplash.com/photo-1507152832244-10d45c7eda57",
       this.country = "",
@@ -351,7 +351,6 @@ class _$_UserModel implements _UserModel {
   @JsonKey()
   final String? middleName;
   @override
-  @JsonKey()
   final DateTime? dob;
   @override
   @JsonKey()
