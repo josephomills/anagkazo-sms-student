@@ -173,9 +173,10 @@ abstract class _GetMyFellowshipServices implements MyFellowshipEvent {
 /// @nodoc
 mixin _$MyFellowshipState {
   bool get isLoading => throw _privateConstructorUsedError;
-  double get avgAttendance => throw _privateConstructorUsedError;
-  double get avgIncome => throw _privateConstructorUsedError;
-  dynamic get failureOrServices => throw _privateConstructorUsedError;
+  String get avgAttendance => throw _privateConstructorUsedError;
+  String get avgIncome => throw _privateConstructorUsedError;
+  Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+      get failureOrServicesOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyFellowshipStateCopyWith<MyFellowshipState> get copyWith =>
@@ -189,9 +190,10 @@ abstract class $MyFellowshipStateCopyWith<$Res> {
       _$MyFellowshipStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
-      double avgAttendance,
-      double avgIncome,
-      dynamic failureOrServices});
+      String avgAttendance,
+      String avgIncome,
+      Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+          failureOrServicesOption});
 }
 
 /// @nodoc
@@ -208,7 +210,7 @@ class _$MyFellowshipStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? avgAttendance = freezed,
     Object? avgIncome = freezed,
-    Object? failureOrServices = freezed,
+    Object? failureOrServicesOption = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -218,15 +220,15 @@ class _$MyFellowshipStateCopyWithImpl<$Res>
       avgAttendance: avgAttendance == freezed
           ? _value.avgAttendance
           : avgAttendance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       avgIncome: avgIncome == freezed
           ? _value.avgIncome
           : avgIncome // ignore: cast_nullable_to_non_nullable
-              as double,
-      failureOrServices: failureOrServices == freezed
-          ? _value.failureOrServices
-          : failureOrServices // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String,
+      failureOrServicesOption: failureOrServicesOption == freezed
+          ? _value.failureOrServicesOption
+          : failureOrServicesOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<MyFellowshipFailure, List<ServiceObject>>>,
     ));
   }
 }
@@ -240,9 +242,10 @@ abstract class _$$_MyFellowshipStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
-      double avgAttendance,
-      double avgIncome,
-      dynamic failureOrServices});
+      String avgAttendance,
+      String avgIncome,
+      Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+          failureOrServicesOption});
 }
 
 /// @nodoc
@@ -261,7 +264,7 @@ class __$$_MyFellowshipStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? avgAttendance = freezed,
     Object? avgIncome = freezed,
-    Object? failureOrServices = freezed,
+    Object? failureOrServicesOption = freezed,
   }) {
     return _then(_$_MyFellowshipState(
       isLoading: isLoading == freezed
@@ -271,14 +274,15 @@ class __$$_MyFellowshipStateCopyWithImpl<$Res>
       avgAttendance: avgAttendance == freezed
           ? _value.avgAttendance
           : avgAttendance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       avgIncome: avgIncome == freezed
           ? _value.avgIncome
           : avgIncome // ignore: cast_nullable_to_non_nullable
-              as double,
-      failureOrServices: failureOrServices == freezed
-          ? _value.failureOrServices
-          : failureOrServices,
+              as String,
+      failureOrServicesOption: failureOrServicesOption == freezed
+          ? _value.failureOrServicesOption
+          : failureOrServicesOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<MyFellowshipFailure, List<ServiceObject>>>,
     ));
   }
 }
@@ -290,20 +294,21 @@ class _$_MyFellowshipState implements _MyFellowshipState {
       {required this.isLoading,
       required this.avgAttendance,
       required this.avgIncome,
-      required this.failureOrServices});
+      required this.failureOrServicesOption});
 
   @override
   final bool isLoading;
   @override
-  final double avgAttendance;
+  final String avgAttendance;
   @override
-  final double avgIncome;
+  final String avgIncome;
   @override
-  final dynamic failureOrServices;
+  final Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+      failureOrServicesOption;
 
   @override
   String toString() {
-    return 'MyFellowshipState(isLoading: $isLoading, avgAttendance: $avgAttendance, avgIncome: $avgIncome, failureOrServices: $failureOrServices)';
+    return 'MyFellowshipState(isLoading: $isLoading, avgAttendance: $avgAttendance, avgIncome: $avgIncome, failureOrServicesOption: $failureOrServicesOption)';
   }
 
   @override
@@ -315,8 +320,8 @@ class _$_MyFellowshipState implements _MyFellowshipState {
             const DeepCollectionEquality()
                 .equals(other.avgAttendance, avgAttendance) &&
             const DeepCollectionEquality().equals(other.avgIncome, avgIncome) &&
-            const DeepCollectionEquality()
-                .equals(other.failureOrServices, failureOrServices));
+            const DeepCollectionEquality().equals(
+                other.failureOrServicesOption, failureOrServicesOption));
   }
 
   @override
@@ -325,7 +330,7 @@ class _$_MyFellowshipState implements _MyFellowshipState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(avgAttendance),
       const DeepCollectionEquality().hash(avgIncome),
-      const DeepCollectionEquality().hash(failureOrServices));
+      const DeepCollectionEquality().hash(failureOrServicesOption));
 
   @JsonKey(ignore: true)
   @override
@@ -337,18 +342,20 @@ class _$_MyFellowshipState implements _MyFellowshipState {
 abstract class _MyFellowshipState implements MyFellowshipState {
   const factory _MyFellowshipState(
       {required final bool isLoading,
-      required final double avgAttendance,
-      required final double avgIncome,
-      required final dynamic failureOrServices}) = _$_MyFellowshipState;
+      required final String avgAttendance,
+      required final String avgIncome,
+      required final Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+          failureOrServicesOption}) = _$_MyFellowshipState;
 
   @override
   bool get isLoading;
   @override
-  double get avgAttendance;
+  String get avgAttendance;
   @override
-  double get avgIncome;
+  String get avgIncome;
   @override
-  dynamic get failureOrServices;
+  Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+      get failureOrServicesOption;
   @override
   @JsonKey(ignore: true)
   _$$_MyFellowshipStateCopyWith<_$_MyFellowshipState> get copyWith =>

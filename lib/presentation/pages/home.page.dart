@@ -8,6 +8,7 @@ import 'package:student/application/home/home_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
+import 'package:student/presentation/core/pageIndex.dart';
 import 'package:student/presentation/widgets/drawer.widget.dart';
 import 'package:student/presentation/widgets/fab.widget.dart';
 
@@ -29,16 +30,16 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
         final user = failureOrUser.getOrElse(() => UserModel.empty());
 
         return AutoTabsRouter(
-          homeIndex: 0,
-          routes: const [
-            DashboardRoute(),
-            AcademicsRoute(),
-            DocumentsRoute(),
-            AttendanceRoute(),
-            FormsRoute(),
+          homeIndex: PageIndex.dashboard,
+          routes: [
+            const DashboardRoute(),
+            const AcademicsRoute(),
+            const DocumentsRoute(),
+            const AttendanceRoute(),
+            const FormsRoute(),
             MyFellowshipRoute(),
-            PastoralPointsRoute(),
-            DisciplinaryPointsRoute(),
+            const PastoralPointsRoute(),
+            const DisciplinaryPointsRoute(),
           ],
           builder: (context, body, animation) {
             final tabsRouter = AutoTabsRouter.of(context);
@@ -50,17 +51,23 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                 photoUrl: user.photoUrl!,
               ),
               floatingActionButton:
-                  (tabsRouter.activeIndex == 0 || tabsRouter.activeIndex == 3)
+                  (tabsRouter.activeIndex == PageIndex.dashboard ||
+                          tabsRouter.activeIndex == PageIndex.attendance)
                       ? const FABWidget()
                       : null,
               appBar: AppBar(
                 elevation: 0,
                 title: Text(tabsRouter.currentChild!.meta["title"]),
                 actions: [
+                  if (tabsRouter.activeIndex == PageIndex.myFellowship)
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.people),
+                    ),
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.notifications_active),
-                  )
+                  ),
                 ],
               ),
               body: body,

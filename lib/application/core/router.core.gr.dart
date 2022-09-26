@@ -76,8 +76,11 @@ class AppRouter extends _i12.RootStackRouter {
           routeData: routeData, child: const _i8.FormsPage());
     },
     MyFellowshipRoute.name: (routeData) {
+      final args = routeData.argsAs<MyFellowshipRouteArgs>(
+          orElse: () => const MyFellowshipRouteArgs());
       return _i12.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.MyFellowshipPage());
+          routeData: routeData,
+          child: _i12.WrappedRoute(child: _i9.MyFellowshipPage(key: args.key)));
     },
     PastoralPointsRoute.name: (routeData) {
       return _i12.MaterialPageX<dynamic>(
@@ -219,11 +222,23 @@ class FormsRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.MyFellowshipPage]
-class MyFellowshipRoute extends _i12.PageRouteInfo<void> {
-  const MyFellowshipRoute()
-      : super(MyFellowshipRoute.name, path: 'my-fellowship-page');
+class MyFellowshipRoute extends _i12.PageRouteInfo<MyFellowshipRouteArgs> {
+  MyFellowshipRoute({_i13.Key? key})
+      : super(MyFellowshipRoute.name,
+            path: 'my-fellowship-page', args: MyFellowshipRouteArgs(key: key));
 
   static const String name = 'MyFellowshipRoute';
+}
+
+class MyFellowshipRouteArgs {
+  const MyFellowshipRouteArgs({this.key});
+
+  final _i13.Key? key;
+
+  @override
+  String toString() {
+    return 'MyFellowshipRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

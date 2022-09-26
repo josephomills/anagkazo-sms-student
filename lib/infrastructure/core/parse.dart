@@ -1,4 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 
 const String kAppId = "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4";
 const String kServerUrl = "https://parseapi.back4app.com/";
@@ -19,7 +20,7 @@ initParse() async {
       // "Fellowship": () => const UserModel(),
       // "Bacenta": () => const UserModel(),
       // "Constituency": () => const UserModel(),
-      // "Service": () => const UserModel(),
+      "Service": () => ServiceObject(),
       // "Scan": () => const UserModel(),
       // "Event": () => const UserModel(),
     },

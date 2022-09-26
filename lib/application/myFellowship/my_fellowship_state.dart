@@ -4,16 +4,18 @@ part of 'my_fellowship_bloc.dart';
 class MyFellowshipState with _$MyFellowshipState {
   const factory MyFellowshipState({
     required bool isLoading,
-    required double avgAttendance,
-    required double avgIncome,
-    required Option<Either<MyFellowshipFailure, List<ServiceModel>>>
-        failureOrServices,
+    required String avgAttendance,
+    required String avgIncome,
+    required Option<Either<MyFellowshipFailure, List<ServiceObject>>>
+        failureOrServicesOption,
   }) = _MyFellowshipState;
 
   factory MyFellowshipState.initial() => MyFellowshipState(
         isLoading: false,
-        avgAttendance: 0.0,
-        avgIncome: 0.0,
-        failureOrServices: none(),
+        avgAttendance: "0.0",
+        avgIncome: "0.0",
+        failureOrServicesOption: none(),
       );
+
+  // const factory MyFellowshipState.loading() = Loading;
 }

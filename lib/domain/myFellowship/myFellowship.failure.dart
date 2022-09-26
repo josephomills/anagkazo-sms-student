@@ -4,5 +4,6 @@ part 'myFellowship.failure.freezed.dart';
 
 @freezed
 abstract class MyFellowshipFailure with _$MyFellowshipFailure {
-  const factory MyFellowshipFailure.serverError() = _ServerError;
+  const factory MyFellowshipFailure.serverError({String? message}) =
+      _ServerError;
 }

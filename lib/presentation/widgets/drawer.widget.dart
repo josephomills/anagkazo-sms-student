@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/domain/auth/auth.facade.dart';
+import 'package:student/presentation/core/pageIndex.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -51,65 +52,100 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.home),
               title: const Text("Dashboard"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(0);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.dashboard,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.dashboard,
             ),
             ListTile(
               leading: const Icon(Icons.school),
               title: const Text("Academics"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(1);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.academics,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.academics,
             ),
             ListTile(
               leading: const Icon(Icons.my_library_books),
               title: const Text("Documents"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(2);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.documents,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.documents,
             ),
             ListTile(
               leading: const Icon(Icons.qr_code),
               title: const Text("Attendance"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(3);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.attendance,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.attendance,
             ),
             ListTile(
-              leading: const Icon(Icons.receipt_long),
+              leading: const Icon(Icons.receipt),
               title: const Text("Forms"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(4);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.forms,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.forms,
             ),
             ListTile(
               leading: const Icon(Icons.people_alt),
               title: const Text("My Fellowship"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(5);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.myFellowship,
+                );
+                // Fetch service data
+                // getIt<MyFellowshipBloc>()
+                //     .add(const MyFellowshipEvent.getMyFellowshipServices());
               },
+              selected: tabsRouter.activeIndex == PageIndex.myFellowship,
             ),
             ListTile(
               leading: const Icon(Icons.apps),
               title: const Text("Pastoral Points"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(6);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.pastoralPoints,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.pastoralPoints,
             ),
             ListTile(
               leading: const Icon(Icons.gavel),
               title: const Text("Disciplinary Points"),
               onTap: () {
-                context.router.pop();
-                tabsRouter.setActiveIndex(7);
+                navigateTo(
+                  context: context,
+                  tabsRouter: tabsRouter,
+                  index: PageIndex.disciplinaryPoints,
+                );
               },
+              selected: tabsRouter.activeIndex == PageIndex.disciplinaryPoints,
             ),
             const SizedBox(height: 16),
             Row(
@@ -154,5 +190,18 @@ class AppDrawer extends StatelessWidget {
         ),
       );
     });
+  }
+
+  navigateTo({
+    required BuildContext context,
+    required TabsRouter tabsRouter,
+    required int index,
+  }) {
+    // close drawer
+    context.router.pop();
+
+    if (tabsRouter.activeIndex != index) {
+      tabsRouter.setActiveIndex(index);
+    }
   }
 }
