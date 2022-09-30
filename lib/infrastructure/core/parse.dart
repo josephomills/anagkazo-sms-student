@@ -1,4 +1,7 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/scan.object.dart';
+import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 
 const String kAppId = "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4";
@@ -16,13 +19,13 @@ initParse() async {
     autoSendSessionId: true,
     registeredSubClassMap: {
       // "User": () => const UserModel(),
-      // "Member": () => const UserModel(),
+      "Member": () => MemberObject(),
+      "Service": () => ServiceObject(),
       // "Fellowship": () => const UserModel(),
       // "Bacenta": () => const UserModel(),
       // "Constituency": () => const UserModel(),
-      "Service": () => ServiceObject(),
-      // "Scan": () => const UserModel(),
-      // "Event": () => const UserModel(),
+      "Scan": () => ScanObject(),
+      "Event": () => EventObject(),
     },
   );
 }
