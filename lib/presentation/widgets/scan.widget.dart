@@ -17,44 +17,20 @@ class ScanWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      height: 90,
-      decoration: const BoxDecoration(
-        // borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
-        // boxShadow: const <BoxShadow>[
-        //   BoxShadow(
-        //     color: Colors.black12,
-        //     blurRadius: 0.5,
-        //     spreadRadius: 0.5,
-        //     offset: Offset(0.5, 0.5),
-        //   ),
-        // ],
-        border: Border(bottom: BorderSide(width: 0.4)),
+    return ListTile(
+      title: Text(
+        formatDate(dateTime).split(" ").last,
+        style: const TextStyle(
+          fontSize: 24,
+        ),
       ),
-      child: Column(
+      subtitle: Text(formatDate(dateTime).split(" ").first),
+      trailing: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                formatDate(dateTime).split(" ").last,
-                style: const TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-              Text(lectureType.value + " - " + scanType.value),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(formatDate(dateTime).split(" ").first),
-              const Icon(Icons.qr_code),
-            ],
-          ),
+          Text(lectureType.value + " - " + scanType.value),
+          const Icon(Icons.qr_code),
         ],
       ),
     );
