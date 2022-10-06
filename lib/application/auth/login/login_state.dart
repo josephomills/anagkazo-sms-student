@@ -7,7 +7,7 @@ class LoginState with _$LoginState {
     required String password,
     required bool isLoading,
     required bool validateFields,
-    required Option<Either<AuthFailure, UserModel>> authFailureOrSuccessOption,
+    required Option<Either<AuthFailure, ParseUser>> authFailureOrSuccessOption,
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(

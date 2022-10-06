@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                     )));
                   }, (userModel) {
-                    context.router.replace(const DashboardRoute());
+                    context.router.replace(const HomeRoute());
                   }));
         },
         builder: (context, state) {

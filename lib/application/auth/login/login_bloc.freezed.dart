@@ -477,7 +477,7 @@ mixin _$LoginState {
   String get password => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get validateFields => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, UserModel>> get authFailureOrSuccessOption =>
+  Option<Either<AuthFailure, ParseUser>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -495,7 +495,7 @@ abstract class $LoginStateCopyWith<$Res> {
       String password,
       bool isLoading,
       bool validateFields,
-      Option<Either<AuthFailure, UserModel>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, ParseUser>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -534,7 +534,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, UserModel>>,
+              as Option<Either<AuthFailure, ParseUser>>,
     ));
   }
 }
@@ -551,7 +551,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       String password,
       bool isLoading,
       bool validateFields,
-      Option<Either<AuthFailure, UserModel>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, ParseUser>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -592,7 +592,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, UserModel>>,
+              as Option<Either<AuthFailure, ParseUser>>,
     ));
   }
 }
@@ -616,7 +616,7 @@ class _$_LoginState implements _LoginState {
   @override
   final bool validateFields;
   @override
-  final Option<Either<AuthFailure, UserModel>> authFailureOrSuccessOption;
+  final Option<Either<AuthFailure, ParseUser>> authFailureOrSuccessOption;
 
   @override
   String toString() {
@@ -658,7 +658,7 @@ abstract class _LoginState implements LoginState {
       required final String password,
       required final bool isLoading,
       required final bool validateFields,
-      required final Option<Either<AuthFailure, UserModel>>
+      required final Option<Either<AuthFailure, ParseUser>>
           authFailureOrSuccessOption}) = _$_LoginState;
 
   @override
@@ -670,7 +670,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get validateFields;
   @override
-  Option<Either<AuthFailure, UserModel>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, ParseUser>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
