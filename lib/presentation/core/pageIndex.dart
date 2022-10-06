@@ -7,4 +7,10 @@ class PageIndex {
   static const int myFellowship = 5;
   static const int pastoralPoints = 6;
   static const int disciplinaryPoints = 7;
+
+  static const int vision = 0;
+  static const int pillar = 1;
+  static const int anagkazoLive = 2;
+  static const int firstLoveExperience = 3;
+  static const int otherEvents = 4;
 }
