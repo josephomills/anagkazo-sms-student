@@ -29,4 +29,9 @@ class EventObject extends ParseObject implements ParseCloneable {
   num? get latenessRule => get<num>(kLatenessRule);
   set setLatenessRule(num latenessRule) =>
       set<num>(kLatenessRule, latenessRule);
+
+  static const String kInOrOut = 'inOrOut';
+
+  bool? get inOrOut => get<bool>(kInOrOut);
+  set setInOrOut(bool inOrOut) => set<bool>(kInOrOut, inOrOut);
 }

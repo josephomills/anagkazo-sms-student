@@ -5,10 +5,6 @@ class MemberObject extends ParseObject implements ParseCloneable {
   MemberObject.clone() : super.clone(_kTableName);
 
   static const String _kTableName = 'Member';
-
-  @override
-  clone(Map<String, dynamic> map) => MemberObject.clone()..fromJson(map);
-
   static const String kFirstName = 'firstName';
   static const String kLastName = 'lastname';
   static const String kCountry = 'country';
@@ -18,6 +14,9 @@ class MemberObject extends ParseObject implements ParseCloneable {
   static const String kPhone = 'phone';
   static const String kPhotoUrl = 'photoUrl';
   static const String kWhatsapp = 'whatsapp';
+
+  @override
+  clone(Map<String, dynamic> map) => MemberObject.clone()..fromJson(map);
 
   String? get firstName => get<String>(kFirstName);
   set setFirstName(String firstName) => set<String>(kFirstName, firstName);

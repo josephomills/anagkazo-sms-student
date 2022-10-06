@@ -1,4 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
 
 class ServiceObject extends ParseObject implements ParseCloneable {
   ServiceObject() : super(_kTableName);
@@ -31,7 +32,8 @@ class ServiceObject extends ParseObject implements ParseCloneable {
   List<ParseUser>? get treasurers => get<List<ParseUser>>(kTreasurers);
   String? get treasurersSelfie => get<String>(kTreasurersSelfie);
   String? get servicePhoto => get<String>(kServicePhoto);
-  String? get membersPresent => get<String>(kMembersPresent);
+  List<MemberObject>? get membersPresent =>
+      get<List<MemberObject>>(kMembersPresent);
   String? get fellowship => get<String>(kFellowship);
 
   set setType(String type) => set<String>(kType, type);
@@ -47,6 +49,7 @@ class ServiceObject extends ParseObject implements ParseCloneable {
       set<String>(kTreasurersSelfie, selfie);
   set setServicePhoto(String servicePhoto) =>
       set<String>(kServicePhoto, servicePhoto);
-  // set setMembersPresent(List<MemberObject> membersPresent) => set<List<MemberObject>>(kMembersPresent, membersPresent);
+  set setMembersPresent(List<MemberObject> membersPresent) =>
+      set<List<MemberObject>>(kMembersPresent, membersPresent);
   // set setFellowship(FellowshipObject fellowship) => set<FellowshipObject>(kMembersPresent, membersPresent);
 }

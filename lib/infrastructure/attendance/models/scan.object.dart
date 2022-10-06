@@ -14,6 +14,7 @@ class ScanObject extends ParseObject implements ParseCloneable {
   static const String kUser = 'user';
   static const String kIsLate = 'isLate';
   static const String kEvent = 'event';
+  static const String kType = 'type';
 
   DateTime? get dateTime => get<DateTime>(kDateTime);
   set setDateTime(DateTime dateTime) => set<DateTime>(kDateTime, dateTime);
@@ -26,4 +27,7 @@ class ScanObject extends ParseObject implements ParseCloneable {
 
   bool? get isLate => get<bool>(kIsLate);
   set setIsLate(bool isLate) => set<bool>(kIsLate, isLate);
+
+  String? get type => get<String>(kType);
+  set setType(String type) => set<String>(kType, type);
 }
