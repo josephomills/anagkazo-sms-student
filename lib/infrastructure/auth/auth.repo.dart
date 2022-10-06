@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/auth/auth.facade.dart';
-import 'package:student/infrastructure/auth/models/parseUser.ext.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
 import 'package:student/infrastructure/auth/dto/register.dto.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -11,11 +10,11 @@ import 'package:student/domain/auth/auth.failure.dart';
 @Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
   @override
-  Future<Either<AuthFailure, UserModel>> getCurrentUser() async {
+  Future<Either<AuthFailure, ParseUser>> getCurrentUser() async {
     // Get current user from storage
     final user = await ParseUser.currentUser() as ParseUser?;
     if (user != null) {
-      return Right(UserModel.fromJson(user.toMap()));
+      return Right(user);
     } else {
       // No signed in user
       return const Left(AuthFailure.userDoesNotExist());
@@ -68,7 +67,7 @@ class AuthRepo implements AuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, UserModel>> loginWithUsernameAndPassword(
+  Future<Either<AuthFailure, ParseUser>> loginWithUsernameAndPassword(
       {required LoginDTO loginDTO}) async {
     final user = ParseUser(
       loginDTO.username,
@@ -102,7 +101,7 @@ class AuthRepo implements AuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, UserModel>> updateUser(
+  Future<Either<AuthFailure, ParseUser>> updateUser(
       {required UserModel userData}) {
     // TODO: implement updateUser
     throw UnimplementedError();
