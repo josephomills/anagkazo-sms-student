@@ -4,7 +4,7 @@ import 'package:student/application/core/authGard.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
-import 'package:student/infrastructure/core/parse.dart';
+import 'package:student/infrastructure/core/parseSDK.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
