@@ -32,6 +32,29 @@ extension LectureTypeExt on LectureType {
         return "";
     }
   }
+
+  String get shortname {
+    switch (this) {
+      case LectureType.pillar:
+        return "PILLAR";
+      case LectureType.foundational:
+        return "FOUNDATIONAL";
+      case LectureType.tutorial:
+        return "TUTORIAL";
+      case LectureType.vision:
+        return "VISION";
+      case LectureType.anagkazoLive:
+        return "A_LIVE";
+      case LectureType.firstLoveExperience:
+        return "FL_EXP";
+      case LectureType.other:
+        return "OTHER";
+      case LectureType.none:
+        return "OTHER";
+      default:
+        return "";
+    }
+  }
 }
 
 extension StringExt on String {
