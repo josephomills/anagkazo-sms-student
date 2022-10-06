@@ -1,8 +1,11 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
+import 'package:student/infrastructure/core/models/yearGroup.object.dart';
 import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
+import 'package:path/path.dart' as path;
 
 const String kAppId = "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4";
 const String kServerUrl = "https://parseapi.back4app.com/";
@@ -12,13 +15,17 @@ const bool kAutoSendSessionId = true;
 
 initParse() async {
   await Parse().initialize(
-    kAppId, kServerUrl,
+    kAppId,
+    kServerUrl,
     clientKey: kClientKey,
-    // coreStore: await CoreStoreSembastImp.getInstance(),
+    // coreStore: await CoreStoreSembastImp.getInstance(
+    //   factory: databaseFactoryIo,
+    //   password: kAppId,
+    // ),
     liveQueryUrl: kliveQueryUrl,
     autoSendSessionId: true,
     registeredSubClassMap: {
-      // "User": () => const UserModel(),
+      "YearGroup": () => YearGroupObject(),
       "Member": () => MemberObject(),
       "Service": () => ServiceObject(),
       // "Fellowship": () => const UserModel(),
@@ -28,4 +35,10 @@ initParse() async {
       "Event": () => EventObject(),
     },
   );
+}
+
+Future<String> dbDirectory() async {
+  String dbDirectory = '';
+  dbDirectory = (await getApplicationDocumentsDirectory()).path;
+  return path.join('$dbDirectory/parse', 'parse.db');
 }
