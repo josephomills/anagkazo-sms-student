@@ -15,7 +15,7 @@ class ScannerAnimatedWidget extends AnimatedWidget {
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable as Animation<double>;
     final scorePosition =
-        animation.value * (MediaQuery.of(context).size.height - 100);
+        animation.value * (MediaQuery.of(context).size.height - 132);
 
     Color color1 = const Color(0x5532CD32);
     Color color2 = const Color(0x0032CD32);
