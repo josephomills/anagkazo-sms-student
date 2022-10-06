@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/application/home/home_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
-import 'package:student/infrastructure/auth/models/user.model.dart';
 import 'package:student/presentation/core/pageIndex.dart';
 import 'package:student/presentation/widgets/drawer.widget.dart';
 import 'package:student/presentation/widgets/fab.widget.dart';
@@ -24,10 +24,10 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
           return const Center();
         }
 
-        final failureOrUser = snapshot.data as Either<AuthFailure, UserModel>;
+        final failureOrUser = snapshot.data as Either<AuthFailure, ParseUser>;
         if (failureOrUser.isLeft()) {}
 
-        final user = failureOrUser.getOrElse(() => UserModel.empty());
+        final user = failureOrUser.getOrElse(() => ParseUser(null, null, null));
 
         return AutoTabsRouter(
           homeIndex: PageIndex.dashboard,
@@ -46,9 +46,9 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
 
             return Scaffold(
               drawer: AppDrawer(
-                name: "${user.firstname} ${user.lastname}",
-                username: user.username,
-                photoUrl: user.photoUrl!,
+                name: "${user.get("firstname")} ${user.get("lastname")}",
+                username: user.username!,
+                photoUrl: user.get("photoUrl"),
               ),
               floatingActionButton:
                   (tabsRouter.activeIndex == PageIndex.dashboard ||

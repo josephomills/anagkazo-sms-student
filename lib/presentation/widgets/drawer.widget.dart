@@ -170,7 +170,7 @@ class AppDrawer extends StatelessWidget {
                                     "Something went wrong. Please try again.",
                               ),
                             ))), (r) {
-                      context.router.replaceAll([const DashboardRoute()]);
+                      context.router.replaceAll([const HomeRoute()]);
                     });
                   },
                   icon: const Icon(
