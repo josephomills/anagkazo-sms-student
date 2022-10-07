@@ -4,9 +4,11 @@ part of 'scan_bloc.dart';
 class ScanState with _$ScanState {
   const factory ScanState({
     required bool isScanning,
+    required Option<EventObject> eventOption,
   }) = _Initial;
 
-  factory ScanState.initial() => const ScanState(
+  factory ScanState.initial() => ScanState(
         isScanning: true,
+        eventOption: none(),
       );
 }
