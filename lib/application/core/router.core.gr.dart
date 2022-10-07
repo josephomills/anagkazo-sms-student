@@ -61,7 +61,8 @@ class AppRouter extends _i19.RootStackRouter {
     },
     ScanRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.ScanPage());
+          routeData: routeData,
+          child: _i19.WrappedRoute(child: const _i3.ScanPage()));
     },
     ScanConfirmationRoute.name: (routeData) {
       final args = routeData.argsAs<ScanConfirmationRouteArgs>();
