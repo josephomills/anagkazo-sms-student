@@ -10,7 +10,6 @@ import 'package:student/application/core/injectable.core.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
-import 'package:student/infrastructure/auth/models/user.model.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
