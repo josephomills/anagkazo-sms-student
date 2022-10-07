@@ -1,46 +1,58 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:student/application/attendance/scan/scan_bloc.dart';
+import 'package:student/application/core/injectable.core.dart';
+import 'package:student/infrastructure/core/models/yearGroup.object.dart';
 import 'package:student/presentation/widgets/scannerAnimation.widget.dart';
 
-class ScanPage extends StatefulWidget {
+class ScanPage extends StatefulWidget implements AutoRouteWrapper {
   const ScanPage({Key? key}) : super(key: key);
 
   @override
   State<ScanPage> createState() => _ScanPageState();
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<ScanBloc>(
+      create: (context) => getIt<ScanBloc>(),
+      child: this,
+    );
+  }
 }
 
 class _ScanPageState extends State<ScanPage>
     with SingleTickerProviderStateMixin {
-  MobileScannerController ctrl = MobileScannerController(
+  MobileScannerController scannerCtrl = MobileScannerController(
     formats: [BarcodeFormat.qrCode],
   );
-  bool torchOn = false;
-  late AnimationController _animationController;
-  final bool _animationStopped = false;
-  String scanText = "Scan";
-  bool scanning = true;
+  late AnimationController _animationCtrl;
+  bool isScanning = true;
 
   @override
   void initState() {
-    _animationController =
+    _animationCtrl =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
 
-    _animationController.addStatusListener((status) {
+    _animationCtrl.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         animateScanAnimation(reverse: true);
       } else if (status == AnimationStatus.dismissed) {
         animateScanAnimation(reverse: false);
       }
     });
-    _animationController.forward(from: 0.0);
+    _animationCtrl.forward(from: 0.0);
     super.initState();
   }
 
   @override
   void dispose() {
-    _animationController.dispose();
-    ctrl.dispose();
+    _animationCtrl.dispose();
+    scannerCtrl.dispose();
     super.dispose();
   }
 
@@ -48,23 +60,15 @@ class _ScanPageState extends State<ScanPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
-          "Scan QR Code",
-          style: TextStyle(color: Colors.black87, fontStyle: FontStyle.italic),
-        ),
-        backgroundColor: Colors.white70,
+        title: const Text("Scan QR Code"),
         elevation: 0,
         actions: [
-          if (ctrl.hasTorch)
+          if (scannerCtrl.hasTorch)
             IconButton(
               onPressed: () async {
-                await ctrl.toggleTorch();
+                await scannerCtrl.toggleTorch();
               },
-              icon: Icon(
-                torchOn ? Icons.flashlight_off : Icons.flashlight_on,
-                color: Colors.black87,
-              ),
+              icon: const Icon(Icons.flashlight_on),
             ),
         ],
       ),
@@ -72,14 +76,39 @@ class _ScanPageState extends State<ScanPage>
         children: [
           MobileScanner(
             allowDuplicates: false,
-            controller: ctrl,
+            controller: scannerCtrl,
             onDetect: (barcode, args) {
               if (barcode.rawValue != null) {
+                // Example payload
+                // {
+                //   "eventId": "eventId",
+                //   "dateTime": "dateTime",
+                //   "type": "in",
+                // }
+
                 String value = barcode.rawValue ?? "";
-                final Map<String, dynamic> details = {
-                  "type": value.split(" ").last,
-                  // "dateTime": Timestamp.now(), // use server time (UTC)
-                };
+
+                final map = jsonDecode(value) as Map<String, dynamic>;
+                // Get Event object from server
+
+                // Check for a valid scan
+                // 1. Scan is on the same day
+                // 2. Student is in a class the event is valid for
+                final bool isValid = isValidScan(
+                  scanDate: map["dateTime"],
+                  studentYearGroup: YearGroupObject(),
+                  allowedYearGroups: [],
+                );
+
+                if (isValid) {
+                  if (map["type"] == "IN") {
+                    // Check for lateness
+                  }
+                  // if it's a scan in, create a scan object.
+
+                  // if it's a scan out, check for a scan in update the scan object (event & user)
+                }
+
                 // Pause scan
 
                 // Go to confirmation page
@@ -100,9 +129,9 @@ class _ScanPageState extends State<ScanPage>
             },
           ),
           ScannerAnimatedWidget(
-            stopped: _animationStopped,
+            stopped: isScanning,
             width: MediaQuery.of(context).size.width,
-            animation: _animationController,
+            animation: _animationCtrl,
           ),
         ],
       ),
@@ -111,9 +140,44 @@ class _ScanPageState extends State<ScanPage>
 
   void animateScanAnimation({required bool reverse}) {
     if (reverse) {
-      _animationController.reverse(from: 1.0);
+      _animationCtrl.reverse(from: 1.0);
     } else {
-      _animationController.forward(from: 0.0);
+      _animationCtrl.forward(from: 0.0);
     }
+  }
+
+  bool isScanForToday({required DateTime scanDate}) {
+    final now = DateTime.now().toUtc();
+    final today = DateTime(now.year, now.month, now.day);
+    scanDate = scanDate.toUtc();
+    final scanDateTime = DateTime(scanDate.year, scanDate.month, scanDate.day);
+
+    return scanDateTime == today;
+  }
+
+  bool isStudentInCorrectClass({
+    required YearGroupObject studentYearGroup,
+    List<YearGroupObject>? allowedYearGroups,
+  }) {
+    bool studentInCorrectClass = true;
+
+    if (allowedYearGroups != null) {
+      studentInCorrectClass = allowedYearGroups.contains(studentYearGroup);
+    }
+
+    return studentInCorrectClass;
+  }
+
+  bool isValidScan({
+    required DateTime scanDate,
+    required YearGroupObject studentYearGroup,
+    List<YearGroupObject>? allowedYearGroups,
+  }) {
+    // return isStudentInCorrectClass(
+    //         studentYearGroup: studentYearGroup,
+    //         allowedYearGroups: allowedYearGroups) &&
+    //     isScanForToday(scanDate: scanDate);
+
+    return true;
   }
 }
