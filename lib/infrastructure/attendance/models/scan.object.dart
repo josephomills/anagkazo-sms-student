@@ -10,24 +10,26 @@ class ScanObject extends ParseObject implements ParseCloneable {
   @override
   clone(Map<String, dynamic> map) => ScanObject.clone()..fromJson(map);
 
-  static const String kDateTime = 'dateTime';
+  static const String kScannedInAt = 'scannedInAt';
+  static const String kScannedOutAt = 'scannedOutAt';
   static const String kUser = 'user';
-  static const String kIsLate = 'isLate';
   static const String kEvent = 'event';
   static const String kType = 'type';
 
-  DateTime? get dateTime => get<DateTime>(kDateTime);
-  set setDateTime(DateTime dateTime) => set<DateTime>(kDateTime, dateTime);
+  DateTime? get scannedInAt => get<DateTime>(kScannedInAt);
+  set scannedInAt(DateTime? scannedInAt) =>
+      set<DateTime?>(kScannedInAt, scannedInAt);
+
+  DateTime? get scannedOutAt => get<DateTime>(kScannedOutAt);
+  set scannedOutAt(DateTime? scannedOutAt) =>
+      set<DateTime?>(kScannedOutAt, scannedOutAt);
 
   ParseUser? get user => get<ParseUser>(kUser);
-  set setUser(ParseUser user) => set<ParseUser>(kUser, user);
+  set user(ParseUser? user) => set<ParseUser?>(kUser, user);
 
   EventObject? get event => get<EventObject>(kEvent);
-  set setEvent(EventObject event) => set<EventObject>(kEvent, event);
-
-  bool? get isLate => get<bool>(kIsLate);
-  set setIsLate(bool isLate) => set<bool>(kIsLate, isLate);
+  set event(EventObject? event) => set<EventObject?>(kEvent, event);
 
   String? get type => get<String>(kType);
-  set setType(String type) => set<String>(kType, type);
+  set type(String? type) => set<String?>(kType, type);
 }

@@ -28,7 +28,7 @@ class ServiceObject extends ParseObject implements ParseCloneable {
   int? get attendance => get<int>(kAttendance);
   num? get cediIncome => get<num>(kCediIncome);
   num? get foreignIncome => get<num>(kForeignIncome);
-  String? get numTithers => get<String>(kNumTithers);
+  int? get numTithers => get<int>(kNumTithers);
   List<ParseUser>? get treasurers => get<List<ParseUser>>(kTreasurers);
   String? get treasurersSelfie => get<String>(kTreasurersSelfie);
   String? get servicePhoto => get<String>(kServicePhoto);
@@ -36,20 +36,20 @@ class ServiceObject extends ParseObject implements ParseCloneable {
       get<List<MemberObject>>(kMembersPresent);
   String? get fellowship => get<String>(kFellowship);
 
-  set setType(String type) => set<String>(kType, type);
-  set setDate(DateTime date) => set<String>(kDate, date.toIso8601String());
-  set setAttendance(int attendance) => set<int>(kAttendance, attendance);
-  set setCediIncome(num cediIncome) => set<num>(kCediIncome, cediIncome);
-  set setForeignIncome(num foreignIncome) =>
-      set<num>(kForeignIncome, foreignIncome);
-  set setNumTithers(int numTithers) => set<int>(kNumTithers, numTithers);
-  set setTreasurers(List<ParseUser> treasurers) =>
-      set<List<ParseUser>>(kAttendance, treasurers);
-  set setTreasurersSelfie(String selfie) =>
-      set<String>(kTreasurersSelfie, selfie);
-  set setServicePhoto(String servicePhoto) =>
-      set<String>(kServicePhoto, servicePhoto);
-  set setMembersPresent(List<MemberObject> membersPresent) =>
-      set<List<MemberObject>>(kMembersPresent, membersPresent);
+  set type(String? type) => set<String?>(kType, type);
+  set date(DateTime? date) => set<String?>(kDate, date!.toIso8601String());
+  set attendance(int? attendance) => set<int?>(kAttendance, attendance);
+  set cediIncome(num? cediIncome) => set<num?>(kCediIncome, cediIncome);
+  set foreignIncome(num? foreignIncome) =>
+      set<num?>(kForeignIncome, foreignIncome);
+  set numTithers(int? numTithers) => set<int?>(kNumTithers, numTithers);
+  set treasurers(List<ParseUser>? treasurers) =>
+      set<List<ParseUser>?>(kAttendance, treasurers);
+  set treasurersSelfie(String? selfie) =>
+      set<String?>(kTreasurersSelfie, selfie);
+  set servicePhoto(String? servicePhoto) =>
+      set<String?>(kServicePhoto, servicePhoto);
+  set membersPresent(List<MemberObject>? membersPresent) =>
+      set<List<MemberObject>?>(kMembersPresent, membersPresent);
   // set setFellowship(FellowshipObject fellowship) => set<FellowshipObject>(kMembersPresent, membersPresent);
 }
