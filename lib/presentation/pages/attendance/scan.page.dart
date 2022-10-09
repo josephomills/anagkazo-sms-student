@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
@@ -123,6 +124,11 @@ class _ScanPageState extends State<ScanPage>
                 width: MediaQuery.of(context).size.width,
                 animation: _animationCtrl,
               ),
+              if (state.isLoading)
+                const SpinKitCubeGrid(
+                  color: Colors.blue,
+                  size: 60,
+                )
             ],
           );
         },
