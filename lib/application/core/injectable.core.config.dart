@@ -23,7 +23,7 @@ import '../../infrastructure/auth/auth.repo.dart' as _i6;
 import '../../infrastructure/core/injectable.module.dart' as _i21;
 import '../../infrastructure/dashboard/dashboard.repo.dart' as _i10;
 import '../../infrastructure/myFellowship/myFellowship.repo.dart' as _i14;
-import '../../infrastructure/service/b4a.service.dart' as _i8;
+import '../../infrastructure/myFellowship/service/b4a.service.dart' as _i8;
 import '../attendance/scan/scan_bloc.dart' as _i19;
 import '../auth/login/login_bloc.dart' as _i12;
 import '../myFellowship/my_fellowship_bloc.dart'
