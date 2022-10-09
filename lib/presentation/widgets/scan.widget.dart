@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:student/domain/attendance/lectureType.enum.dart';
-import 'package:student/domain/attendance/scanType.enum.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
     Key? key,
     required this.dateTime,
-    required this.scanType,
+    required this.scanIn,
+    required this.scanOut,
     this.lectureType = LectureType.anagkazoLive,
   }) : super(key: key);
 
   final DateTime dateTime;
-  final ScanType scanType;
+  final bool scanIn;
+  final bool scanOut;
   final LectureType lectureType;
 
   @override
@@ -29,7 +30,7 @@ class ScanWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(lectureType.value + " - " + scanType.value),
+          Text(lectureType.value),
           const Icon(Icons.qr_code),
         ],
       ),

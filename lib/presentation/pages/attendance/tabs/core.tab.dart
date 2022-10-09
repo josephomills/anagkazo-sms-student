@@ -6,7 +6,6 @@ import 'package:student/application/core/injectable.core.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
 import 'package:student/domain/attendance/lectureType.enum.dart';
-import 'package:student/domain/attendance/scanType.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/scan.widget.dart';
 
@@ -48,10 +47,9 @@ FutureBuilder<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
           }
 
           return ScanWidget(
-            dateTime: snapshot.loadedData!.dateTime!,
-            scanType: snapshot.loadedData!.type == "IN"
-                ? ScanType.scanIn
-                : ScanType.scanOut,
+            dateTime: snapshot.loadedData!.scannedInAt!,
+            scanIn: snapshot.loadedData!.scannedInAt != null,
+            scanOut: snapshot.loadedData!.scannedOutAt != null,
             lectureType: lectureType,
           );
         },
