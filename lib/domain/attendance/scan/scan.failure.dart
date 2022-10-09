@@ -4,5 +4,5 @@ part 'scan.failure.freezed.dart';
 
 @freezed
 abstract class ScanFailure with _$ScanFailure {
-  const factory ScanFailure.serverError() = _ServerError;
+  const factory ScanFailure.serverError({String? message}) = _ServerError;
 }
