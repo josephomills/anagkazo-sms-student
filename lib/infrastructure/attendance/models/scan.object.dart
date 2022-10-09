@@ -14,7 +14,6 @@ class ScanObject extends ParseObject implements ParseCloneable {
   static const String kScannedOutAt = 'scannedOutAt';
   static const String kUser = 'user';
   static const String kEvent = 'event';
-  static const String kType = 'type';
 
   DateTime? get scannedInAt => get<DateTime>(kScannedInAt);
   set scannedInAt(DateTime? scannedInAt) =>
@@ -29,7 +28,4 @@ class ScanObject extends ParseObject implements ParseCloneable {
 
   EventObject? get event => get<EventObject>(kEvent);
   set event(EventObject? event) => set<EventObject?>(kEvent, event);
-
-  String? get type => get<String>(kType);
-  set type(String? type) => set<String?>(kType, type);
 }
