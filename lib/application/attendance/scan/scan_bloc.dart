@@ -5,8 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:student/domain/attendance/scan/scan.facade.dart';
+import 'package:student/domain/attendance/scan/scan.failure.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
-import 'package:student/infrastructure/core/models/yearGroup.object.dart';
+import 'package:student/infrastructure/attendance/models/scan.object.dart';
+import 'package:student/infrastructure/academics/models/yearGroup.object.dart';
 
 part 'scan_event.dart';
 part 'scan_state.dart';
@@ -17,33 +19,122 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
   final ScanFacade _scanFacade;
 
   ScanBloc(this._scanFacade) : super(ScanState.initial()) {
-    on<ScanEvent>((event, emit) async {
+    on<ScanEvent>((event, emitter) async {
       await event.map<FutureOr<void>>(
         started: (e) {},
-        scanDetected: (e) {
+        scanDetected: (e) async {
+          final scannedAt = DateTime.now().toUtc();
+          // Stop scanning
+          emitter.call(state.copyWith(isScanning: false, isLoading: true));
+
           // Get Event object from server
+          final String eventId = e.qr["eventId"] as String;
+          final eventObjOption = (await _scanFacade.getEvent(objectId: eventId))
+              .getOrElse(() => none());
+          final bool eventExists = eventObjOption.isSome();
 
-          // Check for a valid scan
-          // 1. Scan is on the same day
-          // 2. Student is in a class the event is valid for
-          final bool isValid = isValidScan(
-            scanDate: e.qr["dateTime"],
-            studentYearGroup: YearGroupObject(),
-            allowedYearGroups: [],
-          );
+          if (eventExists) {
+            // TODO
+            // Check for a valid scan
+            // 1. Scan is on the same day
+            // 2. Student is in a class the event is valid for
+            final bool isValid = isValidScan(
+              scanDate: DateTime.parse(e.qr["dateTime"]),
+              studentYearGroup: YearGroupObject(),
+              allowedYearGroups: [],
+            );
 
-          if (isValid) {
-            if (e.qr["type"] == "IN") {
-              // Check for lateness
+            if (isValid) {
+              final eventObj = eventObjOption.getOrElse(() => EventObject());
+              final bool validEvent = eventObj.objectId != null;
+              if (validEvent) {
+                if (e.qr["type"] == "IN") {
+                  final scanOrFailure = await _scanFacade.scanIn(
+                    event: eventObj,
+                    dateTime: scannedAt,
+                  );
+                  emitter.call(state.copyWith(
+                    isLoading: false,
+                    failureOrScanOption: some(scanOrFailure),
+                    eventOption: some(eventObj),
+                  ));
+                } else if (e.qr["type"] == "OUT") {
+                  final scanOrFailure = await _scanFacade.scanOut(
+                    event: eventObj,
+                    dateTime: scannedAt,
+                  );
+                  emitter.call(state.copyWith(
+                    isLoading: false,
+                    failureOrScanOption: some(scanOrFailure),
+                    eventOption: some(eventObj),
+                  ));
+                } else {
+                  emitter.call(
+                    state.copyWith(
+                      isLoading: false,
+                      isScanning: true,
+                      failureOrScanOption: some(
+                        const Left(
+                          ScanFailure.invalidScanError(
+                            message: "QR code is invalid. No 'type' found.",
+                          ),
+                        ),
+                      ),
+                      eventOption: some(eventObj),
+                    ),
+                  );
+                }
+              } else {
+                emitter.call(
+                  state.copyWith(
+                    isLoading: false,
+                    isScanning: true,
+                    failureOrScanOption: some(
+                      const Left(
+                        ScanFailure.invalidEventError(
+                          message: "QR Code is invalid. Check event details.",
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
+            } else {
+              emitter.call(
+                state.copyWith(
+                  isLoading: false,
+                  isScanning: true,
+                  failureOrScanOption: some(
+                    const Left(
+                      ScanFailure.invalidScanError(
+                        message: "You're not permitted to scan for this event.",
+                      ),
+                    ),
+                  ),
+                ),
+              );
             }
-            // if it's a scan in, create a scan object.
-
-            // if it's a scan out, check for a scan in update the scan object (event & user)
+          } else {
+            emitter.call(
+              state.copyWith(
+                isLoading: false,
+                isScanning: true,
+                failureOrScanOption: some(
+                  const Left(
+                    ScanFailure.invalidEventError(
+                      message: "QR Code is invalid. No event found.",
+                    ),
+                  ),
+                ),
+              ),
+            );
           }
         },
+        scanConfirmed: (e) {},
       );
     });
   }
+
   bool isScanForToday({required DateTime scanDate}) {
     final now = DateTime.now().toUtc();
     final today = DateTime(now.year, now.month, now.day);

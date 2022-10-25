@@ -89,7 +89,8 @@ class AppRouter extends _i19.RootStackRouter {
     },
     AttendanceRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.AttendancePage());
+          routeData: routeData,
+          child: _i19.WrappedRoute(child: const _i9.AttendancePage()));
     },
     FormsRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(

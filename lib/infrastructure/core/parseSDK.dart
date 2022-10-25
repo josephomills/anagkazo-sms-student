@@ -8,9 +8,9 @@ import 'package:student/infrastructure/myFellowship/models/service/service.objec
 import 'package:path/path.dart' as path;
 
 const String kAppId = "U8fyVpsUKGmZhq0KS9EZopCkYfdXXQxR3GS7twW4";
-const String kServerUrl = "https://parseapi.back4app.com/";
+const String kServerUrl = "https://parseapi.back4app.com";
 const String kClientKey = "8l7BMF9rnsFtbXboWqBePLLcJEcmp3KJBnbBmL0N";
-const String kliveQueryUrl = "anagkazosms.b4a.io";
+const String kliveQueryUrl = "https://anagkazosms.b4a.io";
 const bool kAutoSendSessionId = true;
 
 initParse() async {
@@ -23,7 +23,7 @@ initParse() async {
     //   password: kAppId,
     // ),
     liveQueryUrl: kliveQueryUrl,
-    autoSendSessionId: true,
+    autoSendSessionId: kAutoSendSessionId,
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),
       "Member": () => MemberObject(),
@@ -34,6 +34,7 @@ initParse() async {
       "Scan": () => ScanObject(),
       "Event": () => EventObject(),
     },
+    // connectivityProvider: ,
   );
 }
 

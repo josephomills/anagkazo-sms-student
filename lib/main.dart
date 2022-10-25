@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:student/application/core/authGard.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
+import 'package:student/firebase_options.dart';
 import 'package:student/infrastructure/core/parseSDK.dart';
 
 void main() async {
@@ -14,6 +17,14 @@ void main() async {
 
   // Initialize Injectable
   initInjectable(Environment.prod);
+
+  //initialize Firebase app
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // Set unlimited cache
+  FirebaseFirestore.instance.settings = const Settings(
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+    persistenceEnabled: true,
+  );
 
   // Initialize Parse Server (Back4App)
   initParse();

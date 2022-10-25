@@ -41,7 +41,7 @@ class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
           // return
           emitter.call(state.copyWith(
             isLoading: false,
-            avgAttendance: "${sumAttendance ~/ services.length}",
+            avgAttendance: (sumAttendance / services.length).toStringAsFixed(0),
             avgIncome: (sumIncome / services.length).toStringAsFixed(2),
             failureOrServicesOption: some(failureOrServices),
           ));

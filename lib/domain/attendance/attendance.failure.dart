@@ -4,5 +4,5 @@ part 'attendance.failure.freezed.dart';
 
 @freezed
 abstract class AttendanceFailure with _$AttendanceFailure {
-  const factory AttendanceFailure.serverError() = _ServerError;
+  const factory AttendanceFailure.serverError({String? message}) = _ServerError;
 }

@@ -53,14 +53,14 @@ flutter_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path_android: "assets/icon/icon.png"
-  image_path_ios: "assets/icon/icon.png"
+  image_path_android: "assets/icon/logo.png"
+  image_path_ios: "assets/icon/logo.png"
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/icon/adaptive_foreground_white.png"
+  adaptive_icon_foreground: "assets/icon/adaptive_foreground.png"
 
 flutter_native_splash:
   color: "#ffffff"
-  image: "assets/icon/splash.png"
+  image: "assets/icon/logo.png"
 
 # The following section is specific to Flutter.
 flutter:

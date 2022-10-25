@@ -14,20 +14,21 @@ import '../../domain/attendance/attendance.facade.dart' as _i3;
 import '../../domain/attendance/scan/scan.facade.dart' as _i15;
 import '../../domain/auth/auth.facade.dart' as _i5;
 import '../../domain/auth/auth.validator.dart' as _i7;
-import '../../domain/core/sharedPref.model.dart' as _i20;
+import '../../domain/core/sharedPref.model.dart' as _i21;
 import '../../domain/dashboard/dashboard.facade.dart' as _i9;
 import '../../domain/myFellowship/myFellowship.facade.dart' as _i13;
 import '../../infrastructure/attendance/attendance.repo.dart' as _i4;
 import '../../infrastructure/attendance/scan.repo.dart' as _i16;
 import '../../infrastructure/auth/auth.repo.dart' as _i6;
-import '../../infrastructure/core/injectable.module.dart' as _i21;
+import '../../infrastructure/core/injectable.module.dart' as _i22;
 import '../../infrastructure/dashboard/dashboard.repo.dart' as _i10;
 import '../../infrastructure/myFellowship/myFellowship.repo.dart' as _i14;
 import '../../infrastructure/myFellowship/service/b4a.service.dart' as _i8;
-import '../attendance/scan/scan_bloc.dart' as _i19;
+import '../attendance/attendance/attendance_bloc.dart' as _i18;
+import '../attendance/scan/scan_bloc.dart' as _i20;
 import '../auth/login/login_bloc.dart' as _i12;
 import '../myFellowship/my_fellowship_bloc.dart'
-    as _i18; // ignore_for_file: unnecessary_lambdas
+    as _i19; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -48,14 +49,16 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   await gh.factoryAsync<_i17.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true);
-  gh.factory<_i18.MyFellowshipBloc>(
-      () => _i18.MyFellowshipBloc(get<_i13.MyFellowshipFacade>()));
-  gh.factory<_i19.ScanBloc>(() => _i19.ScanBloc(get<_i15.ScanFacade>()));
-  gh.factory<_i20.SharedPref>(
-      () => _i20.SharedPref(get<_i17.SharedPreferences>()));
+  gh.factory<_i18.AttendanceBloc>(
+      () => _i18.AttendanceBloc(get<_i3.AttendanceFacade>()));
+  gh.factory<_i19.MyFellowshipBloc>(
+      () => _i19.MyFellowshipBloc(get<_i13.MyFellowshipFacade>()));
+  gh.factory<_i20.ScanBloc>(() => _i20.ScanBloc(get<_i15.ScanFacade>()));
+  gh.factory<_i21.SharedPref>(
+      () => _i21.SharedPref(get<_i17.SharedPreferences>()));
   return get;
 }
 
-class _$FormKeyModule extends _i21.FormKeyModule {}
+class _$FormKeyModule extends _i22.FormKeyModule {}
 
-class _$SharedPreferencesModule extends _i21.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i22.SharedPreferencesModule {}

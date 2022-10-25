@@ -75,7 +75,26 @@ class _ScanPageState extends State<ScanPage>
       body: BlocConsumer<ScanBloc, ScanState>(
         bloc: context.bloc<ScanBloc>(),
         listener: (context, state) {
-          // TODO: implement listener
+          if (!state.isLoading) {
+            state.failureOrScanOption.fold(
+              () {},
+              (either) => either.fold(
+                (f) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(f.message!),
+                    ),
+                  );
+                  // close scan page
+                  context.router.pop();
+                },
+                (scanObj) {
+                  // close scan page
+                  context.router.pop();
+                },
+              ),
+            );
+          }
         },
         builder: (context, state) {
           return Stack(
@@ -93,7 +112,6 @@ class _ScanPageState extends State<ScanPage>
                     // }
 
                     String value = barcode.rawValue ?? "";
-
                     final map = jsonDecode(value) as Map<String, dynamic>;
 
                     context
@@ -125,10 +143,27 @@ class _ScanPageState extends State<ScanPage>
                 animation: _animationCtrl,
               ),
               if (state.isLoading)
-                const SpinKitCubeGrid(
-                  color: Colors.blue,
-                  size: 60,
-                )
+                const Center(
+                  child: SpinKitCubeGrid(
+                    color: Colors.blue,
+                    size: 70,
+                  ),
+                ),
+              if (state.isConfirming)
+                Center(
+                  child: SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: Card(
+                      child: Column(
+                        children: const [
+                          Text("QR Code Detected"),
+                          Text("data"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
             ],
           );
         },

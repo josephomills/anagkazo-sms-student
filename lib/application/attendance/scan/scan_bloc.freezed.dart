@@ -20,18 +20,21 @@ mixin _$ScanEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function(EventObject event) scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ScanEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function(EventObject event) scanConfirmed,
   }) {
     return started();
   }
@@ -121,6 +128,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
   }) {
     return started?.call();
   }
@@ -130,6 +138,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -143,6 +152,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
   }) {
     return started(this);
   }
@@ -152,6 +162,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
   }) {
     return started?.call(this);
   }
@@ -161,6 +172,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -244,6 +256,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function(EventObject event) scanConfirmed,
   }) {
     return scanDetected(qr);
   }
@@ -253,6 +266,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
   }) {
     return scanDetected?.call(qr);
   }
@@ -262,6 +276,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -275,6 +290,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
   }) {
     return scanDetected(this);
   }
@@ -284,6 +300,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
   }) {
     return scanDetected?.call(this);
   }
@@ -293,6 +310,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -313,9 +331,154 @@ abstract class _ScanDetected implements ScanEvent {
 }
 
 /// @nodoc
+abstract class _$$_ScanConfirmedCopyWith<$Res> {
+  factory _$$_ScanConfirmedCopyWith(
+          _$_ScanConfirmed value, $Res Function(_$_ScanConfirmed) then) =
+      __$$_ScanConfirmedCopyWithImpl<$Res>;
+  $Res call({EventObject event});
+}
+
+/// @nodoc
+class __$$_ScanConfirmedCopyWithImpl<$Res> extends _$ScanEventCopyWithImpl<$Res>
+    implements _$$_ScanConfirmedCopyWith<$Res> {
+  __$$_ScanConfirmedCopyWithImpl(
+      _$_ScanConfirmed _value, $Res Function(_$_ScanConfirmed) _then)
+      : super(_value, (v) => _then(v as _$_ScanConfirmed));
+
+  @override
+  _$_ScanConfirmed get _value => super._value as _$_ScanConfirmed;
+
+  @override
+  $Res call({
+    Object? event = freezed,
+  }) {
+    return _then(_$_ScanConfirmed(
+      event: event == freezed
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as EventObject,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ScanConfirmed implements _ScanConfirmed {
+  const _$_ScanConfirmed({required this.event});
+
+  @override
+  final EventObject event;
+
+  @override
+  String toString() {
+    return 'ScanEvent.scanConfirmed(event: $event)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ScanConfirmed &&
+            const DeepCollectionEquality().equals(other.event, event));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(event));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ScanConfirmedCopyWith<_$_ScanConfirmed> get copyWith =>
+      __$$_ScanConfirmedCopyWithImpl<_$_ScanConfirmed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function(EventObject event) scanConfirmed,
+  }) {
+    return scanConfirmed(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
+  }) {
+    return scanConfirmed?.call(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function(EventObject event)? scanConfirmed,
+    required TResult orElse(),
+  }) {
+    if (scanConfirmed != null) {
+      return scanConfirmed(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
+  }) {
+    return scanConfirmed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
+  }) {
+    return scanConfirmed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
+    required TResult orElse(),
+  }) {
+    if (scanConfirmed != null) {
+      return scanConfirmed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ScanConfirmed implements ScanEvent {
+  const factory _ScanConfirmed({required final EventObject event}) =
+      _$_ScanConfirmed;
+
+  EventObject get event;
+  @JsonKey(ignore: true)
+  _$$_ScanConfirmedCopyWith<_$_ScanConfirmed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ScanState {
   bool get isScanning => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isConfirming => throw _privateConstructorUsedError;
   Option<EventObject> get eventOption => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  Option<Either<ScanFailure, ScanObject>> get failureOrScanOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ScanStateCopyWith<ScanState> get copyWith =>
@@ -326,7 +489,13 @@ mixin _$ScanState {
 abstract class $ScanStateCopyWith<$Res> {
   factory $ScanStateCopyWith(ScanState value, $Res Function(ScanState) then) =
       _$ScanStateCopyWithImpl<$Res>;
-  $Res call({bool isScanning, Option<EventObject> eventOption});
+  $Res call(
+      {bool isScanning,
+      bool isLoading,
+      bool isConfirming,
+      Option<EventObject> eventOption,
+      String? type,
+      Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
 }
 
 /// @nodoc
@@ -340,106 +509,190 @@ class _$ScanStateCopyWithImpl<$Res> implements $ScanStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isScanning = freezed,
+    Object? isLoading = freezed,
+    Object? isConfirming = freezed,
     Object? eventOption = freezed,
+    Object? type = freezed,
+    Object? failureOrScanOption = freezed,
   }) {
     return _then(_value.copyWith(
       isScanning: isScanning == freezed
           ? _value.isScanning
           : isScanning // ignore: cast_nullable_to_non_nullable
               as bool,
-      eventOption: eventOption == freezed
-          ? _value.eventOption
-          : eventOption // ignore: cast_nullable_to_non_nullable
-              as Option<EventObject>,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-  @override
-  $Res call({bool isScanning, Option<EventObject> eventOption});
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$ScanStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
-
-  @override
-  $Res call({
-    Object? isScanning = freezed,
-    Object? eventOption = freezed,
-  }) {
-    return _then(_$_Initial(
-      isScanning: isScanning == freezed
-          ? _value.isScanning
-          : isScanning // ignore: cast_nullable_to_non_nullable
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isConfirming: isConfirming == freezed
+          ? _value.isConfirming
+          : isConfirming // ignore: cast_nullable_to_non_nullable
               as bool,
       eventOption: eventOption == freezed
           ? _value.eventOption
           : eventOption // ignore: cast_nullable_to_non_nullable
               as Option<EventObject>,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failureOrScanOption: failureOrScanOption == freezed
+          ? _value.failureOrScanOption
+          : failureOrScanOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ScanFailure, ScanObject>>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
+  factory _$$_ScanStateCopyWith(
+          _$_ScanState value, $Res Function(_$_ScanState) then) =
+      __$$_ScanStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {bool isScanning,
+      bool isLoading,
+      bool isConfirming,
+      Option<EventObject> eventOption,
+      String? type,
+      Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
+}
+
+/// @nodoc
+class __$$_ScanStateCopyWithImpl<$Res> extends _$ScanStateCopyWithImpl<$Res>
+    implements _$$_ScanStateCopyWith<$Res> {
+  __$$_ScanStateCopyWithImpl(
+      _$_ScanState _value, $Res Function(_$_ScanState) _then)
+      : super(_value, (v) => _then(v as _$_ScanState));
+
+  @override
+  _$_ScanState get _value => super._value as _$_ScanState;
+
+  @override
+  $Res call({
+    Object? isScanning = freezed,
+    Object? isLoading = freezed,
+    Object? isConfirming = freezed,
+    Object? eventOption = freezed,
+    Object? type = freezed,
+    Object? failureOrScanOption = freezed,
+  }) {
+    return _then(_$_ScanState(
+      isScanning: isScanning == freezed
+          ? _value.isScanning
+          : isScanning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isConfirming: isConfirming == freezed
+          ? _value.isConfirming
+          : isConfirming // ignore: cast_nullable_to_non_nullable
+              as bool,
+      eventOption: eventOption == freezed
+          ? _value.eventOption
+          : eventOption // ignore: cast_nullable_to_non_nullable
+              as Option<EventObject>,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failureOrScanOption: failureOrScanOption == freezed
+          ? _value.failureOrScanOption
+          : failureOrScanOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ScanFailure, ScanObject>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.isScanning, required this.eventOption});
+class _$_ScanState implements _ScanState {
+  const _$_ScanState(
+      {required this.isScanning,
+      required this.isLoading,
+      required this.isConfirming,
+      required this.eventOption,
+      this.type,
+      required this.failureOrScanOption});
 
   @override
   final bool isScanning;
   @override
+  final bool isLoading;
+  @override
+  final bool isConfirming;
+  @override
   final Option<EventObject> eventOption;
+  @override
+  final String? type;
+  @override
+  final Option<Either<ScanFailure, ScanObject>> failureOrScanOption;
 
   @override
   String toString() {
-    return 'ScanState(isScanning: $isScanning, eventOption: $eventOption)';
+    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, isConfirming: $isConfirming, eventOption: $eventOption, type: $type, failureOrScanOption: $failureOrScanOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$_ScanState &&
             const DeepCollectionEquality()
                 .equals(other.isScanning, isScanning) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.eventOption, eventOption));
+                .equals(other.isConfirming, isConfirming) &&
+            const DeepCollectionEquality()
+                .equals(other.eventOption, eventOption) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.failureOrScanOption, failureOrScanOption));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isScanning),
-      const DeepCollectionEquality().hash(eventOption));
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isConfirming),
+      const DeepCollectionEquality().hash(eventOption),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(failureOrScanOption));
 
   @JsonKey(ignore: true)
   @override
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$_ScanStateCopyWith<_$_ScanState> get copyWith =>
+      __$$_ScanStateCopyWithImpl<_$_ScanState>(this, _$identity);
 }
 
-abstract class _Initial implements ScanState {
-  const factory _Initial(
+abstract class _ScanState implements ScanState {
+  const factory _ScanState(
       {required final bool isScanning,
-      required final Option<EventObject> eventOption}) = _$_Initial;
+      required final bool isLoading,
+      required final bool isConfirming,
+      required final Option<EventObject> eventOption,
+      final String? type,
+      required final Option<Either<ScanFailure, ScanObject>>
+          failureOrScanOption}) = _$_ScanState;
 
   @override
   bool get isScanning;
   @override
+  bool get isLoading;
+  @override
+  bool get isConfirming;
+  @override
   Option<EventObject> get eventOption;
   @override
+  String? get type;
+  @override
+  Option<Either<ScanFailure, ScanObject>> get failureOrScanOption;
+  @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$_ScanStateCopyWith<_$_ScanState> get copyWith =>
       throw _privateConstructorUsedError;
 }
