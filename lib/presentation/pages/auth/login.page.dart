@@ -7,7 +7,7 @@ import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/domain/auth/auth.validator.dart';
 import 'package:student/presentation/themes/context.ext.dart';
-import 'package:student/presentation/widgets/textFormField.widget.dart';
+import 'package:student/presentation/widgets/forms/textFormField.widget.dart';
 
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   LoginPage({Key? key, required this.onLogin}) : super(key: key);

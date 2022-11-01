@@ -21,7 +21,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   AttendanceBloc(this._attFacade) : super(AttendanceState.initial()) {
     on<AttendanceEvent>((event, emitter) async {
       await event.map<FutureOr<void>>(
-        getScans: (e) async {
+        tabSelected: (e) async {
           emitter.call(state.copyWith(isLoading: true));
 
           final failureOrQuery =
@@ -31,9 +31,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isLoading: false,
             failureOrQueryOption: some(failureOrQuery),
           ));
-
-          // final query =
-          //     failureOrQuery.getOrElse(() => QueryBuilder(ScanObject()));
         },
       );
     });

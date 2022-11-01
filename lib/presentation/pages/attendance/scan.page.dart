@@ -1,4 +1,3 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
@@ -9,7 +8,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/presentation/themes/context.ext.dart';
-import 'package:student/presentation/widgets/scannerAnimation.widget.dart';
+import 'package:student/presentation/widgets/animations/scannerAnimation.widget.dart';
 
 class ScanPage extends StatefulWidget implements AutoRouteWrapper {
   const ScanPage({Key? key}) : super(key: key);

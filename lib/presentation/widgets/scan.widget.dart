@@ -8,13 +8,13 @@ class ScanWidget extends StatelessWidget {
     required this.dateTime,
     required this.scanIn,
     required this.scanOut,
-    this.lectureType = LectureType.anagkazoLive,
+    this.lectureType,
   }) : super(key: key);
 
   final DateTime dateTime;
   final bool scanIn;
   final bool scanOut;
-  final LectureType lectureType;
+  final LectureType? lectureType;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,9 @@ class ScanWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(lectureType.value),
+          lectureType == null
+              ? Container(height: 10)
+              : Text(lectureType!.value),
           const Icon(Icons.qr_code),
         ],
       ),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
@@ -18,12 +20,20 @@ initParse() async {
     kAppId,
     kServerUrl,
     clientKey: kClientKey,
+    debug: true,
     // coreStore: await CoreStoreSembastImp.getInstance(
     //   factory: databaseFactoryIo,
     //   password: kAppId,
     // ),
     liveQueryUrl: kliveQueryUrl,
+    // liveListRetryIntervals: [0, 100, 300, 500, 1000, 2000],
     autoSendSessionId: kAutoSendSessionId,
+    securityContext: SecurityContext(withTrustedRoots: true),
+    clientCreator: ({bool? sendSessionId, SecurityContext? securityContext}) =>
+        ParseDioClient(
+      sendSessionId: kAutoSendSessionId,
+      securityContext: securityContext,
+    ),
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),
       "Member": () => MemberObject(),

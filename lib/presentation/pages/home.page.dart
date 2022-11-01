@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -69,6 +70,37 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                     icon: const Icon(Icons.notifications_active),
                   ),
                 ],
+                bottom: (tabsRouter.activeIndex == PageIndex.dashboard)
+                    ? PreferredSize(
+                        preferredSize: const Size.fromHeight(100),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 16),
+                          alignment: Alignment.centerLeft,
+                          decoration: const BoxDecoration(
+                            color: Colors.blue,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "${greet()} ${user.get("firstname")}",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                ),
+                              ),
+                              CircleAvatar(
+                                radius: 32,
+                                backgroundColor: Colors.grey[300],
+                                backgroundImage: CachedNetworkImageProvider(
+                                    user.get("photoUrl")),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : null,
               ),
               body: body,
             );

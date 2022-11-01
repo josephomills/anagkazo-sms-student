@@ -19,33 +19,33 @@ mixin _$AttendanceEvent {
   LectureType get lectureType => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(LectureType lectureType) getScans,
+    required TResult Function(LectureType lectureType) tabSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? getScans,
+    TResult Function(LectureType lectureType)? tabSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? getScans,
+    TResult Function(LectureType lectureType)? tabSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetScans value) getScans,
+    required TResult Function(_TabSelected value) tabSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetScans value)? getScans,
+    TResult Function(_TabSelected value)? tabSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetScans value)? getScans,
+    TResult Function(_TabSelected value)? tabSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,31 +86,31 @@ class _$AttendanceEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_GetScansCopyWith<$Res>
+abstract class _$$_TabSelectedCopyWith<$Res>
     implements $AttendanceEventCopyWith<$Res> {
-  factory _$$_GetScansCopyWith(
-          _$_GetScans value, $Res Function(_$_GetScans) then) =
-      __$$_GetScansCopyWithImpl<$Res>;
+  factory _$$_TabSelectedCopyWith(
+          _$_TabSelected value, $Res Function(_$_TabSelected) then) =
+      __$$_TabSelectedCopyWithImpl<$Res>;
   @override
   $Res call({LectureType lectureType});
 }
 
 /// @nodoc
-class __$$_GetScansCopyWithImpl<$Res>
+class __$$_TabSelectedCopyWithImpl<$Res>
     extends _$AttendanceEventCopyWithImpl<$Res>
-    implements _$$_GetScansCopyWith<$Res> {
-  __$$_GetScansCopyWithImpl(
-      _$_GetScans _value, $Res Function(_$_GetScans) _then)
-      : super(_value, (v) => _then(v as _$_GetScans));
+    implements _$$_TabSelectedCopyWith<$Res> {
+  __$$_TabSelectedCopyWithImpl(
+      _$_TabSelected _value, $Res Function(_$_TabSelected) _then)
+      : super(_value, (v) => _then(v as _$_TabSelected));
 
   @override
-  _$_GetScans get _value => super._value as _$_GetScans;
+  _$_TabSelected get _value => super._value as _$_TabSelected;
 
   @override
   $Res call({
     Object? lectureType = freezed,
   }) {
-    return _then(_$_GetScans(
+    return _then(_$_TabSelected(
       lectureType: lectureType == freezed
           ? _value.lectureType
           : lectureType // ignore: cast_nullable_to_non_nullable
@@ -121,22 +121,22 @@ class __$$_GetScansCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetScans implements _GetScans {
-  const _$_GetScans({required this.lectureType});
+class _$_TabSelected implements _TabSelected {
+  const _$_TabSelected({required this.lectureType});
 
   @override
   final LectureType lectureType;
 
   @override
   String toString() {
-    return 'AttendanceEvent.getScans(lectureType: $lectureType)';
+    return 'AttendanceEvent.tabSelected(lectureType: $lectureType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetScans &&
+            other is _$_TabSelected &&
             const DeepCollectionEquality()
                 .equals(other.lectureType, lectureType));
   }
@@ -147,33 +147,33 @@ class _$_GetScans implements _GetScans {
 
   @JsonKey(ignore: true)
   @override
-  _$$_GetScansCopyWith<_$_GetScans> get copyWith =>
-      __$$_GetScansCopyWithImpl<_$_GetScans>(this, _$identity);
+  _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
+      __$$_TabSelectedCopyWithImpl<_$_TabSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(LectureType lectureType) getScans,
+    required TResult Function(LectureType lectureType) tabSelected,
   }) {
-    return getScans(lectureType);
+    return tabSelected(lectureType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? getScans,
+    TResult Function(LectureType lectureType)? tabSelected,
   }) {
-    return getScans?.call(lectureType);
+    return tabSelected?.call(lectureType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? getScans,
+    TResult Function(LectureType lectureType)? tabSelected,
     required TResult orElse(),
   }) {
-    if (getScans != null) {
-      return getScans(lectureType);
+    if (tabSelected != null) {
+      return tabSelected(lectureType);
     }
     return orElse();
   }
@@ -181,41 +181,41 @@ class _$_GetScans implements _GetScans {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetScans value) getScans,
+    required TResult Function(_TabSelected value) tabSelected,
   }) {
-    return getScans(this);
+    return tabSelected(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetScans value)? getScans,
+    TResult Function(_TabSelected value)? tabSelected,
   }) {
-    return getScans?.call(this);
+    return tabSelected?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetScans value)? getScans,
+    TResult Function(_TabSelected value)? tabSelected,
     required TResult orElse(),
   }) {
-    if (getScans != null) {
-      return getScans(this);
+    if (tabSelected != null) {
+      return tabSelected(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetScans implements AttendanceEvent {
-  const factory _GetScans({required final LectureType lectureType}) =
-      _$_GetScans;
+abstract class _TabSelected implements AttendanceEvent {
+  const factory _TabSelected({required final LectureType lectureType}) =
+      _$_TabSelected;
 
   @override
   LectureType get lectureType;
   @override
   @JsonKey(ignore: true)
-  _$$_GetScansCopyWith<_$_GetScans> get copyWith =>
+  _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

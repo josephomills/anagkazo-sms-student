@@ -21,8 +21,6 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
         OtherEventsTabRoute(),
       ],
       builder: (context, body, controller) {
-        final tabsRouter = AutoTabsRouter.of(context);
-
         return Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(74),
@@ -37,6 +35,11 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
                 ),
                 unselectedLabelColor: Colors.white70,
                 tabs: buildTabs,
+                // onTap: (index) {
+                //   // add bloc event
+                //   getIt<AttendanceBloc>()
+                //       .add(AttendanceEvent.tabSelected(selectedTab: index));
+                // },
               ),
             ),
           ),
