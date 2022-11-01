@@ -22,10 +22,10 @@ class AttendanceRepo implements AttendanceFacade {
       ..whereEqualTo(EventObject.kShortname, lectureType.shortname);
     final query = QueryBuilder<ScanObject>(ScanObject())
       ..whereEqualTo(ScanObject.kUser, user.toPointer())
-      ..whereMatchesQuery(ScanObject.kEvent, eventQuery);
+      ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
+      ..includeObject(["event"])
+      ..orderByDescending(ScanObject.kScannedInAt);
 
-    query.includeObject(["event"]);
-    query.orderByDescending(ScanObject.kScannedInAt);
     return Right(query);
   }
 }
