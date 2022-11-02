@@ -34,13 +34,26 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         },
         getAllQueries: (e) async {
           emitter.call(state.copyWith(isLoading: true));
+          final user = await ParseUser.currentUser();
 
           final failureOrQueriesList = await _attFacade.getAllScanQueries();
-          print("QUERY LIST: $failureOrQueriesList");
+
+          final visionQuery =
+              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
+          final pillarQuery =
+              _attFacade.getQuery(user: user, lectureType: LectureType.pillar);
+          final aLiveQuery =
+              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
+          final flExpQuery =
+              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
 
           emitter.call(state.copyWith(
             isLoading: false,
             failureOrQueriesList: some(failureOrQueriesList),
+            visionQueryOption: some(visionQuery),
+            pillarQueryOption: some(pillarQuery),
+            aLiveQueryOption: some(aLiveQuery),
+            flExpQueryOption: some(flExpQuery),
           ));
           print(state);
         },

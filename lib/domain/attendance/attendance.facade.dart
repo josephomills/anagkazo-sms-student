@@ -11,3 +11,4 @@ abstract class AttendanceFacade {
       getAllScanQueries();
   QueryBuilder<ScanObject> getQuery(
       {required ParseUser user, required LectureType lectureType});
+}
