@@ -321,6 +321,14 @@ mixin _$AttendanceState {
       get failureOrQueryOption => throw _privateConstructorUsedError;
   Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
       get failureOrQueriesList => throw _privateConstructorUsedError;
+  Option<QueryBuilder<ScanObject>> get visionQueryOption =>
+      throw _privateConstructorUsedError;
+  Option<QueryBuilder<ScanObject>> get pillarQueryOption =>
+      throw _privateConstructorUsedError;
+  Option<QueryBuilder<ScanObject>> get aLiveQueryOption =>
+      throw _privateConstructorUsedError;
+  Option<QueryBuilder<ScanObject>> get flExpQueryOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AttendanceStateCopyWith<AttendanceState> get copyWith =>
@@ -337,7 +345,11 @@ abstract class $AttendanceStateCopyWith<$Res> {
       Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
           failureOrQueryOption,
       Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList});
+          failureOrQueriesList,
+      Option<QueryBuilder<ScanObject>> visionQueryOption,
+      Option<QueryBuilder<ScanObject>> pillarQueryOption,
+      Option<QueryBuilder<ScanObject>> aLiveQueryOption,
+      Option<QueryBuilder<ScanObject>> flExpQueryOption});
 }
 
 /// @nodoc
@@ -354,6 +366,10 @@ class _$AttendanceStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? failureOrQueryOption = freezed,
     Object? failureOrQueriesList = freezed,
+    Object? visionQueryOption = freezed,
+    Object? pillarQueryOption = freezed,
+    Object? aLiveQueryOption = freezed,
+    Object? flExpQueryOption = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -369,6 +385,22 @@ class _$AttendanceStateCopyWithImpl<$Res>
           : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
               as Option<
                   Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
+      visionQueryOption: visionQueryOption == freezed
+          ? _value.visionQueryOption
+          : visionQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      pillarQueryOption: pillarQueryOption == freezed
+          ? _value.pillarQueryOption
+          : pillarQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      aLiveQueryOption: aLiveQueryOption == freezed
+          ? _value.aLiveQueryOption
+          : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      flExpQueryOption: flExpQueryOption == freezed
+          ? _value.flExpQueryOption
+          : flExpQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
     ));
   }
 }
@@ -385,7 +417,11 @@ abstract class _$$_AttendanceStateCopyWith<$Res>
       Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
           failureOrQueryOption,
       Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList});
+          failureOrQueriesList,
+      Option<QueryBuilder<ScanObject>> visionQueryOption,
+      Option<QueryBuilder<ScanObject>> pillarQueryOption,
+      Option<QueryBuilder<ScanObject>> aLiveQueryOption,
+      Option<QueryBuilder<ScanObject>> flExpQueryOption});
 }
 
 /// @nodoc
@@ -404,6 +440,10 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? failureOrQueryOption = freezed,
     Object? failureOrQueriesList = freezed,
+    Object? visionQueryOption = freezed,
+    Object? pillarQueryOption = freezed,
+    Object? aLiveQueryOption = freezed,
+    Object? flExpQueryOption = freezed,
   }) {
     return _then(_$_AttendanceState(
       isLoading: isLoading == freezed
@@ -419,6 +459,22 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
           : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
               as Option<
                   Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
+      visionQueryOption: visionQueryOption == freezed
+          ? _value.visionQueryOption
+          : visionQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      pillarQueryOption: pillarQueryOption == freezed
+          ? _value.pillarQueryOption
+          : pillarQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      aLiveQueryOption: aLiveQueryOption == freezed
+          ? _value.aLiveQueryOption
+          : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
+      flExpQueryOption: flExpQueryOption == freezed
+          ? _value.flExpQueryOption
+          : flExpQueryOption // ignore: cast_nullable_to_non_nullable
+              as Option<QueryBuilder<ScanObject>>,
     ));
   }
 }
@@ -429,7 +485,11 @@ class _$_AttendanceState implements _AttendanceState {
   const _$_AttendanceState(
       {required this.isLoading,
       required this.failureOrQueryOption,
-      required this.failureOrQueriesList});
+      required this.failureOrQueriesList,
+      required this.visionQueryOption,
+      required this.pillarQueryOption,
+      required this.aLiveQueryOption,
+      required this.flExpQueryOption});
 
   @override
   final bool isLoading;
@@ -439,10 +499,18 @@ class _$_AttendanceState implements _AttendanceState {
   @override
   final Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
       failureOrQueriesList;
+  @override
+  final Option<QueryBuilder<ScanObject>> visionQueryOption;
+  @override
+  final Option<QueryBuilder<ScanObject>> pillarQueryOption;
+  @override
+  final Option<QueryBuilder<ScanObject>> aLiveQueryOption;
+  @override
+  final Option<QueryBuilder<ScanObject>> flExpQueryOption;
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, failureOrQueryOption: $failureOrQueryOption, failureOrQueriesList: $failureOrQueriesList)';
+    return 'AttendanceState(isLoading: $isLoading, failureOrQueryOption: $failureOrQueryOption, failureOrQueriesList: $failureOrQueriesList, visionQueryOption: $visionQueryOption, pillarQueryOption: $pillarQueryOption, aLiveQueryOption: $aLiveQueryOption, flExpQueryOption: $flExpQueryOption)';
   }
 
   @override
@@ -454,7 +522,15 @@ class _$_AttendanceState implements _AttendanceState {
             const DeepCollectionEquality()
                 .equals(other.failureOrQueryOption, failureOrQueryOption) &&
             const DeepCollectionEquality()
-                .equals(other.failureOrQueriesList, failureOrQueriesList));
+                .equals(other.failureOrQueriesList, failureOrQueriesList) &&
+            const DeepCollectionEquality()
+                .equals(other.visionQueryOption, visionQueryOption) &&
+            const DeepCollectionEquality()
+                .equals(other.pillarQueryOption, pillarQueryOption) &&
+            const DeepCollectionEquality()
+                .equals(other.aLiveQueryOption, aLiveQueryOption) &&
+            const DeepCollectionEquality()
+                .equals(other.flExpQueryOption, flExpQueryOption));
   }
 
   @override
@@ -462,7 +538,11 @@ class _$_AttendanceState implements _AttendanceState {
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(failureOrQueryOption),
-      const DeepCollectionEquality().hash(failureOrQueriesList));
+      const DeepCollectionEquality().hash(failureOrQueriesList),
+      const DeepCollectionEquality().hash(visionQueryOption),
+      const DeepCollectionEquality().hash(pillarQueryOption),
+      const DeepCollectionEquality().hash(aLiveQueryOption),
+      const DeepCollectionEquality().hash(flExpQueryOption));
 
   @JsonKey(ignore: true)
   @override
@@ -477,7 +557,12 @@ abstract class _AttendanceState implements AttendanceState {
           failureOrQueryOption,
       required final Option<
               Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList}) = _$_AttendanceState;
+          failureOrQueriesList,
+      required final Option<QueryBuilder<ScanObject>> visionQueryOption,
+      required final Option<QueryBuilder<ScanObject>> pillarQueryOption,
+      required final Option<QueryBuilder<ScanObject>> aLiveQueryOption,
+      required final Option<QueryBuilder<ScanObject>>
+          flExpQueryOption}) = _$_AttendanceState;
 
   @override
   bool get isLoading;
@@ -487,6 +572,14 @@ abstract class _AttendanceState implements AttendanceState {
   @override
   Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
       get failureOrQueriesList;
+  @override
+  Option<QueryBuilder<ScanObject>> get visionQueryOption;
+  @override
+  Option<QueryBuilder<ScanObject>> get pillarQueryOption;
+  @override
+  Option<QueryBuilder<ScanObject>> get aLiveQueryOption;
+  @override
+  Option<QueryBuilder<ScanObject>> get flExpQueryOption;
   @override
   @JsonKey(ignore: true)
   _$$_AttendanceStateCopyWith<_$_AttendanceState> get copyWith =>
