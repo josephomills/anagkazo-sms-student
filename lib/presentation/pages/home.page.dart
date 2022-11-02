@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/application/home/home_bloc.dart';
-import 'package:student/domain/auth/auth.facade.dart';
-import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/presentation/core/pageIndex.dart';
 import 'package:student/presentation/widgets/drawer.widget.dart';
 import 'package:student/presentation/widgets/fab.widget.dart';
@@ -19,16 +18,18 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: getIt<AuthFacade>().getCurrentUser(),
+      future: ParseUser.currentUser(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return const Center();
+          return const SpinKitChasingDots(
+            color: Colors.blue,
+            size: 70,
+          );
         }
 
-        final failureOrUser = snapshot.data as Either<AuthFailure, ParseUser>;
-        if (failureOrUser.isLeft()) {}
+        final user = snapshot.data as ParseUser;
 
-        final user = failureOrUser.getOrElse(() => ParseUser(null, null, null));
+        getIt<AttendanceBloc>().add(const AttendanceEvent.getAllQueries());
 
         return AutoTabsRouter(
           homeIndex: PageIndex.dashboard,
