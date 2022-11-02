@@ -1,11 +1,11 @@
 enum LectureType {
-  pillar,
-  foundational,
-  tutorial,
   vision,
+  pillar,
   anagkazoLive,
   firstLoveExperience,
   other,
+  foundational,
+  tutorial,
   none,
 }
 

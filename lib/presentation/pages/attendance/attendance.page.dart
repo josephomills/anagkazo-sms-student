@@ -35,10 +35,10 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
                 ),
                 unselectedLabelColor: Colors.white70,
                 tabs: buildTabs,
-                // onTap: (index) {
+                // onTap: (index) async {
                 //   // add bloc event
                 //   getIt<AttendanceBloc>()
-                //       .add(AttendanceEvent.tabSelected(selectedTab: index));
+                //       .add(const AttendanceEvent.getAllQueries());
                 // },
               ),
             ),

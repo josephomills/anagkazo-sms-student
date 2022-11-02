@@ -15,7 +15,7 @@ part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthFacade _authFacade;
 

@@ -4,4 +4,6 @@ part of 'attendance_bloc.dart';
 class AttendanceEvent with _$AttendanceEvent {
   const factory AttendanceEvent.tabSelected(
       {required LectureType lectureType}) = _TabSelected;
+
+  const factory AttendanceEvent.getAllQueries() = _GetAllQueries;
 }

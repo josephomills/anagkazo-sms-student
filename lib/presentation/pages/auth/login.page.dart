@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/application/core/router.core.gr.dart';
 import 'package:student/domain/auth/auth.validator.dart';
-import 'package:student/presentation/themes/context.ext.dart';
 import 'package:student/presentation/widgets/forms/textFormField.widget.dart';
 
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<LoginBloc, LoginState>(
-        bloc: context.bloc<LoginBloc>(),
+        bloc: context.read<LoginBloc>(),
         listener: (context, state) {
           state.authFailureOrSuccessOption.fold(
               () {}, // do nothing for none()
@@ -34,7 +34,9 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                         orElse: () => "Something went wrong. Please try again.",
                       ),
                     )));
-                  }, (userModel) {
+                  }, (user) {
+                    getIt<AttendanceBloc>()
+                        .add(const AttendanceEvent.getAllQueries());
                     context.router.replace(const HomeRoute());
                   }));
         },
@@ -58,7 +60,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                   label: "Username",
                   validator: getIt<AuthValidator>().validateUsername,
                   onChanged: (text) => context
-                      .bloc<LoginBloc>()
+                      .read<LoginBloc>()
                       .add(UsernameChanged(username: text)),
                   prefixIcon: const Icon(Icons.person),
                 ),
@@ -68,7 +70,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                   label: "Password",
                   validator: getIt<AuthValidator>().validatePassword,
                   onChanged: (text) => context
-                      .bloc<LoginBloc>()
+                      .read<LoginBloc>()
                       .add(PasswordChanged(password: text)),
                   prefixIcon: const Icon(Icons.lock),
                   obscureText: true,
@@ -79,7 +81,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       ? null
                       : () {
                           context
-                              .bloc<LoginBloc>()
+                              .read<LoginBloc>()
                               .add(const LoginButtonPressed());
                         },
                   child: state.isLoading

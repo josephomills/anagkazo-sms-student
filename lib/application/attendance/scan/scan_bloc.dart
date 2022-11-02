@@ -14,7 +14,7 @@ part 'scan_event.dart';
 part 'scan_state.dart';
 part 'scan_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class ScanBloc extends Bloc<ScanEvent, ScanState> {
   final ScanFacade _scanFacade;
 

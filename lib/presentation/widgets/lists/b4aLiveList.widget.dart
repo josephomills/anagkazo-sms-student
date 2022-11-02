@@ -9,20 +9,19 @@ import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/scan.widget.dart';
 
 class B4aLiveListWidget extends StatelessWidget {
-  B4aLiveListWidget({Key? key, required this.lectureType}) : super(key: key);
+  const B4aLiveListWidget({Key? key, required this.lectureType})
+      : super(key: key);
 
   final LectureType lectureType;
-  final QueryBuilder<ScanObject> query = getIt<AttendanceBloc>()
-      .state
-      .failureOrQueryOption
-      .getOrElse(() => Right(QueryBuilder(ScanObject())))
-      .getOrElse(() => QueryBuilder(ScanObject()));
 
   @override
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
-      query: query,
-      duration: const Duration(seconds: 1),
+      query: getIt<AttendanceBloc>()
+          .state
+          .failureOrQueriesList
+          .getOrElse(() => const Right(<QueryBuilder<ScanObject>>[]))
+          .getOrElse(() => <QueryBuilder<ScanObject>>[])[lectureType.index],
       listLoadingElement: const SpinKitChasingDots(
         color: Colors.blue,
         size: 50,

@@ -5,6 +5,8 @@ import 'package:student/domain/attendance/lectureType.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 abstract class AttendanceFacade {
-  Future<Either<AttendanceFailure, QueryBuilder<ScanObject>>> getScans(
+  Future<Either<AttendanceFailure, QueryBuilder<ScanObject>>> getScanQuery(
       {required LectureType lectureType});
+  Future<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
+      getAllScanQueries();
 }

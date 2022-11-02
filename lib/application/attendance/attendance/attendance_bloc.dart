@@ -14,7 +14,7 @@ part 'attendance_event.dart';
 part 'attendance_state.dart';
 part 'attendance_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   final AttendanceFacade _attFacade;
 
@@ -25,12 +25,24 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           emitter.call(state.copyWith(isLoading: true));
 
           final failureOrQuery =
-              await _attFacade.getScans(lectureType: e.lectureType);
+              await _attFacade.getScanQuery(lectureType: e.lectureType);
 
           emitter.call(state.copyWith(
             isLoading: false,
             failureOrQueryOption: some(failureOrQuery),
           ));
+        },
+        getAllQueries: (e) async {
+          emitter.call(state.copyWith(isLoading: true));
+
+          final failureOrQueriesList = await _attFacade.getAllScanQueries();
+          print("QUERY LIST: $failureOrQueriesList");
+
+          emitter.call(state.copyWith(
+            isLoading: false,
+            failureOrQueriesList: some(failureOrQueriesList),
+          ));
+          print(state);
         },
       );
     });
