@@ -9,4 +9,5 @@ abstract class AttendanceFacade {
       {required LectureType lectureType});
   Future<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
       getAllScanQueries();
-}
+  QueryBuilder<ScanObject> getQuery(
+      {required ParseUser user, required LectureType lectureType});

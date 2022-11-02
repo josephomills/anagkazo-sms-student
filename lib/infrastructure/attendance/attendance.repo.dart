@@ -53,6 +53,7 @@ class AttendanceRepo implements AttendanceFacade {
     return Right(list);
   }
 
+  @override
   QueryBuilder<ScanObject> getQuery(
       {required ParseUser user, required LectureType lectureType}) {
     final eventQuery = QueryBuilder<EventObject>(EventObject())
