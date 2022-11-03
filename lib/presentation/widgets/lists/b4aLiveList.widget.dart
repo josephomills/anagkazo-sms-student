@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
@@ -17,11 +16,7 @@ class B4aLiveListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
-      query: getIt<AttendanceBloc>()
-          .state
-          .failureOrQueriesList
-          .getOrElse(() => const Right(<QueryBuilder<ScanObject>>[]))
-          .getOrElse(() => <QueryBuilder<ScanObject>>[])[lectureType.index],
+      query: getQueryBuilder(),
       listLoadingElement: const SpinKitChasingDots(
         color: Colors.blue,
         size: 50,
@@ -52,5 +47,35 @@ class B4aLiveListWidget extends StatelessWidget {
         }
       },
     );
+  }
+
+  QueryBuilder<ScanObject> getQueryBuilder() {
+    switch (lectureType) {
+      case LectureType.vision:
+        return getIt<AttendanceBloc>()
+            .state
+            .visionQueryOption
+            .getOrElse(() => QueryBuilder(ScanObject()));
+      case LectureType.pillar:
+        return getIt<AttendanceBloc>()
+            .state
+            .pillarQueryOption
+            .getOrElse(() => QueryBuilder(ScanObject()));
+      case LectureType.anagkazoLive:
+        return getIt<AttendanceBloc>()
+            .state
+            .aLiveQueryOption
+            .getOrElse(() => QueryBuilder(ScanObject()));
+      case LectureType.firstLoveExperience:
+        return getIt<AttendanceBloc>()
+            .state
+            .visionQueryOption
+            .getOrElse(() => QueryBuilder(ScanObject()));
+      default:
+        return getIt<AttendanceBloc>()
+            .state
+            .visionQueryOption
+            .getOrElse(() => QueryBuilder(ScanObject()));
+    }
   }
 }
