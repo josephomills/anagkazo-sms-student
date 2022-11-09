@@ -21,9 +21,18 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
       future: ParseUser.currentUser(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return const SpinKitChasingDots(
-            color: Colors.blue,
-            size: 70,
+          return Scaffold(
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                SpinKitChasingDots(
+                  color: Colors.blue,
+                  size: 70,
+                ),
+                SizedBox(height: 40),
+                Text("Welcome... Just a sec..."),
+              ],
+            ),
           );
         }
 

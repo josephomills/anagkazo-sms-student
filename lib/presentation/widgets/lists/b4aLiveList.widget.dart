@@ -16,7 +16,8 @@ class B4aLiveListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
-      query: getQueryBuilder(),
+      // query: QueryBuilder(ScanObject()),
+      query: getQueryBuilder(lectureType: lectureType, context: context),
       listLoadingElement: const SpinKitChasingDots(
         color: Colors.blue,
         size: 50,
@@ -49,33 +50,19 @@ class B4aLiveListWidget extends StatelessWidget {
     );
   }
 
-  QueryBuilder<ScanObject> getQueryBuilder() {
+  QueryBuilder<ScanObject> getQueryBuilder(
+      {required BuildContext context, required LectureType lectureType}) {
     switch (lectureType) {
       case LectureType.vision:
-        return getIt<AttendanceBloc>()
-            .state
-            .visionQueryOption
-            .getOrElse(() => QueryBuilder(ScanObject()));
+        return getIt<AttendanceBloc>().state.visionQueryOption;
       case LectureType.pillar:
-        return getIt<AttendanceBloc>()
-            .state
-            .pillarQueryOption
-            .getOrElse(() => QueryBuilder(ScanObject()));
+        return getIt<AttendanceBloc>().state.pillarQueryOption;
       case LectureType.anagkazoLive:
-        return getIt<AttendanceBloc>()
-            .state
-            .aLiveQueryOption
-            .getOrElse(() => QueryBuilder(ScanObject()));
+        return getIt<AttendanceBloc>().state.aLiveQueryOption;
       case LectureType.firstLoveExperience:
-        return getIt<AttendanceBloc>()
-            .state
-            .visionQueryOption
-            .getOrElse(() => QueryBuilder(ScanObject()));
+        return getIt<AttendanceBloc>().state.flExpQueryOption;
       default:
-        return getIt<AttendanceBloc>()
-            .state
-            .visionQueryOption
-            .getOrElse(() => QueryBuilder(ScanObject()));
+        return QueryBuilder(ScanObject());
     }
   }
 }

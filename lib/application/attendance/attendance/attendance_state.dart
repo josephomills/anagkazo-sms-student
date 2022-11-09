@@ -8,19 +8,19 @@ class AttendanceState with _$AttendanceState {
         failureOrQueryOption,
     required Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
         failureOrQueriesList,
-    required Option<QueryBuilder<ScanObject>> visionQueryOption,
-    required Option<QueryBuilder<ScanObject>> pillarQueryOption,
-    required Option<QueryBuilder<ScanObject>> aLiveQueryOption,
-    required Option<QueryBuilder<ScanObject>> flExpQueryOption,
+    required QueryBuilder<ScanObject> visionQueryOption,
+    required QueryBuilder<ScanObject> pillarQueryOption,
+    required QueryBuilder<ScanObject> aLiveQueryOption,
+    required QueryBuilder<ScanObject> flExpQueryOption,
   }) = _AttendanceState;
 
   factory AttendanceState.initial() => AttendanceState(
         isLoading: false,
         failureOrQueryOption: none(),
         failureOrQueriesList: none(),
-        visionQueryOption: none(),
-        pillarQueryOption: none(),
-        aLiveQueryOption: none(),
-        flExpQueryOption: none(),
+        visionQueryOption: QueryBuilder(ScanObject()),
+        pillarQueryOption: QueryBuilder(ScanObject()),
+        aLiveQueryOption: QueryBuilder(ScanObject()),
+        flExpQueryOption: QueryBuilder(ScanObject()),
       );
 }

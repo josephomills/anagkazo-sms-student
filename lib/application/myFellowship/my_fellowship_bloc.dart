@@ -21,14 +21,11 @@ class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
     on<MyFellowshipEvent>((event, emitter) async {
       await event.map<FutureOr<void>>(
         getMyFellowshipServices: (e) async {
-          print("called");
           // Load
           emitter.call(state.copyWith(isLoading: true));
-          print("loading");
           // get services
           final failureOrServices =
               (await _fellowshipFacade.getFellowshipServices());
-          print("fetched");
           // Compute averages
           var services = failureOrServices.getOrElse(() => <ServiceObject>[]);
           int sumAttendance = 0;
@@ -37,7 +34,6 @@ class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
             sumIncome += s.cediIncome!;
             sumAttendance += s.attendance!;
           }
-          print("done");
           // return
           emitter.call(state.copyWith(
             isLoading: false,

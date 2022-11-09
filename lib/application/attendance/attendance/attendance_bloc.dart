@@ -42,20 +42,19 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
               _attFacade.getQuery(user: user, lectureType: LectureType.vision);
           final pillarQuery =
               _attFacade.getQuery(user: user, lectureType: LectureType.pillar);
-          final aLiveQuery =
-              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
-          final flExpQuery =
-              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
+          final aLiveQuery = _attFacade.getQuery(
+              user: user, lectureType: LectureType.anagkazoLive);
+          final flExpQuery = _attFacade.getQuery(
+              user: user, lectureType: LectureType.firstLoveExperience);
 
           emitter.call(state.copyWith(
             isLoading: false,
             failureOrQueriesList: some(failureOrQueriesList),
-            visionQueryOption: some(visionQuery),
-            pillarQueryOption: some(pillarQuery),
-            aLiveQueryOption: some(aLiveQuery),
-            flExpQueryOption: some(flExpQuery),
+            visionQueryOption: visionQuery,
+            pillarQueryOption: pillarQuery,
+            aLiveQueryOption: aLiveQuery,
+            flExpQueryOption: flExpQuery,
           ));
-          print(state);
         },
       );
     });

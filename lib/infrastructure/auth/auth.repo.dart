@@ -134,7 +134,4 @@ class AuthRepo implements AuthFacade {
 
     return hasUserLoggedIn;
   }
-
-  static ParseUser _getEmptyUser() =>
-      ParseCoreData.instance.createParseUser(null, null, null);
 }

@@ -51,8 +51,8 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<AttendanceBloc>(
-      create: (context) => getIt<AttendanceBloc>(),
+    return BlocProvider<AttendanceBloc>.value(
+      value: getIt<AttendanceBloc>(),
       child: this,
     );
   }
