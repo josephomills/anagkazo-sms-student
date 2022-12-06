@@ -611,6 +611,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.3.1"
+  line_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: line_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   lint:
     dependency: transitive
     description:
@@ -766,7 +773,7 @@ packages:
     source: hosted
     version: "1.8.1"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
@@ -1010,6 +1017,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  skeletons:
+    dependency: "direct main"
+    description:
+      name: skeletons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   sky_engine:
     dependency: transitive
     description: flutter

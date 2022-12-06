@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/application/core/injectable.core.dart';
 import 'package:student/domain/attendance/lectureType.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
-import 'package:student/presentation/widgets/scan.widget.dart';
+import 'package:student/presentation/widgets/cards/scan.widget.dart';
+import 'package:student/presentation/widgets/cards/skeletonScan.widget.dart';
 
 class B4aLiveListWidget extends StatelessWidget {
-  const B4aLiveListWidget({Key? key, required this.lectureType})
+  const B4aLiveListWidget(
+      {Key? key, required this.lectureType, required this.query})
       : super(key: key);
 
   final LectureType lectureType;
+  final QueryBuilder<ScanObject> query;
 
   @override
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
       // query: QueryBuilder(ScanObject()),
-      query: getQueryBuilder(lectureType: lectureType, context: context),
-      listLoadingElement: const SpinKitChasingDots(
-        color: Colors.blue,
-        size: 50,
+      query: query,
+      listLoadingElement: SkeletonListView(
+        itemCount: 10,
+        itemBuilder: (context, index) => const SkeletonScanWidget(),
       ),
       queryEmptyElement: Center(
         child: Image.asset("assets/illustrations/taking_selfie.png"),
@@ -38,13 +41,7 @@ class B4aLiveListWidget extends StatelessWidget {
             lectureType: lectureType,
           );
         } else {
-          return const SizedBox(
-            height: 40,
-            child: SpinKitPulse(
-              color: Colors.blue,
-              size: 30,
-            ),
-          );
+          return const SkeletonScanWidget();
         }
       },
     );
