@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
-import 'package:student/application/core/injectable.core.dart';
-import 'package:student/presentation/themes/context.ext.dart';
+import 'package:student/core/config/injectable.core.dart';
+import 'package:student/core/extensions/context.ext.dart';
 import 'package:student/presentation/widgets/animations/scannerAnimation.widget.dart';
 
 class ScanPage extends StatefulWidget implements AutoRouteWrapper {

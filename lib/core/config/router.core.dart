@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:student/application/core/authGard.core.dart';
+import 'package:student/core/config/auth.gard.core.dart';
 import 'package:student/presentation/pages/academics/academics.page.dart';
 import 'package:student/presentation/pages/attendance/attendance.page.dart';
 import 'package:student/presentation/pages/attendance/scan.page.dart';

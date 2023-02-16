@@ -35,7 +35,7 @@ import '../../presentation/pages/home.page.dart' as _i2;
 import '../../presentation/pages/myFellowship/myFellowship.page.dart' as _i11;
 import '../../presentation/pages/pastoralPoints/pastoralPoints.page.dart'
     as _i12;
-import 'authGard.core.dart' as _i21;
+import 'auth.gard.core.dart' as _i21;
 
 class AppRouter extends _i19.RootStackRouter {
   AppRouter(

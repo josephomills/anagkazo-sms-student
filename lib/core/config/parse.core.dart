@@ -11,7 +11,7 @@ const String kClientKey = "8l7BMF9rnsFtbXboWqBePLLcJEcmp3KJBnbBmL0N";
 const String kliveQueryUrl = "https://anagkazosms.b4a.io";
 const bool kAutoSendSessionId = true;
 
-initParse() async {
+Future<void> initParse() async {
   await Parse().initialize(
     kAppId,
     kServerUrl,

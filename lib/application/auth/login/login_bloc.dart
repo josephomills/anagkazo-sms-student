@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:student/application/core/injectable.core.dart';
+import 'package:student/core/config/injectable.core.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';

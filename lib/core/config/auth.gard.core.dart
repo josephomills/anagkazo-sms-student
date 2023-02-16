@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:student/application/core/injectable.core.dart';
-import 'package:student/application/core/router.core.gr.dart';
+import 'package:student/core/config/injectable.core.dart';
+import 'package:student/core/config/router.core.gr.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 
 class AuthGuard extends AutoRouteGuard {

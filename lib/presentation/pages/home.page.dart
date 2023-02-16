@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
-import 'package:student/application/core/injectable.core.dart';
-import 'package:student/application/core/router.core.gr.dart';
+import 'package:student/core/config/injectable.core.dart';
+import 'package:student/core/config/router.core.gr.dart';
 import 'package:student/application/home/home_bloc.dart';
-import 'package:student/presentation/core/pageIndex.dart';
+import 'package:student/presentation/pages/index.page.dart';
 import 'package:student/presentation/widgets/drawer.widget.dart';
 import 'package:student/presentation/widgets/fab.widget.dart';
 
