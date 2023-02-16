@@ -1,7 +1,7 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
-import 'package:student/infrastructure/academics/models/yearGroup.object.dart';
+import 'package:student/infrastructure/academics/models/year_group.object.dart';
 import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 

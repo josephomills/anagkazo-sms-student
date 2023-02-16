@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'yearGroup.model.dart';
+part of 'year_group.model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

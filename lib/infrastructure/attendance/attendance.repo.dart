@@ -5,7 +5,7 @@ import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/core/config/injectable.core.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
-import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/core/enums/lecture_type.enum.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 

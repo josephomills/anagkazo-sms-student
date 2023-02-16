@@ -8,7 +8,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/core/config/injectable.core.dart';
 import 'package:student/core/extensions/context.ext.dart';
-import 'package:student/presentation/widgets/animations/scannerAnimation.widget.dart';
+import 'package:student/presentation/widgets/animations/scanner_animation.widget.dart';
 
 class ScanPage extends StatefulWidget implements AutoRouteWrapper {
   const ScanPage({Key? key}) : super(key: key);

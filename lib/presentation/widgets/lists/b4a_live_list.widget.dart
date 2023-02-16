@@ -3,10 +3,10 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/core/config/injectable.core.dart';
-import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/core/enums/lecture_type.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
-import 'package:student/presentation/widgets/cards/skeletonScan.widget.dart';
+import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
 
 class B4aLiveListWidget extends StatelessWidget {
   const B4aLiveListWidget(

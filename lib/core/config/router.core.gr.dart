@@ -17,25 +17,25 @@ import 'package:flutter/material.dart' as _i20;
 import '../../presentation/pages/academics/academics.page.dart' as _i7;
 import '../../presentation/pages/attendance/attendance.page.dart' as _i9;
 import '../../presentation/pages/attendance/scan.page.dart' as _i3;
-import '../../presentation/pages/attendance/scanConfirmation.page.dart' as _i4;
-import '../../presentation/pages/attendance/tabs/anagkazoLive.tab.dart' as _i16;
-import '../../presentation/pages/attendance/tabs/firstLoveExperience.tab.dart'
-    as _i17;
-import '../../presentation/pages/attendance/tabs/otherEvents.tab.dart' as _i18;
+import '../../presentation/pages/attendance/scan_confirmation.page.dart' as _i4;
+import '../../presentation/pages/attendance/tabs/anagkazo_live.tab.dart'
+    as _i16;
+import '../../presentation/pages/attendance/tabs/experience.tab.dart' as _i17;
+import '../../presentation/pages/attendance/tabs/other_events.tab.dart' as _i18;
 import '../../presentation/pages/attendance/tabs/pillar.tab.dart' as _i15;
 import '../../presentation/pages/attendance/tabs/vision.tab.dart' as _i14;
 import '../../presentation/pages/auth/login.page.dart' as _i1;
 import '../../presentation/pages/auth/profile.page.dart' as _i5;
 import '../../presentation/pages/dashboard/dashboard.page.dart' as _i6;
-import '../../presentation/pages/disciplinaryPoints/disciplinaryPoints.page.dart'
+import '../../presentation/pages/disciplinary_points/disciplinary_points.page.dart'
     as _i13;
 import '../../presentation/pages/documents/documents.page.dart' as _i8;
 import '../../presentation/pages/forms/forms.page.dart' as _i10;
 import '../../presentation/pages/home.page.dart' as _i2;
-import '../../presentation/pages/myFellowship/myFellowship.page.dart' as _i11;
-import '../../presentation/pages/pastoralPoints/pastoralPoints.page.dart'
+import '../../presentation/pages/my_fellowship/my_fellowship.page.dart' as _i11;
+import '../../presentation/pages/pastoral_points/pastoral_points.page.dart'
     as _i12;
-import 'auth.gard.core.dart' as _i21;
+import 'auth_gard.core.dart' as _i21;
 
 class AppRouter extends _i19.RootStackRouter {
   AppRouter(

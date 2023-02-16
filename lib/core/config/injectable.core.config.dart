@@ -18,7 +18,7 @@ import '../../application/myFellowship/my_fellowship_bloc.dart' as _i20;
 import '../../domain/attendance/attendance.facade.dart' as _i3;
 import '../../domain/attendance/scan/scan.facade.dart' as _i17;
 import '../../domain/auth/auth.facade.dart' as _i5;
-import '../../domain/auth/auth.validator.dart' as _i7;
+import '../../domain/auth/auth_validator.dart' as _i7;
 import '../../domain/dashboard/dashboard.facade.dart' as _i10;
 import '../../domain/myFellowship/myFellowship.facade.dart' as _i15;
 import '../../infrastructure/attendance/attendance.repo.dart' as _i4;
@@ -27,7 +27,7 @@ import '../../infrastructure/auth/auth.repo.dart' as _i6;
 import '../../infrastructure/dashboard/dashboard.repo.dart' as _i11;
 import '../../infrastructure/myFellowship/myFellowship.repo.dart' as _i16;
 import '../../infrastructure/myFellowship/service/b4a.service.dart' as _i8;
-import 'injectable.modules.dart'
+import 'injectable_modules.dart'
     as _i22; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

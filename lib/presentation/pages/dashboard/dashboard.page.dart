@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:student/presentation/widgets/cards/dashboardCard.widget.dart';
-import 'package:student/presentation/widgets/cards/quickAction.widget.dart';
+import 'package:student/presentation/widgets/cards/dashboard_card.widget.dart';
+import 'package:student/presentation/widgets/cards/quick_action.widget.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);

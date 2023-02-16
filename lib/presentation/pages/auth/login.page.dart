@@ -5,8 +5,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/core/config/injectable.core.dart';
 import 'package:student/core/config/router.core.gr.dart';
-import 'package:student/domain/auth/auth.validator.dart';
-import 'package:student/presentation/widgets/forms/textFormField.widget.dart';
+import 'package:student/domain/auth/auth_validator.dart';
+import 'package:student/presentation/widgets/forms/text_form_field.widget.dart';
 
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   LoginPage({Key? key, required this.onLogin}) : super(key: key);

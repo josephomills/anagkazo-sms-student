@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
 
-part 'yearGroup.model.freezed.dart';
-part 'yearGroup.model.g.dart';
+part 'year_group.model.freezed.dart';
+part 'year_group.model.g.dart';
 
 @freezed
 class YearGroup with _$YearGroup {

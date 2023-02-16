@@ -3,7 +3,7 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/attendance/scan/scan.failure.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
-import 'package:student/infrastructure/academics/models/yearGroup.object.dart';
+import 'package:student/infrastructure/academics/models/year_group.object.dart';
 
 abstract class ScanFacade {
   Future<Either<ScanFailure, ScanObject>> scanIn(

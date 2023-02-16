@@ -8,8 +8,8 @@ import 'package:student/core/config/injectable.core.dart';
 import 'package:student/application/myFellowship/my_fellowship_bloc.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 import 'package:student/core/extensions/context.ext.dart';
-import 'package:student/presentation/widgets/cards/fellowshipServiceDetails.widget.dart';
-import 'package:student/presentation/widgets/cards/myFellowshipCard.widget.dart';
+import 'package:student/presentation/widgets/cards/fellowship_service_details.widget.dart';
+import 'package:student/presentation/widgets/cards/my_fellowship_card.widget.dart';
 
 class MyFellowshipPage extends StatelessWidget implements AutoRouteWrapper {
   MyFellowshipPage({Key? key}) : super(key: key);

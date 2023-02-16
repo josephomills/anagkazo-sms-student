@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:student/core/config/auth.gard.core.dart';
+import 'package:student/core/config/auth_gard.core.dart';
 import 'package:student/presentation/pages/academics/academics.page.dart';
 import 'package:student/presentation/pages/attendance/attendance.page.dart';
 import 'package:student/presentation/pages/attendance/scan.page.dart';
-import 'package:student/presentation/pages/attendance/scanConfirmation.page.dart';
-import 'package:student/presentation/pages/attendance/tabs/anagkazoLive.tab.dart';
-import 'package:student/presentation/pages/attendance/tabs/firstLoveExperience.tab.dart';
-import 'package:student/presentation/pages/attendance/tabs/otherEvents.tab.dart';
+import 'package:student/presentation/pages/attendance/scan_confirmation.page.dart';
+import 'package:student/presentation/pages/attendance/tabs/anagkazo_live.tab.dart';
+import 'package:student/presentation/pages/attendance/tabs/experience.tab.dart';
+import 'package:student/presentation/pages/attendance/tabs/other_events.tab.dart';
 import 'package:student/presentation/pages/attendance/tabs/pillar.tab.dart';
 import 'package:student/presentation/pages/attendance/tabs/vision.tab.dart';
 import 'package:student/presentation/pages/auth/login.page.dart';
@@ -15,9 +15,9 @@ import 'package:student/presentation/pages/dashboard/dashboard.page.dart';
 import 'package:student/presentation/pages/documents/documents.page.dart';
 import 'package:student/presentation/pages/forms/forms.page.dart';
 import 'package:student/presentation/pages/home.page.dart';
-import 'package:student/presentation/pages/disciplinaryPoints/disciplinaryPoints.page.dart';
-import 'package:student/presentation/pages/myFellowship/myFellowship.page.dart';
-import 'package:student/presentation/pages/pastoralPoints/pastoralPoints.page.dart';
+import 'package:student/presentation/pages/disciplinary_points/disciplinary_points.page.dart';
+import 'package:student/presentation/pages/my_fellowship/my_fellowship.page.dart';
+import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',

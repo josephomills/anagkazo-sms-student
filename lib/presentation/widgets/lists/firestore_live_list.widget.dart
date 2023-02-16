@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/core/enums/lecture_type.enum.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 
 class FirestoreLiveListWidget extends StatelessWidget {

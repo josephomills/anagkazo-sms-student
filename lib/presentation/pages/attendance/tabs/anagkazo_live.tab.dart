@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/core/enums/lecture_type.enum.dart';
 import 'package:student/infrastructure/attendance/attendance.repo.dart';
-import 'package:student/presentation/widgets/lists/b4aLiveList.widget.dart';
+import 'package:student/presentation/widgets/lists/b4a_live_list.widget.dart';
 
 class AnagkazoLiveTabPage extends StatelessWidget {
   const AnagkazoLiveTabPage({Key? key}) : super(key: key);

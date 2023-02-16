@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:student/core/config/auth.gard.core.dart';
+import 'package:student/core/config/auth_gard.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:student/core/config/injectable.core.dart';
 import 'package:student/core/config/router.core.gr.dart';
 import 'package:student/firebase_options.dart';
-import 'package:student/infrastructure/core/parseSDK.dart';
+import 'package:student/core/config/parse.core.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
