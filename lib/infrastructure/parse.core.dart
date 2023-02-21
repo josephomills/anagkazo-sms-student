@@ -17,19 +17,9 @@ Future<void> initParse() async {
     kServerUrl,
     clientKey: kClientKey,
     debug: true,
-    // coreStore: await CoreStoreSembastImp.getInstance(
-    //   factory: databaseFactoryIo,
-    //   password: kAppId,
-    // ),
+    coreStore: await CoreStoreSembastImp.getInstance(),
     liveQueryUrl: kliveQueryUrl,
-    // liveListRetryIntervals: [0, 100, 300, 500, 1000, 2000],
     autoSendSessionId: kAutoSendSessionId,
-    // securityContext: SecurityContext(withTrustedRoots: true),
-    // clientCreator: ({bool? sendSessionId, SecurityContext? securityContext}) =>
-    //     ParseDioClient(
-    //   sendSessionId: kAutoSendSessionId,
-    //   securityContext: securityContext,
-    // ),
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),
       "Member": () => MemberObject(),
@@ -40,6 +30,5 @@ Future<void> initParse() async {
       "Scan": () => ScanObject(),
       "Event": () => EventObject(),
     },
-    // connectivityProvider: ,
   );
 }

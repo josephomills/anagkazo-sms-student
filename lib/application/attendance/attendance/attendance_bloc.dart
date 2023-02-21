@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
-import 'package:student/domain/core/enums/lecture_type.enum.dart';
+import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 part 'attendance_event.dart';
@@ -25,7 +25,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           emitter.call(state.copyWith(isLoading: true));
 
           final failureOrQuery =
-              await _attFacade.getScanQuery(lectureType: e.lectureType);
+              await _attFacade.getScanQuery(eventType: e.eventType);
 
           emitter.call(state.copyWith(
             isLoading: false,
@@ -39,13 +39,13 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           final failureOrQueriesList = await _attFacade.getAllScanQueries();
 
           final visionQuery =
-              _attFacade.getQuery(user: user, lectureType: LectureType.vision);
+              _attFacade.getQuery(user: user, eventType: EventType.vision);
           final pillarQuery =
-              _attFacade.getQuery(user: user, lectureType: LectureType.pillar);
-          final aLiveQuery = _attFacade.getQuery(
-              user: user, lectureType: LectureType.anagkazoLive);
-          final flExpQuery = _attFacade.getQuery(
-              user: user, lectureType: LectureType.firstLoveExperience);
+              _attFacade.getQuery(user: user, eventType: EventType.pillar);
+          final aLiveQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.live);
+          final flExpQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.experience);
 
           emitter.call(state.copyWith(
             isLoading: false,

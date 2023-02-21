@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:student/domain/core/enums/lecture_type.enum.dart';
+import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 
 class FirestoreLiveListWidget extends StatelessWidget {
-  FirestoreLiveListWidget({Key? key, required this.lectureType})
+  FirestoreLiveListWidget({Key? key, required this.eventType})
       : super(key: key);
 
-  final LectureType lectureType;
+  final EventType eventType;
   final firestore = FirebaseFirestore.instance;
 
   @override
@@ -38,7 +38,7 @@ class FirestoreLiveListWidget extends StatelessWidget {
             dateTime: docs[index].get("scannedInAt"),
             scanIn: docs[index].get("scannedInAt") != null,
             scanOut: docs[index].get("scannedOutAt") != null,
-            lectureType: lectureType,
+            eventType: eventType,
           ),
         );
       },

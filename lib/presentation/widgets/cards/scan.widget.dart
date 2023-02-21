@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:student/domain/core/enums/lecture_type.enum.dart';
+import 'package:student/domain/core/enums/types.enum.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
@@ -9,13 +9,13 @@ class ScanWidget extends StatelessWidget {
     required this.dateTime,
     required this.scanIn,
     required this.scanOut,
-    this.lectureType,
+    this.eventType,
   }) : super(key: key);
 
   final DateTime dateTime;
   final bool scanIn;
   final bool scanOut;
-  final LectureType? lectureType;
+  final EventType? eventType;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,7 @@ class ScanWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          lectureType == null
-              ? Container(height: 10)
-              : Text(lectureType!.value),
+          eventType == null ? Container(height: 10) : Text(eventType!.name),
           const Icon(Icons.qr_code),
         ],
       ),
@@ -45,11 +43,11 @@ class ScanWidget extends StatelessWidget {
     return dateFormat.format(dateTime);
   }
 
-  bool isLate(LectureType type, DateTime dateTime) {
+  bool isLate(EventType type, DateTime dateTime) {
     bool isLate = false;
 
     switch (type) {
-      case LectureType.pillar:
+      case EventType.pillar:
         isLate = (formatDate(dateTime).split(" ")[1].substring(0, 2) == "11") &&
             int.parse(formatDate(dateTime).split(" ")[1].substring(3, 5)) > 15;
         break;

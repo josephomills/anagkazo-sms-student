@@ -3,17 +3,17 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
-import 'package:student/domain/core/enums/lecture_type.enum.dart';
+import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
 
 class B4aLiveListWidget extends StatelessWidget {
   const B4aLiveListWidget(
-      {Key? key, required this.lectureType, required this.query})
+      {Key? key, required this.eventType, required this.query})
       : super(key: key);
 
-  final LectureType lectureType;
+  final EventType eventType;
   final QueryBuilder<ScanObject> query;
 
   @override
@@ -38,7 +38,7 @@ class B4aLiveListWidget extends StatelessWidget {
             dateTime: snapshot.loadedData!.scannedInAt!,
             scanIn: snapshot.loadedData!.scannedInAt != null,
             scanOut: snapshot.loadedData!.scannedOutAt != null,
-            lectureType: lectureType,
+            eventType: eventType,
           );
         } else {
           return const SkeletonScanWidget();
@@ -48,15 +48,15 @@ class B4aLiveListWidget extends StatelessWidget {
   }
 
   QueryBuilder<ScanObject> getQueryBuilder(
-      {required BuildContext context, required LectureType lectureType}) {
-    switch (lectureType) {
-      case LectureType.vision:
+      {required BuildContext context, required EventType eventType}) {
+    switch (eventType) {
+      case EventType.vision:
         return getIt<AttendanceBloc>().state.visionQueryOption;
-      case LectureType.pillar:
+      case EventType.pillar:
         return getIt<AttendanceBloc>().state.pillarQueryOption;
-      case LectureType.anagkazoLive:
+      case EventType.live:
         return getIt<AttendanceBloc>().state.aLiveQueryOption;
-      case LectureType.firstLoveExperience:
+      case EventType.experience:
         return getIt<AttendanceBloc>().state.flExpQueryOption;
       default:
         return QueryBuilder(ScanObject());
