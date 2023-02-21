@@ -17,8 +17,15 @@ void main() async {
 
   // Allow the splash screen to stay a little longer until current user has been obtained
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // Initialize Parse Server (Back4App)
+  await initParse();
+
+  // Set glocal localization for Moments to US English
+  Moment.setGlobalLocalization(MomentLocalizations.enUS());
+
   // Initialise Injectable and GetIt
-  initInjectable(Environment.prod);
+  await initInjectable(Environment.prod);
 
   //initialize Firebase app
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -27,11 +34,6 @@ void main() async {
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
     persistenceEnabled: true,
   );
-
-  // Initialize Parse Server (Back4App)
-  await initParse();
-  // Set glocal localization for Moments to US English
-  Moment.setGlobalLocalization(MomentLocalizations.enUS());
 
   runApp(AnagkazoSMSStudent());
 }
