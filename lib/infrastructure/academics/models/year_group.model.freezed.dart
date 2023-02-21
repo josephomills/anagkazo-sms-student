@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'year_group.model.dart';
 
@@ -34,7 +34,8 @@ mixin _$YearGroup {
 /// @nodoc
 abstract class $YearGroupCopyWith<$Res> {
   factory $YearGroupCopyWith(YearGroup value, $Res Function(YearGroup) then) =
-      _$YearGroupCopyWithImpl<$Res>;
+      _$YearGroupCopyWithImpl<$Res, YearGroup>;
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -43,38 +44,41 @@ abstract class $YearGroupCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$YearGroupCopyWithImpl<$Res> implements $YearGroupCopyWith<$Res> {
+class _$YearGroupCopyWithImpl<$Res, $Val extends YearGroup>
+    implements $YearGroupCopyWith<$Res> {
   _$YearGroupCopyWithImpl(this._value, this._then);
 
-  final YearGroup _value;
   // ignore: unused_field
-  final $Res Function(YearGroup) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? admissionDate = freezed,
-    Object? students = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? admissionDate = null,
+    Object? students = null,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      admissionDate: admissionDate == freezed
+      admissionDate: null == admissionDate
           ? _value.admissionDate
           : admissionDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      students: students == freezed
+      students: null == students
           ? _value.students
           : students // ignore: cast_nullable_to_non_nullable
               as List<UserModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -84,6 +88,7 @@ abstract class _$$_YearGroupCopyWith<$Res> implements $YearGroupCopyWith<$Res> {
           _$_YearGroup value, $Res Function(_$_YearGroup) then) =
       __$$_YearGroupCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -92,36 +97,35 @@ abstract class _$$_YearGroupCopyWith<$Res> implements $YearGroupCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_YearGroupCopyWithImpl<$Res> extends _$YearGroupCopyWithImpl<$Res>
+class __$$_YearGroupCopyWithImpl<$Res>
+    extends _$YearGroupCopyWithImpl<$Res, _$_YearGroup>
     implements _$$_YearGroupCopyWith<$Res> {
   __$$_YearGroupCopyWithImpl(
       _$_YearGroup _value, $Res Function(_$_YearGroup) _then)
-      : super(_value, (v) => _then(v as _$_YearGroup));
+      : super(_value, _then);
 
-  @override
-  _$_YearGroup get _value => super._value as _$_YearGroup;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? admissionDate = freezed,
-    Object? students = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? admissionDate = null,
+    Object? students = null,
   }) {
     return _then(_$_YearGroup(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      admissionDate: admissionDate == freezed
+      admissionDate: null == admissionDate
           ? _value.admissionDate
           : admissionDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      students: students == freezed
+      students: null == students
           ? _value._students
           : students // ignore: cast_nullable_to_non_nullable
               as List<UserModel>,
@@ -151,6 +155,7 @@ class _$_YearGroup implements _YearGroup {
   final List<UserModel> _students;
   @override
   List<UserModel> get students {
+    if (_students is EqualUnmodifiableListView) return _students;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_students);
   }
@@ -165,30 +170,30 @@ class _$_YearGroup implements _YearGroup {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_YearGroup &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.admissionDate, admissionDate) &&
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.admissionDate, admissionDate) ||
+                other.admissionDate == admissionDate) &&
             const DeepCollectionEquality().equals(other._students, _students));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(admissionDate),
+  int get hashCode => Object.hash(runtimeType, objectId, name, admissionDate,
       const DeepCollectionEquality().hash(_students));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_YearGroupCopyWith<_$_YearGroup> get copyWith =>
       __$$_YearGroupCopyWithImpl<_$_YearGroup>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_YearGroupToJson(this);
+    return _$$_YearGroupToJson(
+      this,
+    );
   }
 }
 

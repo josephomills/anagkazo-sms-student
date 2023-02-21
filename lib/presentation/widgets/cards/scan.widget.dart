@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:student/core/enums/lecture_type.enum.dart';
+import 'package:moment_dart/moment_dart.dart';
+import 'package:student/domain/core/enums/lecture_type.enum.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
@@ -20,7 +21,7 @@ class ScanWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        formatDate(dateTime).split(" ").last,
+        Moment(dateTime).formatDateTimeWithWeekday(),
         style: const TextStyle(
           fontSize: 24,
         ),

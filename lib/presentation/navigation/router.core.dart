@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:student/core/config/auth_gard.core.dart';
+import 'package:student/presentation/navigation/auth_gard.core.dart';
 import 'package:student/presentation/pages/academics/academics.page.dart';
 import 'package:student/presentation/pages/attendance/attendance.page.dart';
 import 'package:student/presentation/pages/attendance/scan.page.dart';
@@ -11,11 +11,12 @@ import 'package:student/presentation/pages/attendance/tabs/pillar.tab.dart';
 import 'package:student/presentation/pages/attendance/tabs/vision.tab.dart';
 import 'package:student/presentation/pages/auth/login.page.dart';
 import 'package:student/presentation/pages/auth/profile.page.dart';
-import 'package:student/presentation/pages/dashboard/dashboard.page.dart';
+import 'package:student/presentation/pages/home/home.page.dart';
 import 'package:student/presentation/pages/documents/documents.page.dart';
 import 'package:student/presentation/pages/forms/forms.page.dart';
-import 'package:student/presentation/pages/home.page.dart';
 import 'package:student/presentation/pages/disciplinary_points/disciplinary_points.page.dart';
+import 'package:student/presentation/pages/index.page.dart';
+import 'package:student/presentation/pages/more/more.page.dart';
 import 'package:student/presentation/pages/my_fellowship/my_fellowship.page.dart';
 import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.dart';
 
@@ -24,24 +25,19 @@ import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.
   routes: <AutoRoute>[
     AutoRoute(page: LoginPage),
     AutoRoute(
-      page: HomePage,
+      page: IndexPage,
       guards: [AuthGuard],
       initial: true,
-      meta: {"title": "Home"},
+      meta: {"title": "Index"},
       children: [
         AutoRoute(
-          page: DashboardPage,
-          meta: {"title": "Dashboard"},
+          page: HomePage,
+          meta: {"title": "Home"},
           guards: [AuthGuard],
         ),
         AutoRoute(
           page: AcademicsPage,
           meta: {"title": "Academics"},
-          guards: [AuthGuard],
-        ),
-        AutoRoute(
-          page: DocumentsPage,
-          meta: {"title": "Documents"},
           guards: [AuthGuard],
         ),
         AutoRoute(
@@ -61,26 +57,37 @@ import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.
           ],
         ),
         AutoRoute(
-          page: FormsPage,
-          meta: {"title": "Forms"},
-          guards: [AuthGuard],
-        ),
-        AutoRoute(
           page: MyFellowshipPage,
           meta: {"title": "My Fellowship"},
           guards: [AuthGuard],
         ),
         AutoRoute(
-          page: PastoralPointsPage,
-          meta: {"title": "Pastoral Points"},
-          guards: [AuthGuard],
-        ),
-        AutoRoute(
-          page: DisciplinaryPointsPage,
-          meta: {"title": "Disciplinary Points"},
+          page: MorePage,
+          meta: {"title": "More"},
           guards: [AuthGuard],
         ),
       ],
+    ),
+    AutoRoute(
+      page: DocumentsPage,
+      meta: {"title": "Documents"},
+      guards: [AuthGuard],
+    ),
+
+    AutoRoute(
+      page: FormsPage,
+      meta: {"title": "Forms"},
+      guards: [AuthGuard],
+    ),
+    AutoRoute(
+      page: PastoralPointsPage,
+      meta: {"title": "Pastoral Points"},
+      guards: [AuthGuard],
+    ),
+    AutoRoute(
+      page: DisciplinaryPointsPage,
+      meta: {"title": "Disciplinary Points"},
+      guards: [AuthGuard],
     ),
     // AutoRoute(page: RegisterPage),
     // AutoRoute(page: ForgotPasswordPage),

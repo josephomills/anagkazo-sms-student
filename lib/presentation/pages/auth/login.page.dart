@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
-import 'package:student/core/config/injectable.core.dart';
-import 'package:student/core/config/router.core.gr.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/auth/auth_validator.dart';
+import 'package:student/presentation/navigation/router.core.gr.dart';
 import 'package:student/presentation/widgets/forms/text_form_field.widget.dart';
 
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {

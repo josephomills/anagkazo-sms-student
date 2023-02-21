@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:student/presentation/widgets/cards/dashboard_card.widget.dart';
 import 'package:student/presentation/widgets/cards/quick_action.widget.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

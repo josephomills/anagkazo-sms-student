@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:student/core/enums/lecture_type.enum.dart';
+import 'package:student/domain/core/enums/lecture_type.enum.dart';
 import 'package:student/infrastructure/attendance/attendance.repo.dart';
 import 'package:student/presentation/widgets/lists/b4a_live_list.widget.dart';
 

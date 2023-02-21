@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'member.model.dart';
 
@@ -40,7 +40,8 @@ mixin _$MemberModel {
 abstract class $MemberModelCopyWith<$Res> {
   factory $MemberModelCopyWith(
           MemberModel value, $Res Function(MemberModel) then) =
-      _$MemberModelCopyWithImpl<$Res>;
+      _$MemberModelCopyWithImpl<$Res, MemberModel>;
+  @useResult
   $Res call(
       {String objectId,
       String firstname,
@@ -54,63 +55,66 @@ abstract class $MemberModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MemberModelCopyWithImpl<$Res> implements $MemberModelCopyWith<$Res> {
+class _$MemberModelCopyWithImpl<$Res, $Val extends MemberModel>
+    implements $MemberModelCopyWith<$Res> {
   _$MemberModelCopyWithImpl(this._value, this._then);
 
-  final MemberModel _value;
   // ignore: unused_field
-  final $Res Function(MemberModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
-    Object? phone = freezed,
-    Object? whatsapp = freezed,
-    Object? email = freezed,
-    Object? dob = freezed,
-    Object? country = freezed,
-    Object? photoUrl = freezed,
+    Object? objectId = null,
+    Object? firstname = null,
+    Object? lastname = null,
+    Object? phone = null,
+    Object? whatsapp = null,
+    Object? email = null,
+    Object? dob = null,
+    Object? country = null,
+    Object? photoUrl = null,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      whatsapp: whatsapp == freezed
+      whatsapp: null == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      country: country == freezed
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: null == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -121,6 +125,7 @@ abstract class _$$_MemberModelCopyWith<$Res>
           _$_MemberModel value, $Res Function(_$_MemberModel) then) =
       __$$_MemberModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String firstname,
@@ -134,61 +139,60 @@ abstract class _$$_MemberModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MemberModelCopyWithImpl<$Res> extends _$MemberModelCopyWithImpl<$Res>
+class __$$_MemberModelCopyWithImpl<$Res>
+    extends _$MemberModelCopyWithImpl<$Res, _$_MemberModel>
     implements _$$_MemberModelCopyWith<$Res> {
   __$$_MemberModelCopyWithImpl(
       _$_MemberModel _value, $Res Function(_$_MemberModel) _then)
-      : super(_value, (v) => _then(v as _$_MemberModel));
+      : super(_value, _then);
 
-  @override
-  _$_MemberModel get _value => super._value as _$_MemberModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
-    Object? phone = freezed,
-    Object? whatsapp = freezed,
-    Object? email = freezed,
-    Object? dob = freezed,
-    Object? country = freezed,
-    Object? photoUrl = freezed,
+    Object? objectId = null,
+    Object? firstname = null,
+    Object? lastname = null,
+    Object? phone = null,
+    Object? whatsapp = null,
+    Object? email = null,
+    Object? dob = null,
+    Object? country = null,
+    Object? photoUrl = null,
   }) {
     return _then(_$_MemberModel(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      whatsapp: whatsapp == freezed
+      whatsapp: null == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      country: country == freezed
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: null == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
@@ -242,39 +246,38 @@ class _$_MemberModel implements _MemberModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MemberModel &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.firstname, firstname) &&
-            const DeepCollectionEquality().equals(other.lastname, lastname) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.whatsapp, whatsapp) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.dob, dob) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.photoUrl, photoUrl));
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.whatsapp, whatsapp) ||
+                other.whatsapp == whatsapp) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(firstname),
-      const DeepCollectionEquality().hash(lastname),
-      const DeepCollectionEquality().hash(phone),
-      const DeepCollectionEquality().hash(whatsapp),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(dob),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(photoUrl));
+  int get hashCode => Object.hash(runtimeType, objectId, firstname, lastname,
+      phone, whatsapp, email, dob, country, photoUrl);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MemberModelCopyWith<_$_MemberModel> get copyWith =>
       __$$_MemberModelCopyWithImpl<_$_MemberModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MemberModelToJson(this);
+    return _$$_MemberModelToJson(
+      this,
+    );
   }
 }
 

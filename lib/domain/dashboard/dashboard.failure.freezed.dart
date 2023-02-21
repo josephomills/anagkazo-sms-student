@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dashboard.failure.dart';
 
@@ -23,7 +23,7 @@ mixin _$DashboardFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
+    TResult? Function()? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$DashboardFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
+    TResult? Function(_ServerError value)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,17 +54,18 @@ mixin _$DashboardFailure {
 abstract class $DashboardFailureCopyWith<$Res> {
   factory $DashboardFailureCopyWith(
           DashboardFailure value, $Res Function(DashboardFailure) then) =
-      _$DashboardFailureCopyWithImpl<$Res>;
+      _$DashboardFailureCopyWithImpl<$Res, DashboardFailure>;
 }
 
 /// @nodoc
-class _$DashboardFailureCopyWithImpl<$Res>
+class _$DashboardFailureCopyWithImpl<$Res, $Val extends DashboardFailure>
     implements $DashboardFailureCopyWith<$Res> {
   _$DashboardFailureCopyWithImpl(this._value, this._then);
 
-  final DashboardFailure _value;
   // ignore: unused_field
-  final $Res Function(DashboardFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -76,14 +77,11 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$DashboardFailureCopyWithImpl<$Res>
+    extends _$DashboardFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -116,7 +114,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
+    TResult? Function()? serverError,
   }) {
     return serverError?.call();
   }
@@ -144,7 +142,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
+    TResult? Function(_ServerError value)? serverError,
   }) {
     return serverError?.call(this);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'bacenta.model.dart';
 
@@ -35,7 +35,8 @@ mixin _$BacentaModel {
 abstract class $BacentaModelCopyWith<$Res> {
   factory $BacentaModelCopyWith(
           BacentaModel value, $Res Function(BacentaModel) then) =
-      _$BacentaModelCopyWithImpl<$Res>;
+      _$BacentaModelCopyWithImpl<$Res, BacentaModel>;
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -46,44 +47,48 @@ abstract class $BacentaModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BacentaModelCopyWithImpl<$Res> implements $BacentaModelCopyWith<$Res> {
+class _$BacentaModelCopyWithImpl<$Res, $Val extends BacentaModel>
+    implements $BacentaModelCopyWith<$Res> {
   _$BacentaModelCopyWithImpl(this._value, this._then);
 
-  final BacentaModel _value;
   // ignore: unused_field
-  final $Res Function(BacentaModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? leader = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? leader = null,
     Object? fellowships = freezed,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      leader: leader == freezed
+      leader: null == leader
           ? _value.leader
           : leader // ignore: cast_nullable_to_non_nullable
               as UserModel,
-      fellowships: fellowships == freezed
+      fellowships: freezed == fellowships
           ? _value.fellowships
           : fellowships // ignore: cast_nullable_to_non_nullable
               as List<FellowshipModel>?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get leader {
     return $UserModelCopyWith<$Res>(_value.leader, (value) {
-      return _then(_value.copyWith(leader: value));
+      return _then(_value.copyWith(leader: value) as $Val);
     });
   }
 }
@@ -95,6 +100,7 @@ abstract class _$$_BacentaModelCopyWith<$Res>
           _$_BacentaModel value, $Res Function(_$_BacentaModel) then) =
       __$$_BacentaModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -107,36 +113,34 @@ abstract class _$$_BacentaModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_BacentaModelCopyWithImpl<$Res>
-    extends _$BacentaModelCopyWithImpl<$Res>
+    extends _$BacentaModelCopyWithImpl<$Res, _$_BacentaModel>
     implements _$$_BacentaModelCopyWith<$Res> {
   __$$_BacentaModelCopyWithImpl(
       _$_BacentaModel _value, $Res Function(_$_BacentaModel) _then)
-      : super(_value, (v) => _then(v as _$_BacentaModel));
+      : super(_value, _then);
 
-  @override
-  _$_BacentaModel get _value => super._value as _$_BacentaModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? leader = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? leader = null,
     Object? fellowships = freezed,
   }) {
     return _then(_$_BacentaModel(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      leader: leader == freezed
+      leader: null == leader
           ? _value.leader
           : leader // ignore: cast_nullable_to_non_nullable
               as UserModel,
-      fellowships: fellowships == freezed
+      fellowships: freezed == fellowships
           ? _value._fellowships
           : fellowships // ignore: cast_nullable_to_non_nullable
               as List<FellowshipModel>?,
@@ -171,6 +175,7 @@ class _$_BacentaModel implements _BacentaModel {
   List<FellowshipModel>? get fellowships {
     final value = _fellowships;
     if (value == null) return null;
+    if (_fellowships is EqualUnmodifiableListView) return _fellowships;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -185,30 +190,30 @@ class _$_BacentaModel implements _BacentaModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BacentaModel &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.leader, leader) &&
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.leader, leader) || other.leader == leader) &&
             const DeepCollectionEquality()
                 .equals(other._fellowships, _fellowships));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(leader),
+  int get hashCode => Object.hash(runtimeType, objectId, name, leader,
       const DeepCollectionEquality().hash(_fellowships));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BacentaModelCopyWith<_$_BacentaModel> get copyWith =>
       __$$_BacentaModelCopyWithImpl<_$_BacentaModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BacentaModelToJson(this);
+    return _$$_BacentaModelToJson(
+      this,
+    );
   }
 }
 

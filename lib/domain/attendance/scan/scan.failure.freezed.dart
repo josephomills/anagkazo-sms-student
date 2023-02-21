@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'scan.failure.dart';
 
@@ -28,11 +28,11 @@ mixin _$ScanFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
-    TResult Function(String? message, ScanObject? scanObject)?
+    TResult? Function(String? message)? serverError,
+    TResult? Function(String? message, ScanObject? scanObject)?
         duplicateScanError,
-    TResult Function(String? message)? invalidEventError,
-    TResult Function(String? message)? invalidScanError,
+    TResult? Function(String? message)? invalidEventError,
+    TResult? Function(String? message)? invalidScanError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,10 +55,10 @@ mixin _$ScanFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_DuplicateScanError value)? duplicateScanError,
-    TResult Function(_InvalidEventError value)? invalidEventError,
-    TResult Function(_InvalidScanError value)? invalidScanError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_DuplicateScanError value)? duplicateScanError,
+    TResult? Function(_InvalidEventError value)? invalidEventError,
+    TResult? Function(_InvalidScanError value)? invalidScanError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,28 +80,32 @@ mixin _$ScanFailure {
 abstract class $ScanFailureCopyWith<$Res> {
   factory $ScanFailureCopyWith(
           ScanFailure value, $Res Function(ScanFailure) then) =
-      _$ScanFailureCopyWithImpl<$Res>;
+      _$ScanFailureCopyWithImpl<$Res, ScanFailure>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class _$ScanFailureCopyWithImpl<$Res> implements $ScanFailureCopyWith<$Res> {
+class _$ScanFailureCopyWithImpl<$Res, $Val extends ScanFailure>
+    implements $ScanFailureCopyWith<$Res> {
   _$ScanFailureCopyWithImpl(this._value, this._then);
 
-  final ScanFailure _value;
   // ignore: unused_field
-  final $Res Function(ScanFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -112,25 +116,25 @@ abstract class _$$_ServerErrorCopyWith<$Res>
           _$_ServerError value, $Res Function(_$_ServerError) then) =
       __$$_ServerErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res> extends _$ScanFailureCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
+      : super(_value, _then);
 
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$_ServerError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -156,15 +160,15 @@ class _$_ServerError implements _ServerError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerError &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
       __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
 
@@ -183,11 +187,11 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
-    TResult Function(String? message, ScanObject? scanObject)?
+    TResult? Function(String? message)? serverError,
+    TResult? Function(String? message, ScanObject? scanObject)?
         duplicateScanError,
-    TResult Function(String? message)? invalidEventError,
-    TResult Function(String? message)? invalidScanError,
+    TResult? Function(String? message)? invalidEventError,
+    TResult? Function(String? message)? invalidScanError,
   }) {
     return serverError?.call(message);
   }
@@ -222,10 +226,10 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_DuplicateScanError value)? duplicateScanError,
-    TResult Function(_InvalidEventError value)? invalidEventError,
-    TResult Function(_InvalidScanError value)? invalidScanError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_DuplicateScanError value)? duplicateScanError,
+    TResult? Function(_InvalidEventError value)? invalidEventError,
+    TResult? Function(_InvalidScanError value)? invalidScanError,
   }) {
     return serverError?.call(this);
   }
@@ -264,31 +268,30 @@ abstract class _$$_DuplicateScanErrorCopyWith<$Res>
           $Res Function(_$_DuplicateScanError) then) =
       __$$_DuplicateScanErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? message, ScanObject? scanObject});
 }
 
 /// @nodoc
 class __$$_DuplicateScanErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$_DuplicateScanError>
     implements _$$_DuplicateScanErrorCopyWith<$Res> {
   __$$_DuplicateScanErrorCopyWithImpl(
       _$_DuplicateScanError _value, $Res Function(_$_DuplicateScanError) _then)
-      : super(_value, (v) => _then(v as _$_DuplicateScanError));
+      : super(_value, _then);
 
-  @override
-  _$_DuplicateScanError get _value => super._value as _$_DuplicateScanError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
     Object? scanObject = freezed,
   }) {
     return _then(_$_DuplicateScanError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      scanObject: scanObject == freezed
+      scanObject: freezed == scanObject
           ? _value.scanObject
           : scanObject // ignore: cast_nullable_to_non_nullable
               as ScanObject?,
@@ -316,19 +319,17 @@ class _$_DuplicateScanError implements _DuplicateScanError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DuplicateScanError &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality()
-                .equals(other.scanObject, scanObject));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.scanObject, scanObject) ||
+                other.scanObject == scanObject));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(scanObject));
+  int get hashCode => Object.hash(runtimeType, message, scanObject);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DuplicateScanErrorCopyWith<_$_DuplicateScanError> get copyWith =>
       __$$_DuplicateScanErrorCopyWithImpl<_$_DuplicateScanError>(
           this, _$identity);
@@ -348,11 +349,11 @@ class _$_DuplicateScanError implements _DuplicateScanError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
-    TResult Function(String? message, ScanObject? scanObject)?
+    TResult? Function(String? message)? serverError,
+    TResult? Function(String? message, ScanObject? scanObject)?
         duplicateScanError,
-    TResult Function(String? message)? invalidEventError,
-    TResult Function(String? message)? invalidScanError,
+    TResult? Function(String? message)? invalidEventError,
+    TResult? Function(String? message)? invalidScanError,
   }) {
     return duplicateScanError?.call(message, scanObject);
   }
@@ -387,10 +388,10 @@ class _$_DuplicateScanError implements _DuplicateScanError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_DuplicateScanError value)? duplicateScanError,
-    TResult Function(_InvalidEventError value)? invalidEventError,
-    TResult Function(_InvalidScanError value)? invalidScanError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_DuplicateScanError value)? duplicateScanError,
+    TResult? Function(_InvalidEventError value)? invalidEventError,
+    TResult? Function(_InvalidScanError value)? invalidScanError,
   }) {
     return duplicateScanError?.call(this);
   }
@@ -432,26 +433,25 @@ abstract class _$$_InvalidEventErrorCopyWith<$Res>
           $Res Function(_$_InvalidEventError) then) =
       __$$_InvalidEventErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$_InvalidEventErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$_InvalidEventError>
     implements _$$_InvalidEventErrorCopyWith<$Res> {
   __$$_InvalidEventErrorCopyWithImpl(
       _$_InvalidEventError _value, $Res Function(_$_InvalidEventError) _then)
-      : super(_value, (v) => _then(v as _$_InvalidEventError));
+      : super(_value, _then);
 
-  @override
-  _$_InvalidEventError get _value => super._value as _$_InvalidEventError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$_InvalidEventError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -477,15 +477,15 @@ class _$_InvalidEventError implements _InvalidEventError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InvalidEventError &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InvalidEventErrorCopyWith<_$_InvalidEventError> get copyWith =>
       __$$_InvalidEventErrorCopyWithImpl<_$_InvalidEventError>(
           this, _$identity);
@@ -505,11 +505,11 @@ class _$_InvalidEventError implements _InvalidEventError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
-    TResult Function(String? message, ScanObject? scanObject)?
+    TResult? Function(String? message)? serverError,
+    TResult? Function(String? message, ScanObject? scanObject)?
         duplicateScanError,
-    TResult Function(String? message)? invalidEventError,
-    TResult Function(String? message)? invalidScanError,
+    TResult? Function(String? message)? invalidEventError,
+    TResult? Function(String? message)? invalidScanError,
   }) {
     return invalidEventError?.call(message);
   }
@@ -544,10 +544,10 @@ class _$_InvalidEventError implements _InvalidEventError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_DuplicateScanError value)? duplicateScanError,
-    TResult Function(_InvalidEventError value)? invalidEventError,
-    TResult Function(_InvalidScanError value)? invalidScanError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_DuplicateScanError value)? duplicateScanError,
+    TResult? Function(_InvalidEventError value)? invalidEventError,
+    TResult? Function(_InvalidScanError value)? invalidScanError,
   }) {
     return invalidEventError?.call(this);
   }
@@ -587,26 +587,25 @@ abstract class _$$_InvalidScanErrorCopyWith<$Res>
           _$_InvalidScanError value, $Res Function(_$_InvalidScanError) then) =
       __$$_InvalidScanErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$_InvalidScanErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$_InvalidScanError>
     implements _$$_InvalidScanErrorCopyWith<$Res> {
   __$$_InvalidScanErrorCopyWithImpl(
       _$_InvalidScanError _value, $Res Function(_$_InvalidScanError) _then)
-      : super(_value, (v) => _then(v as _$_InvalidScanError));
+      : super(_value, _then);
 
-  @override
-  _$_InvalidScanError get _value => super._value as _$_InvalidScanError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$_InvalidScanError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -632,15 +631,15 @@ class _$_InvalidScanError implements _InvalidScanError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InvalidScanError &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InvalidScanErrorCopyWith<_$_InvalidScanError> get copyWith =>
       __$$_InvalidScanErrorCopyWithImpl<_$_InvalidScanError>(this, _$identity);
 
@@ -659,11 +658,11 @@ class _$_InvalidScanError implements _InvalidScanError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
-    TResult Function(String? message, ScanObject? scanObject)?
+    TResult? Function(String? message)? serverError,
+    TResult? Function(String? message, ScanObject? scanObject)?
         duplicateScanError,
-    TResult Function(String? message)? invalidEventError,
-    TResult Function(String? message)? invalidScanError,
+    TResult? Function(String? message)? invalidEventError,
+    TResult? Function(String? message)? invalidScanError,
   }) {
     return invalidScanError?.call(message);
   }
@@ -698,10 +697,10 @@ class _$_InvalidScanError implements _InvalidScanError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_DuplicateScanError value)? duplicateScanError,
-    TResult Function(_InvalidEventError value)? invalidEventError,
-    TResult Function(_InvalidScanError value)? invalidScanError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_DuplicateScanError value)? duplicateScanError,
+    TResult? Function(_InvalidEventError value)? invalidEventError,
+    TResult? Function(_InvalidScanError value)? invalidScanError,
   }) {
     return invalidScanError?.call(this);
   }

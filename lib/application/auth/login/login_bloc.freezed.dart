@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'login_bloc.dart';
 
@@ -25,9 +25,9 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String username)? usernameChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult? Function(String username)? usernameChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? loginButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UsernameChanged value)? usernameChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(UsernameChanged value)? usernameChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,16 +66,18 @@ mixin _$LoginEvent {
 abstract class $LoginEventCopyWith<$Res> {
   factory $LoginEventCopyWith(
           LoginEvent value, $Res Function(LoginEvent) then) =
-      _$LoginEventCopyWithImpl<$Res>;
+      _$LoginEventCopyWithImpl<$Res, LoginEvent>;
 }
 
 /// @nodoc
-class _$LoginEventCopyWithImpl<$Res> implements $LoginEventCopyWith<$Res> {
+class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
+    implements $LoginEventCopyWith<$Res> {
   _$LoginEventCopyWithImpl(this._value, this._then);
 
-  final LoginEvent _value;
   // ignore: unused_field
-  final $Res Function(LoginEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -83,26 +85,25 @@ abstract class _$$UsernameChangedCopyWith<$Res> {
   factory _$$UsernameChangedCopyWith(
           _$UsernameChanged value, $Res Function(_$UsernameChanged) then) =
       __$$UsernameChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String username});
 }
 
 /// @nodoc
 class __$$UsernameChangedCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$UsernameChanged>
     implements _$$UsernameChangedCopyWith<$Res> {
   __$$UsernameChangedCopyWithImpl(
       _$UsernameChanged _value, $Res Function(_$UsernameChanged) _then)
-      : super(_value, (v) => _then(v as _$UsernameChanged));
+      : super(_value, _then);
 
-  @override
-  _$UsernameChanged get _value => super._value as _$UsernameChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
+    Object? username = null,
   }) {
     return _then(_$UsernameChanged(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
@@ -128,15 +129,16 @@ class _$UsernameChanged implements UsernameChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UsernameChanged &&
-            const DeepCollectionEquality().equals(other.username, username));
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(username));
+  int get hashCode => Object.hash(runtimeType, username);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UsernameChangedCopyWith<_$UsernameChanged> get copyWith =>
       __$$UsernameChangedCopyWithImpl<_$UsernameChanged>(this, _$identity);
 
@@ -153,9 +155,9 @@ class _$UsernameChanged implements UsernameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String username)? usernameChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult? Function(String username)? usernameChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? loginButtonPressed,
   }) {
     return usernameChanged?.call(username);
   }
@@ -187,9 +189,9 @@ class _$UsernameChanged implements UsernameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UsernameChanged value)? usernameChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(UsernameChanged value)? usernameChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
   }) {
     return usernameChanged?.call(this);
   }
@@ -224,26 +226,25 @@ abstract class _$$PasswordChangedCopyWith<$Res> {
   factory _$$PasswordChangedCopyWith(
           _$PasswordChanged value, $Res Function(_$PasswordChanged) then) =
       __$$PasswordChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String password});
 }
 
 /// @nodoc
 class __$$PasswordChangedCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$PasswordChanged>
     implements _$$PasswordChangedCopyWith<$Res> {
   __$$PasswordChangedCopyWithImpl(
       _$PasswordChanged _value, $Res Function(_$PasswordChanged) _then)
-      : super(_value, (v) => _then(v as _$PasswordChanged));
+      : super(_value, _then);
 
-  @override
-  _$PasswordChanged get _value => super._value as _$PasswordChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
+    Object? password = null,
   }) {
     return _then(_$PasswordChanged(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -269,15 +270,16 @@ class _$PasswordChanged implements PasswordChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PasswordChanged &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$PasswordChangedCopyWith<_$PasswordChanged> get copyWith =>
       __$$PasswordChangedCopyWithImpl<_$PasswordChanged>(this, _$identity);
 
@@ -294,9 +296,9 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String username)? usernameChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult? Function(String username)? usernameChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? loginButtonPressed,
   }) {
     return passwordChanged?.call(password);
   }
@@ -328,9 +330,9 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UsernameChanged value)? usernameChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(UsernameChanged value)? usernameChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
   }) {
     return passwordChanged?.call(this);
   }
@@ -369,14 +371,11 @@ abstract class _$$LoginButtonPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoginButtonPressedCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$LoginButtonPressed>
     implements _$$LoginButtonPressedCopyWith<$Res> {
   __$$LoginButtonPressedCopyWithImpl(
       _$LoginButtonPressed _value, $Res Function(_$LoginButtonPressed) _then)
-      : super(_value, (v) => _then(v as _$LoginButtonPressed));
-
-  @override
-  _$LoginButtonPressed get _value => super._value as _$LoginButtonPressed;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -411,9 +410,9 @@ class _$LoginButtonPressed implements LoginButtonPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String username)? usernameChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult? Function(String username)? usernameChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? loginButtonPressed,
   }) {
     return loginButtonPressed?.call();
   }
@@ -445,9 +444,9 @@ class _$LoginButtonPressed implements LoginButtonPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UsernameChanged value)? usernameChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(UsernameChanged value)? usernameChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
   }) {
     return loginButtonPressed?.call(this);
   }
@@ -489,7 +488,8 @@ mixin _$LoginState {
 abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
           LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res>;
+      _$LoginStateCopyWithImpl<$Res, LoginState>;
+  @useResult
   $Res call(
       {String username,
       String password,
@@ -499,43 +499,46 @@ abstract class $LoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
+class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
+    implements $LoginStateCopyWith<$Res> {
   _$LoginStateCopyWithImpl(this._value, this._then);
 
-  final LoginState _value;
   // ignore: unused_field
-  final $Res Function(LoginState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
-    Object? isLoading = freezed,
-    Object? validateFields = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? username = null,
+    Object? password = null,
+    Object? isLoading = null,
+    Object? validateFields = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      validateFields: validateFields == freezed
+      validateFields: null == validateFields
           ? _value.validateFields
           : validateFields // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, ParseUser>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -546,6 +549,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
           _$_LoginState value, $Res Function(_$_LoginState) then) =
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String username,
       String password,
@@ -555,41 +559,40 @@ abstract class _$$_LoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+class __$$_LoginStateCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$_LoginState>
     implements _$$_LoginStateCopyWith<$Res> {
   __$$_LoginStateCopyWithImpl(
       _$_LoginState _value, $Res Function(_$_LoginState) _then)
-      : super(_value, (v) => _then(v as _$_LoginState));
+      : super(_value, _then);
 
-  @override
-  _$_LoginState get _value => super._value as _$_LoginState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
-    Object? isLoading = freezed,
-    Object? validateFields = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? username = null,
+    Object? password = null,
+    Object? isLoading = null,
+    Object? validateFields = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_LoginState(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      validateFields: validateFields == freezed
+      validateFields: null == validateFields
           ? _value.validateFields
           : validateFields // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, ParseUser>>,
@@ -628,26 +631,27 @@ class _$_LoginState implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.validateFields, validateFields) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.validateFields, validateFields) ||
+                other.validateFields == validateFields) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                other.authFailureOrSuccessOption ==
+                    authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(validateFields),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+  int get hashCode => Object.hash(runtimeType, username, password, isLoading,
+      validateFields, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
       __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
 }

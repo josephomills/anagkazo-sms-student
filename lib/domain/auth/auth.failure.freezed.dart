@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth.failure.dart';
 
@@ -34,18 +34,18 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,19 +84,19 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -123,16 +123,18 @@ mixin _$AuthFailure {
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
-      _$AuthFailureCopyWithImpl<$Res>;
+      _$AuthFailureCopyWithImpl<$Res, AuthFailure>;
 }
 
 /// @nodoc
-class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
+class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
+    implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
-  final AuthFailure _value;
   // ignore: unused_field
-  final $Res Function(AuthFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -144,14 +146,11 @@ abstract class _$$_CancelledByUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CancelledByUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_CancelledByUser>
     implements _$$_CancelledByUserCopyWith<$Res> {
   __$$_CancelledByUserCopyWithImpl(
       _$_CancelledByUser _value, $Res Function(_$_CancelledByUser) _then)
-      : super(_value, (v) => _then(v as _$_CancelledByUser));
-
-  @override
-  _$_CancelledByUser get _value => super._value as _$_CancelledByUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -195,18 +194,18 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return cancelledByUser?.call();
   }
@@ -257,19 +256,19 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -308,25 +307,25 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
   factory _$$_ServerErrorCopyWith(
           _$_ServerError value, $Res Function(_$_ServerError) then) =
       __$$_ServerErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
+      : super(_value, _then);
 
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$_ServerError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -352,15 +351,15 @@ class _$_ServerError implements _ServerError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerError &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
       __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
 
@@ -386,18 +385,18 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return serverError?.call(message);
   }
@@ -448,19 +447,19 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return serverError?.call(this);
   }
@@ -508,14 +507,11 @@ abstract class _$$_UsernameAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UsernameAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_UsernameAlreadyInUse>
     implements _$$_UsernameAlreadyInUseCopyWith<$Res> {
   __$$_UsernameAlreadyInUseCopyWithImpl(_$_UsernameAlreadyInUse _value,
       $Res Function(_$_UsernameAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_UsernameAlreadyInUse));
-
-  @override
-  _$_UsernameAlreadyInUse get _value => super._value as _$_UsernameAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -559,18 +555,18 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return usernameAlreadyInUse?.call();
   }
@@ -621,19 +617,19 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return usernameAlreadyInUse?.call(this);
   }
@@ -676,14 +672,11 @@ abstract class _$$_EmailAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_EmailAlreadyInUse>
     implements _$$_EmailAlreadyInUseCopyWith<$Res> {
   __$$_EmailAlreadyInUseCopyWithImpl(
       _$_EmailAlreadyInUse _value, $Res Function(_$_EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_EmailAlreadyInUse));
-
-  @override
-  _$_EmailAlreadyInUse get _value => super._value as _$_EmailAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -727,18 +720,18 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -789,19 +782,19 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -844,14 +837,11 @@ abstract class _$$_WeakPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WeakPasswordCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_WeakPassword>
     implements _$$_WeakPasswordCopyWith<$Res> {
   __$$_WeakPasswordCopyWithImpl(
       _$_WeakPassword _value, $Res Function(_$_WeakPassword) _then)
-      : super(_value, (v) => _then(v as _$_WeakPassword));
-
-  @override
-  _$_WeakPassword get _value => super._value as _$_WeakPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -895,18 +885,18 @@ class _$_WeakPassword implements _WeakPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return weakPassword?.call();
   }
@@ -957,19 +947,19 @@ class _$_WeakPassword implements _WeakPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return weakPassword?.call(this);
   }
@@ -1013,16 +1003,13 @@ abstract class _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res,
+        _$_InvalidEmailAndPasswordCombination>
     implements _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
   __$$_InvalidEmailAndPasswordCombinationCopyWithImpl(
       _$_InvalidEmailAndPasswordCombination _value,
       $Res Function(_$_InvalidEmailAndPasswordCombination) _then)
-      : super(_value, (v) => _then(v as _$_InvalidEmailAndPasswordCombination));
-
-  @override
-  _$_InvalidEmailAndPasswordCombination get _value =>
-      super._value as _$_InvalidEmailAndPasswordCombination;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1068,18 +1055,18 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return invalidUsernameAndPasswordCombination?.call();
   }
@@ -1130,19 +1117,19 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return invalidUsernameAndPasswordCombination?.call(this);
   }
@@ -1186,14 +1173,11 @@ abstract class _$$_UserDoesNotExistCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UserDoesNotExistCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_UserDoesNotExist>
     implements _$$_UserDoesNotExistCopyWith<$Res> {
   __$$_UserDoesNotExistCopyWithImpl(
       _$_UserDoesNotExist _value, $Res Function(_$_UserDoesNotExist) _then)
-      : super(_value, (v) => _then(v as _$_UserDoesNotExist));
-
-  @override
-  _$_UserDoesNotExist get _value => super._value as _$_UserDoesNotExist;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1237,18 +1221,18 @@ class _$_UserDoesNotExist implements _UserDoesNotExist {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return userDoesNotExist?.call();
   }
@@ -1299,19 +1283,19 @@ class _$_UserDoesNotExist implements _UserDoesNotExist {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return userDoesNotExist?.call(this);
   }
@@ -1354,14 +1338,11 @@ abstract class _$$_WrongPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WrongPasswordCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_WrongPassword>
     implements _$$_WrongPasswordCopyWith<$Res> {
   __$$_WrongPasswordCopyWithImpl(
       _$_WrongPassword _value, $Res Function(_$_WrongPassword) _then)
-      : super(_value, (v) => _then(v as _$_WrongPassword));
-
-  @override
-  _$_WrongPassword get _value => super._value as _$_WrongPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1405,18 +1386,18 @@ class _$_WrongPassword implements _WrongPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return wrongPassword?.call();
   }
@@ -1467,19 +1448,19 @@ class _$_WrongPassword implements _WrongPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return wrongPassword?.call(this);
   }
@@ -1522,14 +1503,11 @@ abstract class _$$_PlatformFailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_PlatformFailureCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_PlatformFailure>
     implements _$$_PlatformFailureCopyWith<$Res> {
   __$$_PlatformFailureCopyWithImpl(
       _$_PlatformFailure _value, $Res Function(_$_PlatformFailure) _then)
-      : super(_value, (v) => _then(v as _$_PlatformFailure));
-
-  @override
-  _$_PlatformFailure get _value => super._value as _$_PlatformFailure;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1573,18 +1551,18 @@ class _$_PlatformFailure implements _PlatformFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return platformFailure?.call();
   }
@@ -1635,19 +1613,19 @@ class _$_PlatformFailure implements _PlatformFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return platformFailure?.call(this);
   }
@@ -1690,14 +1668,11 @@ abstract class _$$_SessionMissingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SessionMissingCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_SessionMissing>
     implements _$$_SessionMissingCopyWith<$Res> {
   __$$_SessionMissingCopyWithImpl(
       _$_SessionMissing _value, $Res Function(_$_SessionMissing) _then)
-      : super(_value, (v) => _then(v as _$_SessionMissing));
-
-  @override
-  _$_SessionMissing get _value => super._value as _$_SessionMissing;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1741,18 +1716,18 @@ class _$_SessionMissing implements _SessionMissing {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return sessionMissing?.call();
   }
@@ -1803,19 +1778,19 @@ class _$_SessionMissing implements _SessionMissing {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return sessionMissing?.call(this);
   }
@@ -1858,14 +1833,11 @@ abstract class _$$_InvalidSessionTokenCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidSessionTokenCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_InvalidSessionToken>
     implements _$$_InvalidSessionTokenCopyWith<$Res> {
   __$$_InvalidSessionTokenCopyWithImpl(_$_InvalidSessionToken _value,
       $Res Function(_$_InvalidSessionToken) _then)
-      : super(_value, (v) => _then(v as _$_InvalidSessionToken));
-
-  @override
-  _$_InvalidSessionToken get _value => super._value as _$_InvalidSessionToken;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1909,18 +1881,18 @@ class _$_InvalidSessionToken implements _InvalidSessionToken {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return invalidSessionToken?.call();
   }
@@ -1971,19 +1943,19 @@ class _$_InvalidSessionToken implements _InvalidSessionToken {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return invalidSessionToken?.call(this);
   }
@@ -2026,14 +1998,11 @@ abstract class _$$_AccountAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AccountAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_AccountAlreadyInUse>
     implements _$$_AccountAlreadyInUseCopyWith<$Res> {
   __$$_AccountAlreadyInUseCopyWithImpl(_$_AccountAlreadyInUse _value,
       $Res Function(_$_AccountAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_AccountAlreadyInUse));
-
-  @override
-  _$_AccountAlreadyInUse get _value => super._value as _$_AccountAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2077,18 +2046,18 @@ class _$_AccountAlreadyInUse implements _AccountAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function(String? message)? serverError,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? invalidUsernameAndPasswordCombination,
-    TResult Function()? userDoesNotExist,
-    TResult Function()? wrongPassword,
-    TResult Function()? platformFailure,
-    TResult Function()? sessionMissing,
-    TResult Function()? invalidSessionToken,
-    TResult Function()? accountAlreadyInUse,
+    TResult? Function()? cancelledByUser,
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? invalidUsernameAndPasswordCombination,
+    TResult? Function()? userDoesNotExist,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? platformFailure,
+    TResult? Function()? sessionMissing,
+    TResult? Function()? invalidSessionToken,
+    TResult? Function()? accountAlreadyInUse,
   }) {
     return accountAlreadyInUse?.call();
   }
@@ -2139,19 +2108,19 @@ class _$_AccountAlreadyInUse implements _AccountAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_WeakPassword value)? weakPassword,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidUsernameAndPasswordCombination,
-    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_PlatformFailure value)? platformFailure,
-    TResult Function(_SessionMissing value)? sessionMissing,
-    TResult Function(_InvalidSessionToken value)? invalidSessionToken,
-    TResult Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
+    TResult? Function(_UserDoesNotExist value)? userDoesNotExist,
+    TResult? Function(_WrongPassword value)? wrongPassword,
+    TResult? Function(_PlatformFailure value)? platformFailure,
+    TResult? Function(_SessionMissing value)? sessionMissing,
+    TResult? Function(_InvalidSessionToken value)? invalidSessionToken,
+    TResult? Function(_AccountAlreadyInUse value)? accountAlreadyInUse,
   }) {
     return accountAlreadyInUse?.call(this);
   }

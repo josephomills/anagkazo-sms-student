@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'service.model.dart';
 
@@ -43,7 +43,8 @@ mixin _$ServiceModel {
 abstract class $ServiceModelCopyWith<$Res> {
   factory $ServiceModelCopyWith(
           ServiceModel value, $Res Function(ServiceModel) then) =
-      _$ServiceModelCopyWithImpl<$Res>;
+      _$ServiceModelCopyWithImpl<$Res, ServiceModel>;
+  @useResult
   $Res call(
       {String objectId,
       String type,
@@ -62,84 +63,88 @@ abstract class $ServiceModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServiceModelCopyWithImpl<$Res> implements $ServiceModelCopyWith<$Res> {
+class _$ServiceModelCopyWithImpl<$Res, $Val extends ServiceModel>
+    implements $ServiceModelCopyWith<$Res> {
   _$ServiceModelCopyWithImpl(this._value, this._then);
 
-  final ServiceModel _value;
   // ignore: unused_field
-  final $Res Function(ServiceModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? type = freezed,
-    Object? date = freezed,
-    Object? attendance = freezed,
-    Object? cediIncome = freezed,
-    Object? foreignIncome = freezed,
-    Object? numTithers = freezed,
-    Object? treasurers = freezed,
-    Object? treasurersSelfie = freezed,
-    Object? servicePhoto = freezed,
-    Object? membersPresent = freezed,
-    Object? fellowship = freezed,
+    Object? objectId = null,
+    Object? type = null,
+    Object? date = null,
+    Object? attendance = null,
+    Object? cediIncome = null,
+    Object? foreignIncome = null,
+    Object? numTithers = null,
+    Object? treasurers = null,
+    Object? treasurersSelfie = null,
+    Object? servicePhoto = null,
+    Object? membersPresent = null,
+    Object? fellowship = null,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      attendance: attendance == freezed
+      attendance: null == attendance
           ? _value.attendance
           : attendance // ignore: cast_nullable_to_non_nullable
               as int,
-      cediIncome: cediIncome == freezed
+      cediIncome: null == cediIncome
           ? _value.cediIncome
           : cediIncome // ignore: cast_nullable_to_non_nullable
               as int,
-      foreignIncome: foreignIncome == freezed
+      foreignIncome: null == foreignIncome
           ? _value.foreignIncome
           : foreignIncome // ignore: cast_nullable_to_non_nullable
               as int,
-      numTithers: numTithers == freezed
+      numTithers: null == numTithers
           ? _value.numTithers
           : numTithers // ignore: cast_nullable_to_non_nullable
               as int,
-      treasurers: treasurers == freezed
+      treasurers: null == treasurers
           ? _value.treasurers
           : treasurers // ignore: cast_nullable_to_non_nullable
               as List<UserModel>,
-      treasurersSelfie: treasurersSelfie == freezed
+      treasurersSelfie: null == treasurersSelfie
           ? _value.treasurersSelfie
           : treasurersSelfie // ignore: cast_nullable_to_non_nullable
               as String,
-      servicePhoto: servicePhoto == freezed
+      servicePhoto: null == servicePhoto
           ? _value.servicePhoto
           : servicePhoto // ignore: cast_nullable_to_non_nullable
               as String,
-      membersPresent: membersPresent == freezed
+      membersPresent: null == membersPresent
           ? _value.membersPresent
           : membersPresent // ignore: cast_nullable_to_non_nullable
               as List<MemberModel>,
-      fellowship: fellowship == freezed
+      fellowship: null == fellowship
           ? _value.fellowship
           : fellowship // ignore: cast_nullable_to_non_nullable
               as FellowshipModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FellowshipModelCopyWith<$Res> get fellowship {
     return $FellowshipModelCopyWith<$Res>(_value.fellowship, (value) {
-      return _then(_value.copyWith(fellowship: value));
+      return _then(_value.copyWith(fellowship: value) as $Val);
     });
   }
 }
@@ -151,6 +156,7 @@ abstract class _$$_ServiceModelCopyWith<$Res>
           _$_ServiceModel value, $Res Function(_$_ServiceModel) then) =
       __$$_ServiceModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String type,
@@ -171,76 +177,74 @@ abstract class _$$_ServiceModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ServiceModelCopyWithImpl<$Res>
-    extends _$ServiceModelCopyWithImpl<$Res>
+    extends _$ServiceModelCopyWithImpl<$Res, _$_ServiceModel>
     implements _$$_ServiceModelCopyWith<$Res> {
   __$$_ServiceModelCopyWithImpl(
       _$_ServiceModel _value, $Res Function(_$_ServiceModel) _then)
-      : super(_value, (v) => _then(v as _$_ServiceModel));
+      : super(_value, _then);
 
-  @override
-  _$_ServiceModel get _value => super._value as _$_ServiceModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? type = freezed,
-    Object? date = freezed,
-    Object? attendance = freezed,
-    Object? cediIncome = freezed,
-    Object? foreignIncome = freezed,
-    Object? numTithers = freezed,
-    Object? treasurers = freezed,
-    Object? treasurersSelfie = freezed,
-    Object? servicePhoto = freezed,
-    Object? membersPresent = freezed,
-    Object? fellowship = freezed,
+    Object? objectId = null,
+    Object? type = null,
+    Object? date = null,
+    Object? attendance = null,
+    Object? cediIncome = null,
+    Object? foreignIncome = null,
+    Object? numTithers = null,
+    Object? treasurers = null,
+    Object? treasurersSelfie = null,
+    Object? servicePhoto = null,
+    Object? membersPresent = null,
+    Object? fellowship = null,
   }) {
     return _then(_$_ServiceModel(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      attendance: attendance == freezed
+      attendance: null == attendance
           ? _value.attendance
           : attendance // ignore: cast_nullable_to_non_nullable
               as int,
-      cediIncome: cediIncome == freezed
+      cediIncome: null == cediIncome
           ? _value.cediIncome
           : cediIncome // ignore: cast_nullable_to_non_nullable
               as int,
-      foreignIncome: foreignIncome == freezed
+      foreignIncome: null == foreignIncome
           ? _value.foreignIncome
           : foreignIncome // ignore: cast_nullable_to_non_nullable
               as int,
-      numTithers: numTithers == freezed
+      numTithers: null == numTithers
           ? _value.numTithers
           : numTithers // ignore: cast_nullable_to_non_nullable
               as int,
-      treasurers: treasurers == freezed
+      treasurers: null == treasurers
           ? _value._treasurers
           : treasurers // ignore: cast_nullable_to_non_nullable
               as List<UserModel>,
-      treasurersSelfie: treasurersSelfie == freezed
+      treasurersSelfie: null == treasurersSelfie
           ? _value.treasurersSelfie
           : treasurersSelfie // ignore: cast_nullable_to_non_nullable
               as String,
-      servicePhoto: servicePhoto == freezed
+      servicePhoto: null == servicePhoto
           ? _value.servicePhoto
           : servicePhoto // ignore: cast_nullable_to_non_nullable
               as String,
-      membersPresent: membersPresent == freezed
+      membersPresent: null == membersPresent
           ? _value._membersPresent
           : membersPresent // ignore: cast_nullable_to_non_nullable
               as List<MemberModel>,
-      fellowship: fellowship == freezed
+      fellowship: null == fellowship
           ? _value.fellowship
           : fellowship // ignore: cast_nullable_to_non_nullable
               as FellowshipModel,
@@ -289,6 +293,7 @@ class _$_ServiceModel implements _ServiceModel {
   final List<UserModel> _treasurers;
   @override
   List<UserModel> get treasurers {
+    if (_treasurers is EqualUnmodifiableListView) return _treasurers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_treasurers);
   }
@@ -300,6 +305,7 @@ class _$_ServiceModel implements _ServiceModel {
   final List<MemberModel> _membersPresent;
   @override
   List<MemberModel> get membersPresent {
+    if (_membersPresent is EqualUnmodifiableListView) return _membersPresent;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_membersPresent);
   }
@@ -317,54 +323,58 @@ class _$_ServiceModel implements _ServiceModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServiceModel &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality()
-                .equals(other.attendance, attendance) &&
-            const DeepCollectionEquality()
-                .equals(other.cediIncome, cediIncome) &&
-            const DeepCollectionEquality()
-                .equals(other.foreignIncome, foreignIncome) &&
-            const DeepCollectionEquality()
-                .equals(other.numTithers, numTithers) &&
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.attendance, attendance) ||
+                other.attendance == attendance) &&
+            (identical(other.cediIncome, cediIncome) ||
+                other.cediIncome == cediIncome) &&
+            (identical(other.foreignIncome, foreignIncome) ||
+                other.foreignIncome == foreignIncome) &&
+            (identical(other.numTithers, numTithers) ||
+                other.numTithers == numTithers) &&
             const DeepCollectionEquality()
                 .equals(other._treasurers, _treasurers) &&
-            const DeepCollectionEquality()
-                .equals(other.treasurersSelfie, treasurersSelfie) &&
-            const DeepCollectionEquality()
-                .equals(other.servicePhoto, servicePhoto) &&
+            (identical(other.treasurersSelfie, treasurersSelfie) ||
+                other.treasurersSelfie == treasurersSelfie) &&
+            (identical(other.servicePhoto, servicePhoto) ||
+                other.servicePhoto == servicePhoto) &&
             const DeepCollectionEquality()
                 .equals(other._membersPresent, _membersPresent) &&
-            const DeepCollectionEquality()
-                .equals(other.fellowship, fellowship));
+            (identical(other.fellowship, fellowship) ||
+                other.fellowship == fellowship));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(attendance),
-      const DeepCollectionEquality().hash(cediIncome),
-      const DeepCollectionEquality().hash(foreignIncome),
-      const DeepCollectionEquality().hash(numTithers),
+      objectId,
+      type,
+      date,
+      attendance,
+      cediIncome,
+      foreignIncome,
+      numTithers,
       const DeepCollectionEquality().hash(_treasurers),
-      const DeepCollectionEquality().hash(treasurersSelfie),
-      const DeepCollectionEquality().hash(servicePhoto),
+      treasurersSelfie,
+      servicePhoto,
       const DeepCollectionEquality().hash(_membersPresent),
-      const DeepCollectionEquality().hash(fellowship));
+      fellowship);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServiceModelCopyWith<_$_ServiceModel> get copyWith =>
       __$$_ServiceModelCopyWithImpl<_$_ServiceModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServiceModelToJson(this);
+    return _$$_ServiceModelToJson(
+      this,
+    );
   }
 }
 
