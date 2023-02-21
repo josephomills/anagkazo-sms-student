@@ -36,4 +36,8 @@ extension StringExt on String {
         return ScanType.scanIn;
     }
   }
+
+  String get capitalize {
+    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+  }
 }
