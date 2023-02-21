@@ -6,7 +6,9 @@ import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
+import 'package:student/domain/core/extensions/string.ext.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/event_type.model.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 @Injectable(as: AttendanceFacade)
@@ -58,13 +60,47 @@ class AttendanceRepo implements AttendanceFacade {
   @override
   QueryBuilder<ScanObject> getQuery(
       {required ParseUser user, required EventType eventType}) {
+    // Get event type of given category
+    final eventTypeQuery = QueryBuilder<EventTypeObject>(EventTypeObject())
+      ..whereEqualTo(EventTypeObject.kCategory, "category")
+      ..keysToReturn([EventTypeObject.kName, EventTypeObject.kCategory]);
+
+    // Get all events of the given type
     final eventQuery = QueryBuilder<EventObject>(EventObject())
-      ..whereEqualTo(EventObject.kName, eventType.name);
+      ..whereMatchesQuery(EventObject.kType, eventTypeQuery)
+      ..includeObject(["type"])
+      ..excludeKeys([EventObject.kExcluded]);
+
+    // get all scans of the above events
     final query = QueryBuilder<ScanObject>(ScanObject())
       ..whereEqualTo(ScanObject.kUser, user.toPointer())
       ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
       ..includeObject(["event"])
-      ..orderByDescending(ScanObject.kScannedInAt);
+      ..orderByDescending(ScanObject.kScannedInAt)
+      ..excludeKeys([ScanObject.kSelfie]);
+
+    return query;
+  }
+
+  static QueryBuilder<ScanObject> scanQuery({required EventCategory category}) {
+    // Get event type of given category
+    final eventTypeQuery = QueryBuilder<EventTypeObject>(EventTypeObject())
+      ..whereEqualTo(EventTypeObject.kCategory, category.name.capitalize)
+      ..keysToReturn([EventTypeObject.kName, EventTypeObject.kCategory]);
+
+    // Get all events of the given type
+    final eventQuery = QueryBuilder<EventObject>(EventObject())
+      ..whereMatchesQuery(EventObject.kType, eventTypeQuery)
+      ..includeObject(["type"])
+      ..excludeKeys([EventObject.kExcluded]);
+
+    // get all scans of the above events
+    final query = QueryBuilder<ScanObject>(ScanObject())
+      ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
+      ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
+      ..includeObject(["event"])
+      ..orderByDescending(ScanObject.kScannedInAt)
+      ..excludeKeys([ScanObject.kSelfie]);
 
     return query;
   }
