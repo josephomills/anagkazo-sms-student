@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/presentation/navigation/router.core.gr.dart';
@@ -12,13 +13,11 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      homeIndex: PageIndex.vision,
+      homeIndex: TabIndex.lecture,
       routes: const [
-        VisionTabRoute(),
-        PillarTabRoute(),
-        AnagkazoLiveTabRoute(),
-        FirstLoveExperienceTabRoute(),
-        OtherEventsTabRoute(),
+        LectureTabRoute(),
+        ChurchTabRoute(),
+        OtherTabRoute(),
       ],
       builder: (context, body, controller) {
         return Scaffold(
@@ -61,47 +60,27 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
     return const [
       Tab(
         icon: Icon(
-          Icons.remove_red_eye,
+          LineAwesomeIcons.video,
         ),
         child: Text(
-          "Vision Lecture",
+          "Lectures",
           maxLines: 2,
           textAlign: TextAlign.center,
         ),
       ),
       Tab(
         icon: Icon(
-          Icons.account_balance,
+          LineAwesomeIcons.church,
         ),
         child: Text(
-          "Pillar Lecture",
+          "Church Services",
           maxLines: 2,
           textAlign: TextAlign.center,
         ),
       ),
       Tab(
         icon: Icon(
-          Icons.location_city,
-        ),
-        child: Text(
-          "Anagkazo Live",
-          maxLines: 2,
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Tab(
-        icon: Icon(
-          Icons.church,
-        ),
-        child: Text(
-          "FL Experience",
-          maxLines: 2,
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Tab(
-        icon: Icon(
-          Icons.groups,
+          LineAwesomeIcons.users,
         ),
         child: Text(
           "Other Events",
