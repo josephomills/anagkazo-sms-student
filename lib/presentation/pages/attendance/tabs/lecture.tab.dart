@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class VisionTabPage extends StatelessWidget {
-  const VisionTabPage({Key? key}) : super(key: key);
+class LectureTabPage extends StatelessWidget {
+  const LectureTabPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
