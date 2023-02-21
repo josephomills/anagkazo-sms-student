@@ -12,6 +12,6 @@ abstract class FormKeyModule {
 abstract class AuthModule {
   @preResolve
   @singleton
-  Future<ParseUser> get currentUser =>
-      ParseUser.currentUser() as Future<ParseUser>;
+  Future<ParseUser> currentUser() async =>
+      await ParseUser.currentUser() as Future<ParseUser>;
 }

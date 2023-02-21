@@ -59,7 +59,7 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i14.LoginBloc(gh<_i5.AuthFacade>()));
     gh.factory<_i15.MyFellowshipFacade>(() => _i16.MyFellowshipRepo());
     await gh.singletonAsync<_i17.ParseUser>(
-      () => authModule.currentUser,
+      () => authModule.currentUser(),
       preResolve: true,
     );
     gh.factory<_i18.ScanFacade>(() => _i19.ScanRepo());
