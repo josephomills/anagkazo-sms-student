@@ -24,12 +24,20 @@ class IndexPage extends StatelessWidget {
   }
 }
 
+/// Nav index for pages
 class NavIndex {
   static const int home = 0;
   static const int academics = 1;
   static const int attendance = 2;
   static const int ministry = 3;
   static const int more = 4;
+}
+
+/// Indices for attendance tabs
+class TabIndex {
+  static const int lecture = 0;
+  static const int church = 1;
+  static const int otherEvents = 4;
 }
 
 class PageIndex {
