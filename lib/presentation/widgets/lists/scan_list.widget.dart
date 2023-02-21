@@ -4,16 +4,19 @@ import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
+import 'package:student/domain/core/extensions/string.ext.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
 
-class B4aLiveListWidget extends StatelessWidget {
-  const B4aLiveListWidget(
-      {Key? key, required this.eventType, required this.query})
-      : super(key: key);
+class ScanListWidget extends StatelessWidget {
+  const ScanListWidget({
+    Key? key,
+    required this.query,
+    required this.category,
+  }) : super(key: key);
 
-  final EventType eventType;
+  final EventCategory category;
   final QueryBuilder<ScanObject> query;
 
   @override
@@ -38,7 +41,7 @@ class B4aLiveListWidget extends StatelessWidget {
             dateTime: snapshot.loadedData!.scannedInAt!,
             scanIn: snapshot.loadedData!.scannedInAt != null,
             scanOut: snapshot.loadedData!.scannedOutAt != null,
-            eventType: eventType,
+            eventType: snapshot.loadedData!.event!.type!.name!.eventType,
           );
         } else {
           return const SkeletonScanWidget();
