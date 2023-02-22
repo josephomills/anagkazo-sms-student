@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'attendance.failure.dart';
 
@@ -24,7 +24,7 @@ mixin _$AttendanceFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
+    TResult? Function(String? message)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$AttendanceFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
+    TResult? Function(_ServerError value)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,29 +59,32 @@ mixin _$AttendanceFailure {
 abstract class $AttendanceFailureCopyWith<$Res> {
   factory $AttendanceFailureCopyWith(
           AttendanceFailure value, $Res Function(AttendanceFailure) then) =
-      _$AttendanceFailureCopyWithImpl<$Res>;
+      _$AttendanceFailureCopyWithImpl<$Res, AttendanceFailure>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class _$AttendanceFailureCopyWithImpl<$Res>
+class _$AttendanceFailureCopyWithImpl<$Res, $Val extends AttendanceFailure>
     implements $AttendanceFailureCopyWith<$Res> {
   _$AttendanceFailureCopyWithImpl(this._value, this._then);
 
-  final AttendanceFailure _value;
   // ignore: unused_field
-  final $Res Function(AttendanceFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,26 +95,25 @@ abstract class _$$_ServerErrorCopyWith<$Res>
           _$_ServerError value, $Res Function(_$_ServerError) then) =
       __$$_ServerErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$AttendanceFailureCopyWithImpl<$Res>
+    extends _$AttendanceFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
+      : super(_value, _then);
 
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$_ServerError(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -137,15 +139,15 @@ class _$_ServerError implements _ServerError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ServerError &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
       __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
 
@@ -160,7 +162,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? message)? serverError,
+    TResult? Function(String? message)? serverError,
   }) {
     return serverError?.call(message);
   }
@@ -188,7 +190,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
+    TResult? Function(_ServerError value)? serverError,
   }) {
     return serverError?.call(this);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user.model.dart';
 
@@ -49,7 +49,8 @@ mixin _$UserModel {
 /// @nodoc
 abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
-      _$UserModelCopyWithImpl<$Res>;
+      _$UserModelCopyWithImpl<$Res, UserModel>;
+  @useResult
   $Res call(
       {String objectId,
       String username,
@@ -71,103 +72,106 @@ abstract class $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
+class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
+    implements $UserModelCopyWith<$Res> {
   _$UserModelCopyWithImpl(this._value, this._then);
 
-  final UserModel _value;
   // ignore: unused_field
-  final $Res Function(UserModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
+    Object? objectId = null,
+    Object? username = null,
+    Object? email = null,
     Object? sessionToken = freezed,
     Object? password = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? firstname = null,
+    Object? lastname = null,
     Object? middleName = freezed,
     Object? dob = freezed,
     Object? photoUrl = freezed,
     Object? country = freezed,
-    Object? gender = freezed,
-    Object? phone = freezed,
-    Object? whatsapp = freezed,
+    Object? gender = null,
+    Object? phone = null,
+    Object? whatsapp = null,
     Object? yearGroup = freezed,
     Object? title = freezed,
-    Object? isStaff = freezed,
+    Object? isStaff = null,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionToken: sessionToken == freezed
+      sessionToken: freezed == sessionToken
           ? _value.sessionToken
           : sessionToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      password: password == freezed
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      middleName: middleName == freezed
+      middleName: freezed == middleName
           ? _value.middleName
           : middleName // ignore: cast_nullable_to_non_nullable
               as String?,
-      dob: dob == freezed
+      dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      photoUrl: photoUrl == freezed
+      photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: country == freezed
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      whatsapp: whatsapp == freezed
+      whatsapp: null == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      yearGroup: yearGroup == freezed
+      yearGroup: freezed == yearGroup
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      isStaff: isStaff == freezed
+      isStaff: null == isStaff
           ? _value.isStaff
           : isStaff // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -177,6 +181,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
           _$_UserModel value, $Res Function(_$_UserModel) then) =
       __$$_UserModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String username,
@@ -198,101 +203,100 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
+class __$$_UserModelCopyWithImpl<$Res>
+    extends _$UserModelCopyWithImpl<$Res, _$_UserModel>
     implements _$$_UserModelCopyWith<$Res> {
   __$$_UserModelCopyWithImpl(
       _$_UserModel _value, $Res Function(_$_UserModel) _then)
-      : super(_value, (v) => _then(v as _$_UserModel));
+      : super(_value, _then);
 
-  @override
-  _$_UserModel get _value => super._value as _$_UserModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
+    Object? objectId = null,
+    Object? username = null,
+    Object? email = null,
     Object? sessionToken = freezed,
     Object? password = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? firstname = null,
+    Object? lastname = null,
     Object? middleName = freezed,
     Object? dob = freezed,
     Object? photoUrl = freezed,
     Object? country = freezed,
-    Object? gender = freezed,
-    Object? phone = freezed,
-    Object? whatsapp = freezed,
+    Object? gender = null,
+    Object? phone = null,
+    Object? whatsapp = null,
     Object? yearGroup = freezed,
     Object? title = freezed,
-    Object? isStaff = freezed,
+    Object? isStaff = null,
   }) {
     return _then(_$_UserModel(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionToken: sessionToken == freezed
+      sessionToken: freezed == sessionToken
           ? _value.sessionToken
           : sessionToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      password: password == freezed
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      middleName: middleName == freezed
+      middleName: freezed == middleName
           ? _value.middleName
           : middleName // ignore: cast_nullable_to_non_nullable
               as String?,
-      dob: dob == freezed
+      dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      photoUrl: photoUrl == freezed
+      photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: country == freezed
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      whatsapp: whatsapp == freezed
+      whatsapp: null == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String,
-      yearGroup: yearGroup == freezed
+      yearGroup: freezed == yearGroup
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      isStaff: isStaff == freezed
+      isStaff: null == isStaff
           ? _value.isStaff
           : isStaff // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -387,57 +391,68 @@ class _$_UserModel implements _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserModel &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.sessionToken, sessionToken) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.firstname, firstname) &&
-            const DeepCollectionEquality().equals(other.lastname, lastname) &&
-            const DeepCollectionEquality()
-                .equals(other.middleName, middleName) &&
-            const DeepCollectionEquality().equals(other.dob, dob) &&
-            const DeepCollectionEquality().equals(other.photoUrl, photoUrl) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.whatsapp, whatsapp) &&
-            const DeepCollectionEquality().equals(other.yearGroup, yearGroup) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.isStaff, isStaff));
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.sessionToken, sessionToken) ||
+                other.sessionToken == sessionToken) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname) &&
+            (identical(other.middleName, middleName) ||
+                other.middleName == middleName) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.whatsapp, whatsapp) ||
+                other.whatsapp == whatsapp) &&
+            (identical(other.yearGroup, yearGroup) ||
+                other.yearGroup == yearGroup) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.isStaff, isStaff) || other.isStaff == isStaff));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(sessionToken),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(firstname),
-      const DeepCollectionEquality().hash(lastname),
-      const DeepCollectionEquality().hash(middleName),
-      const DeepCollectionEquality().hash(dob),
-      const DeepCollectionEquality().hash(photoUrl),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(gender),
-      const DeepCollectionEquality().hash(phone),
-      const DeepCollectionEquality().hash(whatsapp),
-      const DeepCollectionEquality().hash(yearGroup),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(isStaff));
+      objectId,
+      username,
+      email,
+      sessionToken,
+      password,
+      firstname,
+      lastname,
+      middleName,
+      dob,
+      photoUrl,
+      country,
+      gender,
+      phone,
+      whatsapp,
+      yearGroup,
+      title,
+      isStaff);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
       __$$_UserModelCopyWithImpl<_$_UserModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserModelToJson(this);
+    return _$$_UserModelToJson(
+      this,
+    );
   }
 }
 

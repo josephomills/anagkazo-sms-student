@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'register.dto.dart';
 
@@ -34,38 +34,42 @@ mixin _$RegisterDTO {
 abstract class $RegisterDTOCopyWith<$Res> {
   factory $RegisterDTOCopyWith(
           RegisterDTO value, $Res Function(RegisterDTO) then) =
-      _$RegisterDTOCopyWithImpl<$Res>;
+      _$RegisterDTOCopyWithImpl<$Res, RegisterDTO>;
+  @useResult
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class _$RegisterDTOCopyWithImpl<$Res> implements $RegisterDTOCopyWith<$Res> {
+class _$RegisterDTOCopyWithImpl<$Res, $Val extends RegisterDTO>
+    implements $RegisterDTOCopyWith<$Res> {
   _$RegisterDTOCopyWithImpl(this._value, this._then);
 
-  final RegisterDTO _value;
   // ignore: unused_field
-  final $Res Function(RegisterDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
+    Object? username = null,
+    Object? password = null,
     Object? email = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,35 +80,35 @@ abstract class _$$_RegisterDTOCopyWith<$Res>
           _$_RegisterDTO value, $Res Function(_$_RegisterDTO) then) =
       __$$_RegisterDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class __$$_RegisterDTOCopyWithImpl<$Res> extends _$RegisterDTOCopyWithImpl<$Res>
+class __$$_RegisterDTOCopyWithImpl<$Res>
+    extends _$RegisterDTOCopyWithImpl<$Res, _$_RegisterDTO>
     implements _$$_RegisterDTOCopyWith<$Res> {
   __$$_RegisterDTOCopyWithImpl(
       _$_RegisterDTO _value, $Res Function(_$_RegisterDTO) _then)
-      : super(_value, (v) => _then(v as _$_RegisterDTO));
+      : super(_value, _then);
 
-  @override
-  _$_RegisterDTO get _value => super._value as _$_RegisterDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? password = freezed,
+    Object? username = null,
+    Object? password = null,
     Object? email = freezed,
   }) {
     return _then(_$_RegisterDTO(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -138,27 +142,28 @@ class _$_RegisterDTO implements _RegisterDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterDTO &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.email, email));
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(email));
+  int get hashCode => Object.hash(runtimeType, username, password, email);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RegisterDTOCopyWith<_$_RegisterDTO> get copyWith =>
       __$$_RegisterDTOCopyWithImpl<_$_RegisterDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RegisterDTOToJson(this);
+    return _$$_RegisterDTOToJson(
+      this,
+    );
   }
 }
 

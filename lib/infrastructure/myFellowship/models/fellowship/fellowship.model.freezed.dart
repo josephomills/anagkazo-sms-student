@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'fellowship.model.dart';
 
@@ -36,7 +36,8 @@ mixin _$FellowshipModel {
 abstract class $FellowshipModelCopyWith<$Res> {
   factory $FellowshipModelCopyWith(
           FellowshipModel value, $Res Function(FellowshipModel) then) =
-      _$FellowshipModelCopyWithImpl<$Res>;
+      _$FellowshipModelCopyWithImpl<$Res, FellowshipModel>;
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -50,64 +51,69 @@ abstract class $FellowshipModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FellowshipModelCopyWithImpl<$Res>
+class _$FellowshipModelCopyWithImpl<$Res, $Val extends FellowshipModel>
     implements $FellowshipModelCopyWith<$Res> {
   _$FellowshipModelCopyWithImpl(this._value, this._then);
 
-  final FellowshipModel _value;
   // ignore: unused_field
-  final $Res Function(FellowshipModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? leader = freezed,
-    Object? constituency = freezed,
-    Object? bacenta = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? leader = null,
+    Object? constituency = null,
+    Object? bacenta = null,
   }) {
     return _then(_value.copyWith(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      leader: leader == freezed
+      leader: null == leader
           ? _value.leader
           : leader // ignore: cast_nullable_to_non_nullable
               as UserModel,
-      constituency: constituency == freezed
+      constituency: null == constituency
           ? _value.constituency
           : constituency // ignore: cast_nullable_to_non_nullable
               as ConstituencyModel,
-      bacenta: bacenta == freezed
+      bacenta: null == bacenta
           ? _value.bacenta
           : bacenta // ignore: cast_nullable_to_non_nullable
               as BacentaModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get leader {
     return $UserModelCopyWith<$Res>(_value.leader, (value) {
-      return _then(_value.copyWith(leader: value));
+      return _then(_value.copyWith(leader: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ConstituencyModelCopyWith<$Res> get constituency {
     return $ConstituencyModelCopyWith<$Res>(_value.constituency, (value) {
-      return _then(_value.copyWith(constituency: value));
+      return _then(_value.copyWith(constituency: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $BacentaModelCopyWith<$Res> get bacenta {
     return $BacentaModelCopyWith<$Res>(_value.bacenta, (value) {
-      return _then(_value.copyWith(bacenta: value));
+      return _then(_value.copyWith(bacenta: value) as $Val);
     });
   }
 }
@@ -119,6 +125,7 @@ abstract class _$$_FellowshipModelCopyWith<$Res>
           _$_FellowshipModel value, $Res Function(_$_FellowshipModel) then) =
       __$$_FellowshipModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String objectId,
       String name,
@@ -136,41 +143,39 @@ abstract class _$$_FellowshipModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_FellowshipModelCopyWithImpl<$Res>
-    extends _$FellowshipModelCopyWithImpl<$Res>
+    extends _$FellowshipModelCopyWithImpl<$Res, _$_FellowshipModel>
     implements _$$_FellowshipModelCopyWith<$Res> {
   __$$_FellowshipModelCopyWithImpl(
       _$_FellowshipModel _value, $Res Function(_$_FellowshipModel) _then)
-      : super(_value, (v) => _then(v as _$_FellowshipModel));
+      : super(_value, _then);
 
-  @override
-  _$_FellowshipModel get _value => super._value as _$_FellowshipModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = freezed,
-    Object? name = freezed,
-    Object? leader = freezed,
-    Object? constituency = freezed,
-    Object? bacenta = freezed,
+    Object? objectId = null,
+    Object? name = null,
+    Object? leader = null,
+    Object? constituency = null,
+    Object? bacenta = null,
   }) {
     return _then(_$_FellowshipModel(
-      objectId: objectId == freezed
+      objectId: null == objectId
           ? _value.objectId
           : objectId // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      leader: leader == freezed
+      leader: null == leader
           ? _value.leader
           : leader // ignore: cast_nullable_to_non_nullable
               as UserModel,
-      constituency: constituency == freezed
+      constituency: null == constituency
           ? _value.constituency
           : constituency // ignore: cast_nullable_to_non_nullable
               as ConstituencyModel,
-      bacenta: bacenta == freezed
+      bacenta: null == bacenta
           ? _value.bacenta
           : bacenta // ignore: cast_nullable_to_non_nullable
               as BacentaModel,
@@ -217,32 +222,31 @@ class _$_FellowshipModel implements _FellowshipModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FellowshipModel &&
-            const DeepCollectionEquality().equals(other.objectId, objectId) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.leader, leader) &&
-            const DeepCollectionEquality()
-                .equals(other.constituency, constituency) &&
-            const DeepCollectionEquality().equals(other.bacenta, bacenta));
+            (identical(other.objectId, objectId) ||
+                other.objectId == objectId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.leader, leader) || other.leader == leader) &&
+            (identical(other.constituency, constituency) ||
+                other.constituency == constituency) &&
+            (identical(other.bacenta, bacenta) || other.bacenta == bacenta));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(objectId),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(leader),
-      const DeepCollectionEquality().hash(constituency),
-      const DeepCollectionEquality().hash(bacenta));
+  int get hashCode =>
+      Object.hash(runtimeType, objectId, name, leader, constituency, bacenta);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FellowshipModelCopyWith<_$_FellowshipModel> get copyWith =>
       __$$_FellowshipModelCopyWithImpl<_$_FellowshipModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FellowshipModelToJson(this);
+    return _$$_FellowshipModelToJson(
+      this,
+    );
   }
 }
 

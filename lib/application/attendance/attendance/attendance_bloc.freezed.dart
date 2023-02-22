@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'attendance_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$AttendanceEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? tabSelected,
-    TResult Function()? getAllQueries,
+    TResult? Function(LectureType lectureType)? tabSelected,
+    TResult? Function()? getAllQueries,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$AttendanceEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
+    TResult? Function(_TabSelected value)? tabSelected,
+    TResult? Function(_GetAllQueries value)? getAllQueries,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,17 +60,18 @@ mixin _$AttendanceEvent {
 abstract class $AttendanceEventCopyWith<$Res> {
   factory $AttendanceEventCopyWith(
           AttendanceEvent value, $Res Function(AttendanceEvent) then) =
-      _$AttendanceEventCopyWithImpl<$Res>;
+      _$AttendanceEventCopyWithImpl<$Res, AttendanceEvent>;
 }
 
 /// @nodoc
-class _$AttendanceEventCopyWithImpl<$Res>
+class _$AttendanceEventCopyWithImpl<$Res, $Val extends AttendanceEvent>
     implements $AttendanceEventCopyWith<$Res> {
   _$AttendanceEventCopyWithImpl(this._value, this._then);
 
-  final AttendanceEvent _value;
   // ignore: unused_field
-  final $Res Function(AttendanceEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -78,26 +79,25 @@ abstract class _$$_TabSelectedCopyWith<$Res> {
   factory _$$_TabSelectedCopyWith(
           _$_TabSelected value, $Res Function(_$_TabSelected) then) =
       __$$_TabSelectedCopyWithImpl<$Res>;
+  @useResult
   $Res call({LectureType lectureType});
 }
 
 /// @nodoc
 class __$$_TabSelectedCopyWithImpl<$Res>
-    extends _$AttendanceEventCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$_TabSelected>
     implements _$$_TabSelectedCopyWith<$Res> {
   __$$_TabSelectedCopyWithImpl(
       _$_TabSelected _value, $Res Function(_$_TabSelected) _then)
-      : super(_value, (v) => _then(v as _$_TabSelected));
+      : super(_value, _then);
 
-  @override
-  _$_TabSelected get _value => super._value as _$_TabSelected;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lectureType = freezed,
+    Object? lectureType = null,
   }) {
     return _then(_$_TabSelected(
-      lectureType: lectureType == freezed
+      lectureType: null == lectureType
           ? _value.lectureType
           : lectureType // ignore: cast_nullable_to_non_nullable
               as LectureType,
@@ -123,16 +123,16 @@ class _$_TabSelected implements _TabSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TabSelected &&
-            const DeepCollectionEquality()
-                .equals(other.lectureType, lectureType));
+            (identical(other.lectureType, lectureType) ||
+                other.lectureType == lectureType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(lectureType));
+  int get hashCode => Object.hash(runtimeType, lectureType);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
       __$$_TabSelectedCopyWithImpl<_$_TabSelected>(this, _$identity);
 
@@ -148,8 +148,8 @@ class _$_TabSelected implements _TabSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? tabSelected,
-    TResult Function()? getAllQueries,
+    TResult? Function(LectureType lectureType)? tabSelected,
+    TResult? Function()? getAllQueries,
   }) {
     return tabSelected?.call(lectureType);
   }
@@ -179,8 +179,8 @@ class _$_TabSelected implements _TabSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
+    TResult? Function(_TabSelected value)? tabSelected,
+    TResult? Function(_GetAllQueries value)? getAllQueries,
   }) {
     return tabSelected?.call(this);
   }
@@ -218,14 +218,11 @@ abstract class _$$_GetAllQueriesCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetAllQueriesCopyWithImpl<$Res>
-    extends _$AttendanceEventCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$_GetAllQueries>
     implements _$$_GetAllQueriesCopyWith<$Res> {
   __$$_GetAllQueriesCopyWithImpl(
       _$_GetAllQueries _value, $Res Function(_$_GetAllQueries) _then)
-      : super(_value, (v) => _then(v as _$_GetAllQueries));
-
-  @override
-  _$_GetAllQueries get _value => super._value as _$_GetAllQueries;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -259,8 +256,8 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LectureType lectureType)? tabSelected,
-    TResult Function()? getAllQueries,
+    TResult? Function(LectureType lectureType)? tabSelected,
+    TResult? Function()? getAllQueries,
   }) {
     return getAllQueries?.call();
   }
@@ -290,8 +287,8 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
+    TResult? Function(_TabSelected value)? tabSelected,
+    TResult? Function(_GetAllQueries value)? getAllQueries,
   }) {
     return getAllQueries?.call(this);
   }
@@ -339,7 +336,8 @@ mixin _$AttendanceState {
 abstract class $AttendanceStateCopyWith<$Res> {
   factory $AttendanceStateCopyWith(
           AttendanceState value, $Res Function(AttendanceState) then) =
-      _$AttendanceStateCopyWithImpl<$Res>;
+      _$AttendanceStateCopyWithImpl<$Res, AttendanceState>;
+  @useResult
   $Res call(
       {bool isLoading,
       Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
@@ -353,55 +351,57 @@ abstract class $AttendanceStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AttendanceStateCopyWithImpl<$Res>
+class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
     implements $AttendanceStateCopyWith<$Res> {
   _$AttendanceStateCopyWithImpl(this._value, this._then);
 
-  final AttendanceState _value;
   // ignore: unused_field
-  final $Res Function(AttendanceState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? failureOrQueryOption = freezed,
-    Object? failureOrQueriesList = freezed,
-    Object? visionQueryOption = freezed,
-    Object? pillarQueryOption = freezed,
-    Object? aLiveQueryOption = freezed,
-    Object? flExpQueryOption = freezed,
+    Object? isLoading = null,
+    Object? failureOrQueryOption = null,
+    Object? failureOrQueriesList = null,
+    Object? visionQueryOption = null,
+    Object? pillarQueryOption = null,
+    Object? aLiveQueryOption = null,
+    Object? flExpQueryOption = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrQueryOption: failureOrQueryOption == freezed
+      failureOrQueryOption: null == failureOrQueryOption
           ? _value.failureOrQueryOption
           : failureOrQueryOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>,
-      failureOrQueriesList: failureOrQueriesList == freezed
+      failureOrQueriesList: null == failureOrQueriesList
           ? _value.failureOrQueriesList
           : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
               as Option<
                   Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
-      visionQueryOption: visionQueryOption == freezed
+      visionQueryOption: null == visionQueryOption
           ? _value.visionQueryOption
           : visionQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      pillarQueryOption: pillarQueryOption == freezed
+      pillarQueryOption: null == pillarQueryOption
           ? _value.pillarQueryOption
           : pillarQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      aLiveQueryOption: aLiveQueryOption == freezed
+      aLiveQueryOption: null == aLiveQueryOption
           ? _value.aLiveQueryOption
           : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      flExpQueryOption: flExpQueryOption == freezed
+      flExpQueryOption: null == flExpQueryOption
           ? _value.flExpQueryOption
           : flExpQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -412,6 +412,7 @@ abstract class _$$_AttendanceStateCopyWith<$Res>
           _$_AttendanceState value, $Res Function(_$_AttendanceState) then) =
       __$$_AttendanceStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
@@ -426,52 +427,50 @@ abstract class _$$_AttendanceStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_AttendanceStateCopyWithImpl<$Res>
-    extends _$AttendanceStateCopyWithImpl<$Res>
+    extends _$AttendanceStateCopyWithImpl<$Res, _$_AttendanceState>
     implements _$$_AttendanceStateCopyWith<$Res> {
   __$$_AttendanceStateCopyWithImpl(
       _$_AttendanceState _value, $Res Function(_$_AttendanceState) _then)
-      : super(_value, (v) => _then(v as _$_AttendanceState));
+      : super(_value, _then);
 
-  @override
-  _$_AttendanceState get _value => super._value as _$_AttendanceState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? failureOrQueryOption = freezed,
-    Object? failureOrQueriesList = freezed,
-    Object? visionQueryOption = freezed,
-    Object? pillarQueryOption = freezed,
-    Object? aLiveQueryOption = freezed,
-    Object? flExpQueryOption = freezed,
+    Object? isLoading = null,
+    Object? failureOrQueryOption = null,
+    Object? failureOrQueriesList = null,
+    Object? visionQueryOption = null,
+    Object? pillarQueryOption = null,
+    Object? aLiveQueryOption = null,
+    Object? flExpQueryOption = null,
   }) {
     return _then(_$_AttendanceState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrQueryOption: failureOrQueryOption == freezed
+      failureOrQueryOption: null == failureOrQueryOption
           ? _value.failureOrQueryOption
           : failureOrQueryOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>,
-      failureOrQueriesList: failureOrQueriesList == freezed
+      failureOrQueriesList: null == failureOrQueriesList
           ? _value.failureOrQueriesList
           : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
               as Option<
                   Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
-      visionQueryOption: visionQueryOption == freezed
+      visionQueryOption: null == visionQueryOption
           ? _value.visionQueryOption
           : visionQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      pillarQueryOption: pillarQueryOption == freezed
+      pillarQueryOption: null == pillarQueryOption
           ? _value.pillarQueryOption
           : pillarQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      aLiveQueryOption: aLiveQueryOption == freezed
+      aLiveQueryOption: null == aLiveQueryOption
           ? _value.aLiveQueryOption
           : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
-      flExpQueryOption: flExpQueryOption == freezed
+      flExpQueryOption: null == flExpQueryOption
           ? _value.flExpQueryOption
           : flExpQueryOption // ignore: cast_nullable_to_non_nullable
               as QueryBuilder<ScanObject>,
@@ -518,34 +517,36 @@ class _$_AttendanceState implements _AttendanceState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AttendanceState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.failureOrQueryOption, failureOrQueryOption) &&
-            const DeepCollectionEquality()
-                .equals(other.failureOrQueriesList, failureOrQueriesList) &&
-            const DeepCollectionEquality()
-                .equals(other.visionQueryOption, visionQueryOption) &&
-            const DeepCollectionEquality()
-                .equals(other.pillarQueryOption, pillarQueryOption) &&
-            const DeepCollectionEquality()
-                .equals(other.aLiveQueryOption, aLiveQueryOption) &&
-            const DeepCollectionEquality()
-                .equals(other.flExpQueryOption, flExpQueryOption));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.failureOrQueryOption, failureOrQueryOption) ||
+                other.failureOrQueryOption == failureOrQueryOption) &&
+            (identical(other.failureOrQueriesList, failureOrQueriesList) ||
+                other.failureOrQueriesList == failureOrQueriesList) &&
+            (identical(other.visionQueryOption, visionQueryOption) ||
+                other.visionQueryOption == visionQueryOption) &&
+            (identical(other.pillarQueryOption, pillarQueryOption) ||
+                other.pillarQueryOption == pillarQueryOption) &&
+            (identical(other.aLiveQueryOption, aLiveQueryOption) ||
+                other.aLiveQueryOption == aLiveQueryOption) &&
+            (identical(other.flExpQueryOption, flExpQueryOption) ||
+                other.flExpQueryOption == flExpQueryOption));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(failureOrQueryOption),
-      const DeepCollectionEquality().hash(failureOrQueriesList),
-      const DeepCollectionEquality().hash(visionQueryOption),
-      const DeepCollectionEquality().hash(pillarQueryOption),
-      const DeepCollectionEquality().hash(aLiveQueryOption),
-      const DeepCollectionEquality().hash(flExpQueryOption));
+      isLoading,
+      failureOrQueryOption,
+      failureOrQueriesList,
+      visionQueryOption,
+      pillarQueryOption,
+      aLiveQueryOption,
+      flExpQueryOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AttendanceStateCopyWith<_$_AttendanceState> get copyWith =>
       __$$_AttendanceStateCopyWithImpl<_$_AttendanceState>(this, _$identity);
 }

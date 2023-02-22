@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
-import 'package:student/application/core/injectable.core.dart';
-import 'package:student/application/core/router.core.gr.dart';
-import 'package:student/presentation/core/pageIndex.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
+import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/pages/index.page.dart';
 
 class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
   const AttendancePage({Key? key}) : super(key: key);

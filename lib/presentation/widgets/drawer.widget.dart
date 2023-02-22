@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:student/application/core/injectable.core.dart';
-import 'package:student/application/core/router.core.gr.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/auth/auth.facade.dart';
-import 'package:student/presentation/core/pageIndex.dart';
+import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/pages/index.page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({

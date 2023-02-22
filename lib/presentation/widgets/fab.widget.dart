@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:student/application/core/router.core.gr.dart';
+import 'package:student/presentation/navigation/router.core.gr.dart';
 
 class FABWidget extends StatelessWidget {
   const FABWidget({Key? key}) : super(key: key);

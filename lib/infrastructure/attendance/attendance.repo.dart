@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
+import 'package:student/application/attendance/attendance/attendance_bloc.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
-import 'package:student/domain/attendance/lectureType.enum.dart';
+import 'package:student/domain/core/enums/lecture_type.enum.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
@@ -65,5 +67,21 @@ class AttendanceRepo implements AttendanceFacade {
       ..orderByDescending(ScanObject.kScannedInAt);
 
     return query;
+  }
+
+  static QueryBuilder<ScanObject> getQueryBuilder(
+      {required LectureType lectureType}) {
+    switch (lectureType) {
+      case LectureType.vision:
+        return getIt<AttendanceBloc>().state.visionQueryOption;
+      case LectureType.pillar:
+        return getIt<AttendanceBloc>().state.pillarQueryOption;
+      case LectureType.anagkazoLive:
+        return getIt<AttendanceBloc>().state.aLiveQueryOption;
+      case LectureType.firstLoveExperience:
+        return getIt<AttendanceBloc>().state.flExpQueryOption;
+      default:
+        return QueryBuilder(ScanObject());
+    }
   }
 }
