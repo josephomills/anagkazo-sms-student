@@ -8,6 +8,7 @@ import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/application/myFellowship/my_fellowship_bloc.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 import 'package:student/domain/core/extensions/context.ext.dart';
+import 'package:student/presentation/widgets/app_bars/home.appbar.widget.dart';
 import 'package:student/presentation/widgets/cards/fellowship_service_details.widget.dart';
 import 'package:student/presentation/widgets/cards/my_fellowship_card.widget.dart';
 
@@ -45,6 +46,7 @@ class MyFellowshipPage extends StatelessWidget implements AutoRouteWrapper {
         );
 
         return Scaffold(
+          appBar: HomeAppBarWidget(),
           body: RefreshIndicator(
             // displacement: 10,
             onRefresh: () => Future<void>(
