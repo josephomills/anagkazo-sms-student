@@ -26,13 +26,6 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
             child: AppBar(
               bottom: TabBar(
                 controller: controller,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 0),
-                labelColor: Colors.white,
-                labelStyle: const TextStyle(
-                  fontSize: 12,
-                  overflow: TextOverflow.visible,
-                ),
-                unselectedLabelColor: Colors.white70,
                 tabs: buildTabs,
                 // onTap: (index) async {
                 //   // add bloc event
@@ -60,7 +53,7 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
     return const [
       Tab(
         icon: Icon(
-          LineAwesomeIcons.video,
+          LineAwesomeIcons.video_1,
         ),
         child: Text(
           "Lectures",
