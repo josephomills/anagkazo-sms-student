@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
 import 'package:student/infrastructure/auth/dto/register.dto.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -121,6 +123,8 @@ class AuthRepo implements AuthFacade {
       if (response?.success != null || response!.success) {
         // session token is valid
         hasUserLoggedIn = true;
+        //set current user in [AuthBloc]
+        getIt<AuthBloc>().add(LoggedIn(user: user));
       } else {
         await user.logout();
         // Session token is invalid
