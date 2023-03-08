@@ -21,7 +21,7 @@ class AppTheme {
         ),
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
         useMaterial3: true,
-        fontFamily: GoogleFonts.nunitoSans().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       );
 
   static ThemeData get dark => FlexThemeData.dark(
@@ -42,6 +42,6 @@ class AppTheme {
         ),
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
         useMaterial3: true,
-        fontFamily: GoogleFonts.nunitoSans().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       );
 }
