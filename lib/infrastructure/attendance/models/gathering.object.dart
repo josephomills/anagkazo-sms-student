@@ -1,26 +1,27 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/infrastructure/academics/models/year_group.object.dart';
-import 'package:student/infrastructure/attendance/models/event_type.object.dart';
+import 'package:student/infrastructure/attendance/models/gathering_type.object.dart';
 
-class EventObject extends ParseObject implements ParseCloneable {
-  EventObject() : super(_kTableName);
-  EventObject.clone() : super.clone(_kTableName);
+class GatheringObject extends ParseObject implements ParseCloneable {
+  GatheringObject() : super(_kTableName);
+  GatheringObject.clone() : super.clone(_kTableName);
 
-  static const String _kTableName = 'Event';
+  static const String _kTableName = 'Gathering';
 
   @override
-  clone(Map<String, dynamic> map) => EventObject.clone()..fromJson(map);
+  clone(Map<String, dynamic> map) => GatheringObject.clone()..fromJson(map);
 
   static const String kName = 'name';
 
   String? get name => get<String>(kName);
   set name(String? name) => set<String?>(kName, name);
 
-  static const String kEventType = 'eventType';
+  static const String kGatheringType = 'gatheringType';
 
-  EventTypeObject? get eventType => get<EventTypeObject>(kEventType);
-  set eventType(EventTypeObject? eventType) =>
-      set<EventTypeObject?>(kEventType, eventType);
+  GatheringTypeObject? get gatheringType =>
+      get<GatheringTypeObject>(kGatheringType);
+  set gatheringType(GatheringTypeObject? gatheringType) =>
+      set<GatheringTypeObject?>(kGatheringType, gatheringType);
 
   static const String kStartsAt = 'startsAt';
 

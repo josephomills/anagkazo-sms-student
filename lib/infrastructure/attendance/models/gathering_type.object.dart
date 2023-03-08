@@ -1,13 +1,13 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-class EventTypeObject extends ParseObject implements ParseCloneable {
-  EventTypeObject() : super(_kTableName);
-  EventTypeObject.clone() : super.clone(_kTableName);
+class GatheringTypeObject extends ParseObject implements ParseCloneable {
+  GatheringTypeObject() : super(_kTableName);
+  GatheringTypeObject.clone() : super.clone(_kTableName);
 
-  static const String _kTableName = 'EventType';
+  static const String _kTableName = 'GatheringType';
 
   @override
-  clone(Map<String, dynamic> map) => EventTypeObject.clone()..fromJson(map);
+  clone(Map<String, dynamic> map) => GatheringTypeObject.clone()..fromJson(map);
 
   static const String kName = 'name';
 
