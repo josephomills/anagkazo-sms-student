@@ -14,7 +14,9 @@ class BottomNavWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Theme.of(context).colorScheme.surface
+            : Colors.white,
         boxShadow: [
           BoxShadow(
             blurRadius: 20,
@@ -23,15 +25,18 @@ class BottomNavWidget extends StatelessWidget {
         ],
       ),
       child: GNav(
-        rippleColor: Colors.grey[300]!,
-        hoverColor: Colors.grey[100]!,
-        gap: 8,
-        activeColor: Colors.black,
-        iconSize: 28,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        rippleColor: Theme.of(context).colorScheme.background,
+        hoverColor: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Theme.of(context).colorScheme.onSurface
+            : Theme.of(context).colorScheme.onBackground,
+        activeColor: Theme.of(context).colorScheme.onPrimary,
+        tabBackgroundColor: Theme.of(context).colorScheme.primary,
+        gap: 6,
+        iconSize: 27,
+        textSize: 20,
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
         duration: const Duration(milliseconds: 400),
-        tabBackgroundColor: Theme.of(context).primaryColorDark,
-        color: Colors.black,
         selectedIndex: context.tabsRouter.activeIndex,
         onTabChange: (index) => context.tabsRouter.setActiveIndex(index),
         tabs: const [
@@ -44,7 +49,7 @@ class BottomNavWidget extends StatelessWidget {
             text: "Attendance",
           ),
           GButton(
-            icon: LineAwesomeIcons.school,
+            icon: LineAwesomeIcons.book,
             text: "Academics",
           ),
           GButton(
