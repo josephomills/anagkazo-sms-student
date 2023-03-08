@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 /// Dyamic implementation of [ElevatedButton]
 class ButtonWidget extends StatelessWidget {
@@ -27,16 +28,15 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      // style: context.resources.theme.lightTheme.elevatedButtonTheme.style!
-      //     .copyWith(
-      //   backgroundColor: MaterialStateProperty.all<Color?>(backgroundColor),
-      //   fixedSize: MaterialStateProperty.all<Size>(
-      //     Size(
-      //       ResponsiveWrapper.of(context).scaledWidth * widthFactor,
-      //       height,
-      //     ),
-      //   ),
-      // ),
+      style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
+            backgroundColor: MaterialStateProperty.all<Color?>(backgroundColor),
+            fixedSize: MaterialStateProperty.all<Size>(
+              Size(
+                ResponsiveWrapper.of(context).scaledWidth * widthFactor,
+                height,
+              ),
+            ),
+          ),
       onPressed: isLoading ? null : onTap,
       child: isLoading
           ? SpinKitThreeBounce(
