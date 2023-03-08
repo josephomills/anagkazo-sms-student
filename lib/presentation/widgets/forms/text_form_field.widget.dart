@@ -7,35 +7,41 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.validator,
     required this.onChanged,
     required this.label,
-    required this.prefixIcon,
+    required this.hint,
+    this.prefixIcon,
+    this.suffixIcon,
     this.autoCorrect = false,
     this.obscureText = false,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   final String text;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final String label;
-  final Widget prefixIcon;
+  final String hint;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final bool autoCorrect;
   final bool obscureText;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // controller: controllerUsername,
       initialValue: text,
-      keyboardType: TextInputType.text,
+      keyboardType: keyboardType,
       textCapitalization: TextCapitalization.none,
       autocorrect: autoCorrect,
       obscureText: obscureText,
-      decoration: InputDecoration(
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
-        ),
-        labelText: label,
-        prefixIcon: prefixIcon,
-      ),
+      decoration: const InputDecoration()
+          .applyDefaults(Theme.of(context).inputDecorationTheme)
+          .copyWith(
+            labelText: label,
+            hintText: hint,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+          ),
       validator: validator,
       onChanged: onChanged,
     );
