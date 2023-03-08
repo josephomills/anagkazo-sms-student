@@ -6,9 +6,9 @@ import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 abstract class AttendanceFacade {
   Future<Either<AttendanceFailure, QueryBuilder<ScanObject>>> getScanQuery(
-      {required EventType eventType});
+      {required GatheringType gatheringType});
   Future<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
       getAllScanQueries();
   QueryBuilder<ScanObject> getQuery(
-      {required ParseUser user, required EventType eventType});
+      {required ParseUser user, required GatheringType gatheringType});
 }
