@@ -5,7 +5,7 @@ class DashboardCardWidget extends StatelessWidget {
     Key? key,
     required this.stat,
     required this.label,
-    this.width = 135,
+    this.width = 136,
     this.height = 120,
     this.color = Colors.blue,
   }) : super(key: key);
@@ -28,6 +28,7 @@ class DashboardCardWidget extends StatelessWidget {
           children: [
             Text(
               stat,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
@@ -36,8 +37,9 @@ class DashboardCardWidget extends StatelessWidget {
             ),
             Text(
               label,
+              textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 14,
+                fontSize: 13,
               ),
             ),
           ],
