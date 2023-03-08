@@ -1,41 +1,87 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
     Key? key,
-    required this.dateTime,
-    this.scanIn,
-    this.scanOut,
-    this.gathering,
+    required this.scan,
   }) : super(key: key);
 
-  final DateTime dateTime;
-  final DateTime? scanIn;
-  final DateTime? scanOut;
-  final GatheringObject? gathering;
+  final ScanObject scan;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       tileColor: Theme.of(context).colorScheme.background,
       title: Text(
-        "${gathering!.gatheringType!.name!}, ${Moment(dateTime).formatDateShort()}",
+        "${scan.event!.name!}, ${Moment(scan.event!.startsAt!).formatDateShort()}",
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      subtitle: Text(Moment(scanIn!).formatDateTimeWithWeekdayShort()),
+      subtitle:
+          Text(Moment(scan.scannedInAt!).formatDateTimeWithWeekdayShort()),
+      leading: SizedBox(
+        width: 56,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              children: [
+                const Text("IN"),
+                const Spacer(),
+                Icon(
+                  isTooLateToScanIn(event: scan.event!)
+                      ? hasScannedIn(scan: scan)
+                          ? isLateScan(scan: scan)
+                              ? LineAwesomeIcons.clock
+                              : LineAwesomeIcons.check
+                          : hasScannedOut(scan: scan)
+                              ? LineAwesomeIcons.clock
+                              : LineAwesomeIcons.cross
+                      : LineAwesomeIcons.spinner,
+                  color: isTooLateToScanIn(event: scan.event!)
+                      ? hasScannedIn(scan: scan)
+                          ? isLateScan(scan: scan)
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.green.shade700
+                          : hasScannedOut(scan: scan)
+                              ? Theme.of(context).colorScheme.secondary
+                              : Theme.of(context).colorScheme.error
+                      : Theme.of(context).colorScheme.onBackground,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                const Text("OUT"),
+                const Spacer(),
+                Icon(
+                  hasScannedOut(scan: scan)
+                      ? LineAwesomeIcons.check
+                      : LineAwesomeIcons.minus,
+                  // color: hasScannedOut(scan: scan)
+                  //     ? Colors.green.shade700
+                  //     : Theme.of(context).colorScheme.onBackground,
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
       trailing: SizedBox(
-        width: 88,
+        width: 80,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Icon(LineAwesomeIcons.qrcode),
+            const Icon(LineAwesomeIcons.qrcode, size: 40),
             Text(
-              gathering!.gatheringType!.name!,
-              style: Theme.of(context).textTheme.bodySmall!,
+              scan.event!.eventType!.name!,
+              textAlign: TextAlign.start,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.labelSmall!,
             ),
           ],
         ),
@@ -43,53 +89,21 @@ class ScanWidget extends StatelessWidget {
     );
   }
 
-  Row coloredScan(BuildContext context) {
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 14,
-          child: Text(
-            "in",
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.white),
-          ),
-          backgroundColor: Moment(scanIn!).isAfter(Moment(dateTime)
-                  .add(Duration(minutes: gathering!.latenessRule!)))
-              ? Theme.of(context).colorScheme.error
-              : Colors.green,
-        ),
-        const Spacer(),
-        CircleAvatar(
-          radius: 14,
-          child: Text(
-            "out",
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.white),
-          ),
-          backgroundColor: Moment(scanIn!).isAfter(Moment(dateTime)
-                  .add(Duration(minutes: gathering!.latenessRule!)))
-              ? Theme.of(context).colorScheme.error
-              : Colors.green,
-        ),
-      ],
-    );
+  bool isLateScan({required ScanObject scan}) {
+    return Moment(scan.scannedInAt!).isAfter(Moment(scan.event!.startsAt!)
+        .add(Duration(minutes: scan.event!.latenessRule!)));
   }
 
-  // bool isLate(GatheringType type, DateTime dateTime) {
-  //   bool isLate = false;
+  bool hasScannedOut({required ScanObject scan}) {
+    return scan.scannedOutAt != null;
+  }
 
-  //   switch (type) {
-  //     case GatheringType.pillar:
-  //       isLate = (formatDate(dateTime).split(" ")[1].substring(0, 2) == "11") &&
-  //           int.parse(formatDate(dateTime).split(" ")[1].substring(3, 5)) > 15;
-  //       break;
-  //     default:
-  //   }
+  bool hasScannedIn({required ScanObject scan}) {
+    return scan.scannedInAt != null;
+  }
 
-  //   return isLate;
-  // }
+  bool isTooLateToScanIn({required EventObject event}) {
+    return Moment.now().isAfter(
+        Moment(event.startsAt!).add(Duration(minutes: event.latenessRule!)));
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
 
 class ScanObject extends ParseObject implements ParseCloneable {
   ScanObject() : super(_kTableName);
@@ -27,11 +27,10 @@ class ScanObject extends ParseObject implements ParseCloneable {
   ParseUser? get user => get<ParseUser>(kUser);
   set user(ParseUser? user) => set<ParseUser?>(kUser, user);
 
-  static const String kGathering = 'gathering';
+  static const String kEvent = 'event';
 
-  GatheringObject? get gathering => get<GatheringObject>(kGathering);
-  set gathering(GatheringObject? gathering) =>
-      set<GatheringObject?>(kGathering, gathering);
+  EventObject? get event => get<EventObject>(kEvent);
+  set event(EventObject? event) => set<EventObject?>(kEvent, event);
 
   static const String kSelfie = 'selfie';
 

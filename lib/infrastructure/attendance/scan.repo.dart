@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/attendance/scan/scan.facade.dart';
 import 'package:student/infrastructure/academics/models/year_group.object.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/domain/attendance/scan/scan.failure.dart';
 
@@ -21,7 +21,7 @@ class ScanRepo implements ScanFacade {
 
   @override
   Future<Either<ScanFailure, ScanObject>> scanIn(
-      {required GatheringObject gathering, required DateTime dateTime}) async {
+      {required EventObject event, required DateTime dateTime}) async {
     final user = await ParseUser.currentUser();
 
     if (user == null) {
@@ -30,7 +30,7 @@ class ScanRepo implements ScanFacade {
 
     // Check for a previous scan
     final scanObjOption =
-        (await checkForScan(gathering: gathering, user: user, isScanIn: true))
+        (await checkForScan(event: event, user: user, isScanIn: true))
             .getOrElse(() => none());
     final bool alreadyScanned = scanObjOption.isSome();
 
@@ -46,7 +46,7 @@ class ScanRepo implements ScanFacade {
     } else {
       final scan = ScanObject()
         ..user = user
-        ..gathering = gathering
+        ..event = event
         ..scannedInAt = dateTime;
 
       final ParseResponse resp = await scan.save();
@@ -61,7 +61,7 @@ class ScanRepo implements ScanFacade {
 
   @override
   Future<Either<ScanFailure, ScanObject>> scanOut(
-      {required GatheringObject gathering, required DateTime dateTime}) async {
+      {required EventObject event, required DateTime dateTime}) async {
     final user = await ParseUser.currentUser();
 
     if (user == null) {
@@ -70,7 +70,7 @@ class ScanRepo implements ScanFacade {
 
     // Check for a previous scan
     final scanObjOption =
-        (await checkForScan(gathering: gathering, user: user, isScanOut: true))
+        (await checkForScan(event: event, user: user, isScanOut: true))
             .getOrElse(() => none());
     final bool alreadyScanned = scanObjOption.isSome();
 
@@ -86,7 +86,7 @@ class ScanRepo implements ScanFacade {
     } else {
       // Check for a scan in
       final scanObjOption =
-          (await checkForScan(gathering: gathering, user: user, isScanIn: true))
+          (await checkForScan(event: event, user: user, isScanIn: true))
               .getOrElse(() => none());
       final bool isNotLate = scanObjOption.isSome();
 
@@ -112,7 +112,7 @@ class ScanRepo implements ScanFacade {
         // No scan found i.e. student is late
         final scan = ScanObject()
           ..user = user
-          ..gathering = gathering
+          ..event = event
           ..scannedOutAt = dateTime;
 
         final ParseResponse resp = await scan.save();
@@ -128,13 +128,13 @@ class ScanRepo implements ScanFacade {
 
   @override
   Future<Either<ScanFailure, Option<ScanObject>>> checkForScan({
-    required GatheringObject gathering,
+    required EventObject event,
     required ParseUser user,
     bool? isScanIn,
     bool? isScanOut,
   }) async {
     final scanQuery = QueryBuilder<ScanObject>(ScanObject())
-      ..whereEqualTo(ScanObject.kGathering, gathering.toPointer())
+      ..whereEqualTo(ScanObject.kEvent, event.toPointer())
       ..whereEqualTo(ScanObject.kUser, user.toPointer());
 
     if (isScanOut != null && isScanOut) {
@@ -160,14 +160,14 @@ class ScanRepo implements ScanFacade {
   }
 
   @override
-  Future<Either<ScanFailure, Option<GatheringObject>>> getGathering(
+  Future<Either<ScanFailure, Option<EventObject>>> getEvent(
       {required String objectId}) async {
-    var resp = await GatheringObject().getObject(objectId);
+    var resp = await EventObject().getObject(objectId);
     if (resp.success) {
       if (resp.results == null || resp.results!.isEmpty) {
         return Right(none());
       } else {
-        final obj = resp.results!.first as GatheringObject;
+        final obj = resp.results!.first as EventObject;
         return Right(some(obj));
       }
     } else {

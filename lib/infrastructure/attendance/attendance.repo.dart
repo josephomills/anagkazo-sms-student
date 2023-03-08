@@ -8,27 +8,27 @@ import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/domain/core/extensions/string.ext.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
-import 'package:student/infrastructure/attendance/models/gathering_type.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/event_type.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 
 @Injectable(as: AttendanceFacade)
 class AttendanceRepo implements AttendanceFacade {
   @override
   Future<Either<AttendanceFailure, QueryBuilder<ScanObject>>> getScanQuery(
-      {required GatheringType gatheringType}) async {
+      {required EventType eventType}) async {
     final user = await ParseUser.currentUser();
 
     if (user == null) {
       return const Left(AttendanceFailure.serverError());
     }
 
-    final gatheringQuery = QueryBuilder<GatheringObject>(GatheringObject())
-      ..whereEqualTo(GatheringObject.kName, gatheringType.name);
+    final eventQuery = QueryBuilder<EventObject>(EventObject())
+      ..whereEqualTo(EventObject.kName, eventType.name);
     final query = QueryBuilder<ScanObject>(ScanObject())
       ..whereEqualTo(ScanObject.kUser, user.toPointer())
-      ..whereMatchesQuery(ScanObject.kGathering, gatheringQuery)
-      ..includeObject([ScanObject.kGathering])
+      ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
+      ..includeObject([ScanObject.kEvent])
       ..orderByDescending(ScanObject.kScannedInAt);
 
     return Right(query);
@@ -44,15 +44,15 @@ class AttendanceRepo implements AttendanceFacade {
     }
 
     List<QueryBuilder<ScanObject>> list = [];
-    final gatheringList = [
-      GatheringType.vision,
-      GatheringType.pillar,
-      GatheringType.live,
-      GatheringType.experience,
+    final eventList = [
+      EventType.vision,
+      EventType.pillar,
+      EventType.live,
+      EventType.experience,
     ];
 
-    for (GatheringType gathering in gatheringList) {
-      list.add(getQuery(user: user, gatheringType: gathering));
+    for (EventType event in eventList) {
+      list.add(getQuery(user: user, eventType: event));
     }
 
     return Right(list);
@@ -60,55 +60,49 @@ class AttendanceRepo implements AttendanceFacade {
 
   @override
   QueryBuilder<ScanObject> getQuery(
-      {required ParseUser user, required GatheringType gatheringType}) {
-    // Get gathering type of given category
-    final gatheringTypeQuery =
-        QueryBuilder<GatheringTypeObject>(GatheringTypeObject())
-          ..whereEqualTo(GatheringTypeObject.kCategory, "category")
-          ..keysToReturn(
-              [GatheringTypeObject.kName, GatheringTypeObject.kCategory]);
+      {required ParseUser user, required EventType eventType}) {
+    // Get event type of given category
+    final eventTypeQuery = QueryBuilder<EventTypeObject>(EventTypeObject())
+      ..whereEqualTo(EventTypeObject.kCategory, eventType.name.capitalize);
 
-    // Get all gatherings of the given type
-    final gatheringQuery = QueryBuilder<GatheringObject>(GatheringObject())
-      ..whereMatchesQuery(GatheringObject.kGatheringType, gatheringTypeQuery)
-      ..includeObject([GatheringObject.kGatheringType])
-      ..excludeKeys([GatheringObject.kExcluded]);
+    // Get all events of the given type
+    final eventQuery = QueryBuilder<EventObject>(EventObject())
+      ..whereMatchesQuery(EventObject.kEventType, eventTypeQuery);
 
-    // get all scans of the above gatherings
+    // get all scans of the above events
     final query = QueryBuilder<ScanObject>(ScanObject())
       ..whereEqualTo(ScanObject.kUser, user.toPointer())
-      ..whereMatchesQuery(ScanObject.kGathering, gatheringQuery)
-      ..includeObject([ScanObject.kGathering])
+      ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
+      ..includeObject([ScanObject.kEvent])
       ..orderByDescending(ScanObject.kScannedInAt)
       ..excludeKeys([ScanObject.kSelfie]);
 
     return query;
   }
 
-  static QueryBuilder<ScanObject> scanQuery(
-      {required GatheringCategory category}) {
+  static QueryBuilder<ScanObject> scanQuery({required EventCategory category}) {
     final ParseUser user = getIt<AuthBloc>()
         .state
         .currentUserOption
         .getOrElse(() => ParseUser(null, null, null));
 
-    // Get gathering type of given category
-    final gatheringTypeQuery = QueryBuilder<GatheringTypeObject>(
-        GatheringTypeObject())
-      ..whereEqualTo(GatheringTypeObject.kCategory, category.name.capitalize);
+    // Get event type of given category
+    final eventTypeQuery = QueryBuilder<EventTypeObject>(EventTypeObject())
+      ..whereEqualTo(EventTypeObject.kCategory, category.name.capitalize);
 
-    // Get all gatherings of the given type
-    final gatheringQuery = QueryBuilder<GatheringObject>(GatheringObject())
-      ..whereMatchesQuery(GatheringObject.kGatheringType, gatheringTypeQuery);
+    // Get all events of the given type
+    final eventQuery = QueryBuilder<EventObject>(EventObject())
+      ..whereMatchesQuery(EventObject.kEventType, eventTypeQuery);
 
-    // get all scans of the above gatherings
+    // get all scans of the above events
     final query = QueryBuilder<ScanObject>(ScanObject())
-      ..includeObject([ScanObject.kGathering, "gathering.gatheringType"])
+      ..whereEqualTo(ScanObject.kUser, user.toPointer())
+      ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
+      ..includeObject(
+          [ScanObject.kEvent, "${ScanObject.kEvent}.${EventObject.kEventType}"])
       ..orderByDescending(ScanObject.kScannedInAt)
       ..excludeKeys([ScanObject.kSelfie])
-      ..setLimit(100)
-      ..whereEqualTo(ScanObject.kUser, user.toPointer())
-      ..whereMatchesQuery(ScanObject.kGathering, gatheringQuery);
+      ..setLimit(100);
 
     return query;
   }

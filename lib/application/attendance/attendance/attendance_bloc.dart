@@ -25,7 +25,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           emitter.call(state.copyWith(isLoading: true));
 
           final failureOrQuery =
-              await _attFacade.getScanQuery(gatheringType: e.gatheringType);
+              await _attFacade.getScanQuery(eventType: e.eventType);
 
           emitter.call(state.copyWith(
             isLoading: false,
@@ -38,14 +38,14 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
 
           final failureOrQueriesList = await _attFacade.getAllScanQueries();
 
-          final visionQuery = _attFacade.getQuery(
-              user: user, gatheringType: GatheringType.vision);
-          final pillarQuery = _attFacade.getQuery(
-              user: user, gatheringType: GatheringType.pillar);
-          final aLiveQuery = _attFacade.getQuery(
-              user: user, gatheringType: GatheringType.live);
-          final flExpQuery = _attFacade.getQuery(
-              user: user, gatheringType: GatheringType.experience);
+          final visionQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.vision);
+          final pillarQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.pillar);
+          final aLiveQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.live);
+          final flExpQuery =
+              _attFacade.getQuery(user: user, eventType: EventType.experience);
 
           emitter.call(state.copyWith(
             isLoading: false,

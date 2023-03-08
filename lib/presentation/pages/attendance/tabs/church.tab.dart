@@ -8,7 +8,7 @@ class ChurchTabPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ScanListWidget(
-      category: GatheringCategory.church,
+      category: EventCategory.church,
     );
   }
 }

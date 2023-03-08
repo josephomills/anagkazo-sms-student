@@ -477,8 +477,7 @@ mixin _$ScanState {
   bool get isScanning => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isConfirming => throw _privateConstructorUsedError;
-  Option<GatheringObject> get gatheringOption =>
-      throw _privateConstructorUsedError;
+  Option<EventObject> get eventOption => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   Option<Either<ScanFailure, ScanObject>> get failureOrScanOption =>
       throw _privateConstructorUsedError;
@@ -497,7 +496,7 @@ abstract class $ScanStateCopyWith<$Res> {
       {bool isScanning,
       bool isLoading,
       bool isConfirming,
-      Option<GatheringObject> gatheringOption,
+      Option<EventObject> eventOption,
       String? type,
       Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
 }
@@ -518,7 +517,7 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
     Object? isScanning = null,
     Object? isLoading = null,
     Object? isConfirming = null,
-    Object? gatheringOption = null,
+    Object? eventOption = null,
     Object? type = freezed,
     Object? failureOrScanOption = null,
   }) {
@@ -535,10 +534,10 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
           ? _value.isConfirming
           : isConfirming // ignore: cast_nullable_to_non_nullable
               as bool,
-      gatheringOption: null == gatheringOption
-          ? _value.gatheringOption
-          : gatheringOption // ignore: cast_nullable_to_non_nullable
-              as Option<GatheringObject>,
+      eventOption: null == eventOption
+          ? _value.eventOption
+          : eventOption // ignore: cast_nullable_to_non_nullable
+              as Option<EventObject>,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -562,7 +561,7 @@ abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
       {bool isScanning,
       bool isLoading,
       bool isConfirming,
-      Option<GatheringObject> gatheringOption,
+      Option<EventObject> eventOption,
       String? type,
       Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
 }
@@ -581,7 +580,7 @@ class __$$_ScanStateCopyWithImpl<$Res>
     Object? isScanning = null,
     Object? isLoading = null,
     Object? isConfirming = null,
-    Object? gatheringOption = null,
+    Object? eventOption = null,
     Object? type = freezed,
     Object? failureOrScanOption = null,
   }) {
@@ -598,10 +597,10 @@ class __$$_ScanStateCopyWithImpl<$Res>
           ? _value.isConfirming
           : isConfirming // ignore: cast_nullable_to_non_nullable
               as bool,
-      gatheringOption: null == gatheringOption
-          ? _value.gatheringOption
-          : gatheringOption // ignore: cast_nullable_to_non_nullable
-              as Option<GatheringObject>,
+      eventOption: null == eventOption
+          ? _value.eventOption
+          : eventOption // ignore: cast_nullable_to_non_nullable
+              as Option<EventObject>,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -621,7 +620,7 @@ class _$_ScanState implements _ScanState {
       {required this.isScanning,
       required this.isLoading,
       required this.isConfirming,
-      required this.gatheringOption,
+      required this.eventOption,
       this.type,
       required this.failureOrScanOption});
 
@@ -632,7 +631,7 @@ class _$_ScanState implements _ScanState {
   @override
   final bool isConfirming;
   @override
-  final Option<GatheringObject> gatheringOption;
+  final Option<EventObject> eventOption;
   @override
   final String? type;
   @override
@@ -640,7 +639,7 @@ class _$_ScanState implements _ScanState {
 
   @override
   String toString() {
-    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, isConfirming: $isConfirming, gatheringOption: $gatheringOption, type: $type, failureOrScanOption: $failureOrScanOption)';
+    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, isConfirming: $isConfirming, eventOption: $eventOption, type: $type, failureOrScanOption: $failureOrScanOption)';
   }
 
   @override
@@ -654,8 +653,8 @@ class _$_ScanState implements _ScanState {
                 other.isLoading == isLoading) &&
             (identical(other.isConfirming, isConfirming) ||
                 other.isConfirming == isConfirming) &&
-            (identical(other.gatheringOption, gatheringOption) ||
-                other.gatheringOption == gatheringOption) &&
+            (identical(other.eventOption, eventOption) ||
+                other.eventOption == eventOption) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.failureOrScanOption, failureOrScanOption) ||
                 other.failureOrScanOption == failureOrScanOption));
@@ -663,7 +662,7 @@ class _$_ScanState implements _ScanState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isScanning, isLoading,
-      isConfirming, gatheringOption, type, failureOrScanOption);
+      isConfirming, eventOption, type, failureOrScanOption);
 
   @JsonKey(ignore: true)
   @override
@@ -677,7 +676,7 @@ abstract class _ScanState implements ScanState {
       {required final bool isScanning,
       required final bool isLoading,
       required final bool isConfirming,
-      required final Option<GatheringObject> gatheringOption,
+      required final Option<EventObject> eventOption,
       final String? type,
       required final Option<Either<ScanFailure, ScanObject>>
           failureOrScanOption}) = _$_ScanState;
@@ -689,7 +688,7 @@ abstract class _ScanState implements ScanState {
   @override
   bool get isConfirming;
   @override
-  Option<GatheringObject> get gatheringOption;
+  Option<EventObject> get eventOption;
   @override
   String? get type;
   @override

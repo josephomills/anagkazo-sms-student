@@ -29,18 +29,15 @@ class DashboardCardWidget extends StatelessWidget {
             Text(
               stat,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: color,
+                  ),
             ),
             Text(
               label,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 13,
-              ),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),

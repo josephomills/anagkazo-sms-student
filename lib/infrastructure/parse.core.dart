@@ -1,6 +1,6 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
-import 'package:student/infrastructure/attendance/models/gathering_type.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/event_type.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/infrastructure/academics/models/year_group.object.dart';
 import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
@@ -24,8 +24,8 @@ Future<void> initParse() async {
       "Member": () => MemberObject(),
       "Service": () => ServiceObject(),
       "Scan": () => ScanObject(),
-      "Gathering": () => GatheringObject(),
-      "GatheringType": () => GatheringTypeObject(),
+      "Event": () => EventObject(),
+      "EventType": () => EventTypeObject(),
     },
   );
 }

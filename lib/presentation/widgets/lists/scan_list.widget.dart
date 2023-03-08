@@ -6,8 +6,8 @@ import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/domain/core/extensions/string.ext.dart';
-import 'package:student/infrastructure/attendance/models/gathering.object.dart';
-import 'package:student/infrastructure/attendance/models/gathering_type.object.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/event_type.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
@@ -21,13 +21,16 @@ class ScanListWidget extends StatelessWidget {
     required this.category,
   }) : super(key: key);
 
-  final GatheringCategory category;
+  final EventCategory category;
 
   @override
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
       query: QueryBuilder<ScanObject>(ScanObject())
-        ..includeObject([ScanObject.kGathering, "gathering.gatheringType"])
+        ..includeObject([
+          ScanObject.kEvent,
+          "${ScanObject.kEvent}.${EventObject.kEventType}",
+        ])
         ..orderByDescending(ScanObject.kScannedInAt)
         ..excludeKeys([ScanObject.kSelfie])
         ..whereEqualTo(
@@ -38,13 +41,13 @@ class ScanListWidget extends StatelessWidget {
                 .getOrElse(() => ParseUser(null, null, null))
                 .toPointer())
         ..whereMatchesQuery(
-          ScanObject.kGathering,
-          QueryBuilder<GatheringObject>(GatheringObject())
+          ScanObject.kEvent,
+          QueryBuilder<EventObject>(EventObject())
             ..whereMatchesQuery(
-              GatheringObject.kGatheringType,
-              QueryBuilder<GatheringTypeObject>(GatheringTypeObject())
+              EventObject.kEventType,
+              QueryBuilder<EventTypeObject>(EventTypeObject())
                 ..whereEqualTo(
-                  GatheringTypeObject.kCategory,
+                  EventTypeObject.kCategory,
                   category.name.capitalize,
                 ),
             ),
@@ -74,12 +77,7 @@ class ScanListWidget extends StatelessWidget {
         } else if (snapshot.hasData) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
-            child: ScanWidget(
-              dateTime: snapshot.loadedData!.gathering!.startsAt!,
-              scanIn: snapshot.loadedData!.scannedInAt,
-              scanOut: snapshot.loadedData!.scannedOutAt,
-              gathering: snapshot.loadedData!.gathering!,
-            ),
+            child: ScanWidget(scan: snapshot.loadedData!),
           );
         } else {
           return const SkeletonScanWidget();
