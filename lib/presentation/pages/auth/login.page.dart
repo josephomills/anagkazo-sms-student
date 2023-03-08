@@ -1,97 +1,103 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/auth/auth_validator.dart';
+import 'package:student/domain/core/util/util.dart';
 import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/widgets/button.widget.dart';
 import 'package:student/presentation/widgets/forms/text_form_field.widget.dart';
 
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
-  LoginPage({Key? key, required this.onLogin}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   final _formKey = getIt<GlobalKey<FormState>>();
-  final void Function(bool isLoggedIn) onLogin;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocConsumer<LoginBloc, LoginState>(
-        bloc: context.read<LoginBloc>(),
-        listener: (context, state) {
-          state.authFailureOrSuccessOption.fold(
-              () {}, // do nothing for none()
-              (either) => either.fold((f) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                      f.maybeMap(
-                        serverError: (e) => e.message!,
-                        invalidUsernameAndPasswordCombination: (e) =>
-                            "Please enter a valid username & password combination.",
-                        sessionMissing: (e) => "Session missing",
-                        orElse: () => "Something went wrong. Please try again.",
-                      ),
-                    )));
-                  }, (user) {
-                    context.router.replace(const HomeRoute());
-                  }));
-        },
-        builder: (context, state) {
-          return Form(
-            key: _formKey,
-            autovalidateMode: state.validateFields
-                ? AutovalidateMode.onUserInteraction
-                : AutovalidateMode.disabled,
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              children: [
-                const SizedBox(height: 60),
-                Image.asset(
-                  "assets/icon/logo.png",
-                  height: 200,
+    return SafeArea(
+      child: Scaffold(
+        body: GestureDetector(
+          onTap: () => unfocus(context),
+          child: BlocConsumer<LoginBloc, LoginState>(
+            bloc: context.read<LoginBloc>(),
+            listener: (context, state) {
+              state.authFailureOrSuccessOption.fold(
+                  () {}, // do nothing for none()
+                  (either) => either.fold((f) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                          f.maybeMap(
+                            serverError: (e) => e.message!,
+                            invalidUsernameAndPasswordCombination: (e) =>
+                                "Please enter a valid username & password combination.",
+                            sessionMissing: (e) => "Session missing",
+                            orElse: () =>
+                                "Something went wrong. Please try again.",
+                          ),
+                        )));
+                      }, (user) {
+                        context.router.pushAndPopUntil(
+                          const IndexRoute(),
+                          predicate: (route) => false,
+                        );
+                      }));
+            },
+            builder: (context, state) {
+              return Form(
+                key: _formKey,
+                autovalidateMode: state.validateFields
+                    ? AutovalidateMode.onUserInteraction
+                    : AutovalidateMode.disabled,
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  children: [
+                    const SizedBox(height: 60),
+                    Image.asset(
+                      "assets/icon/logo.png",
+                      height: 200,
+                    ),
+                    const SizedBox(height: 60),
+                    TextFormFieldWidget(
+                      text: state.username,
+                      label: "Student ID",
+                      validator: getIt<AuthValidator>().validateUsername,
+                      onChanged: (text) => context
+                          .read<LoginBloc>()
+                          .add(UsernameChanged(username: text)),
+                      suffixIcon: const Icon(Icons.person),
+                      hint: "What is your student ID number?",
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormFieldWidget(
+                      text: state.password,
+                      label: "Password",
+                      validator: getIt<AuthValidator>().validatePassword,
+                      onChanged: (text) => context
+                          .read<LoginBloc>()
+                          .add(PasswordChanged(password: text)),
+                      suffixIcon: const Icon(Icons.lock),
+                      hint: "What is your password?",
+                      obscureText: true,
+                    ),
+                    const SizedBox(height: 30),
+                    ButtonWidget(
+                      onTap: () {
+                        BlocProvider.of<LoginBloc>(context)
+                            .add(LoginButtonPressed(formKey: _formKey));
+                      },
+                      isLoading: state.isLoading,
+                      label: "Login",
+                      spinnerColor: Theme.of(context).primaryColorDark,
+                      widthFactor: 0.8,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 60),
-                TextFormFieldWidget(
-                  text: state.username,
-                  label: "Username",
-                  validator: getIt<AuthValidator>().validateUsername,
-                  onChanged: (text) => context
-                      .read<LoginBloc>()
-                      .add(UsernameChanged(username: text)),
-                  prefixIcon: const Icon(Icons.person),
-                ),
-                const SizedBox(height: 16),
-                TextFormFieldWidget(
-                  text: state.password,
-                  label: "Password",
-                  validator: getIt<AuthValidator>().validatePassword,
-                  onChanged: (text) => context
-                      .read<LoginBloc>()
-                      .add(PasswordChanged(password: text)),
-                  prefixIcon: const Icon(Icons.lock),
-                  obscureText: true,
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: state.isLoading
-                      ? null
-                      : () {
-                          context
-                              .read<LoginBloc>()
-                              .add(const LoginButtonPressed());
-                        },
-                  child: state.isLoading
-                      ? const SpinKitThreeBounce(
-                          color: Colors.blue,
-                          size: 40,
-                        )
-                      : const Text("Login"),
-                ),
-              ],
-            ),
-          );
-        },
+              );
+            },
+          ),
+        ),
       ),
     );
   }
