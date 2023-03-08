@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/domain/core/extensions/string.ext.dart';
-import 'package:student/infrastructure/attendance/models/event.object.dart';
-import 'package:student/infrastructure/attendance/models/event_type.model.dart';
+import 'package:student/infrastructure/attendance/attendance.repo.dart';
+import 'package:student/infrastructure/attendance/models/gathering.object.dart';
+import 'package:student/infrastructure/attendance/models/gathering_type.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/lists/scan_list.widget.dart';
 
@@ -13,32 +15,37 @@ class OtherTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScanListWidget(
-      category: EventCategory.other,
-      query: query(category: EventCategory.other),
+    return const ScanListWidget(
+      category: GatheringCategory.other,
     );
   }
 }
 
 QueryBuilder<ScanObject> query({required EventCategory category}) {
-  // Get event type of given category
-  final eventTypeQuery = QueryBuilder<EventTypeObject>(EventTypeObject())
-    ..whereEqualTo(EventTypeObject.kCategory, category.name.capitalize)
-    ..keysToReturn([EventTypeObject.kName, EventTypeObject.kCategory]);
+  final ParseUser user = getIt<AuthBloc>()
+      .state
+      .currentUserOption
+      .getOrElse(() => ParseUser(null, null, null));
 
-  // Get all events of the given type
-  final eventQuery = QueryBuilder<EventObject>(EventObject())
-    ..whereMatchesQuery(EventObject.kType, eventTypeQuery)
-    ..includeObject(["type"])
-    ..excludeKeys([EventObject.kExcluded]);
+  // Get gathering type of given category
+  final gatheringTypeQuery = QueryBuilder<GatheringTypeObject>(
+      GatheringTypeObject())
+    ..keysToReturn([GatheringTypeObject.kName, GatheringTypeObject.kCategory])
+    ..whereEqualTo(GatheringTypeObject.kCategory, category.name.capitalize);
 
-  // get all scans of the above events
+  // Get all gatherings of the given type
+  final gatheringQuery = QueryBuilder<GatheringObject>(GatheringObject())
+    ..includeObject([GatheringObject.kGatheringType])
+    ..excludeKeys([GatheringObject.kExcluded])
+    ..whereMatchesQuery(GatheringObject.kGatheringType, gatheringTypeQuery);
+
+  // get all scans of the above gatherings
   final query = QueryBuilder<ScanObject>(ScanObject())
-    ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
-    ..whereMatchesQuery(ScanObject.kEvent, eventQuery)
-    ..includeObject(["event"])
+    ..includeObject([ScanObject.kGathering])
     ..orderByDescending(ScanObject.kScannedInAt)
-    ..excludeKeys([ScanObject.kSelfie]);
+    ..excludeKeys([ScanObject.kSelfie])
+    ..whereEqualTo(ScanObject.kUser, user.toPointer())
+    ..whereMatchesQuery(ScanObject.kGathering, gatheringQuery);
 
   return query;
 }
