@@ -75,34 +75,30 @@ import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.
     AutoRoute(
       page: DocumentsPage,
       meta: {"title": "Documents"},
-      guards: [AuthGuard],
       path: "documents",
     ),
     AutoRoute(
       page: FormsPage,
       meta: {"title": "Forms"},
-      guards: [AuthGuard],
       path: "forms",
     ),
     AutoRoute(
       page: PastoralPointsPage,
       meta: {"title": "Pastoral Points"},
-      guards: [AuthGuard],
       path: "pastoral-points",
     ),
     AutoRoute(
       page: DisciplinaryPointsPage,
       meta: {"title": "Disciplinary Points"},
-      guards: [AuthGuard],
       path: "discipline",
     ),
     // AutoRoute(page: RegisterPage),
     // AutoRoute(page: ForgotPasswordPage),
     // AutoRoute(page: PhoneVerificationPage, guards: [AuthGuard]),
     // AutoRoute(page: OtpPage, guards: [AuthGuard]),
-    AutoRoute(page: ScanPage, guards: [AuthGuard], path: "scan"),
-    AutoRoute(page: ScanConfirmationPage, guards: [AuthGuard]),
-    AutoRoute(page: ProfilePage, guards: [AuthGuard], path: "profile"),
+    AutoRoute(page: ScanPage, path: "scan"),
+    AutoRoute(page: ScanConfirmationPage),
+    AutoRoute(page: ProfilePage, path: "profile"),
   ],
 )
 class $AppRouter {}
