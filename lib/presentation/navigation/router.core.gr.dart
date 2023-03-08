@@ -44,14 +44,11 @@ class AppRouter extends _i18.RootStackRouter {
   @override
   final Map<String, _i18.PageFactory> pagesMap = {
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>();
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return _i18.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i18.WrappedRoute(
-            child: _i1.LoginPage(
-          key: args.key,
-          onLogin: args.onLogin,
-        )),
+        child: _i18.WrappedRoute(child: _i1.LoginPage(key: args.key)),
       );
     },
     IndexRoute.name: (routeData) {
@@ -226,40 +223,33 @@ class AppRouter extends _i18.RootStackRouter {
           DocumentsRoute.name,
           path: 'documents',
           meta: <String, dynamic>{'title': 'Documents'},
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           FormsRoute.name,
           path: 'forms',
           meta: <String, dynamic>{'title': 'Forms'},
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           PastoralPointsRoute.name,
           path: 'pastoral-points',
           meta: <String, dynamic>{'title': 'Pastoral Points'},
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           DisciplinaryPointsRoute.name,
           path: 'discipline',
           meta: <String, dynamic>{'title': 'Disciplinary Points'},
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           ScanRoute.name,
           path: 'scan',
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           ScanConfirmationRoute.name,
           path: '/scan-confirmation-page',
-          guards: [authGuard],
         ),
         _i18.RouteConfig(
           ProfileRoute.name,
           path: 'profile',
-          guards: [authGuard],
         ),
       ];
 }
@@ -267,34 +257,24 @@ class AppRouter extends _i18.RootStackRouter {
 /// generated route for
 /// [_i1.LoginPage]
 class LoginRoute extends _i18.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    _i19.Key? key,
-    required void Function(bool) onLogin,
-  }) : super(
+  LoginRoute({_i19.Key? key})
+      : super(
           LoginRoute.name,
           path: '/login-page',
-          args: LoginRouteArgs(
-            key: key,
-            onLogin: onLogin,
-          ),
+          args: LoginRouteArgs(key: key),
         );
 
   static const String name = 'LoginRoute';
 }
 
 class LoginRouteArgs {
-  const LoginRouteArgs({
-    this.key,
-    required this.onLogin,
-  });
+  const LoginRouteArgs({this.key});
 
   final _i19.Key? key;
 
-  final void Function(bool) onLogin;
-
   @override
   String toString() {
-    return 'LoginRouteArgs{key: $key, onLogin: $onLogin}';
+    return 'LoginRouteArgs{key: $key}';
   }
 }
 
