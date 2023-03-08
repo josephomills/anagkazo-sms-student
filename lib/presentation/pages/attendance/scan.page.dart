@@ -59,6 +59,7 @@ class _ScanPageState extends State<ScanPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const AutoLeadingButton(),
         title: const Text("Scan QR Code"),
         elevation: 0,
         actions: [
