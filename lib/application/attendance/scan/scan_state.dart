@@ -6,7 +6,7 @@ class ScanState with _$ScanState {
       {required bool isScanning,
       required bool isLoading,
       required bool isConfirming,
-      required Option<EventObject> eventOption,
+      required Option<GatheringObject> gatheringOption,
       String? type,
       required Option<Either<ScanFailure, ScanObject>>
           failureOrScanOption}) = _ScanState;
@@ -15,7 +15,7 @@ class ScanState with _$ScanState {
         isScanning: true,
         isLoading: false,
         isConfirming: false,
-        eventOption: none(),
+        gatheringOption: none(),
         failureOrScanOption: none(),
       );
 }

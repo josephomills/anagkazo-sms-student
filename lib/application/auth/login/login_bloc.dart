@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/auth/auth.failure.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -36,8 +35,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         ),
         loginButtonPressed: (e) async {
           // Validate user input
-          final passedValidation =
-              getIt<GlobalKey<FormState>>().currentState!.validate();
+          final passedValidation = e.formKey.currentState!.validate();
 
           if (passedValidation) {
             emitter.call(state.copyWith(

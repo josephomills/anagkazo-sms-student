@@ -20,21 +20,21 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String username) usernameChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() loginButtonPressed,
+    required TResult Function(GlobalKey<FormState> formKey) loginButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username)? usernameChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function()? loginButtonPressed,
+    TResult? Function(GlobalKey<FormState> formKey)? loginButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username)? usernameChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult Function(GlobalKey<FormState> formKey)? loginButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$UsernameChanged implements UsernameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String username) usernameChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() loginButtonPressed,
+    required TResult Function(GlobalKey<FormState> formKey) loginButtonPressed,
   }) {
     return usernameChanged(username);
   }
@@ -157,7 +157,7 @@ class _$UsernameChanged implements UsernameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username)? usernameChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function()? loginButtonPressed,
+    TResult? Function(GlobalKey<FormState> formKey)? loginButtonPressed,
   }) {
     return usernameChanged?.call(username);
   }
@@ -167,7 +167,7 @@ class _$UsernameChanged implements UsernameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username)? usernameChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult Function(GlobalKey<FormState> formKey)? loginButtonPressed,
     required TResult orElse(),
   }) {
     if (usernameChanged != null) {
@@ -288,7 +288,7 @@ class _$PasswordChanged implements PasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String username) usernameChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() loginButtonPressed,
+    required TResult Function(GlobalKey<FormState> formKey) loginButtonPressed,
   }) {
     return passwordChanged(password);
   }
@@ -298,7 +298,7 @@ class _$PasswordChanged implements PasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username)? usernameChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function()? loginButtonPressed,
+    TResult? Function(GlobalKey<FormState> formKey)? loginButtonPressed,
   }) {
     return passwordChanged?.call(password);
   }
@@ -308,7 +308,7 @@ class _$PasswordChanged implements PasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username)? usernameChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult Function(GlobalKey<FormState> formKey)? loginButtonPressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -367,6 +367,8 @@ abstract class _$$LoginButtonPressedCopyWith<$Res> {
   factory _$$LoginButtonPressedCopyWith(_$LoginButtonPressed value,
           $Res Function(_$LoginButtonPressed) then) =
       __$$LoginButtonPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
@@ -376,35 +378,60 @@ class __$$LoginButtonPressedCopyWithImpl<$Res>
   __$$LoginButtonPressedCopyWithImpl(
       _$LoginButtonPressed _value, $Res Function(_$LoginButtonPressed) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formKey = null,
+  }) {
+    return _then(_$LoginButtonPressed(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoginButtonPressed implements LoginButtonPressed {
-  const _$LoginButtonPressed();
+  const _$LoginButtonPressed({required this.formKey});
+
+  @override
+  final GlobalKey<FormState> formKey;
 
   @override
   String toString() {
-    return 'LoginEvent.loginButtonPressed()';
+    return 'LoginEvent.loginButtonPressed(formKey: $formKey)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginButtonPressed);
+        (other.runtimeType == runtimeType &&
+            other is _$LoginButtonPressed &&
+            (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, formKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoginButtonPressedCopyWith<_$LoginButtonPressed> get copyWith =>
+      __$$LoginButtonPressedCopyWithImpl<_$LoginButtonPressed>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String username) usernameChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() loginButtonPressed,
+    required TResult Function(GlobalKey<FormState> formKey) loginButtonPressed,
   }) {
-    return loginButtonPressed();
+    return loginButtonPressed(formKey);
   }
 
   @override
@@ -412,9 +439,9 @@ class _$LoginButtonPressed implements LoginButtonPressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username)? usernameChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function()? loginButtonPressed,
+    TResult? Function(GlobalKey<FormState> formKey)? loginButtonPressed,
   }) {
-    return loginButtonPressed?.call();
+    return loginButtonPressed?.call(formKey);
   }
 
   @override
@@ -422,11 +449,11 @@ class _$LoginButtonPressed implements LoginButtonPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username)? usernameChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? loginButtonPressed,
+    TResult Function(GlobalKey<FormState> formKey)? loginButtonPressed,
     required TResult orElse(),
   }) {
     if (loginButtonPressed != null) {
-      return loginButtonPressed();
+      return loginButtonPressed(formKey);
     }
     return orElse();
   }
@@ -467,7 +494,13 @@ class _$LoginButtonPressed implements LoginButtonPressed {
 }
 
 abstract class LoginButtonPressed implements LoginEvent {
-  const factory LoginButtonPressed() = _$LoginButtonPressed;
+  const factory LoginButtonPressed(
+      {required final GlobalKey<FormState> formKey}) = _$LoginButtonPressed;
+
+  GlobalKey<FormState> get formKey;
+  @JsonKey(ignore: true)
+  _$$LoginButtonPressedCopyWith<_$LoginButtonPressed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

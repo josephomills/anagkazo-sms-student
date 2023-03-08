@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:student/domain/attendance/scan/scan.facade.dart';
 import 'package:student/domain/attendance/scan/scan.failure.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
+import 'package:student/infrastructure/attendance/models/gathering.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/infrastructure/academics/models/year_group.object.dart';
 
@@ -29,11 +30,12 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
 
           // Get Event object from server
           final String eventId = e.qr["eventId"] as String;
-          final eventObjOption = (await _scanFacade.getEvent(objectId: eventId))
-              .getOrElse(() => none());
-          final bool eventExists = eventObjOption.isSome();
+          final gatheringObjOption =
+              (await _scanFacade.getGathering(objectId: eventId))
+                  .getOrElse(() => none());
+          final bool gatheringExists = gatheringObjOption.isSome();
 
-          if (eventExists) {
+          if (gatheringExists) {
             // TODO
             // Check for a valid scan
             // 1. Scan is on the same day
@@ -45,28 +47,29 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
             );
 
             if (isValid) {
-              final eventObj = eventObjOption.getOrElse(() => EventObject());
-              final bool validEvent = eventObj.objectId != null;
+              final gatheringObj =
+                  gatheringObjOption.getOrElse(() => GatheringObject());
+              final bool validEvent = gatheringObj.objectId != null;
               if (validEvent) {
                 if (e.qr["type"] == "IN") {
                   final scanOrFailure = await _scanFacade.scanIn(
-                    event: eventObj,
+                    gathering: gatheringObj,
                     dateTime: scannedAt,
                   );
                   emitter.call(state.copyWith(
                     isLoading: false,
                     failureOrScanOption: some(scanOrFailure),
-                    eventOption: some(eventObj),
+                    gatheringOption: some(gatheringObj),
                   ));
                 } else if (e.qr["type"] == "OUT") {
                   final scanOrFailure = await _scanFacade.scanOut(
-                    event: eventObj,
+                    gathering: gatheringObj,
                     dateTime: scannedAt,
                   );
                   emitter.call(state.copyWith(
                     isLoading: false,
                     failureOrScanOption: some(scanOrFailure),
-                    eventOption: some(eventObj),
+                    gatheringOption: some(gatheringObj),
                   ));
                 } else {
                   emitter.call(
@@ -80,7 +83,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
                           ),
                         ),
                       ),
-                      eventOption: some(eventObj),
+                      gatheringOption: some(gatheringObj),
                     ),
                   );
                 }

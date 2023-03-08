@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AttendanceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
+    required TResult Function(GatheringType gatheringType) tabSelected,
     required TResult Function() getAllQueries,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
+    TResult? Function(GatheringType gatheringType)? tabSelected,
     TResult? Function()? getAllQueries,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
+    TResult Function(GatheringType gatheringType)? tabSelected,
     TResult Function()? getAllQueries,
     required TResult orElse(),
   }) =>
@@ -80,7 +80,7 @@ abstract class _$$_TabSelectedCopyWith<$Res> {
           _$_TabSelected value, $Res Function(_$_TabSelected) then) =
       __$$_TabSelectedCopyWithImpl<$Res>;
   @useResult
-  $Res call({EventType eventType});
+  $Res call({GatheringType gatheringType});
 }
 
 /// @nodoc
@@ -94,13 +94,13 @@ class __$$_TabSelectedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? eventType = null,
+    Object? gatheringType = null,
   }) {
     return _then(_$_TabSelected(
-      eventType: null == eventType
-          ? _value.eventType
-          : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
+      gatheringType: null == gatheringType
+          ? _value.gatheringType
+          : gatheringType // ignore: cast_nullable_to_non_nullable
+              as GatheringType,
     ));
   }
 }
@@ -108,14 +108,14 @@ class __$$_TabSelectedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TabSelected implements _TabSelected {
-  const _$_TabSelected({required this.eventType});
+  const _$_TabSelected({required this.gatheringType});
 
   @override
-  final EventType eventType;
+  final GatheringType gatheringType;
 
   @override
   String toString() {
-    return 'AttendanceEvent.tabSelected(eventType: $eventType)';
+    return 'AttendanceEvent.tabSelected(gatheringType: $gatheringType)';
   }
 
   @override
@@ -123,12 +123,12 @@ class _$_TabSelected implements _TabSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TabSelected &&
-            (identical(other.eventType, eventType) ||
-                other.eventType == eventType));
+            (identical(other.gatheringType, gatheringType) ||
+                other.gatheringType == gatheringType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, eventType);
+  int get hashCode => Object.hash(runtimeType, gatheringType);
 
   @JsonKey(ignore: true)
   @override
@@ -139,30 +139,30 @@ class _$_TabSelected implements _TabSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
+    required TResult Function(GatheringType gatheringType) tabSelected,
     required TResult Function() getAllQueries,
   }) {
-    return tabSelected(eventType);
+    return tabSelected(gatheringType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
+    TResult? Function(GatheringType gatheringType)? tabSelected,
     TResult? Function()? getAllQueries,
   }) {
-    return tabSelected?.call(eventType);
+    return tabSelected?.call(gatheringType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
+    TResult Function(GatheringType gatheringType)? tabSelected,
     TResult Function()? getAllQueries,
     required TResult orElse(),
   }) {
     if (tabSelected != null) {
-      return tabSelected(eventType);
+      return tabSelected(gatheringType);
     }
     return orElse();
   }
@@ -200,10 +200,10 @@ class _$_TabSelected implements _TabSelected {
 }
 
 abstract class _TabSelected implements AttendanceEvent {
-  const factory _TabSelected({required final EventType eventType}) =
+  const factory _TabSelected({required final GatheringType gatheringType}) =
       _$_TabSelected;
 
-  EventType get eventType;
+  GatheringType get gatheringType;
   @JsonKey(ignore: true)
   _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -247,7 +247,7 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
+    required TResult Function(GatheringType gatheringType) tabSelected,
     required TResult Function() getAllQueries,
   }) {
     return getAllQueries();
@@ -256,7 +256,7 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
+    TResult? Function(GatheringType gatheringType)? tabSelected,
     TResult? Function()? getAllQueries,
   }) {
     return getAllQueries?.call();
@@ -265,7 +265,7 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
+    TResult Function(GatheringType gatheringType)? tabSelected,
     TResult Function()? getAllQueries,
     required TResult orElse(),
   }) {

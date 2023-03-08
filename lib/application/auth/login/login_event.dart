@@ -6,5 +6,6 @@ class LoginEvent with _$LoginEvent {
       UsernameChanged;
   const factory LoginEvent.passwordChanged({required String password}) =
       PasswordChanged;
-  const factory LoginEvent.loginButtonPressed() = LoginButtonPressed;
+  const factory LoginEvent.loginButtonPressed(
+      {required GlobalKey<FormState> formKey}) = LoginButtonPressed;
 }
