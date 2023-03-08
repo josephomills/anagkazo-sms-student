@@ -24,9 +24,6 @@ void main() async {
   // Set glocal localization for Moments to US English
   Moment.setGlobalLocalization(MomentLocalizations.enUS());
 
-  // Initialise Injectable and GetIt
-  await initInjectable(Environment.prod);
-
   //initialize Firebase app
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // Set unlimited cache
@@ -34,6 +31,9 @@ void main() async {
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
     persistenceEnabled: true,
   );
+
+  // Initialise Injectable and GetIt
+  await initInjectable(Environment.prod);
 
   runApp(AnagkazoSMSStudent());
 }
