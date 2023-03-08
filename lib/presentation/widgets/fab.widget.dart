@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:student/presentation/navigation/router.core.gr.dart';
 
@@ -8,8 +9,9 @@ class FABWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      child: const Icon(Icons.qr_code_scanner),
+    return FloatingActionButton.extended(
+      label: const Text("Scan"),
+      icon: const Icon(LineAwesomeIcons.qrcode),
       onPressed: (() async {
         // Check camera permission before opening scan page
         var status = await Permission.camera.status;
