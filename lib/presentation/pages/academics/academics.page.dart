@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:student/presentation/widgets/app_bars/home.appbar.widget.dart';
+import 'package:student/presentation/widgets/lists/empty_state.widget.dart';
 
 class AcademicsPage extends StatelessWidget {
   const AcademicsPage({Key? key}) : super(key: key);
@@ -7,12 +8,13 @@ class AcademicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBarWidget(),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 72),
-          child: Image.asset("assets/illustrations/education.png"),
-        ),
+      appBar: AppBar(
+        title: Text(context.tabsRouter.current.meta["title"]),
+      ),
+      body: const EmptyStateWidget(
+        asset: "assets/illustrations/education.png",
+        text: "Coming soon...",
+        spacing: 0,
       ),
     );
   }

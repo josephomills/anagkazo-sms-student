@@ -11,6 +11,7 @@ import 'package:student/infrastructure/attendance/models/event_type.object.dart'
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
 import 'package:student/presentation/widgets/cards/scan.widget.dart';
 import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
+import 'package:student/presentation/widgets/lists/empty_state.widget.dart';
 
 /// /// A live list of scans.
 ///
@@ -58,16 +59,9 @@ class ScanListWidget extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) => const SkeletonScanWidget(),
       ),
-      queryEmptyElement: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 72),
-            child: Image.asset("assets/illustrations/taking_selfie.png"),
-          ),
-          const SizedBox(height: 32),
-          const Text("You have not scanned yet. Let'start now."),
-        ],
+      queryEmptyElement: const EmptyStateWidget(
+        asset: "assets/illustrations/taking_selfie.png",
+        text: "You have not scanned yet. Let'start now.",
       ),
       childBuilder: (context, snapshot) {
         if (snapshot.failed) {

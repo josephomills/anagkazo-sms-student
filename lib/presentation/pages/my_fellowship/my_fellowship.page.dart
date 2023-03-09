@@ -8,9 +8,9 @@ import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/application/myFellowship/my_fellowship_bloc.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';
 import 'package:student/domain/core/extensions/context.ext.dart';
-import 'package:student/presentation/widgets/app_bars/home.appbar.widget.dart';
 import 'package:student/presentation/widgets/cards/fellowship_service_details.widget.dart';
 import 'package:student/presentation/widgets/cards/my_fellowship_card.widget.dart';
+import 'package:student/presentation/widgets/lists/empty_state.widget.dart';
 
 class MyFellowshipPage extends StatelessWidget implements AutoRouteWrapper {
   MyFellowshipPage({Key? key}) : super(key: key);
@@ -46,12 +46,13 @@ class MyFellowshipPage extends StatelessWidget implements AutoRouteWrapper {
         );
 
         return Scaffold(
-          appBar: HomeAppBarWidget(),
+          appBar: AppBar(
+            title: Text(context.tabsRouter.current.meta["title"]),
+          ),
           body: RefreshIndicator(
             // displacement: 10,
             onRefresh: () => Future<void>(
-              (() => context
-                  .bloc<MyFellowshipBloc>()
+              (() => BlocProvider.of<MyFellowshipBloc>(context)
                   .add(const MyFellowshipEvent.getMyFellowshipServices())),
             ),
             child: SingleChildScrollView(
@@ -86,37 +87,28 @@ class MyFellowshipPage extends StatelessWidget implements AutoRouteWrapper {
                   ),
                   const Divider(thickness: 2, indent: 16, endIndent: 16),
                   state.isLoading
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 100),
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 100),
                           child: Center(
-                            child: SpinKitCubeGrid(
+                            child: SpinKitThreeBounce(
                               size: 60,
-                              color: Colors.blue,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                         )
                       : ListView.builder(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
+                          primary: false,
+                          physics: const BouncingScrollPhysics(),
                           itemCount: services.length,
                           itemBuilder: (BuildContext context, int index) {
                             if (services.isEmpty) {
-                              return SizedBox(
-                                width: 300,
-                                child: Center(
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "assets/illustrations/world.png",
-                                        fit: BoxFit.cover,
-                                      ),
-                                      const Text(
-                                        "Tap on the blue button (buttom right) to scan QR codes.",
-                                      )
-                                    ],
-                                  ),
-                                ),
+                              return const EmptyStateWidget(
+                                asset: "assets/illustrations/world.png",
+                                text:
+                                    "You have not had any fellowship service yet.",
+                                spacing: 0,
                               );
                             }
 

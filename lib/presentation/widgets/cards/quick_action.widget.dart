@@ -16,7 +16,7 @@ class QuickActionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         leading: icon,
         title: Text(title),
         shape: RoundedRectangleBorder(

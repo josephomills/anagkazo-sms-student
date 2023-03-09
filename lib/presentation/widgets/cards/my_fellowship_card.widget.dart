@@ -37,17 +37,15 @@ class MyFellowshipCardWidget extends StatelessWidget {
                   ? SpinKitThreeBounce(size: 24, color: color)
                   : Text(
                       stat,
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: color,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: color,
+                          ),
                     ),
               Text(
                 label,
-                style: const TextStyle(
-                  fontSize: 14,
-                ),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),

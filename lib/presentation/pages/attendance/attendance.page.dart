@@ -21,18 +21,16 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
       ],
       builder: (context, body, controller) {
         return Scaffold(
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(74),
-            child: AppBar(
-              bottom: TabBar(
-                controller: controller,
-                tabs: buildTabs,
-                // onTap: (index) async {
-                //   // add bloc event
-                //   getIt<AttendanceBloc>()
-                //       .add(const AttendanceEvent.getAllQueries());
-                // },
-              ),
+          appBar: AppBar(
+            title: Text(context.tabsRouter.current.parent!.meta["title"]),
+            bottom: TabBar(
+              controller: controller,
+              tabs: buildTabs,
+              // onTap: (index) async {
+              //   // add bloc event
+              //   getIt<AttendanceBloc>()
+              //       .add(const AttendanceEvent.getAllQueries());
+              // },
             ),
           ),
           body: body,

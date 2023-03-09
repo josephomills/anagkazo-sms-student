@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:injectable/injectable.dart';
 import 'package:moment_dart/moment_dart.dart';
+import 'package:student/application/settings/settings_bloc.dart';
 import 'package:student/infrastructure/parse.core.dart';
 import 'package:student/presentation/navigation/auth_gard.core.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -47,19 +49,24 @@ class AnagkazoSMSStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'ABMTC Student App',
-      themeMode: ThemeMode.system, // TODO: change to switch with bloc
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget!),
-        defaultScale: true,
-      ),
-      locale: const Locale('en'),
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      bloc: getIt<SettingsBloc>(),
+      builder: (context, state) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'ABMTC Student App',
+          themeMode: state.themeMode,
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          builder: (context, widget) => ResponsiveWrapper.builder(
+            BouncingScrollWrapper.builder(context, widget!),
+            defaultScale: true,
+          ),
+          locale: const Locale('en'),
+        );
+      },
     );
   }
 }

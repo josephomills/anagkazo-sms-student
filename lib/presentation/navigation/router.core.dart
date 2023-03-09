@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:student/presentation/navigation/auth_gard.core.dart';
 import 'package:student/presentation/pages/academics/academics.page.dart';
+import 'package:student/presentation/pages/accommodation/accommodation.page.dart';
 import 'package:student/presentation/pages/attendance/attendance.page.dart';
 import 'package:student/presentation/pages/attendance/scan.page.dart';
 import 'package:student/presentation/pages/attendance/scan_confirmation.page.dart';
@@ -9,19 +10,20 @@ import 'package:student/presentation/pages/attendance/tabs/lecture.tab.dart';
 import 'package:student/presentation/pages/attendance/tabs/other.tab.dart';
 import 'package:student/presentation/pages/auth/login.page.dart';
 import 'package:student/presentation/pages/auth/profile.page.dart';
+import 'package:student/presentation/pages/discipline/discipline.page.dart';
 import 'package:student/presentation/pages/home/home.page.dart';
 import 'package:student/presentation/pages/documents/documents.page.dart';
 import 'package:student/presentation/pages/forms/forms.page.dart';
-import 'package:student/presentation/pages/disciplinary_points/disciplinary_points.page.dart';
 import 'package:student/presentation/pages/index.page.dart';
 import 'package:student/presentation/pages/more/more.page.dart';
 import 'package:student/presentation/pages/my_fellowship/my_fellowship.page.dart';
 import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.dart';
+import 'package:student/presentation/pages/settings/settings.page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: LoginPage),
+    AutoRoute(page: LoginPage, path: "login"),
     AutoRoute(
       page: IndexPage,
       guards: [AuthGuard],
@@ -88,8 +90,8 @@ import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.
       path: "pastoral-points",
     ),
     AutoRoute(
-      page: DisciplinaryPointsPage,
-      meta: {"title": "Disciplinary Points"},
+      page: DisciplinePage,
+      meta: {"title": "Discipline"},
       path: "discipline",
     ),
     // AutoRoute(page: RegisterPage),
@@ -98,7 +100,14 @@ import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.
     // AutoRoute(page: OtpPage, guards: [AuthGuard]),
     AutoRoute(page: ScanPage, path: "scan"),
     AutoRoute(page: ScanConfirmationPage),
-    AutoRoute(page: ProfilePage, path: "profile"),
+    AutoRoute(page: ProfilePage, path: "profile", meta: {"title": "Profile"}),
+    AutoRoute(
+        page: SettingsPage, path: "settings", meta: {"title": "Settings"}),
+    AutoRoute(
+      page: AccommodationPage,
+      path: "accommodation",
+      meta: {"title": "Accommodation"},
+    ),
   ],
 )
 class $AppRouter {}

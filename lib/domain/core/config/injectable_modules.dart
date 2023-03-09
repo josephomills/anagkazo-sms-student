@@ -7,6 +7,9 @@ abstract class FormModule {
   GlobalKey<FormState> get formKey => GlobalKey<FormState>();
 }
 
+@module
+abstract class SharedPrefsModule {}
+
 // @module
 // abstract class AuthModule {
 //   @preResolve
