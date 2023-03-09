@@ -102,7 +102,7 @@ class AttendanceRepo implements AttendanceFacade {
           [ScanObject.kEvent, "${ScanObject.kEvent}.${EventObject.kEventType}"])
       ..orderByDescending(ScanObject.kScannedInAt)
       ..excludeKeys([ScanObject.kSelfie])
-      ..setLimit(100);
+      ..setLimit(50);
 
     return query;
   }

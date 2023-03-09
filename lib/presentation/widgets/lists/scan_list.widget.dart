@@ -34,6 +34,7 @@ class ScanListWidget extends StatelessWidget {
         ])
         ..orderByDescending(ScanObject.kScannedInAt)
         ..excludeKeys([ScanObject.kSelfie])
+        ..setLimit(50)
         ..whereEqualTo(
             ScanObject.kUser,
             getIt<AuthBloc>()
