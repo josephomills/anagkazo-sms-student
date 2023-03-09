@@ -49,7 +49,7 @@ class BottomNavWidget extends StatelessWidget {
             text: "Attendance",
           ),
           GButton(
-            icon: LineAwesomeIcons.book,
+            icon: LineAwesomeIcons.graduation_cap,
             text: "Academics",
           ),
           GButton(
