@@ -18,11 +18,17 @@ class ScanWidget extends StatelessWidget {
       tileColor: Theme.of(context).colorScheme.background,
       title: Text(
         "${scan.event!.name!}, ${Moment(scan.event!.startsAt!).formatDateShort()}",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      subtitle:
-          Text(Moment(scan.scannedInAt!).formatDateTimeWithWeekdayShort()),
-      leading: SizedBox(
+      subtitle: Text(
+        Moment(scan.scannedInAt!).formatDateTimeWithWeekdayShort(),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: const Icon(LineAwesomeIcons.qrcode, size: 48),
+      trailing: SizedBox(
         width: 56,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,22 +72,6 @@ class ScanWidget extends StatelessWidget {
                   //     : Theme.of(context).colorScheme.onBackground,
                 )
               ],
-            ),
-          ],
-        ),
-      ),
-      trailing: SizedBox(
-        width: 80,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const Icon(LineAwesomeIcons.qrcode, size: 40),
-            Text(
-              scan.event!.eventType!.name!,
-              textAlign: TextAlign.start,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.labelSmall!,
             ),
           ],
         ),

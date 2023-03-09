@@ -7,7 +7,6 @@ class SkeletonScanWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SkeletonListTile(
-      hasLeading: false,
       hasSubtitle: true,
       titleStyle: SkeletonLineStyle(
         height: 16,
@@ -23,14 +22,18 @@ class SkeletonScanWidget extends StatelessWidget {
         children: [
           SkeletonLine(
             style: SkeletonLineStyle(
-              height: 6,
-              width: 30,
+              height: 10,
+              width: 40,
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          const SizedBox(height: 8),
-          const SkeletonAvatar(
-            style: SkeletonAvatarStyle(width: 20, height: 20),
+          const SizedBox(height: 10),
+          SkeletonLine(
+            style: SkeletonLineStyle(
+              height: 10,
+              width: 40,
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ],
       ),
