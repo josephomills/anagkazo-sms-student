@@ -19,15 +19,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthFacade _authFacade;
 
   LoginBloc(this._authFacade) : super(LoginState.initial()) {
-    on<LoginEvent>((event, emitter) async {
+    on<LoginEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
-        usernameChanged: (e) => emitter.call(
+        usernameChanged: (e) => emit(
           state.copyWith(
             username: e.username,
             authFailureOrSuccessOption: none(),
           ),
         ),
-        passwordChanged: (e) => emitter.call(
+        passwordChanged: (e) => emit(
           state.copyWith(
             password: e.password,
             authFailureOrSuccessOption: none(),
@@ -38,7 +38,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           final passedValidation = e.formKey.currentState!.validate();
 
           if (passedValidation) {
-            emitter.call(state.copyWith(
+            emit(state.copyWith(
               isLoading: true,
               authFailureOrSuccessOption: none(),
             ));
@@ -53,14 +53,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             );
 
             // Emit login result
-            emitter.call(state.copyWith(
+            emit(state.copyWith(
               validateFields: false,
               isLoading: false,
               authFailureOrSuccessOption: some(authFailureOrSuccess),
             ));
           } else {
             // Failed validation
-            emitter.call(
+            emit(
               state.copyWith(
                 isLoading: false,
                 validateFields: true,

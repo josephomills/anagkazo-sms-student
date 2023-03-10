@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
-import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/domain/core/extensions/string.ext.dart';
@@ -35,13 +34,7 @@ class ScanListWidget extends StatelessWidget {
         ..orderByDescending(ScanObject.kScannedInAt)
         ..excludeKeys([ScanObject.kSelfie])
         ..setLimit(50)
-        ..whereEqualTo(
-            ScanObject.kUser,
-            getIt<AuthBloc>()
-                .state
-                .currentUserOption
-                .getOrElse(() => ParseUser(null, null, null))
-                .toPointer())
+        ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
         ..whereMatchesQuery(
           ScanObject.kEvent,
           QueryBuilder<EventObject>(EventObject())

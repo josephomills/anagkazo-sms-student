@@ -93,7 +93,7 @@ class ScanWidget extends StatelessWidget {
   }
 
   bool isTooLateToScanIn({required EventObject event}) {
-    return Moment.now().isAfter(
+    return Moment.now().toUtc().isAfter(
         Moment(event.startsAt!).add(Duration(minutes: event.latenessRule!)));
   }
 }

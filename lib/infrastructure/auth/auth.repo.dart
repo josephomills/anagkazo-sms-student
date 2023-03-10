@@ -115,26 +115,18 @@ class AuthRepo implements AuthFacade {
 
     // Get current user from storage
     final user = await ParseUser.currentUser();
-    if (user != null) {
-      // Check whether the user's session token is valid
-      final response =
-          await ParseUser.getCurrentUserFromServer(user.sessionToken!);
 
-      if (response?.success != null || response!.success) {
-        // session token is valid
-        hasUserLoggedIn = true;
-        //set current user in [AuthBloc]
-        getIt<AuthBloc>().add(LoggedIn(user: user));
-      } else {
-        await user.logout();
-        // Session token is invalid
-        hasUserLoggedIn = false;
+    if (user != null) {
+      user.fetch();
+      // session token is valid
+      hasUserLoggedIn = true;
+      // Register user with [getIt]
+      if (getIt.isRegistered(instanceName: "currentUser")) {
+        getIt.registerSingleton<ParseUser>(user, instanceName: "currentUser");
       }
-    } else {
-      // No signed in user
-      hasUserLoggedIn = false;
+      //set current user in [AuthBloc]
+      getIt<AuthBloc>().add(LoggedIn(user: user));
     }
-    // }
 
     return hasUserLoggedIn;
   }

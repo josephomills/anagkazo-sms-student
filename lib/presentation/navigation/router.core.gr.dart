@@ -86,7 +86,7 @@ class AppRouter extends _i20.RootStackRouter {
     ScanRoute.name: (routeData) {
       return _i20.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i20.WrappedRoute(child: const _i7.ScanPage()),
+        child: const _i7.ScanPage(),
       );
     },
     ScanConfirmationRoute.name: (routeData) {

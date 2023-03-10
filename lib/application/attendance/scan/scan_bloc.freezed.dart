@@ -20,21 +20,21 @@ mixin _$ScanEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
-    required TResult Function(EventObject event) scanConfirmed,
+    required TResult Function() scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
-    TResult? Function(EventObject event)? scanConfirmed,
+    TResult? Function()? scanConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
-    TResult Function(EventObject event)? scanConfirmed,
+    TResult Function()? scanConfirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,7 +118,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
-    required TResult Function(EventObject event) scanConfirmed,
+    required TResult Function() scanConfirmed,
   }) {
     return started();
   }
@@ -128,7 +128,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
-    TResult? Function(EventObject event)? scanConfirmed,
+    TResult? Function()? scanConfirmed,
   }) {
     return started?.call();
   }
@@ -138,7 +138,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
-    TResult Function(EventObject event)? scanConfirmed,
+    TResult Function()? scanConfirmed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -258,7 +258,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
-    required TResult Function(EventObject event) scanConfirmed,
+    required TResult Function() scanConfirmed,
   }) {
     return scanDetected(qr);
   }
@@ -268,7 +268,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
-    TResult? Function(EventObject event)? scanConfirmed,
+    TResult? Function()? scanConfirmed,
   }) {
     return scanDetected?.call(qr);
   }
@@ -278,7 +278,7 @@ class _$_ScanDetected implements _ScanDetected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
-    TResult Function(EventObject event)? scanConfirmed,
+    TResult Function()? scanConfirmed,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -337,8 +337,6 @@ abstract class _$$_ScanConfirmedCopyWith<$Res> {
   factory _$$_ScanConfirmedCopyWith(
           _$_ScanConfirmed value, $Res Function(_$_ScanConfirmed) then) =
       __$$_ScanConfirmedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({EventObject event});
 }
 
 /// @nodoc
@@ -348,59 +346,35 @@ class __$$_ScanConfirmedCopyWithImpl<$Res>
   __$$_ScanConfirmedCopyWithImpl(
       _$_ScanConfirmed _value, $Res Function(_$_ScanConfirmed) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? event = null,
-  }) {
-    return _then(_$_ScanConfirmed(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as EventObject,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_ScanConfirmed implements _ScanConfirmed {
-  const _$_ScanConfirmed({required this.event});
-
-  @override
-  final EventObject event;
+  const _$_ScanConfirmed();
 
   @override
   String toString() {
-    return 'ScanEvent.scanConfirmed(event: $event)';
+    return 'ScanEvent.scanConfirmed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ScanConfirmed &&
-            (identical(other.event, event) || other.event == event));
+        (other.runtimeType == runtimeType && other is _$_ScanConfirmed);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, event);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ScanConfirmedCopyWith<_$_ScanConfirmed> get copyWith =>
-      __$$_ScanConfirmedCopyWithImpl<_$_ScanConfirmed>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
-    required TResult Function(EventObject event) scanConfirmed,
+    required TResult Function() scanConfirmed,
   }) {
-    return scanConfirmed(event);
+    return scanConfirmed();
   }
 
   @override
@@ -408,9 +382,9 @@ class _$_ScanConfirmed implements _ScanConfirmed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
-    TResult? Function(EventObject event)? scanConfirmed,
+    TResult? Function()? scanConfirmed,
   }) {
-    return scanConfirmed?.call(event);
+    return scanConfirmed?.call();
   }
 
   @override
@@ -418,11 +392,11 @@ class _$_ScanConfirmed implements _ScanConfirmed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
-    TResult Function(EventObject event)? scanConfirmed,
+    TResult Function()? scanConfirmed,
     required TResult orElse(),
   }) {
     if (scanConfirmed != null) {
-      return scanConfirmed(event);
+      return scanConfirmed();
     }
     return orElse();
   }
@@ -463,13 +437,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
 }
 
 abstract class _ScanConfirmed implements ScanEvent {
-  const factory _ScanConfirmed({required final EventObject event}) =
-      _$_ScanConfirmed;
-
-  EventObject get event;
-  @JsonKey(ignore: true)
-  _$$_ScanConfirmedCopyWith<_$_ScanConfirmed> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _ScanConfirmed() = _$_ScanConfirmed;
 }
 
 /// @nodoc
@@ -477,8 +445,9 @@ mixin _$ScanState {
   bool get isScanning => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isConfirming => throw _privateConstructorUsedError;
+  DateTime? get scannedAt => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get qr => throw _privateConstructorUsedError;
   Option<EventObject> get eventOption => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
   Option<Either<ScanFailure, ScanObject>> get failureOrScanOption =>
       throw _privateConstructorUsedError;
 
@@ -496,8 +465,9 @@ abstract class $ScanStateCopyWith<$Res> {
       {bool isScanning,
       bool isLoading,
       bool isConfirming,
+      DateTime? scannedAt,
+      Map<String, dynamic>? qr,
       Option<EventObject> eventOption,
-      String? type,
       Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
 }
 
@@ -517,8 +487,9 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
     Object? isScanning = null,
     Object? isLoading = null,
     Object? isConfirming = null,
+    Object? scannedAt = freezed,
+    Object? qr = freezed,
     Object? eventOption = null,
-    Object? type = freezed,
     Object? failureOrScanOption = null,
   }) {
     return _then(_value.copyWith(
@@ -534,14 +505,18 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
           ? _value.isConfirming
           : isConfirming // ignore: cast_nullable_to_non_nullable
               as bool,
+      scannedAt: freezed == scannedAt
+          ? _value.scannedAt
+          : scannedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      qr: freezed == qr
+          ? _value.qr
+          : qr // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       eventOption: null == eventOption
           ? _value.eventOption
           : eventOption // ignore: cast_nullable_to_non_nullable
               as Option<EventObject>,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       failureOrScanOption: null == failureOrScanOption
           ? _value.failureOrScanOption
           : failureOrScanOption // ignore: cast_nullable_to_non_nullable
@@ -561,8 +536,9 @@ abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
       {bool isScanning,
       bool isLoading,
       bool isConfirming,
+      DateTime? scannedAt,
+      Map<String, dynamic>? qr,
       Option<EventObject> eventOption,
-      String? type,
       Option<Either<ScanFailure, ScanObject>> failureOrScanOption});
 }
 
@@ -580,8 +556,9 @@ class __$$_ScanStateCopyWithImpl<$Res>
     Object? isScanning = null,
     Object? isLoading = null,
     Object? isConfirming = null,
+    Object? scannedAt = freezed,
+    Object? qr = freezed,
     Object? eventOption = null,
-    Object? type = freezed,
     Object? failureOrScanOption = null,
   }) {
     return _then(_$_ScanState(
@@ -597,14 +574,18 @@ class __$$_ScanStateCopyWithImpl<$Res>
           ? _value.isConfirming
           : isConfirming // ignore: cast_nullable_to_non_nullable
               as bool,
+      scannedAt: freezed == scannedAt
+          ? _value.scannedAt
+          : scannedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      qr: freezed == qr
+          ? _value._qr
+          : qr // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       eventOption: null == eventOption
           ? _value.eventOption
           : eventOption // ignore: cast_nullable_to_non_nullable
               as Option<EventObject>,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       failureOrScanOption: null == failureOrScanOption
           ? _value.failureOrScanOption
           : failureOrScanOption // ignore: cast_nullable_to_non_nullable
@@ -620,9 +601,11 @@ class _$_ScanState implements _ScanState {
       {required this.isScanning,
       required this.isLoading,
       required this.isConfirming,
+      this.scannedAt,
+      final Map<String, dynamic>? qr,
       required this.eventOption,
-      this.type,
-      required this.failureOrScanOption});
+      required this.failureOrScanOption})
+      : _qr = qr;
 
   @override
   final bool isScanning;
@@ -631,15 +614,25 @@ class _$_ScanState implements _ScanState {
   @override
   final bool isConfirming;
   @override
-  final Option<EventObject> eventOption;
+  final DateTime? scannedAt;
+  final Map<String, dynamic>? _qr;
   @override
-  final String? type;
+  Map<String, dynamic>? get qr {
+    final value = _qr;
+    if (value == null) return null;
+    if (_qr is EqualUnmodifiableMapView) return _qr;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  final Option<EventObject> eventOption;
   @override
   final Option<Either<ScanFailure, ScanObject>> failureOrScanOption;
 
   @override
   String toString() {
-    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, isConfirming: $isConfirming, eventOption: $eventOption, type: $type, failureOrScanOption: $failureOrScanOption)';
+    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, isConfirming: $isConfirming, scannedAt: $scannedAt, qr: $qr, eventOption: $eventOption, failureOrScanOption: $failureOrScanOption)';
   }
 
   @override
@@ -653,16 +646,25 @@ class _$_ScanState implements _ScanState {
                 other.isLoading == isLoading) &&
             (identical(other.isConfirming, isConfirming) ||
                 other.isConfirming == isConfirming) &&
+            (identical(other.scannedAt, scannedAt) ||
+                other.scannedAt == scannedAt) &&
+            const DeepCollectionEquality().equals(other._qr, _qr) &&
             (identical(other.eventOption, eventOption) ||
                 other.eventOption == eventOption) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.failureOrScanOption, failureOrScanOption) ||
                 other.failureOrScanOption == failureOrScanOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isScanning, isLoading,
-      isConfirming, eventOption, type, failureOrScanOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isScanning,
+      isLoading,
+      isConfirming,
+      scannedAt,
+      const DeepCollectionEquality().hash(_qr),
+      eventOption,
+      failureOrScanOption);
 
   @JsonKey(ignore: true)
   @override
@@ -676,8 +678,9 @@ abstract class _ScanState implements ScanState {
       {required final bool isScanning,
       required final bool isLoading,
       required final bool isConfirming,
+      final DateTime? scannedAt,
+      final Map<String, dynamic>? qr,
       required final Option<EventObject> eventOption,
-      final String? type,
       required final Option<Either<ScanFailure, ScanObject>>
           failureOrScanOption}) = _$_ScanState;
 
@@ -688,9 +691,11 @@ abstract class _ScanState implements ScanState {
   @override
   bool get isConfirming;
   @override
-  Option<EventObject> get eventOption;
+  DateTime? get scannedAt;
   @override
-  String? get type;
+  Map<String, dynamic>? get qr;
+  @override
+  Option<EventObject> get eventOption;
   @override
   Option<Either<ScanFailure, ScanObject>> get failureOrScanOption;
   @override

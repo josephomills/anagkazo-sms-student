@@ -3,37 +3,40 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:moment_dart/moment_dart.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/extensions/context.ext.dart';
+import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/presentation/widgets/animations/scanner_animation.widget.dart';
+import 'package:student/presentation/widgets/button.widget.dart';
+import 'package:student/presentation/widgets/loader.widget.dart';
 
-class ScanPage extends StatefulWidget implements AutoRouteWrapper {
+/// Scan page
+class ScanPage extends StatefulWidget {
   const ScanPage({Key? key}) : super(key: key);
 
   @override
   State<ScanPage> createState() => _ScanPageState();
-
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<ScanBloc>(
-      create: (context) => getIt<ScanBloc>(),
-      child: this,
-    );
-  }
 }
 
 class _ScanPageState extends State<ScanPage>
     with SingleTickerProviderStateMixin {
+  /// Scanner controller
   MobileScannerController scannerCtrl = MobileScannerController(
+    detectionSpeed: DetectionSpeed.noDuplicates,
     formats: [BarcodeFormat.qrCode],
   );
+
+  /// Animation controller
   late AnimationController _animationCtrl;
 
   @override
   void initState() {
+    scannerCtrl.start();
     _animationCtrl =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
 
@@ -45,78 +48,88 @@ class _ScanPageState extends State<ScanPage>
       }
     });
     _animationCtrl.forward(from: 0.0);
+
     super.initState();
   }
 
   @override
   void dispose() {
     _animationCtrl.dispose();
+    scannerCtrl.stop();
     scannerCtrl.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const AutoLeadingButton(),
-        title: const Text("Scan QR Code"),
-        elevation: 0,
-        actions: [
-          if (scannerCtrl.hasTorch)
-            IconButton(
-              onPressed: () async {
-                await scannerCtrl.toggleTorch();
+    return BlocConsumer<ScanBloc, ScanState>(
+      bloc: getIt<ScanBloc>(),
+      listener: (context, state) {
+        if (!state.isLoading) {
+          state.failureOrScanOption.fold(
+            () {},
+            (either) => either.fold(
+              (f) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(f.message!),
+                  ),
+                );
+                // close scan page
+                context.router.pop();
               },
-              icon: const Icon(Icons.flashlight_on),
+              (scanObj) {
+                // close scan page
+                context.router.pop();
+              },
             ),
-        ],
-      ),
-      body: BlocConsumer<ScanBloc, ScanState>(
-        bloc: context.bloc<ScanBloc>(),
-        listener: (context, state) {
-          if (!state.isLoading) {
-            state.failureOrScanOption.fold(
-              () {},
-              (either) => either.fold(
-                (f) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(f.message!),
-                    ),
-                  );
-                  // close scan page
-                  context.router.pop();
-                },
-                (scanObj) {
-                  // close scan page
-                  context.router.pop();
-                },
-              ),
-            );
-          }
-        },
-        builder: (context, state) {
-          return Stack(
+          );
+        }
+      },
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            leading: const AutoLeadingButton(),
+            title: const Text("Scan QR Code"),
+            actions: [
+              if (scannerCtrl.hasTorch)
+                IconButton(
+                  onPressed: () async {
+                    await scannerCtrl.toggleTorch();
+                  },
+                  icon: const Icon(LineAwesomeIcons.lightbulb),
+                ),
+            ],
+          ),
+          body: Stack(
             children: [
+              // Scan camera view
               MobileScanner(
-                allowDuplicates: false,
                 controller: scannerCtrl,
-                onDetect: (barcode, args) {
-                  if (barcode.rawValue != null) {
+                scanWindow: Rect.fromCenter(
+                  center: Offset(
+                    ResponsiveWrapper.of(context).scaledWidth / 2,
+                    ResponsiveWrapper.of(context).scaledHeight / 2,
+                  ),
+                  width: 300,
+                  height: 300,
+                ),
+                onDetect: (capture) {
+                  if (capture.barcodes.isNotEmpty) {
                     // Example payload
                     // {
-                    //   "eventId": "eventId",
-                    //   "dateTime": "dateTime",
-                    //   "type": "in",
+                    //   "eventId": "",
+                    //   "type": "IN/OUT",
                     // }
 
-                    String value = barcode.rawValue ?? "";
-                    final map = jsonDecode(value) as Map<String, dynamic>;
+                    String value = capture.barcodes[0].rawValue ?? "";
+                    if (value.isNotEmpty) {
+                      final map = jsonDecode(value) as Map<String, dynamic>;
 
-                    context
-                        .bloc<ScanBloc>()
-                        .add(ScanEvent.scanDetected(qr: map));
+                      context
+                          .bloc<ScanBloc>()
+                          .add(ScanEvent.scanDetected(qr: map));
+                    }
 
                     // Pause scan
 
@@ -137,37 +150,113 @@ class _ScanPageState extends State<ScanPage>
                   }
                 },
               ),
+              // Scanner animation
               ScannerAnimatedWidget(
                 stopped: !(state.isScanning),
-                width: MediaQuery.of(context).size.width,
+                width: ResponsiveWrapper.of(context).scaledWidth,
                 animation: _animationCtrl,
               ),
-              if (state.isLoading)
-                const Center(
-                  child: SpinKitCubeGrid(
-                    color: Colors.blue,
-                    size: 70,
-                  ),
-                ),
-              if (state.isConfirming)
-                Center(
-                  child: SizedBox(
-                    width: 250,
-                    height: 250,
-                    child: Card(
+              // Loading spinner
+              if (state.isLoading) const LoaderWidget()
+            ],
+          ),
+          bottomSheet: state.isConfirming
+              ? BottomSheet(
+                  onClosing: () {},
+                  builder: (context) {
+                    final event =
+                        state.eventOption.getOrElse((() => EventObject()));
+                    return Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 32),
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                        ),
+                        color: Theme.of(context).colorScheme.background,
+                      ),
                       child: Column(
-                        children: const [
-                          Text("QR Code Detected"),
-                          Text("data"),
+                        children: [
+                          const Icon(LineAwesomeIcons.qrcode, size: 40),
+                          Text(
+                            "QR Code Detected",
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                          const SizedBox(height: 32),
+                          RichText(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            text: TextSpan(
+                              children: [
+                                const TextSpan(text: "Event: "),
+                                TextSpan(text: event.name!),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                const TextSpan(text: "Date: "),
+                                TextSpan(
+                                    text: Moment(event.startsAt!)
+                                        .formatDateShort()),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                const TextSpan(text: "Time: "),
+                                TextSpan(
+                                    text: Moment(event.startsAt!)
+                                        .formatTimeWithSeconds()),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                const TextSpan(text: "Scan: "),
+                                TextSpan(text: state.qr!["type"]),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ButtonWidget(
+                                isLoading: false,
+                                label: "Cancel",
+                                widthFactor: 0.3,
+                                onTap: state.isLoading
+                                    ? null
+                                    : () => context.router.pop(),
+                              ),
+                              const SizedBox(width: 8),
+                              ButtonWidget(
+                                isLoading: state.isLoading,
+                                label: "Confirm",
+                                widthFactor: 0.3,
+                                onTap: state.isLoading
+                                    ? null
+                                    : () => getIt<ScanBloc>()
+                                        .add(const ScanEvent.scanConfirmed()),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
-                    ),
-                  ),
-                ),
-            ],
-          );
-        },
-      ),
+                    );
+                  },
+                )
+              : null,
+        );
+      },
     );
   }
 

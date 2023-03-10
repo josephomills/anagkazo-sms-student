@@ -19,21 +19,21 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   final AttendanceFacade _attFacade;
 
   AttendanceBloc(this._attFacade) : super(AttendanceState.initial()) {
-    on<AttendanceEvent>((event, emitter) async {
+    on<AttendanceEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
         tabSelected: (e) async {
-          emitter.call(state.copyWith(isLoading: true));
+          emit(state.copyWith(isLoading: true));
 
           final failureOrQuery =
               await _attFacade.getScanQuery(eventType: e.eventType);
 
-          emitter.call(state.copyWith(
+          emit(state.copyWith(
             isLoading: false,
             failureOrQueryOption: some(failureOrQuery),
           ));
         },
         getAllQueries: (e) async {
-          emitter.call(state.copyWith(isLoading: true));
+          emit(state.copyWith(isLoading: true));
           final user = await ParseUser.currentUser();
 
           final failureOrQueriesList = await _attFacade.getAllScanQueries();
@@ -47,7 +47,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           final flExpQuery =
               _attFacade.getQuery(user: user, eventType: EventType.experience);
 
-          emitter.call(state.copyWith(
+          emit(state.copyWith(
             isLoading: false,
             failureOrQueriesList: some(failureOrQueriesList),
             visionQueryOption: visionQuery,

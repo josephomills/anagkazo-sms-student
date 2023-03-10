@@ -11,7 +11,7 @@ class ButtonWidget extends StatelessWidget {
     this.widthFactor = 1,
     this.backgroundColor,
     required this.label,
-    required this.spinnerColor,
+    this.spinnerColor,
     this.fontSize = 24,
     this.height = 56,
   }) : super(key: key);
@@ -21,7 +21,7 @@ class ButtonWidget extends StatelessWidget {
   final double widthFactor;
   final Color? backgroundColor;
   final String label;
-  final Color spinnerColor;
+  final Color? spinnerColor;
   final double fontSize;
   final double height;
 
@@ -40,7 +40,7 @@ class ButtonWidget extends StatelessWidget {
       onPressed: isLoading ? null : onTap,
       child: isLoading
           ? SpinKitThreeBounce(
-              color: spinnerColor,
+              color: spinnerColor ?? Theme.of(context).colorScheme.primary,
               size: 40,
             )
           : Text(

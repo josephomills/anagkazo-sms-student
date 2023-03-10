@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:student/domain/attendance/scan/scan.facade.dart';
+import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/infrastructure/academics/models/year_group.object.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/infrastructure/attendance/models/scan.object.dart';
@@ -22,11 +23,7 @@ class ScanRepo implements ScanFacade {
   @override
   Future<Either<ScanFailure, ScanObject>> scanIn(
       {required EventObject event, required DateTime dateTime}) async {
-    final user = await ParseUser.currentUser();
-
-    if (user == null) {
-      return const Left(ScanFailure.serverError(message: "No user found"));
-    }
+    final user = getIt<ParseUser>();
 
     // Check for a previous scan
     final scanObjOption =
@@ -52,6 +49,7 @@ class ScanRepo implements ScanFacade {
       final ParseResponse resp = await scan.save();
 
       if (resp.success) {
+        await scan.fetch();
         return Right(scan);
       }
 
@@ -62,67 +60,53 @@ class ScanRepo implements ScanFacade {
   @override
   Future<Either<ScanFailure, ScanObject>> scanOut(
       {required EventObject event, required DateTime dateTime}) async {
-    final user = await ParseUser.currentUser();
-
-    if (user == null) {
-      return const Left(ScanFailure.serverError());
-    }
+    final user = getIt<ParseUser>();
 
     // Check for a previous scan
     final scanObjOption =
-        (await checkForScan(event: event, user: user, isScanOut: true))
-            .getOrElse(() => none());
+        (await checkForScan(event: event, user: user)).getOrElse(() => none());
     final bool alreadyScanned = scanObjOption.isSome();
+    final scanObj = scanObjOption.getOrElse(() => ScanObject());
 
     if (alreadyScanned) {
-      final scanObj = scanObjOption.getOrElse(() => ScanObject());
-      final validObj = scanObj.objectId != null;
-      return Left(ScanFailure.duplicateScanError(
-        message: validObj
-            ? "You have already scanned out."
-            : "Invalid scan object found",
-        scanObject: validObj ? scanObj : null,
-      ));
-    } else {
-      // Check for a scan in
-      final scanObjOption =
-          (await checkForScan(event: event, user: user, isScanIn: true))
-              .getOrElse(() => none());
-      final bool isNotLate = scanObjOption.isSome();
-
-      if (isNotLate) {
-        // Get scan object
-        final scanObj = scanObjOption.getOrElse(() => ScanObject());
+      final alreadyScannedOut = scanObj.scannedOutAt != null;
+      if (alreadyScannedOut) {
+        // return failure
         final validObj = scanObj.objectId != null;
-        if (validObj) {
-          // Record scan out
-          scanObj.scannedOutAt = dateTime;
-          final scanResp = await scanObj.save();
-          if (scanResp.success) {
-            return Right(scanObj);
-          } else {
-            return Left(
-                ScanFailure.serverError(message: scanResp.error!.message));
-          }
-        } else {
-          return const Left(
-              ScanFailure.serverError(message: "Invalid scan object found"));
-        }
+        return Left(ScanFailure.duplicateScanError(
+          message: validObj
+              ? "You have already scanned out."
+              : "Invalid scan object found",
+          scanObject: validObj ? scanObj : null,
+        ));
       } else {
-        // No scan found i.e. student is late
-        final scan = ScanObject()
-          ..user = user
-          ..event = event
-          ..scannedOutAt = dateTime;
-
-        final ParseResponse resp = await scan.save();
-
-        if (resp.success) {
-          return Right(scan);
+        // record scan out
+        scanObj.scannedOutAt = dateTime;
+        final scanResp = await scanObj.save();
+        if (scanResp.success) {
+          return Right(scanObj);
+        } else {
+          return Left(
+              ScanFailure.serverError(message: scanResp.error!.message));
         }
-
-        return const Left(ScanFailure.serverError());
       }
+    } else {
+      // No scan at all: means student was late
+      // CreateScan object
+
+      final scan = ScanObject()
+        ..user = user
+        ..event = event
+        ..scannedOutAt = dateTime;
+
+      final resp = await scan.save();
+
+      if (resp.success) {
+        await scan.fetch();
+        return Right(scan);
+      }
+
+      return const Left(ScanFailure.serverError());
     }
   }
 

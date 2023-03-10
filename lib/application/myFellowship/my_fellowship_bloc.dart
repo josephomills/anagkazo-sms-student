@@ -18,11 +18,11 @@ class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
 
   MyFellowshipBloc(this._fellowshipFacade)
       : super(MyFellowshipState.initial()) {
-    on<MyFellowshipEvent>((event, emitter) async {
+    on<MyFellowshipEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
         getMyFellowshipServices: (e) async {
           // Load
-          emitter.call(state.copyWith(isLoading: true));
+          emit(state.copyWith(isLoading: true));
           // get services
           final failureOrServices =
               (await _fellowshipFacade.getFellowshipServices());
@@ -35,7 +35,7 @@ class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
             sumAttendance += s.attendance!;
           }
           // return
-          emitter.call(state.copyWith(
+          emit(state.copyWith(
             isLoading: false,
             avgAttendance: (sumAttendance / services.length).toStringAsFixed(0),
             avgIncome: (sumIncome / services.length).toStringAsFixed(2),
