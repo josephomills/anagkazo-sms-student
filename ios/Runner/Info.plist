@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs permission to access your camera to take photos</string>
+	<string>This app needs permission to access your camera to scan QR codes and take photos</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs permission to access your microphone to record videos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
