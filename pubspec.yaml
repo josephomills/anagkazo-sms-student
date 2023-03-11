@@ -1,7 +1,7 @@
 name: student
 description: ABMTC student app.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 0.0.1+3
 
@@ -18,7 +18,6 @@ dependencies:
   auto_route: ^5.0.4
   dartz: ^0.10.1
   responsive_framework: ^0.2.0
-  flutter_native_splash: ^2.2.16
   injectable: ^2.1.0
   get_it: ^7.2.0
   permission_handler: ^9.2.0
@@ -37,6 +36,7 @@ dependencies:
   moment_dart: ^0.16.0
   flex_color_scheme: ^6.1.2
   google_fonts: ^4.0.3
+  flutter_native_splash: ^2.2.17
 
 dev_dependencies:
   flutter_test:
@@ -45,7 +45,7 @@ dev_dependencies:
   injectable_generator: ^2.1.3
   build_runner: ^2.3.2
   flutter_lints: ^1.0.0
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.12.0
   freezed: ^2.3.1
   json_serializable: ^6.5.4
 
@@ -53,11 +53,15 @@ flutter_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/icon/adaptive_foreground.png"
+  image_path: "assets/icon/icon_bg.png"
 
 flutter_native_splash:
-  color: "#ffffff"
-  image: "assets/icon/icon.png"
+  color: "#F0E9EA"
+  color_dark: "#141313"
+  image: "assets/icon/student_splash.png"
+  image_dark: "assets/icon/student_splash_dark.png"
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true
