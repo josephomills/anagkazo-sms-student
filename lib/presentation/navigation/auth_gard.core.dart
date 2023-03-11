@@ -11,16 +11,13 @@ class AuthGuard extends AutoRouteGuard {
     // true to resume/continue navigation or false to abort navigation
     final isLoggedIn = await getIt<AuthFacade>().hasUserLoggedIn();
 
-    // Remove splash when app is opened for the first time
-    if (router.isRoot) {
-      FlutterNativeSplash.remove();
-    }
+    // Remove splash
+    FlutterNativeSplash.remove();
 
     if (isLoggedIn) {
       resolver.next();
     } else {
       router.push(LoginRoute());
-      FlutterNativeSplash.remove();
     }
   }
 }
