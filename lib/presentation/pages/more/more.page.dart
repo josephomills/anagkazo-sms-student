@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/widgets/more_tile.widget.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
@@ -25,7 +26,7 @@ class MorePage extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           MoreTileWidget(
-            icon: LineAwesomeIcons.user,
+            icon: LineAwesomeIcons.gavel,
             title: "Discipline",
             onTap: () => context.router.push(const DisciplineRoute()),
           ),
@@ -40,12 +41,12 @@ class MorePage extends StatelessWidget {
             onTap: () => context.router.push(const DocumentsRoute()),
           ),
           MoreTileWidget(
-            icon: LineAwesomeIcons.user,
+            icon: LineAwesomeIcons.city,
             title: "Accommodation",
             onTap: () => context.router.push(const AccommodationRoute()),
           ),
           const MoreTileWidget(
-            icon: LineAwesomeIcons.user,
+            icon: LineAwesomeIcons.user_cog,
             title: "Character Development",
           ),
           const SizedBox(height: 32),
@@ -55,38 +56,12 @@ class MorePage extends StatelessWidget {
             onTap: () => context.router.push(const SettingsRoute()),
           ),
           MoreTileWidget(
-            icon: LineAwesomeIcons.user,
+            icon: LineAwesomeIcons.alternate_sign_out,
             title: "Logout",
             color: Theme.of(context).colorScheme.error,
           ),
         ],
       ),
-    );
-  }
-}
-
-class MoreTileWidget extends StatelessWidget {
-  const MoreTileWidget({
-    Key? key,
-    required this.title,
-    required this.icon,
-    this.onTap,
-    this.color,
-  }) : super(key: key);
-
-  final String title;
-  final IconData icon;
-  final VoidCallback? onTap;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon, color: color),
-      tileColor: Theme.of(context).colorScheme.background,
-      title: Text(title, style: TextStyle(color: color)),
-      trailing: Icon(LineAwesomeIcons.angle_right, color: color),
-      onTap: onTap,
     );
   }
 }
