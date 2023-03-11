@@ -65,6 +65,9 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           }
         },
         scanConfirmed: (e) async {
+          // Load
+          emit(state.copyWith(isScanning: false, isLoading: true));
+
           final event = state.eventOption.getOrElse(() => EventObject());
           // TODO
           // Check for a valid scan
@@ -127,6 +130,9 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
               ),
             );
           }
+        },
+        scanCancelled: (e) async {
+          emit(state.copyWith(isScanning: true, isLoading: false));
         },
       );
     });

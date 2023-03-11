@@ -21,6 +21,7 @@ mixin _$ScanEvent {
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
     required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ScanEvent {
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
     TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ScanEvent {
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
     TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$ScanEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
     required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$ScanEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_ScanDetected value)? scanDetected,
     TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$ScanEvent {
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
     TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +125,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
     required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
   }) {
     return started();
   }
@@ -129,6 +136,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
     TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
   }) {
     return started?.call();
   }
@@ -139,6 +147,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
     TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -153,6 +162,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
     required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
   }) {
     return started(this);
   }
@@ -163,6 +173,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_ScanDetected value)? scanDetected,
     TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
   }) {
     return started?.call(this);
   }
@@ -173,6 +184,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
     TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -259,6 +271,7 @@ class _$_ScanDetected implements _ScanDetected {
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
     required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
   }) {
     return scanDetected(qr);
   }
@@ -269,6 +282,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
     TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
   }) {
     return scanDetected?.call(qr);
   }
@@ -279,6 +293,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
     TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -293,6 +308,7 @@ class _$_ScanDetected implements _ScanDetected {
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
     required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
   }) {
     return scanDetected(this);
   }
@@ -303,6 +319,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult? Function(_Started value)? started,
     TResult? Function(_ScanDetected value)? scanDetected,
     TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
   }) {
     return scanDetected?.call(this);
   }
@@ -313,6 +330,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
     TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -373,6 +391,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     required TResult Function() started,
     required TResult Function(Map<String, dynamic> qr) scanDetected,
     required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
   }) {
     return scanConfirmed();
   }
@@ -383,6 +402,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult? Function()? started,
     TResult? Function(Map<String, dynamic> qr)? scanDetected,
     TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
   }) {
     return scanConfirmed?.call();
   }
@@ -393,6 +413,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult Function()? started,
     TResult Function(Map<String, dynamic> qr)? scanDetected,
     TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
     required TResult orElse(),
   }) {
     if (scanConfirmed != null) {
@@ -407,6 +428,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     required TResult Function(_Started value) started,
     required TResult Function(_ScanDetected value) scanDetected,
     required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
   }) {
     return scanConfirmed(this);
   }
@@ -417,6 +439,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult? Function(_Started value)? started,
     TResult? Function(_ScanDetected value)? scanDetected,
     TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
   }) {
     return scanConfirmed?.call(this);
   }
@@ -427,6 +450,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult Function(_Started value)? started,
     TResult Function(_ScanDetected value)? scanDetected,
     TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
     required TResult orElse(),
   }) {
     if (scanConfirmed != null) {
@@ -438,6 +462,120 @@ class _$_ScanConfirmed implements _ScanConfirmed {
 
 abstract class _ScanConfirmed implements ScanEvent {
   const factory _ScanConfirmed() = _$_ScanConfirmed;
+}
+
+/// @nodoc
+abstract class _$$_ScanCancelledCopyWith<$Res> {
+  factory _$$_ScanCancelledCopyWith(
+          _$_ScanCancelled value, $Res Function(_$_ScanCancelled) then) =
+      __$$_ScanCancelledCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ScanCancelledCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$_ScanCancelled>
+    implements _$$_ScanCancelledCopyWith<$Res> {
+  __$$_ScanCancelledCopyWithImpl(
+      _$_ScanCancelled _value, $Res Function(_$_ScanCancelled) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ScanCancelled implements _ScanCancelled {
+  const _$_ScanCancelled();
+
+  @override
+  String toString() {
+    return 'ScanEvent.scanCancelled()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ScanCancelled);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
+  }) {
+    return scanCancelled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Map<String, dynamic> qr)? scanDetected,
+    TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
+  }) {
+    return scanCancelled?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
+    required TResult orElse(),
+  }) {
+    if (scanCancelled != null) {
+      return scanCancelled();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
+  }) {
+    return scanCancelled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ScanDetected value)? scanDetected,
+    TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
+  }) {
+    return scanCancelled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
+    required TResult orElse(),
+  }) {
+    if (scanCancelled != null) {
+      return scanCancelled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ScanCancelled implements ScanEvent {
+  const factory _ScanCancelled() = _$_ScanCancelled;
 }
 
 /// @nodoc

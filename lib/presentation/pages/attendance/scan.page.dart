@@ -130,23 +130,6 @@ class _ScanPageState extends State<ScanPage>
                           .bloc<ScanBloc>()
                           .add(ScanEvent.scanDetected(qr: map));
                     }
-
-                    // Pause scan
-
-                    // Go to confirmation page
-                    // AutoRouter.of(context)
-                    //     .popAndPush(ScanConfirmationRoute(details: details));
-                    // showDialog(
-                    //   context: context,
-                    //   barrierDismissible: false,
-                    //   builder: (_) => ScanConfirmationWidget(details: details),
-                    // );
-                    // showModalBottomSheet(
-                    //   isScrollControlled: true,
-                    //   context: context,
-                    //   shape: ,
-                    //   builder: (context) {},
-                    // );
                   }
                 },
               ),
@@ -235,7 +218,11 @@ class _ScanPageState extends State<ScanPage>
                                 widthFactor: 0.3,
                                 onTap: state.isLoading
                                     ? null
-                                    : () => context.router.pop(),
+                                    : () {
+                                        getIt<ScanBloc>().add(
+                                            const ScanEvent.scanCancelled());
+                                        context.router.pop();
+                                      },
                               ),
                               const SizedBox(width: 8),
                               ButtonWidget(
@@ -244,8 +231,11 @@ class _ScanPageState extends State<ScanPage>
                                 widthFactor: 0.3,
                                 onTap: state.isLoading
                                     ? null
-                                    : () => getIt<ScanBloc>()
-                                        .add(const ScanEvent.scanConfirmed()),
+                                    : () {
+                                        getIt<ScanBloc>().add(
+                                            const ScanEvent.scanConfirmed());
+                                        context.router.pop();
+                                      },
                               ),
                             ],
                           ),
