@@ -12,28 +12,29 @@
 import 'package:flutter/material.dart' as _i13;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:student/application/app/app_bloc.dart' as _i22;
+import 'package:student/application/app/app_bloc.dart' as _i23;
 import 'package:student/application/attendance/attendance/attendance_bloc.dart'
-    as _i23;
-import 'package:student/application/attendance/scan/scan_bloc.dart' as _i26;
-import 'package:student/application/auth/auth/auth_bloc.dart' as _i24;
+    as _i24;
+import 'package:student/application/attendance/scan/scan_bloc.dart' as _i27;
+import 'package:student/application/auth/auth/auth_bloc.dart' as _i25;
 import 'package:student/application/auth/login/login_bloc.dart' as _i15;
 import 'package:student/application/dashbaord/dashboard_bloc.dart' as _i10;
 import 'package:student/application/home/home_bloc.dart' as _i14;
 import 'package:student/application/myFellowship/my_fellowship_bloc.dart'
-    as _i25;
-import 'package:student/application/settings/settings_bloc.dart' as _i20;
+    as _i26;
+import 'package:student/application/profile/profile_bloc.dart' as _i18;
+import 'package:student/application/settings/settings_bloc.dart' as _i21;
 import 'package:student/domain/app/app.facade.dart' as _i3;
 import 'package:student/domain/attendance/attendance.facade.dart' as _i5;
-import 'package:student/domain/attendance/scan/scan.facade.dart' as _i18;
+import 'package:student/domain/attendance/scan/scan.facade.dart' as _i19;
 import 'package:student/domain/auth/auth.facade.dart' as _i7;
-import 'package:student/domain/core/config/injectable_modules.dart' as _i27;
-import 'package:student/domain/core/util/validator.dart' as _i21;
+import 'package:student/domain/core/config/injectable_modules.dart' as _i28;
+import 'package:student/domain/core/util/validator.dart' as _i22;
 import 'package:student/domain/dashboard/dashboard.facade.dart' as _i11;
 import 'package:student/domain/myFellowship/myFellowship.facade.dart' as _i16;
 import 'package:student/infrastructure/app/app.repo.dart' as _i4;
 import 'package:student/infrastructure/attendance/attendance.repo.dart' as _i6;
-import 'package:student/infrastructure/attendance/scan.repo.dart' as _i19;
+import 'package:student/infrastructure/attendance/scan.repo.dart' as _i20;
 import 'package:student/infrastructure/auth/auth.repo.dart' as _i8;
 import 'package:student/infrastructure/dashboard/dashboard.repo.dart' as _i12;
 import 'package:student/infrastructure/myFellowship/myFellowship.repo.dart'
@@ -63,18 +64,19 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i14.HomeBloc>(() => _i14.HomeBloc());
     gh.factory<_i15.LoginBloc>(() => _i15.LoginBloc(gh<_i7.AuthFacade>()));
     gh.factory<_i16.MyFellowshipFacade>(() => _i17.MyFellowshipRepo());
-    gh.factory<_i18.ScanFacade>(() => _i19.ScanRepo());
-    gh.singleton<_i20.SettingsBloc>(_i20.SettingsBloc());
-    gh.factory<_i21.Validator>(() => _i21.Validator());
-    gh.singleton<_i22.AppBloc>(_i22.AppBloc(gh<_i3.AppFacade>()));
-    gh.factory<_i23.AttendanceBloc>(
-        () => _i23.AttendanceBloc(gh<_i5.AttendanceFacade>()));
-    gh.singleton<_i24.AuthBloc>(_i24.AuthBloc(gh<_i7.AuthFacade>()));
-    gh.factory<_i25.MyFellowshipBloc>(
-        () => _i25.MyFellowshipBloc(gh<_i16.MyFellowshipFacade>()));
-    gh.factory<_i26.ScanBloc>(() => _i26.ScanBloc(gh<_i18.ScanFacade>()));
+    gh.factory<_i18.ProfileBloc>(() => _i18.ProfileBloc());
+    gh.factory<_i19.ScanFacade>(() => _i20.ScanRepo());
+    gh.singleton<_i21.SettingsBloc>(_i21.SettingsBloc());
+    gh.factory<_i22.Validator>(() => _i22.Validator());
+    gh.singleton<_i23.AppBloc>(_i23.AppBloc(gh<_i3.AppFacade>()));
+    gh.factory<_i24.AttendanceBloc>(
+        () => _i24.AttendanceBloc(gh<_i5.AttendanceFacade>()));
+    gh.singleton<_i25.AuthBloc>(_i25.AuthBloc(gh<_i7.AuthFacade>()));
+    gh.factory<_i26.MyFellowshipBloc>(
+        () => _i26.MyFellowshipBloc(gh<_i16.MyFellowshipFacade>()));
+    gh.factory<_i27.ScanBloc>(() => _i27.ScanBloc(gh<_i19.ScanFacade>()));
     return this;
   }
 }
 
-class _$FormModule extends _i27.FormModule {}
+class _$FormModule extends _i28.FormModule {}

@@ -12,6 +12,8 @@ class TextFormFieldWidget extends StatelessWidget {
     this.suffixIcon,
     this.autoCorrect = false,
     this.obscureText = false,
+    this.readOnly = false,
+    this.enabled = true,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
   }) : super(key: key);
@@ -24,6 +26,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool autoCorrect;
+  final bool readOnly;
+  final bool enabled;
   final bool obscureText;
   final TextInputType keyboardType;
   final TextInputAction? textInputAction;
@@ -47,6 +51,8 @@ class TextFormFieldWidget extends StatelessWidget {
           ),
       validator: validator,
       onChanged: onChanged,
+      readOnly: readOnly,
+      enabled: enabled,
     );
   }
 }

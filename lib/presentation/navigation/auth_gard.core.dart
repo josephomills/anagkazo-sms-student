@@ -17,7 +17,7 @@ class AuthGuard extends AutoRouteGuard {
     if (isLoggedIn) {
       resolver.next();
     } else {
-      router.push(LoginRoute());
+      router.replaceAll([LoginRoute()]);
     }
   }
 }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/presentation/navigation/autoroute.gr.dart';
+import 'package:student/presentation/widgets/logout.widget.dart';
 import 'package:student/presentation/widgets/more_tile.widget.dart';
 
 @RoutePage()
@@ -23,7 +24,7 @@ class MorePage extends StatelessWidget {
           MoreTileWidget(
             icon: LineAwesomeIcons.user,
             title: "Profile",
-            onTap: () => context.router.push(const ProfileRoute()),
+            onTap: () => context.router.push(ProfileRoute()),
           ),
           const SizedBox(height: 32),
           MoreTileWidget(
@@ -60,6 +61,10 @@ class MorePage extends StatelessWidget {
             icon: LineAwesomeIcons.alternate_sign_out,
             title: "Logout",
             color: Theme.of(context).colorScheme.error,
+            onTap: () => showModalBottomSheet(
+              context: context,
+              builder: (context) => const LogoutWidget(),
+            ),
           ),
         ],
       ),

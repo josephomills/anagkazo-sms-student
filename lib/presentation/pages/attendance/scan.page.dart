@@ -109,11 +109,7 @@ class _ScanPageState extends State<ScanPage>
               final event = state.eventOption.getOrElse((() => EventObject()));
               return BlocProvider.value(
                 value: context.read<ScanBloc>(),
-                child: ScanConfirmationWidget(
-                  event: event,
-                  isLoading: state.isLoading,
-                  qr: state.qr!,
-                ),
+                child: const ScanConfirmationWidget(),
               );
             },
           ).whenComplete(() {

@@ -43,6 +43,15 @@ class Validator {
     return str;
   }
 
+  String? validateEmail(String? email) {
+    String? str;
+    if (!isValidEmail(email!)) {
+      str = "Enter a valid email";
+    }
+
+    return str;
+  }
+
   String? validatePassword(String? password) {
     final passwordLength = password!.length > 6;
     final hasUpperCase = password.contains(RegExp('[A-Z]'));

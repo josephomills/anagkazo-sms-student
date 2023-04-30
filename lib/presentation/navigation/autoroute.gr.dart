@@ -15,11 +15,11 @@ import 'package:student/infrastructure/academics/models/rotation.object.dart'
 import 'package:student/presentation/pages/academics/academics.page.dart'
     as _i1;
 import 'package:student/presentation/pages/academics/rotation.page.dart'
-    as _i22;
-import 'package:student/presentation/pages/academics/tabs/other_points.tab.dart'
-    as _i20;
-import 'package:student/presentation/pages/academics/tabs/rotations.tab.dart'
     as _i21;
+import 'package:student/presentation/pages/academics/tabs/other_points.tab.dart'
+    as _i19;
+import 'package:student/presentation/pages/academics/tabs/rotations.tab.dart'
+    as _i20;
 import 'package:student/presentation/pages/accommodation/accommodation.page.dart'
     as _i2;
 import 'package:student/presentation/pages/attendance/attendance.page.dart'
@@ -32,21 +32,21 @@ import 'package:student/presentation/pages/attendance/tabs/lecture.tab.dart'
 import 'package:student/presentation/pages/attendance/tabs/other.tab.dart'
     as _i7;
 import 'package:student/presentation/pages/auth/login.page.dart' as _i8;
-import 'package:student/presentation/pages/auth/profile.page.dart' as _i9;
 import 'package:student/presentation/pages/discipline/discipline.page.dart'
-    as _i10;
+    as _i9;
 import 'package:student/presentation/pages/documents/documents.page.dart'
-    as _i11;
-import 'package:student/presentation/pages/forms/forms.page.dart' as _i12;
-import 'package:student/presentation/pages/home/home.page.dart' as _i13;
-import 'package:student/presentation/pages/index.page.dart' as _i14;
-import 'package:student/presentation/pages/ministry/ministry.page.dart' as _i15;
-import 'package:student/presentation/pages/more/more.page.dart' as _i16;
+    as _i10;
+import 'package:student/presentation/pages/forms/forms.page.dart' as _i11;
+import 'package:student/presentation/pages/home/home.page.dart' as _i12;
+import 'package:student/presentation/pages/index.page.dart' as _i13;
+import 'package:student/presentation/pages/ministry/ministry.page.dart' as _i14;
+import 'package:student/presentation/pages/more/more.page.dart' as _i15;
 import 'package:student/presentation/pages/my_fellowship/my_fellowship.page.dart'
-    as _i17;
+    as _i16;
 import 'package:student/presentation/pages/pastoral_points/pastoral_points.page.dart'
-    as _i18;
-import 'package:student/presentation/pages/settings/settings.page.dart' as _i19;
+    as _i17;
+import 'package:student/presentation/pages/profile/profile.page.dart' as _i22;
+import 'package:student/presentation/pages/settings/settings.page.dart' as _i18;
 
 abstract class $AppRouter extends _i23.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -103,52 +103,46 @@ abstract class $AppRouter extends _i23.RootStackRouter {
         child: _i23.WrappedRoute(child: _i8.LoginPage(key: args.key)),
       );
     },
-    ProfileRoute.name: (routeData) {
-      return _i23.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i9.ProfilePage(),
-      );
-    },
     DisciplineRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.DisciplinePage(),
+        child: const _i9.DisciplinePage(),
       );
     },
     DocumentsRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i11.DocumentsPage(),
+        child: const _i10.DocumentsPage(),
       );
     },
     FormsRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i12.FormsPage(),
+        child: const _i11.FormsPage(),
       );
     },
     HomeRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i13.HomePage(),
+        child: const _i12.HomePage(),
       );
     },
     IndexRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i14.IndexPage(),
+        child: const _i13.IndexPage(),
       );
     },
     MinistryRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.MinistryPage(),
+        child: const _i14.MinistryPage(),
       );
     },
     MoreRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i16.MorePage(),
+        child: const _i15.MorePage(),
       );
     },
     MyFellowshipRoute.name: (routeData) {
@@ -156,41 +150,49 @@ abstract class $AppRouter extends _i23.RootStackRouter {
           orElse: () => const MyFellowshipRouteArgs());
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i23.WrappedRoute(child: _i17.MyFellowshipPage(key: args.key)),
+        child: _i23.WrappedRoute(child: _i16.MyFellowshipPage(key: args.key)),
       );
     },
     PastoralPointsRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i18.PastoralPointsPage(),
+        child: const _i17.PastoralPointsPage(),
       );
     },
     SettingsRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i19.SettingsPage(),
+        child: const _i18.SettingsPage(),
       );
     },
     OtherPointsTabRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i20.OtherPointsTabPage(),
+        child: const _i19.OtherPointsTabPage(),
       );
     },
     RotationsTabRoute.name: (routeData) {
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i21.RotationsTabPage(),
+        child: const _i20.RotationsTabPage(),
       );
     },
     RotationRoute.name: (routeData) {
       final args = routeData.argsAs<RotationRouteArgs>();
       return _i23.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i22.RotationPage(
+        child: _i21.RotationPage(
           key: args.key,
           rotation: args.rotation,
         ),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>(
+          orElse: () => const ProfileRouteArgs());
+      return _i23.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i23.WrappedRoute(child: _i22.ProfilePage(key: args.key)),
       );
     },
   };
@@ -324,21 +326,7 @@ class LoginRouteArgs {
 }
 
 /// generated route for
-/// [_i9.ProfilePage]
-class ProfileRoute extends _i23.PageRouteInfo<void> {
-  const ProfileRoute({List<_i23.PageRouteInfo>? children})
-      : super(
-          ProfileRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ProfileRoute';
-
-  static const _i23.PageInfo<void> page = _i23.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i10.DisciplinePage]
+/// [_i9.DisciplinePage]
 class DisciplineRoute extends _i23.PageRouteInfo<void> {
   const DisciplineRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -352,7 +340,7 @@ class DisciplineRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.DocumentsPage]
+/// [_i10.DocumentsPage]
 class DocumentsRoute extends _i23.PageRouteInfo<void> {
   const DocumentsRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -366,7 +354,7 @@ class DocumentsRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.FormsPage]
+/// [_i11.FormsPage]
 class FormsRoute extends _i23.PageRouteInfo<void> {
   const FormsRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -380,7 +368,7 @@ class FormsRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.HomePage]
+/// [_i12.HomePage]
 class HomeRoute extends _i23.PageRouteInfo<void> {
   const HomeRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -394,7 +382,7 @@ class HomeRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.IndexPage]
+/// [_i13.IndexPage]
 class IndexRoute extends _i23.PageRouteInfo<void> {
   const IndexRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -408,7 +396,7 @@ class IndexRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i15.MinistryPage]
+/// [_i14.MinistryPage]
 class MinistryRoute extends _i23.PageRouteInfo<void> {
   const MinistryRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -422,7 +410,7 @@ class MinistryRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.MorePage]
+/// [_i15.MorePage]
 class MoreRoute extends _i23.PageRouteInfo<void> {
   const MoreRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -436,7 +424,7 @@ class MoreRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.MyFellowshipPage]
+/// [_i16.MyFellowshipPage]
 class MyFellowshipRoute extends _i23.PageRouteInfo<MyFellowshipRouteArgs> {
   MyFellowshipRoute({
     _i24.Key? key,
@@ -465,7 +453,7 @@ class MyFellowshipRouteArgs {
 }
 
 /// generated route for
-/// [_i18.PastoralPointsPage]
+/// [_i17.PastoralPointsPage]
 class PastoralPointsRoute extends _i23.PageRouteInfo<void> {
   const PastoralPointsRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -479,7 +467,7 @@ class PastoralPointsRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i19.SettingsPage]
+/// [_i18.SettingsPage]
 class SettingsRoute extends _i23.PageRouteInfo<void> {
   const SettingsRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -493,7 +481,7 @@ class SettingsRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i20.OtherPointsTabPage]
+/// [_i19.OtherPointsTabPage]
 class OtherPointsTabRoute extends _i23.PageRouteInfo<void> {
   const OtherPointsTabRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -507,7 +495,7 @@ class OtherPointsTabRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i21.RotationsTabPage]
+/// [_i20.RotationsTabPage]
 class RotationsTabRoute extends _i23.PageRouteInfo<void> {
   const RotationsTabRoute({List<_i23.PageRouteInfo>? children})
       : super(
@@ -521,7 +509,7 @@ class RotationsTabRoute extends _i23.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i22.RotationPage]
+/// [_i21.RotationPage]
 class RotationRoute extends _i23.PageRouteInfo<RotationRouteArgs> {
   RotationRoute({
     _i24.Key? key,
@@ -555,5 +543,34 @@ class RotationRouteArgs {
   @override
   String toString() {
     return 'RotationRouteArgs{key: $key, rotation: $rotation}';
+  }
+}
+
+/// generated route for
+/// [_i22.ProfilePage]
+class ProfileRoute extends _i23.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i24.Key? key,
+    List<_i23.PageRouteInfo>? children,
+  }) : super(
+          ProfileRoute.name,
+          args: ProfileRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const _i23.PageInfo<ProfileRouteArgs> page =
+      _i23.PageInfo<ProfileRouteArgs>(name);
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({this.key});
+
+  final _i24.Key? key;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key}';
   }
 }

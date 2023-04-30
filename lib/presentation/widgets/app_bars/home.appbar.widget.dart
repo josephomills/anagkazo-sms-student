@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/util/util.dart';
+import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/widgets/avatar.widget.dart';
 
 class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
@@ -19,6 +21,7 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             AvatarWidget(
               url: getIt<ParseUser>().get("photoUrl"),
               size: 60,
+              onTap: () => context.router.push(ProfileRoute()),
             ),
             const SizedBox(width: 16),
             RichText(

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/util/validator.dart';
@@ -51,6 +52,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                     ? AutovalidateMode.onUserInteraction
                     : AutovalidateMode.disabled,
                 child: ListView(
+                  physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 32),
                   children: [
                     const SizedBox(height: 60),
@@ -66,7 +68,8 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       onChanged: (text) => context
                           .read<LoginBloc>()
                           .add(UsernameChanged(username: text)),
-                      suffixIcon: const Icon(Icons.person),
+                      suffixIcon:
+                          const Icon(LineAwesomeIcons.identification_card),
                       hint: "What is your student ID number?",
                     ),
                     const SizedBox(height: 16),
@@ -77,19 +80,19 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       onChanged: (text) => context
                           .read<LoginBloc>()
                           .add(PasswordChanged(password: text)),
-                      suffixIcon: const Icon(Icons.lock),
+                      suffixIcon: const Icon(LineAwesomeIcons.lock),
                       hint: "What is your password?",
                       obscureText: true,
                     ),
                     const SizedBox(height: 30),
                     ButtonWidget(
                       onTap: () {
+                        unfocus(context);
                         BlocProvider.of<LoginBloc>(context)
                             .add(LoginButtonPressed(formKey: _formKey));
                       },
                       isLoading: state.isLoading,
                       label: "Login",
-                      spinnerColor: Theme.of(context).colorScheme.primary,
                       widthFactor: 0.8,
                     ),
                   ],

@@ -4,6 +4,7 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
+import 'package:student/infrastructure/academics/models/year_group.object.dart';
 import 'package:student/infrastructure/auth/models/user.model.dart';
 import 'package:student/infrastructure/auth/dto/register.dto.dart';
 import 'package:student/infrastructure/auth/dto/login.dto.dart';
@@ -26,19 +27,16 @@ class AuthRepo implements AuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> logout() async {
     // Get current user from storage
-    final user = await ParseUser.currentUser() as ParseUser?;
-    if (user != null) {
-      final response = await user.logout();
-      if (response.success) {
-        return const Right(unit);
-      } else {
-        return const Left(AuthFailure.serverError(
-          message:
-              "Something went wrong. Could not logout. Please try again later.",
-        ));
-      }
+    final resp = await getIt<ParseUser>().logout();
+    if (resp.success) {
+      getIt.unregister<ParseUser>();
+      getIt.unregister<YearGroupObject>();
+      return const Right(unit);
     } else {
-      return const Left(AuthFailure.userDoesNotExist());
+      return const Left(AuthFailure.serverError(
+        message:
+            "Something went wrong. Could not logout. Please try again later.",
+      ));
     }
   }
 
@@ -125,8 +123,11 @@ class AuthRepo implements AuthFacade {
         hasUserLoggedIn = true;
         // Register user with [getIt]
         getIt.registerSingleton<ParseUser>(user);
-        //set current user in [AuthBloc]
+        // set current user in [AuthBloc]
         getIt<AuthBloc>().add(LoggedIn(user: user));
+        // get yeargroup object
+        final yearGroup = await user.get("yearGroup").fetch();
+        getIt.registerSingleton<YearGroupObject>(yearGroup);
       }
     }
 
