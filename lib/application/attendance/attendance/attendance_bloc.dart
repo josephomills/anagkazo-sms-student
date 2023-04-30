@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/domain/attendance/attendance.facade.dart';
 import 'package:student/domain/attendance/attendance.failure.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
@@ -14,7 +14,7 @@ part 'attendance_event.dart';
 part 'attendance_state.dart';
 part 'attendance_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   final AttendanceFacade _attFacade;
 

@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
-import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/pages/index.page.dart';
 
+@RoutePage()
 class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
   const AttendancePage({Key? key}) : super(key: key);
 
@@ -26,11 +27,6 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
             bottom: TabBar(
               controller: controller,
               tabs: buildTabs,
-              // onTap: (index) async {
-              //   // add bloc event
-              //   getIt<AttendanceBloc>()
-              //       .add(const AttendanceEvent.getAllQueries());
-              // },
             ),
           ),
           body: body,

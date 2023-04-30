@@ -13,6 +13,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.autoCorrect = false,
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
+    this.textInputAction = TextInputAction.next,
   }) : super(key: key);
 
   final String text;
@@ -25,12 +26,14 @@ class TextFormFieldWidget extends StatelessWidget {
   final bool autoCorrect;
   final bool obscureText;
   final TextInputType keyboardType;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       initialValue: text,
       keyboardType: keyboardType,
+      textInputAction: textInputAction,
       textCapitalization: TextCapitalization.none,
       autocorrect: autoCorrect,
       obscureText: obscureText,

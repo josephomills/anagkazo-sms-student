@@ -2,10 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:student/application/settings/settings_bloc.dart';
+import 'package:student/application/app/app_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/presentation/theme/app_theme.dart';
 
+@RoutePage()
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -15,8 +16,8 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(context.router.current.meta["title"]),
       ),
-      body: BlocBuilder<SettingsBloc, SettingsState>(
-        bloc: getIt<SettingsBloc>(),
+      body: BlocBuilder<AppBloc, AppState>(
+        bloc: getIt<AppBloc>(),
         builder: (context, state) {
           return ListView(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -26,7 +27,10 @@ class SettingsPage extends StatelessWidget {
                 tileColor: Theme.of(context).colorScheme.background,
                 trailing: SizedBox(
                   width: 270,
-                  child: themeModeSwitch(mode: state.themeMode),
+                  child: themeModeSwitch(
+                    mode: state.themeMode,
+                    context: context,
+                  ),
                 ),
               ),
             ],
@@ -36,7 +40,8 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  Row themeModeSwitch({required ThemeMode mode}) {
+  Row themeModeSwitch(
+      {required ThemeMode mode, required BuildContext context}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -44,26 +49,23 @@ class SettingsPage extends StatelessWidget {
         Radio<String>(
           value: DarkMode.light.name,
           groupValue: getMode(themeMode: mode).name,
-          onChanged: (value) => getIt<SettingsBloc>().add(
-              SettingsEvent.themeModeToggled(
-                  themeMode: getThemeMode(value: value!))),
+          onChanged: (value) => getIt<AppBloc>().add(AppEvent.themeModeToggled(
+              themeMode: getThemeMode(value: value!))),
         ),
         const Text("Dark"),
         Radio<String>(
           value: DarkMode.dark.name,
           groupValue: getMode(themeMode: mode).name,
-          onChanged: (value) => getIt<SettingsBloc>().add(
-            SettingsEvent.themeModeToggled(
-                themeMode: getThemeMode(value: value!)),
+          onChanged: (value) => getIt<AppBloc>().add(
+            AppEvent.themeModeToggled(themeMode: getThemeMode(value: value!)),
           ),
         ),
         const Text("System"),
         Radio<String>(
           value: DarkMode.system.name,
           groupValue: getMode(themeMode: mode).name,
-          onChanged: (value) => getIt<SettingsBloc>().add(
-            SettingsEvent.themeModeToggled(
-                themeMode: getThemeMode(value: value!)),
+          onChanged: (value) => getIt<AppBloc>().add(
+            AppEvent.themeModeToggled(themeMode: getThemeMode(value: value!)),
           ),
         ),
       ],

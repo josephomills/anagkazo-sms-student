@@ -1,4 +1,4 @@
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/infrastructure/myFellowship/models/member/member.object.dart';
 
 class ServiceObject extends ParseObject implements ParseCloneable {

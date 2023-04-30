@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/widgets/more_tile.widget.dart';
 
+@RoutePage()
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
 
@@ -14,7 +15,7 @@ class MorePage extends StatelessWidget {
         title: const Text("More"),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 32),
         primary: false,
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),

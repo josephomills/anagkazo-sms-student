@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student/application/auth/login/login_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
-import 'package:student/domain/auth/auth_validator.dart';
+import 'package:student/domain/core/util/validator.dart';
 import 'package:student/domain/core/util/util.dart';
-import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/widgets/button.widget.dart';
 import 'package:student/presentation/widgets/forms/text_form_field.widget.dart';
 
+@RoutePage()
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   LoginPage({Key? key}) : super(key: key);
 
@@ -21,7 +22,6 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
         body: GestureDetector(
           onTap: () => unfocus(context),
           child: BlocConsumer<LoginBloc, LoginState>(
-            bloc: context.read<LoginBloc>(),
             listener: (context, state) {
               state.authFailureOrSuccessOption.fold(
                   () {}, // do nothing for none()
@@ -55,14 +55,14 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                   children: [
                     const SizedBox(height: 60),
                     Image.asset(
-                      "assets/icon/logo.png",
-                      height: 200,
+                      "assets/icon/student_login.png",
+                      height: 240,
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 20),
                     TextFormFieldWidget(
                       text: state.username,
                       label: "Student ID",
-                      validator: getIt<AuthValidator>().validateUsername,
+                      validator: getIt<Validator>().validateUsername,
                       onChanged: (text) => context
                           .read<LoginBloc>()
                           .add(UsernameChanged(username: text)),
@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                     TextFormFieldWidget(
                       text: state.password,
                       label: "Password",
-                      validator: getIt<AuthValidator>().validatePassword,
+                      validator: getIt<Validator>().validatePassword,
                       onChanged: (text) => context
                           .read<LoginBloc>()
                           .add(PasswordChanged(password: text)),
@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       },
                       isLoading: state.isLoading,
                       label: "Login",
-                      spinnerColor: Theme.of(context).primaryColorDark,
+                      spinnerColor: Theme.of(context).colorScheme.primary,
                       widthFactor: 0.8,
                     ),
                   ],

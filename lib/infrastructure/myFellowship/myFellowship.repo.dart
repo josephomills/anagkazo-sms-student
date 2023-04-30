@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/domain/myFellowship/myFellowship.facade.dart';
 import 'package:student/domain/myFellowship/myFellowship.failure.dart';
 import 'package:student/infrastructure/myFellowship/models/service/service.object.dart';

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
-import 'package:student/presentation/navigation/router.core.gr.dart';
+import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 
 class AuthGuard extends AutoRouteGuard {

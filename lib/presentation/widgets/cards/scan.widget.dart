@@ -43,18 +43,14 @@ class ScanWidget extends StatelessWidget {
                           ? isLateScan(scan: scan)
                               ? LineAwesomeIcons.clock
                               : LineAwesomeIcons.check
-                          : hasScannedOut(scan: scan)
-                              ? LineAwesomeIcons.clock
-                              : LineAwesomeIcons.cross
-                      : LineAwesomeIcons.spinner,
+                          : LineAwesomeIcons.times
+                      : LineAwesomeIcons.minus,
                   color: isTooLateToScanIn(event: scan.event!)
                       ? hasScannedIn(scan: scan)
                           ? isLateScan(scan: scan)
-                              ? Theme.of(context).colorScheme.secondary
+                              ? Theme.of(context).colorScheme.tertiary
                               : Colors.green.shade700
-                          : hasScannedOut(scan: scan)
-                              ? Theme.of(context).colorScheme.secondary
-                              : Theme.of(context).colorScheme.error
+                          : Theme.of(context).colorScheme.error
                       : Theme.of(context).colorScheme.onBackground,
                 ),
               ],
@@ -66,10 +62,10 @@ class ScanWidget extends StatelessWidget {
                 Icon(
                   hasScannedOut(scan: scan)
                       ? LineAwesomeIcons.check
-                      : LineAwesomeIcons.minus,
-                  // color: hasScannedOut(scan: scan)
-                  //     ? Colors.green.shade700
-                  //     : Theme.of(context).colorScheme.onBackground,
+                      : LineAwesomeIcons.times,
+                  color: hasScannedOut(scan: scan)
+                      ? Colors.green.shade700
+                      : Theme.of(context).colorScheme.error,
                 )
               ],
             ),

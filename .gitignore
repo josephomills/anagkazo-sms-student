@@ -46,4 +46,8 @@ app.*.map.json
 /android/app/release
 
 # FVM related
-.fvm/flutter_sdk
+.fvm/flutter_sdk/
+
+# Secrets
+/lib/domain/core/config/secrets.dart
+.env

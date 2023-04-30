@@ -9,13 +9,3 @@ abstract class FormModule {
 
 @module
 abstract class SharedPrefsModule {}
-
-// @module
-// abstract class AuthModule {
-//   @preResolve
-//   @singleton
-//   Future<ParseUser> currentUser() async {
-//     final ParseUser user = await ParseUser.currentUser();
-//     return user;
-//   }
-// }

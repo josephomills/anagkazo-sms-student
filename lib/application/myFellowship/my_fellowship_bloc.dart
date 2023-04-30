@@ -12,7 +12,7 @@ part 'my_fellowship_event.dart';
 part 'my_fellowship_state.dart';
 part 'my_fellowship_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class MyFellowshipBloc extends Bloc<MyFellowshipEvent, MyFellowshipState> {
   final MyFellowshipFacade _fellowshipFacade;
 

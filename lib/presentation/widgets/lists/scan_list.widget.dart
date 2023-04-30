@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:skeletons/skeletons.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
@@ -27,13 +26,6 @@ class ScanListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ParseLiveListWidget<ScanObject>(
       query: QueryBuilder<ScanObject>(ScanObject())
-        ..includeObject([
-          ScanObject.kEvent,
-          "${ScanObject.kEvent}.${EventObject.kEventType}",
-        ])
-        ..orderByDescending(ScanObject.kScannedInAt)
-        ..excludeKeys([ScanObject.kSelfie])
-        ..setLimit(50)
         ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
         ..whereMatchesQuery(
           ScanObject.kEvent,
@@ -46,10 +38,25 @@ class ScanListWidget extends StatelessWidget {
                   category.name.capitalize,
                 ),
             ),
-        ),
+        )
+        ..includeObject([
+          ScanObject.kEvent,
+          "${ScanObject.kEvent}.${EventObject.kEventType}",
+        ])
+        ..orderByDescending(ScanObject.kScannedInAt)
+        ..excludeKeys([ScanObject.kSelfie])
+        ..setLimit(50),
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      scrollPhysics: const BouncingScrollPhysics(),
-      listLoadingElement: SkeletonListView(
+      shrinkWrap: true,
+      lazyLoading: false,
+      listeningIncludes: const [
+        ScanObject.kEvent,
+        "${ScanObject.kEvent}.${EventObject.kEventType}",
+      ],
+      listLoadingElement: ListView.builder(
+        primary: false,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(8),
         itemCount: 10,
         itemBuilder: (context, index) => const SkeletonScanWidget(),
       ),
@@ -70,6 +77,9 @@ class ScanListWidget extends StatelessWidget {
         } else {
           return const SkeletonScanWidget();
         }
+      },
+      removedItemBuilder: (context, snapshot) {
+        return Container();
       },
     );
   }

@@ -10,29 +10,34 @@ class LoaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 56,
-      child: SizedBox(
-        height: ResponsiveWrapper.of(context).scaledHeight,
-        width: ResponsiveWrapper.of(context).scaledWidth,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaY: 16, sigmaX: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SpinKitChasingDots(
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                "Loading...",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ],
+    return Stack(
+      children: [
+        Positioned(
+          top: 56,
+          child: SizedBox(
+            height: ResponsiveWrapper.of(context).scaledHeight,
+            width: ResponsiveWrapper.of(context).scaledWidth,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
+              child: Container(),
+            ),
           ),
         ),
-      ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SpinKitChasingDots(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              "Loading...",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/attendance/scan/scan.facade.dart';
 import 'package:student/domain/attendance/scan/scan.failure.dart';
@@ -18,20 +18,29 @@ part 'scan_event.dart';
 part 'scan_state.dart';
 part 'scan_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class ScanBloc extends Bloc<ScanEvent, ScanState> {
   final ScanFacade _scanFacade;
 
   ScanBloc(this._scanFacade) : super(ScanState.initial()) {
     on<ScanEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
-        started: (e) {},
+        started: (e) {
+          emit(state.copyWith(
+            isLoading: false,
+            isScanning: true,
+            isConfirming: false,
+            failureOrScanOption: none(),
+            eventOption: none(),
+          ));
+        },
         scanDetected: (e) async {
           // Stop scanning
           emit(state.copyWith(
             isScanning: false,
-            isLoading: true,
+            isLoading: false,
             scannedAt: Moment.now().toUtc(),
+            qr: e.qr,
           ));
 
           // Example payload
@@ -47,12 +56,16 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
 
           if (eventExists) {
             final event = resp.result as EventObject;
-            emit(state.copyWith(eventOption: some(event)));
+            emit(state.copyWith(
+              eventOption: some(event),
+              isConfirming: true,
+            ));
           } else {
             emit(
               state.copyWith(
                 isLoading: false,
                 isScanning: true,
+                isConfirming: false,
                 failureOrScanOption: some(
                   const Left(
                     ScanFailure.invalidEventError(
@@ -66,7 +79,11 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         },
         scanConfirmed: (e) async {
           // Load
-          emit(state.copyWith(isScanning: false, isLoading: true));
+          emit(state.copyWith(
+            isScanning: false,
+            isLoading: true,
+            isConfirming: false,
+          ));
 
           final event = state.eventOption.getOrElse(() => EventObject());
           // TODO
@@ -81,24 +98,24 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
 
           if (isValid) {
             if (state.qr!["type"] == "IN") {
-              final scanOrFailure = await _scanFacade.scanIn(
+              final failureOrScan = await _scanFacade.scanIn(
                 event: event,
                 dateTime: state.scannedAt!,
               );
 
               emit(state.copyWith(
                 isLoading: false,
-                failureOrScanOption: some(scanOrFailure),
+                failureOrScanOption: some(failureOrScan),
               ));
             } else if (state.qr!["type"] == "OUT") {
-              final scanOrFailure = await _scanFacade.scanOut(
+              final failureOrScan = await _scanFacade.scanOut(
                 event: event,
                 dateTime: state.scannedAt!,
               );
 
               emit(state.copyWith(
                 isLoading: false,
-                failureOrScanOption: some(scanOrFailure),
+                failureOrScanOption: some(failureOrScan),
               ));
             } else {
               emit(
@@ -132,7 +149,13 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           }
         },
         scanCancelled: (e) async {
-          emit(state.copyWith(isScanning: true, isLoading: false));
+          emit(state.copyWith(
+            isScanning: true,
+            isLoading: false,
+            isConfirming: false,
+            failureOrScanOption: none(),
+            eventOption: none(),
+          ));
         },
       );
     });
@@ -175,6 +198,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         .getOrElse(() => ParseUser(null, null, null))
         .get("yearGroup") as YearGroupObject;
 
-    return sameDay;
+    return !sameDay;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/application/auth/auth/auth_bloc.dart';
 import 'package:student/domain/auth/auth.facade.dart';
 import 'package:student/domain/core/config/injectable.core.dart';

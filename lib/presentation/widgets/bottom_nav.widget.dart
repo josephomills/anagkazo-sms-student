@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:student/presentation/pages/index.page.dart';
 
 /// Bottom nav that implements a [GNav]
 class BottomNavWidget extends StatelessWidget {
@@ -14,9 +15,7 @@ class BottomNavWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Theme.of(context).colorScheme.surface
-            : Colors.white,
+        color: Theme.of(context).colorScheme.background,
         boxShadow: [
           BoxShadow(
             blurRadius: 20,
@@ -39,26 +38,31 @@ class BottomNavWidget extends StatelessWidget {
         duration: const Duration(milliseconds: 400),
         selectedIndex: context.tabsRouter.activeIndex,
         onTabChange: (index) => context.tabsRouter.setActiveIndex(index),
-        tabs: const [
+        tabs: [
           GButton(
             icon: LineAwesomeIcons.home,
             text: "Home",
+            active: context.tabsRouter.activeIndex == NavIndex.home,
           ),
           GButton(
             icon: LineAwesomeIcons.qrcode,
             text: "Attendance",
+            active: context.tabsRouter.activeIndex == NavIndex.attendance,
           ),
           GButton(
             icon: LineAwesomeIcons.graduation_cap,
             text: "Academics",
+            active: context.tabsRouter.activeIndex == NavIndex.academics,
           ),
           GButton(
             icon: LineAwesomeIcons.cross,
             text: "Ministry",
+            active: context.tabsRouter.activeIndex == NavIndex.ministry,
           ),
           GButton(
             icon: LineAwesomeIcons.bars,
             text: "More",
+            active: context.tabsRouter.activeIndex == NavIndex.more,
           ),
         ],
       ),

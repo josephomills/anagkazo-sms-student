@@ -1,4 +1,4 @@
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 
 class ScanObject extends ParseObject implements ParseCloneable {

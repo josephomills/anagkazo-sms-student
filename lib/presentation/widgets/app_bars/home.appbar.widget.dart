@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/util/util.dart';
 import 'package:student/presentation/widgets/avatar.widget.dart';
@@ -34,7 +34,7 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                   TextSpan(
                     text:
                         "${getIt<ParseUser>().get("firstname")} ${getIt<ParseUser>().get("lastname")}",
-                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                           color: Colors.white,
                         ),
                   ),
@@ -44,7 +44,9 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             const Spacer(),
             Image.asset(
               "assets/icon/logo.png",
-              height: 64,
+              height: 72,
+              width: 72,
+              fit: BoxFit.cover,
             ),
           ],
         ),
