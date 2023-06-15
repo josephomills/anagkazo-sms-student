@@ -47,19 +47,14 @@ class LogoutWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: false,
                     label: "Cancel",
-                    widthFactor: 0.3,
-                    onTap: state.isLoading
-                        ? null
-                        : () {
-                            // context.read<ScanBloc>().add(const ScanEvent.scanCancelled());
-                            context.router.pop();
-                          },
+                    widthFactor: 0.35,
+                    onTap: state.isLoading ? null : () => context.router.pop(),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                   ButtonWidget(
                     isLoading: state.isLoading,
-                    label: "Confirm",
-                    widthFactor: 0.3,
+                    label: "Yes, logout",
+                    widthFactor: 0.35,
                     onTap: () {
                       // Logout
                       getIt<AuthBloc>().add(const AuthEvent.loggedOut());

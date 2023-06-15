@@ -13,7 +13,7 @@ Future<void> initParse() async {
     dotenv.get("APP_ID"),
     dotenv.get("SERVER_URL"),
     clientKey: dotenv.get("CLIENT_KEY"),
-    debug: true,
+    // debug: true,
     coreStore: await CoreStoreSembastImp.getInstance(),
     liveQueryUrl: dotenv.get("LIVE_QUERY_URL"),
     registeredSubClassMap: {

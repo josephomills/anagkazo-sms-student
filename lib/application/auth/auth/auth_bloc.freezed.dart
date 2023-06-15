@@ -311,7 +311,7 @@ abstract class LoggedOut implements AuthEvent {
 mixin _$AuthState {
   Option<ParseUser> get currentUserOption => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Unit>> get failureOrUnit =>
+  Option<Either<AuthFailure, Unit>> get failureOrUnitOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -327,7 +327,7 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call(
       {Option<ParseUser> currentUserOption,
       bool isLoading,
-      Option<Either<AuthFailure, Unit>> failureOrUnit});
+      Option<Either<AuthFailure, Unit>> failureOrUnitOption});
 }
 
 /// @nodoc
@@ -345,7 +345,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? currentUserOption = null,
     Object? isLoading = null,
-    Object? failureOrUnit = null,
+    Object? failureOrUnitOption = null,
   }) {
     return _then(_value.copyWith(
       currentUserOption: null == currentUserOption
@@ -356,9 +356,9 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrUnit: null == failureOrUnit
-          ? _value.failureOrUnit
-          : failureOrUnit // ignore: cast_nullable_to_non_nullable
+      failureOrUnitOption: null == failureOrUnitOption
+          ? _value.failureOrUnitOption
+          : failureOrUnitOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ) as $Val);
   }
@@ -374,7 +374,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call(
       {Option<ParseUser> currentUserOption,
       bool isLoading,
-      Option<Either<AuthFailure, Unit>> failureOrUnit});
+      Option<Either<AuthFailure, Unit>> failureOrUnitOption});
 }
 
 /// @nodoc
@@ -390,7 +390,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
   $Res call({
     Object? currentUserOption = null,
     Object? isLoading = null,
-    Object? failureOrUnit = null,
+    Object? failureOrUnitOption = null,
   }) {
     return _then(_$_AuthState(
       currentUserOption: null == currentUserOption
@@ -401,9 +401,9 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrUnit: null == failureOrUnit
-          ? _value.failureOrUnit
-          : failureOrUnit // ignore: cast_nullable_to_non_nullable
+      failureOrUnitOption: null == failureOrUnitOption
+          ? _value.failureOrUnitOption
+          : failureOrUnitOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ));
   }
@@ -415,18 +415,18 @@ class _$_AuthState implements _AuthState {
   const _$_AuthState(
       {required this.currentUserOption,
       required this.isLoading,
-      required this.failureOrUnit});
+      required this.failureOrUnitOption});
 
   @override
   final Option<ParseUser> currentUserOption;
   @override
   final bool isLoading;
   @override
-  final Option<Either<AuthFailure, Unit>> failureOrUnit;
+  final Option<Either<AuthFailure, Unit>> failureOrUnitOption;
 
   @override
   String toString() {
-    return 'AuthState(currentUserOption: $currentUserOption, isLoading: $isLoading, failureOrUnit: $failureOrUnit)';
+    return 'AuthState(currentUserOption: $currentUserOption, isLoading: $isLoading, failureOrUnitOption: $failureOrUnitOption)';
   }
 
   @override
@@ -438,13 +438,13 @@ class _$_AuthState implements _AuthState {
                 other.currentUserOption == currentUserOption) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.failureOrUnit, failureOrUnit) ||
-                other.failureOrUnit == failureOrUnit));
+            (identical(other.failureOrUnitOption, failureOrUnitOption) ||
+                other.failureOrUnitOption == failureOrUnitOption));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, currentUserOption, isLoading, failureOrUnit);
+  int get hashCode => Object.hash(
+      runtimeType, currentUserOption, isLoading, failureOrUnitOption);
 
   @JsonKey(ignore: true)
   @override
@@ -455,17 +455,17 @@ class _$_AuthState implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-          {required final Option<ParseUser> currentUserOption,
-          required final bool isLoading,
-          required final Option<Either<AuthFailure, Unit>> failureOrUnit}) =
-      _$_AuthState;
+      {required final Option<ParseUser> currentUserOption,
+      required final bool isLoading,
+      required final Option<Either<AuthFailure, Unit>>
+          failureOrUnitOption}) = _$_AuthState;
 
   @override
   Option<ParseUser> get currentUserOption;
   @override
   bool get isLoading;
   @override
-  Option<Either<AuthFailure, Unit>> get failureOrUnit;
+  Option<Either<AuthFailure, Unit>> get failureOrUnitOption;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

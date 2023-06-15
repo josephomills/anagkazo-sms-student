@@ -68,24 +68,24 @@ class HomePage extends StatelessWidget {
             color: Theme.of(context).colorScheme.outline,
           ),
           QuickActionWidget(
-            icon: const Icon(LineAwesomeIcons.folder_open, size: 32),
+            icon: LineAwesomeIcons.folder_open,
             title: "Open student documents",
             onTap: () => context.router.push(const DocumentsRoute()),
           ),
           QuickActionWidget(
-            icon: const Icon(LineAwesomeIcons.alternate_list, size: 32),
+            icon: LineAwesomeIcons.alternate_list,
             title: "Mark fellowship meeting attendance",
             onTap: () => context.tabsRouter
               ..setActiveIndex(NavIndex.ministry)
               ..navigate(MyFellowshipRoute()),
           ),
           QuickActionWidget(
-            icon: const Icon(LineAwesomeIcons.alternate_file, size: 32),
+            icon: LineAwesomeIcons.alternate_file,
             title: "Fill a form (e.g. permission, registry etc)",
             onTap: () => context.router.push(const FormsRoute()),
           ),
           QuickActionWidget(
-            icon: const Icon(LineAwesomeIcons.gavel, size: 32),
+            icon: LineAwesomeIcons.gavel,
             title: "Check disciplinary issues",
             onTap: () => context.router.push(const DisciplineRoute()),
           ),

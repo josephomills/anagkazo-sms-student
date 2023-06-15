@@ -27,7 +27,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
       await event.map<FutureOr<void>>(
         started: (e) {
           emit(state.copyWith(
-            isLoading: false,
             isScanning: true,
             isConfirming: false,
             failureOrScanOption: none(),
@@ -198,6 +197,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         .getOrElse(() => ParseUser(null, null, null))
         .get("yearGroup") as YearGroupObject;
 
-    return !sameDay;
+    return true;
   }
 }

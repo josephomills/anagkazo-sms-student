@@ -15,11 +15,14 @@ class LoaderWidget extends StatelessWidget {
         Positioned(
           top: 56,
           child: SizedBox(
-            height: ResponsiveWrapper.of(context).scaledHeight,
+            height: ResponsiveWrapper.of(context).scaledHeight - 56,
             width: ResponsiveWrapper.of(context).scaledWidth,
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
-              child: Container(),
+              child: SizedBox(
+                height: ResponsiveWrapper.of(context).scaledHeight - 56,
+                width: double.infinity,
+              ),
             ),
           ),
         ),

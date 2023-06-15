@@ -27,13 +27,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
         loggedOut: (e) async {
           emit(state.copyWith(isLoading: true));
-          final failureOrUnit = await _authFacade.logout();
+          final failureOrUnitOption = await _authFacade.logout();
 
           emit(state.copyWith(
-            currentUserOption:
-                failureOrUnit.isRight() ? none() : state.currentUserOption,
+            currentUserOption: failureOrUnitOption.isRight()
+                ? none()
+                : state.currentUserOption,
             isLoading: false,
-            failureOrUnit: some(failureOrUnit),
+            failureOrUnitOption: some(failureOrUnitOption),
           ));
         },
       );

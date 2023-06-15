@@ -20,7 +20,10 @@ class MoreTileWidget extends StatelessWidget {
     return ListTile(
       leading: Icon(icon, color: color, size: 28),
       tileColor: Theme.of(context).colorScheme.background,
-      title: Text(title, style: TextStyle(color: color)),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.titleMedium!.copyWith(color: color),
+      ),
       trailing: Icon(LineAwesomeIcons.angle_right, color: color),
       onTap: onTap,
     );

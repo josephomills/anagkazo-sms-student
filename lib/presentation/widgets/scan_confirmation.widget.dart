@@ -6,13 +6,41 @@ import 'package:moment_dart/moment_dart.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/presentation/widgets/button.widget.dart';
+import 'package:student/presentation/widgets/snackbar.widget.dart';
 
 class ScanConfirmationWidget extends StatelessWidget {
   const ScanConfirmationWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ScanBloc, ScanState>(
+    return BlocConsumer<ScanBloc, ScanState>(
+      buildWhen: (previous, current) => current.eventOption.isSome(),
+      listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
+      listener: (context, state) {
+        state.failureOrScanOption.fold(
+          () {},
+          (either) => either.fold(
+            (f) {
+              // close confirmation modal
+              context.router.pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                snackBarWidget(
+                  context: context,
+                  text: f.message!,
+                  type: SnackBarType.error,
+                ),
+              );
+            },
+            (scanObj) {
+              // close the scan page
+              context.router.popUntilRoot();
+              ScaffoldMessenger.of(context).showSnackBar(
+                snackBarWidget(context: context, text: "Scan successful!"),
+              );
+            },
+          ),
+        );
+      },
       builder: (context, state) {
         final event = state.eventOption.getOrElse(() => EventObject());
 
@@ -104,7 +132,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: false,
                     label: "Cancel",
-                    widthFactor: 0.3,
+                    widthFactor: 0.35,
                     onTap: state.isLoading
                         ? null
                         : () {
@@ -114,17 +142,15 @@ class ScanConfirmationWidget extends StatelessWidget {
                             context.router.pop();
                           },
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                   ButtonWidget(
                     isLoading: state.isLoading,
                     label: "Confirm",
-                    widthFactor: 0.3,
+                    widthFactor: 0.35,
                     onTap: () {
                       context
                           .read<ScanBloc>()
                           .add(const ScanEvent.scanConfirmed());
-                      // Close bottom sheet
-                      context.router.pop();
                     },
                   ),
                 ],

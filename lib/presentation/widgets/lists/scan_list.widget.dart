@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/enums/types.enum.dart';
@@ -11,7 +12,7 @@ import 'package:student/presentation/widgets/cards/scan.widget.dart';
 import 'package:student/presentation/widgets/cards/skeleton_scan.widget.dart';
 import 'package:student/presentation/widgets/lists/empty_state.widget.dart';
 
-/// /// A live list of scans.
+/// A live list of scans.
 ///
 /// Uses the [ParseLiveListWidget] from Back4App/Parse Server
 class ScanListWidget extends StatelessWidget {
@@ -47,16 +48,14 @@ class ScanListWidget extends StatelessWidget {
         ..excludeKeys([ScanObject.kSelfie])
         ..setLimit(50),
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      shrinkWrap: true,
+      scrollPhysics: const BouncingScrollPhysics(),
       lazyLoading: false,
       listeningIncludes: const [
         ScanObject.kEvent,
         "${ScanObject.kEvent}.${EventObject.kEventType}",
       ],
-      listLoadingElement: ListView.builder(
-        primary: false,
-        physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(8),
+      listLoadingElement: SkeletonListView(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         itemCount: 10,
         itemBuilder: (context, index) => const SkeletonScanWidget(),
       ),

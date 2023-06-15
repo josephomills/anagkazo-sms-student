@@ -39,10 +39,7 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                           ),
                         )));
                       }, (user) {
-                        context.router.pushAndPopUntil(
-                          const IndexRoute(),
-                          predicate: (route) => false,
-                        );
+                        context.router.replaceAll([const IndexRoute()]);
                       }));
             },
             builder: (context, state) {
@@ -88,7 +85,8 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                     ButtonWidget(
                       onTap: () {
                         unfocus(context);
-                        BlocProvider.of<LoginBloc>(context)
+                        context
+                            .read<LoginBloc>()
                             .add(LoginButtonPressed(formKey: _formKey));
                       },
                       isLoading: state.isLoading,

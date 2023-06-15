@@ -12,7 +12,6 @@ class ButtonWidget extends StatelessWidget {
     this.backgroundColor,
     required this.label,
     this.spinnerColor,
-    this.fontSize = 24,
     this.height = 56,
     this.textColor,
   }) : super(key: key);
@@ -23,7 +22,6 @@ class ButtonWidget extends StatelessWidget {
   final Color? backgroundColor;
   final String label;
   final Color? spinnerColor;
-  final double fontSize;
   final double height;
   final Color? textColor;
 
@@ -31,8 +29,13 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
-            backgroundColor: MaterialStateProperty.all<Color?>(
-                backgroundColor ?? Theme.of(context).colorScheme.primary),
+            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
+                return Theme.of(context).colorScheme.outline;
+              }
+              return backgroundColor ?? Theme.of(context).colorScheme.primary;
+            }),
             fixedSize: MaterialStateProperty.all<Size>(
               Size(
                 ResponsiveWrapper.of(context).scaledWidth * widthFactor,
@@ -48,8 +51,7 @@ class ButtonWidget extends StatelessWidget {
             )
           : Text(
               label,
-              style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    fontSize: fontSize,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: textColor ?? Theme.of(context).colorScheme.onPrimary,
                   ),
             ),

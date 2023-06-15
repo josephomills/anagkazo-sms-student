@@ -16,17 +16,9 @@ class MorePage extends StatelessWidget {
         title: const Text("More"),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 32),
-        primary: false,
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
+        // padding: const EdgeInsets.symmetric(vertical: 32),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
-          MoreTileWidget(
-            icon: LineAwesomeIcons.user,
-            title: "Profile",
-            onTap: () => context.router.push(ProfileRoute()),
-          ),
-          const SizedBox(height: 32),
           MoreTileWidget(
             icon: LineAwesomeIcons.gavel,
             title: "Discipline",
@@ -52,6 +44,11 @@ class MorePage extends StatelessWidget {
             title: "Character Development",
           ),
           const SizedBox(height: 32),
+          MoreTileWidget(
+            icon: LineAwesomeIcons.user,
+            title: "Profile",
+            onTap: () => context.router.push(ProfileRoute()),
+          ),
           MoreTileWidget(
             icon: LineAwesomeIcons.cog,
             title: "Settings",

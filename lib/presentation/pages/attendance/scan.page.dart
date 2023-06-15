@@ -9,7 +9,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:student/application/attendance/scan/scan_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 import 'package:student/domain/core/extensions/context.ext.dart';
-import 'package:student/infrastructure/attendance/models/event.object.dart';
 import 'package:student/presentation/widgets/animations/scanner_animation.widget.dart';
 import 'package:student/presentation/widgets/loader.widget.dart';
 import 'package:student/presentation/widgets/scan_confirmation.widget.dart';
@@ -34,7 +33,7 @@ class ScanPage extends StatefulWidget implements AutoRouteWrapper {
 class _ScanPageState extends State<ScanPage>
     with SingleTickerProviderStateMixin {
   /// Scanner controller
-  final scannerCtrl = MobileScannerController(
+  final _scannerCtrl = MobileScannerController(
     detectionSpeed: DetectionSpeed.noDuplicates,
     formats: [BarcodeFormat.qrCode],
   );
@@ -62,60 +61,39 @@ class _ScanPageState extends State<ScanPage>
   @override
   void dispose() {
     _animationCtrl.dispose();
-    scannerCtrl.stop();
-    scannerCtrl.dispose();
+    _scannerCtrl.stop();
+    _scannerCtrl.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ScanBloc, ScanState>(
+      listenWhen: (previous, current) =>
+          current.isConfirming != previous.isConfirming,
       listener: (context, state) {
-        if (!state.isLoading) {
-          state.failureOrScanOption.fold(
-            () {},
-            (either) => either.fold(
-              (f) {
-                // close scan page
-                context.router.pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(f.message!),
-                  ),
-                );
-              },
-              (scanObj) {
-                // close the scan page
-                context.router.pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Scan successfull!"),
-                  ),
-                );
-              },
-            ),
-          );
-        }
-
         // Show confirmation modal
         if (state.isConfirming) {
-          // stop scanning
-          // scannerCtrl.stop();
           // showbottomsheet
           showModalBottomSheet(
             context: context,
             // constraints: const BoxConstraints.expand(height: 240),
-            builder: (_) {
-              final event = state.eventOption.getOrElse((() => EventObject()));
-              return BlocProvider.value(
-                value: context.read<ScanBloc>(),
-                child: const ScanConfirmationWidget(),
-              );
-            },
+            builder: (_) => BlocProvider.value(
+              value: context.read<ScanBloc>(),
+              child: const ScanConfirmationWidget(),
+            ),
           ).whenComplete(() {
             // Do something when modal is closed
+            // Start scanner
+            try {
+              _scannerCtrl.start();
+            } on MobileScannerException catch (e) {
+              print(e.errorDetails!.message);
+            } catch (e) {
+              print(e);
+            }
+
             context.read<ScanBloc>().add(const ScanEvent.started());
-            // scannerCtrl.start();
           });
         }
       },
@@ -125,10 +103,10 @@ class _ScanPageState extends State<ScanPage>
             leading: const AutoLeadingButton(),
             title: const Text("Scan QR Code"),
             actions: [
-              if (scannerCtrl.hasTorch)
+              if (_scannerCtrl.hasTorch)
                 IconButton(
                   onPressed: () async {
-                    await scannerCtrl.toggleTorch();
+                    await _scannerCtrl.toggleTorch();
                   },
                   icon: const Icon(LineAwesomeIcons.lightning_bolt),
                 ),
@@ -138,7 +116,7 @@ class _ScanPageState extends State<ScanPage>
             children: [
               // Scan camera view
               MobileScanner(
-                controller: scannerCtrl,
+                controller: _scannerCtrl,
                 onDetect: (capture) {
                   if (capture.barcodes.isNotEmpty) {
                     // Example payload
@@ -154,6 +132,7 @@ class _ScanPageState extends State<ScanPage>
                       context
                           .bloc<ScanBloc>()
                           .add(ScanEvent.scanDetected(qr: map));
+                      _scannerCtrl.stop();
                     }
                   }
                 },

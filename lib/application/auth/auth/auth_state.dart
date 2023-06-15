@@ -6,12 +6,12 @@ class AuthState with _$AuthState {
   const factory AuthState({
     required Option<ParseUser> currentUserOption,
     required bool isLoading,
-    required Option<Either<AuthFailure, Unit>> failureOrUnit,
+    required Option<Either<AuthFailure, Unit>> failureOrUnitOption,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
         currentUserOption: none(),
         isLoading: false,
-        failureOrUnit: none(),
+        failureOrUnitOption: none(),
       );
 }
