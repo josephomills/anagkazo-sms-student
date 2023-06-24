@@ -56,14 +56,14 @@ class ScanConfirmationWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Icon(LineAwesomeIcons.qrcode, size: 120),
+              const Icon(LineAwesomeIcons.qrcode, size: 80),
               Text(
                 "QR Code Detected",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.primary,
                     ),
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
               RichText(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -125,7 +125,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
