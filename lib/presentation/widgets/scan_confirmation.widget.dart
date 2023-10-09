@@ -45,8 +45,8 @@ class ScanConfirmationWidget extends StatelessWidget {
         final event = state.eventOption.getOrElse(() => EventObject());
 
         return Container(
-          height: 470,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          height: 360,
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(8),
@@ -56,7 +56,7 @@ class ScanConfirmationWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Icon(LineAwesomeIcons.qrcode, size: 80),
+              const Icon(LineAwesomeIcons.qrcode, size: 64),
               Text(
                 "QR Code Detected",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(

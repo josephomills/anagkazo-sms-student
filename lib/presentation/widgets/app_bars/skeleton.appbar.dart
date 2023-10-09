@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skeletons/skeletons.dart';
 
-class SkeletonAppBarWidget extends StatelessWidget with PreferredSizeWidget {
+class SkeletonAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   const SkeletonAppBarWidget({Key? key}) : super(key: key);
 
   @override

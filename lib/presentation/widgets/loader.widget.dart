@@ -6,7 +6,9 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 /// Loader with a centered [SpinKitChasingDots] on a blurred background
 class LoaderWidget extends StatelessWidget {
-  const LoaderWidget({Key? key}) : super(key: key);
+  const LoaderWidget({Key? key, this.transparent = true}) : super(key: key);
+
+  final bool transparent;
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +28,32 @@ class LoaderWidget extends StatelessWidget {
             ),
           ),
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SpinKitChasingDots(
-              color: Theme.of(context).colorScheme.primary,
+        Center(
+          child: Container(
+            height: 160,
+            width: 160,
+            decoration: BoxDecoration(
+              color: transparent
+                  ? Colors.transparent
+                  : Theme.of(context).colorScheme.background,
+              borderRadius: BorderRadius.circular(24),
             ),
-            const SizedBox(height: 16),
-            Text(
-              "Loading...",
-              style: Theme.of(context).textTheme.titleMedium,
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SpinKitChasingDots(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  "Loading...",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ],
     );
