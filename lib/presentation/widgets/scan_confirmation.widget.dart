@@ -132,7 +132,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: false,
                     label: "Cancel",
-                    widthFactor: 0.35,
+                    widthFactor: 0.4,
                     onTap: state.isLoading
                         ? null
                         : () {
@@ -146,7 +146,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: state.isLoading,
                     label: "Confirm",
-                    widthFactor: 0.35,
+                    widthFactor: 0.4,
                     onTap: () {
                       context
                           .read<ScanBloc>()
