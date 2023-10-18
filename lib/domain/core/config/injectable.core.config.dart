@@ -43,7 +43,7 @@ import 'package:student/infrastructure/myFellowship/service/b4a.service.dart'
     as _i9;
 
 extension GetItInjectableX on _i1.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,

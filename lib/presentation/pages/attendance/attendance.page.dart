@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:student/application/attendance/attendance/attendance_bloc.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
+import 'package:student/domain/core/enums/types.enum.dart';
 import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/pages/index.page.dart';
 
@@ -27,9 +28,15 @@ class AttendancePage extends StatelessWidget implements AutoRouteWrapper {
             bottom: TabBar(
               controller: controller,
               tabs: buildTabs,
+              onTap: (tab) => context
+                  .read<AttendanceBloc>()
+                  .add(AttendanceEvent.tabSelected(index: tab)),
             ),
           ),
-          body: body,
+          body: BlocProvider.value(
+            value: context.read<AttendanceBloc>(),
+            child: body,
+          ),
         );
       },
     );

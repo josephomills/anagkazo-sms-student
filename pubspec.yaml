@@ -3,46 +3,46 @@ description: ABMTC student app.
 
 publish_to: "none"
 
-version: 0.0.1+3
+version: 0.0.2+5
 
 environment:
-  sdk: ">=2.19.3 <3.0.0"
+  sdk: ">=2.19.4 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  cached_network_image: ^3.2.0
+  cupertino_icons: ^1.0.6
+  cached_network_image: ^3.2.3
   intl: ^0.17.0
-  mobile_scanner: ^3.2.0
-  auto_route: ^6.2.0
+  mobile_scanner: ^3.4.1
+  auto_route: ^7.8.3
   dartz: ^0.10.1
   responsive_framework: ^0.2.0
   injectable: ^2.1.1
-  get_it: ^7.2.0
-  permission_handler: ^9.2.0
-  flutter_platform_widgets: ^2.2.6
-  image_picker: ^0.8.6+2
-  parse_server_sdk_flutter: ^5.1.0
+  get_it: ^7.6.4
+  permission_handler: ^11.0.0
+  flutter_platform_widgets: ^3.3.5
+  image_picker: ^1.0.4
+  parse_server_sdk_flutter: ^6.0.0
   json_annotation: ^4.7.0
   freezed_annotation: ^2.2.0
   flutter_bloc: ^8.1.2
-  flutter_dotenv: ^5.0.2
-  flutter_spinkit: ^5.1.0
-  firebase_core: ^2.6.1
-  cloud_firestore: ^4.4.2
+  flutter_dotenv: ^5.1.0
+  flutter_spinkit: ^5.2.0
+  firebase_core: ^2.16.0
+  cloud_firestore: ^4.9.2
   skeletons: ^0.0.3
   line_awesome_flutter: ^2.0.0
   google_nav_bar: ^5.0.6
-  moment_dart: ^0.17.4
+  moment_dart: ^1.0.1
   flex_color_scheme: ^6.1.2
-  google_fonts: ^4.0.3
+  google_fonts: ^4.0.4
   flutter_native_splash: ^2.2.17
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^6.2.0
+  auto_route_generator: ^7.3.1
   injectable_generator: ^2.1.5
   build_runner: ^2.3.3
   flutter_lints: ^1.0.0

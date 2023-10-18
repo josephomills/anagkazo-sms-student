@@ -37,7 +37,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           // Stop scanning
           emit(state.copyWith(
             isScanning: false,
-            isLoading: false,
+            isLoading: true,
             scannedAt: Moment.now().toUtc(),
             qr: e.qr,
           ));
@@ -57,6 +57,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
             final event = resp.result as EventObject;
             emit(state.copyWith(
               eventOption: some(event),
+              isLoading: false,
               isConfirming: true,
             ));
           } else {
@@ -91,7 +92,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           // 2. Student is in a class the event is valid for
           final bool isValid = isValidScan(
             event: event,
-            studentYearGroup: YearGroupObject(),
             allowedYearGroups: [],
           );
 
@@ -184,18 +184,17 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
 
   bool isValidScan({
     required EventObject event,
-    required YearGroupObject studentYearGroup,
     List<YearGroupObject>? allowedYearGroups,
   }) {
     // Check if scan day is day of event
     final sameDay = Moment.now().isAtSameDayAs(event.startsAt!);
 
     // Check if student's class is allowed to scan
-    final allowedClass = getIt<AuthBloc>()
-        .state
-        .currentUserOption
-        .getOrElse(() => ParseUser(null, null, null))
-        .get("yearGroup") as YearGroupObject;
+    // final allowedClass = getIt<AuthBloc>()
+    //     .state
+    //     .currentUserOption
+    //     .getOrElse(() => ParseUser(null, null, null))
+    //     .get("yearGroup") as YearGroupObject;
 
     return true;
   }

@@ -34,7 +34,8 @@ class _ScanPageState extends State<ScanPage>
     with SingleTickerProviderStateMixin {
   /// Scanner controller
   final _scannerCtrl = MobileScannerController(
-    detectionSpeed: DetectionSpeed.noDuplicates,
+    detectionSpeed: DetectionSpeed.normal,
+    detectionTimeoutMs: 5000,
     formats: [BarcodeFormat.qrCode],
   );
 
@@ -83,16 +84,7 @@ class _ScanPageState extends State<ScanPage>
               child: const ScanConfirmationWidget(),
             ),
           ).whenComplete(() {
-            // Do something when modal is closed
-            // Start scanner
-            try {
-              _scannerCtrl.start();
-            } on MobileScannerException catch (e) {
-              print(e.errorDetails!.message);
-            } catch (e) {
-              print(e);
-            }
-
+            // Clear state values
             context.read<ScanBloc>().add(const ScanEvent.started());
           });
         }
@@ -132,7 +124,6 @@ class _ScanPageState extends State<ScanPage>
                       context
                           .bloc<ScanBloc>()
                           .add(ScanEvent.scanDetected(qr: map));
-                      _scannerCtrl.stop();
                     }
                   }
                 },
@@ -144,7 +135,8 @@ class _ScanPageState extends State<ScanPage>
                 animation: _animationCtrl,
               ),
               // Loading spinner
-              if (state.isLoading) const LoaderWidget()
+              if (state.isLoading && !state.isConfirming)
+                const LoaderWidget(transparent: false)
             ],
           ),
         );

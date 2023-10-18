@@ -15,7 +15,7 @@ import 'package:student/presentation/widgets/lists/empty_state.widget.dart';
 /// A live list of scans.
 ///
 /// Uses the [ParseLiveListWidget] from Back4App/Parse Server
-class ScanListWidget extends StatelessWidget {
+class ScanListWidget extends StatefulWidget {
   const ScanListWidget({
     Key? key,
     required this.category,
@@ -24,36 +24,46 @@ class ScanListWidget extends StatelessWidget {
   final EventCategory category;
 
   @override
-  Widget build(BuildContext context) {
-    return ParseLiveListWidget<ScanObject>(
-      query: QueryBuilder<ScanObject>(ScanObject())
-        ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
-        ..whereMatchesQuery(
-          ScanObject.kEvent,
-          QueryBuilder<EventObject>(EventObject())
-            ..whereMatchesQuery(
-              EventObject.kEventType,
-              QueryBuilder<EventTypeObject>(EventTypeObject())
-                ..whereEqualTo(
-                  EventTypeObject.kCategory,
-                  category.name.capitalize,
-                ),
-            ),
-        )
-        ..includeObject([
-          ScanObject.kEvent,
-          "${ScanObject.kEvent}.${EventObject.kEventType}",
-        ])
-        ..orderByDescending(ScanObject.kScannedInAt)
-        ..excludeKeys([ScanObject.kSelfie])
-        ..setLimit(50),
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      scrollPhysics: const BouncingScrollPhysics(),
-      lazyLoading: false,
-      listeningIncludes: const [
+  State<ScanListWidget> createState() => _ScanListWidgetState();
+}
+
+class _ScanListWidgetState extends State<ScanListWidget> {
+  late QueryBuilder<ScanObject> query;
+
+  @override
+  void initState() {
+    super.initState();
+    query = QueryBuilder<ScanObject>(ScanObject())
+      ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
+      ..whereMatchesQuery(
+        ScanObject.kEvent,
+        QueryBuilder<EventObject>(EventObject())
+          ..whereMatchesQuery(
+            EventObject.kEventType,
+            QueryBuilder<EventTypeObject>(EventTypeObject())
+              ..whereEqualTo(
+                EventTypeObject.kCategory,
+                widget.category.name.capitalize,
+              ),
+          ),
+      )
+      ..includeObject([
         ScanObject.kEvent,
         "${ScanObject.kEvent}.${EventObject.kEventType}",
-      ],
+      ])
+      ..orderByDescending(ScanObject.kScannedInAt)
+      ..excludeKeys([ScanObject.kSelfie])
+      ..setLimit(50);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ParseLiveListWidget<ScanObject>(
+      query: query,
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      scrollPhysics: const BouncingScrollPhysics(),
+      // lazyLoading: false,
+      listenOnAllSubItems: true,
       listLoadingElement: SkeletonListView(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         itemCount: 10,
@@ -83,19 +93,14 @@ class ScanListWidget extends StatelessWidget {
     );
   }
 
-  QueryBuilder<ScanObject> getQueryBuilder(
-      {required BuildContext context, required EventType eventType}) {
-    switch (eventType) {
-      case EventType.vision:
-        return getIt<AttendanceBloc>().state.visionQueryOption;
-      case EventType.pillar:
-        return getIt<AttendanceBloc>().state.pillarQueryOption;
-      case EventType.live:
-        return getIt<AttendanceBloc>().state.aLiveQueryOption;
-      case EventType.experience:
-        return getIt<AttendanceBloc>().state.flExpQueryOption;
-      default:
-        return QueryBuilder(ScanObject());
-    }
-  }
+  Widget get loadingWidget => SkeletonListView(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        itemCount: 15,
+        itemBuilder: (context, index) => const SkeletonScanWidget(),
+      );
+
+  Widget get emptyWidget => const EmptyStateWidget(
+        asset: "assets/illustrations/taking_selfie.png",
+        text: "You have not scanned yet. Let'start now.",
+      );
 }

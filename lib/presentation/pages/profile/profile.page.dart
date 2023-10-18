@@ -56,7 +56,8 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
               children: [
                 Center(
                   child: AvatarWidget(
-                    url: getIt<ParseUser>().get("photoUrl"),
+                    url: getIt<ParseUser>().get("photoUrl") ??
+                        "https://api.dicebear.com/6.x/initials/png?seed=${getIt<ParseUser>().get("firstname")} ${getIt<ParseUser>().get("lastname")}&scale=10",
                     size: 200,
                     stroke: 4,
                   ),

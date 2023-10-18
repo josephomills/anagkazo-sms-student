@@ -35,30 +35,6 @@ class AttendanceRepo implements AttendanceFacade {
   }
 
   @override
-  Future<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-      getAllScanQueries() async {
-    final user = await ParseUser.currentUser();
-
-    if (user == null) {
-      return const Left(AttendanceFailure.serverError());
-    }
-
-    List<QueryBuilder<ScanObject>> list = [];
-    final eventList = [
-      EventType.vision,
-      EventType.pillar,
-      EventType.live,
-      EventType.experience,
-    ];
-
-    for (EventType event in eventList) {
-      list.add(getQuery(user: user, eventType: event));
-    }
-
-    return Right(list);
-  }
-
-  @override
   QueryBuilder<ScanObject> getQuery(
       {required ParseUser user, required EventType eventType}) {
     // Get event type of given category
@@ -107,19 +83,46 @@ class AttendanceRepo implements AttendanceFacade {
     return query;
   }
 
-  static QueryBuilder<ScanObject> getQueryBuilder(
-      {required EventType eventType}) {
-    switch (eventType) {
-      case EventType.vision:
-        return getIt<AttendanceBloc>().state.visionQueryOption;
-      case EventType.pillar:
-        return getIt<AttendanceBloc>().state.pillarQueryOption;
-      case EventType.live:
-        return getIt<AttendanceBloc>().state.aLiveQueryOption;
-      case EventType.experience:
-        return getIt<AttendanceBloc>().state.flExpQueryOption;
-      default:
-        return QueryBuilder(ScanObject());
+  @override
+  Future<Either<AttendanceFailure, List<ScanObject>>> getAllScans(
+      {EventCategory? category}) async {
+    final query = buildQuery(category: category);
+    final resp = await query.query();
+    if (resp.success) {
+      return Right(
+          resp.results == null ? [] : resp.results!.cast<ScanObject>());
+    } else {
+      return Left(AttendanceFailure.serverError(
+          message: resp.error?.message ?? "Server error"));
     }
+  }
+
+  QueryBuilder<ScanObject> buildQuery({EventCategory? category}) {
+    var query = QueryBuilder<ScanObject>(ScanObject())
+      ..whereEqualTo(ScanObject.kUser, getIt<ParseUser>().toPointer())
+      ..includeObject([
+        ScanObject.kEvent,
+        "${ScanObject.kEvent}.${EventObject.kEventType}",
+      ])
+      ..orderByDescending(ScanObject.kScannedInAt)
+      ..excludeKeys([ScanObject.kSelfie])
+      ..setLimit(50);
+
+    if (category != null) {
+      query.whereMatchesQuery(
+        ScanObject.kEvent,
+        QueryBuilder<EventObject>(EventObject())
+          ..whereMatchesQuery(
+            EventObject.kEventType,
+            QueryBuilder<EventTypeObject>(EventTypeObject())
+              ..whereEqualTo(
+                EventTypeObject.kCategory,
+                category.name.capitalize,
+              ),
+          ),
+      );
+    }
+
+    return query;
   }
 }
