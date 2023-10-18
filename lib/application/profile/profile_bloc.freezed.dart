@@ -20,21 +20,21 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() editingToggled,
-    required TResult Function(GlobalKey<FormState> formKey) savePressed,
+    required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? editingToggled,
-    TResult? Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? editingToggled,
-    TResult Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_EditingToggled value) editingToggled,
-    required TResult Function(_SavePressed value) savePressed,
+    required TResult Function(_SaveButtonPressed value) saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_EditingToggled value)? editingToggled,
-    TResult? Function(_SavePressed value)? savePressed,
+    TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_EditingToggled value)? editingToggled,
-    TResult Function(_SavePressed value)? savePressed,
+    TResult Function(_SaveButtonPressed value)? saveButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() editingToggled,
-    required TResult Function(GlobalKey<FormState> formKey) savePressed,
+    required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
   }) {
     return started();
   }
@@ -129,7 +129,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? editingToggled,
-    TResult? Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
   }) {
     return started?.call();
   }
@@ -139,7 +139,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? editingToggled,
-    TResult Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -153,7 +153,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_EditingToggled value) editingToggled,
-    required TResult Function(_SavePressed value) savePressed,
+    required TResult Function(_SaveButtonPressed value) saveButtonPressed,
   }) {
     return started(this);
   }
@@ -163,7 +163,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_EditingToggled value)? editingToggled,
-    TResult? Function(_SavePressed value)? savePressed,
+    TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
   }) {
     return started?.call(this);
   }
@@ -173,7 +173,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_EditingToggled value)? editingToggled,
-    TResult Function(_SavePressed value)? savePressed,
+    TResult Function(_SaveButtonPressed value)? saveButtonPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -227,7 +227,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() editingToggled,
-    required TResult Function(GlobalKey<FormState> formKey) savePressed,
+    required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
   }) {
     return editingToggled();
   }
@@ -237,7 +237,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? editingToggled,
-    TResult? Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
   }) {
     return editingToggled?.call();
   }
@@ -247,7 +247,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? editingToggled,
-    TResult Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
     required TResult orElse(),
   }) {
     if (editingToggled != null) {
@@ -261,7 +261,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_EditingToggled value) editingToggled,
-    required TResult Function(_SavePressed value) savePressed,
+    required TResult Function(_SaveButtonPressed value) saveButtonPressed,
   }) {
     return editingToggled(this);
   }
@@ -271,7 +271,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_EditingToggled value)? editingToggled,
-    TResult? Function(_SavePressed value)? savePressed,
+    TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
   }) {
     return editingToggled?.call(this);
   }
@@ -281,7 +281,7 @@ class _$_EditingToggled implements _EditingToggled {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_EditingToggled value)? editingToggled,
-    TResult Function(_SavePressed value)? savePressed,
+    TResult Function(_SaveButtonPressed value)? saveButtonPressed,
     required TResult orElse(),
   }) {
     if (editingToggled != null) {
@@ -296,20 +296,20 @@ abstract class _EditingToggled implements ProfileEvent {
 }
 
 /// @nodoc
-abstract class _$$_SavePressedCopyWith<$Res> {
-  factory _$$_SavePressedCopyWith(
-          _$_SavePressed value, $Res Function(_$_SavePressed) then) =
-      __$$_SavePressedCopyWithImpl<$Res>;
+abstract class _$$_SaveButtonPressedCopyWith<$Res> {
+  factory _$$_SaveButtonPressedCopyWith(_$_SaveButtonPressed value,
+          $Res Function(_$_SaveButtonPressed) then) =
+      __$$_SaveButtonPressedCopyWithImpl<$Res>;
   @useResult
   $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
-class __$$_SavePressedCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$_SavePressed>
-    implements _$$_SavePressedCopyWith<$Res> {
-  __$$_SavePressedCopyWithImpl(
-      _$_SavePressed _value, $Res Function(_$_SavePressed) _then)
+class __$$_SaveButtonPressedCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_SaveButtonPressed>
+    implements _$$_SaveButtonPressedCopyWith<$Res> {
+  __$$_SaveButtonPressedCopyWithImpl(
+      _$_SaveButtonPressed _value, $Res Function(_$_SaveButtonPressed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -317,7 +317,7 @@ class __$$_SavePressedCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
   }) {
-    return _then(_$_SavePressed(
+    return _then(_$_SaveButtonPressed(
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -328,22 +328,22 @@ class __$$_SavePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SavePressed implements _SavePressed {
-  const _$_SavePressed({required this.formKey});
+class _$_SaveButtonPressed implements _SaveButtonPressed {
+  const _$_SaveButtonPressed({required this.formKey});
 
   @override
   final GlobalKey<FormState> formKey;
 
   @override
   String toString() {
-    return 'ProfileEvent.savePressed(formKey: $formKey)';
+    return 'ProfileEvent.saveButtonPressed(formKey: $formKey)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavePressed &&
+            other is _$_SaveButtonPressed &&
             (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
@@ -353,17 +353,18 @@ class _$_SavePressed implements _SavePressed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
-      __$$_SavePressedCopyWithImpl<_$_SavePressed>(this, _$identity);
+  _$$_SaveButtonPressedCopyWith<_$_SaveButtonPressed> get copyWith =>
+      __$$_SaveButtonPressedCopyWithImpl<_$_SaveButtonPressed>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() editingToggled,
-    required TResult Function(GlobalKey<FormState> formKey) savePressed,
+    required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
   }) {
-    return savePressed(formKey);
+    return saveButtonPressed(formKey);
   }
 
   @override
@@ -371,9 +372,9 @@ class _$_SavePressed implements _SavePressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? editingToggled,
-    TResult? Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
   }) {
-    return savePressed?.call(formKey);
+    return saveButtonPressed?.call(formKey);
   }
 
   @override
@@ -381,11 +382,11 @@ class _$_SavePressed implements _SavePressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? editingToggled,
-    TResult Function(GlobalKey<FormState> formKey)? savePressed,
+    TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
     required TResult orElse(),
   }) {
-    if (savePressed != null) {
-      return savePressed(formKey);
+    if (saveButtonPressed != null) {
+      return saveButtonPressed(formKey);
     }
     return orElse();
   }
@@ -395,9 +396,9 @@ class _$_SavePressed implements _SavePressed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_EditingToggled value) editingToggled,
-    required TResult Function(_SavePressed value) savePressed,
+    required TResult Function(_SaveButtonPressed value) saveButtonPressed,
   }) {
-    return savePressed(this);
+    return saveButtonPressed(this);
   }
 
   @override
@@ -405,9 +406,9 @@ class _$_SavePressed implements _SavePressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_EditingToggled value)? editingToggled,
-    TResult? Function(_SavePressed value)? savePressed,
+    TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
   }) {
-    return savePressed?.call(this);
+    return saveButtonPressed?.call(this);
   }
 
   @override
@@ -415,23 +416,23 @@ class _$_SavePressed implements _SavePressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_EditingToggled value)? editingToggled,
-    TResult Function(_SavePressed value)? savePressed,
+    TResult Function(_SaveButtonPressed value)? saveButtonPressed,
     required TResult orElse(),
   }) {
-    if (savePressed != null) {
-      return savePressed(this);
+    if (saveButtonPressed != null) {
+      return saveButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _SavePressed implements ProfileEvent {
-  const factory _SavePressed({required final GlobalKey<FormState> formKey}) =
-      _$_SavePressed;
+abstract class _SaveButtonPressed implements ProfileEvent {
+  const factory _SaveButtonPressed(
+      {required final GlobalKey<FormState> formKey}) = _$_SaveButtonPressed;
 
   GlobalKey<FormState> get formKey;
   @JsonKey(ignore: true)
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
+  _$$_SaveButtonPressedCopyWith<_$_SaveButtonPressed> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

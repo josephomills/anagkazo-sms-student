@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '154470161714',
     projectId: 'anagkazo-sms',
     storageBucket: 'anagkazo-sms.appspot.com',
+    androidClientId: '154470161714-5f22q615289ftlv533dn2dctk4s3hesn.apps.googleusercontent.com',
     iosClientId: '154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com',
     iosBundleId: 'com.anagkazosms.student',
   );

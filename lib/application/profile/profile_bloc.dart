@@ -8,9 +8,9 @@ import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:student/domain/core/config/injectable.core.dart';
 
+part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
-part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
@@ -24,7 +24,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         )),
         editingToggled: (e) =>
             emit(state.copyWith(isEditing: !state.isEditing)),
-        savePressed: (e) async {
+        saveButtonPressed: (e) async {
           // save profile
           // Validate user input
           final passedValidation = e.formKey.currentState!.validate();

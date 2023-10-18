@@ -7,6 +7,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:154470161714:android:418e3378f31af136e88b2b",
+        "android_client_info": {
+          "package_name": "com.anagkazosms.lecturer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154470161714-5f22q615289ftlv533dn2dctk4s3hesn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anagkazosms.lecturer",
+            "certificate_hash": "7d35519986f6a4ec134d430e462217a951c21d75"
+          }
+        },
+        {
+          "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYosl1lSA1m9jNwEmgW-jCLMOmfh9FVag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154470161714-4en7b9r56i2na874ireb86gvvgipkiqg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154470161714-1vsnn3b0ur3oev1jt0s1gkvqoc37uhbb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anagkazosms.lecturer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:154470161714:android:ad31800e27d3edf0e88b2b",
         "android_client_info": {
           "package_name": "com.anagkazosms.student"
@@ -31,10 +75,10 @@
               "client_type": 3
             },
             {
-              "client_id": "154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com",
+              "client_id": "154470161714-1vsnn3b0ur3oev1jt0s1gkvqoc37uhbb.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.anagkazosms.student"
+                "bundle_id": "com.anagkazosms.lecturer"
               }
             }
           ]
@@ -67,10 +111,10 @@
               "client_type": 3
             },
             {
-              "client_id": "154470161714-6jtaug2alp20htbtoih14tfeeoonjrnk.apps.googleusercontent.com",
+              "client_id": "154470161714-1vsnn3b0ur3oev1jt0s1gkvqoc37uhbb.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.anagkazosms.student"
+                "bundle_id": "com.anagkazosms.lecturer"
               }
             }
           ]

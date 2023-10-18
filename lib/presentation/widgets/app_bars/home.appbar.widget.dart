@@ -6,8 +6,8 @@ import 'package:student/domain/core/util/util.dart';
 import 'package:student/presentation/navigation/autoroute.gr.dart';
 import 'package:student/presentation/widgets/avatar.widget.dart';
 
-class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
-  HomeAppBarWidget({Key? key}) : super(key: key);
+class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
