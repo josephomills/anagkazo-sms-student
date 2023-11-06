@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   cached_network_image: ^3.2.3
   intl: ^0.17.0
-  mobile_scanner: ^3.4.1
+  mobile_scanner: ^3.5.2
   auto_route: ^7.8.3
   dartz: ^0.10.1
   responsive_framework: ^0.2.0
